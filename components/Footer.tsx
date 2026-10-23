@@ -67,8 +67,8 @@ export default function Footer() {
           <Link href="/services" className="hover:text-emerald-700">Services</Link>
           <Link href="/ourwork" className="hover:text-emerald-700">Our Work</Link>
           <Link href="/blog" className="hover:text-emerald-700">Blog</Link>
-          <Link href="/contact" className="hover:text-emerald-700 font-semibold text-emerald-800">Contact</Link>
-          <Link href="/contact#quote" className="text-emerald-700 font-bold hover:underline">Instant Quote</Link>
+          <Link href="/contactss" className="hover:text-emerald-700 font-semibold text-emerald-800">Contact</Link>
+          <Link href="/contactss#quote" className="text-emerald-700 font-bold hover:underline">Instant Quote</Link>
         </div>
       </div>
     </footer>

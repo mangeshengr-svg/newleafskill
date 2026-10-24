@@ -678,10 +678,10 @@ export default function OurWorkPage() {
                 <span>⚡</span>
               </a>
               <a
-                href="tel:+12135754946"
+                href="tel:+919923790520"
                 className="w-full sm:w-auto bg-slate-900 hover:bg-slate-850 text-emerald-300 font-bold px-7 py-3.5 rounded-xl text-xs sm:text-sm border border-emerald-500/40 hover:border-emerald-400 transition-all flex items-center justify-center gap-2 cursor-pointer"
               >
-                <span>📞 +1 (213) 575-4946</span>
+                <span>📞 +91 99237 90520</span>
               </a>
             </div>
 

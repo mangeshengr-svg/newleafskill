@@ -871,7 +871,7 @@ export default function AboutPage() {
 
                 <div className="px-5 sm:px-6 pb-5 pt-2 border-t border-slate-100 flex items-center justify-between">
                   <Link
-                    href={`/servicess#${item.id}`}
+                    href={`/services#${item.id}`}
                     className="text-xs font-extrabold text-emerald-700 hover:text-emerald-900 transition flex items-center gap-1 group/link"
                   >
                     <span>View Specifications</span>
@@ -1083,13 +1083,13 @@ export default function AboutPage() {
                       Studio Phone &amp; Support
                     </div>
                     <div className="text-base font-extrabold text-slate-900 group-hover:text-emerald-700 transition-colors">
-                      +1 (213) 575-4946
+                      +91 99237 90520
                     </div>
                   </div>
                 </a>
 
                 <a
-                  href="mailto:support@newleafskills.com"
+                  href="mailto:info@newleafskills.com"
                   className="flex items-center gap-4 p-4 rounded-2xl bg-white border border-slate-200 hover:border-emerald-300 hover:shadow-md transition group"
                 >
                   <div className="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center text-xl font-bold group-hover:scale-110 transition-transform">
@@ -1100,7 +1100,7 @@ export default function AboutPage() {
                       Email Inquiries &amp; Artwork
                     </div>
                     <div className="text-base font-extrabold text-slate-900 group-hover:text-emerald-700 transition-colors">
-                      support@newleafskills.com
+                      info@newleafskills.com
                     </div>
                   </div>
                 </a>
@@ -1404,7 +1404,7 @@ export default function AboutPage() {
               Request Free Quote Now →
             </a>
             <Link
-              href="/ourwork"
+              href="/our-work"
               className="px-8 py-3.5 rounded-2xl bg-emerald-900/60 hover:bg-emerald-900 text-white font-bold text-sm border border-emerald-600/50 transition-all cursor-pointer"
             >
               Browse 50+ Sewout Gallery

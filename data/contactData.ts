@@ -23,11 +23,11 @@ export const contactDetails = {
   
   phoneIndia: "+91 9923790520",
   phoneIndiaFormatted: "+91 99237 90520",
-  phoneUS: "+1 (213) 575-4946",
+  phoneUS: "+91 99237 90520",
   
   emailPrimary: "info@newleafskills.com",
   emailSecondary: "newleafskills@gmail.com",
-  emailSupport: "support@newleafskills.com",
+  emailSupport: "info@newleafskills.com",
   
   address: {
     line1: "C/O, Chaudhari Cable Network, 1440",
@@ -46,8 +46,8 @@ export const contactDetails = {
     rushTurnaround: "2–4 Hours Priority Rush Available"
   },
   
-  mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14879.845233157582!2d79.1120288871582!3d21.193717200000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd4c728362d2943%3A0xe5495c023d838f32!2sAsi%20Nagar%2C%20Nagpur%2C%20Maharashtra%20440017!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin",
-  googleMapsDirectionsUrl: "https://maps.google.com/?q=Asi+Nagar+Gurudwara+Nagpur+Maharashtra+440017"
+  mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3720.0906325510617!2d79.1176211758781!3d21.188556582236353!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd4c70034d650ff%3A0xc39bc6dfa42bf43!2sCodereva%20-%20AI%20and%20Software%20Development%20Company!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin",
+  googleMapsDirectionsUrl: "https://maps.app.goo.gl/6EQSKCUPYBFZ5knd6"
 };
 
 export const contactInfoCards: ContactOfficeInfo[] = [
@@ -56,7 +56,7 @@ export const contactInfoCards: ContactOfficeInfo[] = [
     badge: "Instant Response",
     description: "Speak directly with our studio manager or production supervisor.",
     primaryDetail: "+91 99237 90520 (India HQ)",
-    secondaryDetail: "+1 (213) 575-4946 (US Toll-Free)",
+    secondaryDetail: "+91 99237 90520 (US Toll-Free)",
     icon: "📞",
     actionText: "Call India Studio",
     actionHref: "tel:+919923790520"

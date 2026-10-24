@@ -597,7 +597,7 @@ export default function BlogPage() {
                   Get Instant Free Quote &rarr;
                 </Link>
                 <Link
-                  href="/ourwork"
+                  href="/our-work"
                   className="bg-emerald-700/60 hover:bg-emerald-700 text-white font-bold text-sm px-6 py-3.5 rounded-xl border border-emerald-400/40 transition"
                 >
                   View Sewout Portfolio

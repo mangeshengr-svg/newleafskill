@@ -14,7 +14,7 @@ export default function Header() {
     setMounted(true);
   }, []);
 
-  const isOurWork = mounted && (pathname === '/ourwork' || pathname === '/work');
+  const isOurWork = mounted && (pathname === '/our-work' || pathname === '/ourwork' || pathname === '/work');
   const isBlog = mounted && (pathname === '/blog' || pathname.startsWith('/blog/'));
   const isServices = mounted && (pathname === '/services' || pathname.startsWith('/services/'));
   const isAbout = mounted && (pathname === '/about' || pathname.startsWith('/about/'));
@@ -27,12 +27,12 @@ export default function Header() {
       <div className="bg-[#0b1324] text-slate-300 px-4 sm:px-6 lg:px-8 xl:px-12 py-2 sm:py-2.5 text-xs border-b border-slate-800/80">
         <div className="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2 sm:gap-4">
           <div className="flex items-center gap-4 sm:gap-6 font-medium">
-            <a href="tel:+12135754946" className="flex items-center gap-1.5 text-emerald-400 font-bold hover:text-emerald-300 transition">
+            <a href="tel:+919923790520" className="flex items-center gap-1.5 text-emerald-400 font-bold hover:text-emerald-300 transition">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-              <span>📞 +1 (213) 575-4946</span>
+              <span>📞 +91 99237 90520</span>
             </a>
-            <a href="mailto:support@newleafskills.com" className="hidden sm:inline-flex items-center gap-1.5 text-slate-300 hover:text-white transition">
-              ✉️ support@newleafskills.com
+            <a href="mailto:info@newleafskills.com" className="hidden sm:inline-flex items-center gap-1.5 text-slate-300 hover:text-white transition">
+              ✉️ info@newleafskills.com
             </a>
           </div>
 
@@ -77,18 +77,6 @@ export default function Header() {
             </li>
             <li>
               <Link
-                href="/blog"
-                className={`px-3 py-1.5 rounded-lg transition inline-flex items-center gap-1.5 ${isBlog
-                  ? 'text-emerald-900 font-extrabold bg-emerald-100/90 ring-1.5 ring-emerald-400 shadow-2xs'
-                  : 'hover:text-emerald-700 hover:bg-emerald-50/70'
-                  }`}
-              >
-                <span>Blog</span>
-                {isBlog && <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse"></span>}
-              </Link>
-            </li>
-            <li>
-              <Link
                 href="/about"
                 className={`px-3 py-1.5 rounded-lg transition inline-flex items-center gap-1.5 ${isAbout
                   ? 'text-emerald-900 font-extrabold bg-emerald-100/90 ring-1.5 ring-emerald-400 shadow-2xs'
@@ -106,9 +94,9 @@ export default function Header() {
               onMouseLeave={() => setServicesDropdownOpen(false)}
             >
               <Link
-                href="/"
+                href="/services"
                 className={`px-3 py-1.5 rounded-lg transition inline-flex items-center gap-1 ${isServices
-                  ? 'text-emerald-800 font-bold bg-emerald-50/80 ring-1 ring-emerald-200/60'
+                  ? 'text-emerald-900 font-extrabold bg-emerald-100/90 ring-1.5 ring-emerald-400 shadow-2xs'
                   : 'hover:text-emerald-700 hover:bg-emerald-50/70'
                   }`}
               >
@@ -133,7 +121,7 @@ export default function Header() {
                   </div>
                   <div className="py-1 space-y-0.5">
                     <Link
-                      href="/"
+                      href="/services#embroidery-digitizing"
                       onClick={() => setServicesDropdownOpen(false)}
                       className="flex items-center justify-between p-2 rounded-xl hover:bg-emerald-50 text-slate-700 hover:text-emerald-900 transition group/item"
                     >
@@ -145,7 +133,7 @@ export default function Header() {
                     </Link>
 
                     <Link
-                      href="/"
+                      href="/services#computerized-embroidery"
                       onClick={() => setServicesDropdownOpen(false)}
                       className="flex items-center justify-between p-2 rounded-xl hover:bg-emerald-50 text-slate-700 hover:text-emerald-900 transition group/item"
                     >
@@ -157,7 +145,7 @@ export default function Header() {
                     </Link>
 
                     <Link
-                      href="/"
+                      href="/services#vestments-embroidery"
                       onClick={() => setServicesDropdownOpen(false)}
                       className="flex items-center justify-between p-2 rounded-xl hover:bg-emerald-50 text-slate-700 hover:text-emerald-900 transition group/item"
                     >
@@ -169,7 +157,7 @@ export default function Header() {
                     </Link>
 
                     <Link
-                      href="/"
+                      href="/services#apparel-logo-digitizing"
                       onClick={() => setServicesDropdownOpen(false)}
                       className="flex items-center justify-between p-2 rounded-xl hover:bg-emerald-50 text-slate-700 hover:text-emerald-900 transition group/item"
                     >
@@ -181,7 +169,7 @@ export default function Header() {
                     </Link>
 
                     <Link
-                      href="/"
+                      href="/services#custom-logo-digitizing"
                       onClick={() => setServicesDropdownOpen(false)}
                       className="flex items-center justify-between p-2 rounded-xl hover:bg-emerald-50 text-slate-700 hover:text-emerald-900 transition group/item"
                     >
@@ -193,7 +181,7 @@ export default function Header() {
                     </Link>
 
                     <Link
-                      href="/"
+                      href="/services#3d-puff-digitizing"
                       onClick={() => setServicesDropdownOpen(false)}
                       className="flex items-center justify-between p-2 rounded-xl hover:bg-emerald-50 text-slate-700 hover:text-emerald-900 transition group/item"
                     >
@@ -207,11 +195,11 @@ export default function Header() {
 
                   <div className="pt-1.5 mt-1 border-t border-slate-100">
                     <Link
-                      href="/"
+                      href="/services"
                       onClick={() => setServicesDropdownOpen(false)}
                       className="flex items-center justify-between p-2.5 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-800 font-extrabold text-xs transition shadow-2xs"
                     >
-                      <span>✨ View All Services Page</span>
+                      <span>✨ View All Services Catalog</span>
                       <span>→</span>
                     </Link>
                   </div>
@@ -221,7 +209,7 @@ export default function Header() {
 
             <li>
               <Link
-                href="/"
+                href="/our-work"
                 className={`px-3 py-1.5 rounded-lg transition inline-flex items-center gap-1.5 ${isOurWork
                   ? 'text-emerald-900 font-extrabold bg-emerald-100/90 ring-1.5 ring-emerald-400 shadow-2xs'
                   : 'hover:text-emerald-700 hover:bg-emerald-50/70'
@@ -234,7 +222,20 @@ export default function Header() {
 
             <li>
               <Link
-                href="/"
+                href="/blog"
+                className={`px-3 py-1.5 rounded-lg transition inline-flex items-center gap-1.5 ${isBlog
+                  ? 'text-emerald-900 font-extrabold bg-emerald-100/90 ring-1.5 ring-emerald-400 shadow-2xs'
+                  : 'hover:text-emerald-700 hover:bg-emerald-50/70'
+                  }`}
+              >
+                <span>Blog</span>
+                {isBlog && <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse"></span>}
+              </Link>
+            </li>
+
+            <li>
+              <Link
+                href="/contact"
                 className={`px-3 py-1.5 rounded-lg transition inline-flex items-center gap-1.5 ${isContact
                   ? 'text-emerald-900 font-extrabold bg-emerald-100/90 ring-1.5 ring-emerald-400 shadow-2xs'
                   : 'hover:text-emerald-700 hover:bg-emerald-50/70'
@@ -310,7 +311,7 @@ export default function Header() {
                 <span className="text-xs text-slate-400 font-normal">Compare</span>
               </a>
               <Link
-                href="/ourwork"
+                href="/our-work"
                 onClick={() => setMobileMenuOpen(false)}
                 className={`flex items-center justify-between py-2.5 px-3.5 rounded-xl transition ${isOurWork ? 'bg-emerald-50 text-emerald-800 font-bold' : 'hover:bg-emerald-50 hover:text-emerald-800'
                   }`}
@@ -358,7 +359,7 @@ export default function Header() {
                   <span>Services</span>
                   <span className="text-[10px] bg-emerald-100 text-emerald-800 font-bold px-1.5 py-0.5 rounded">6 Core</span>
                 </span>
-                <span className="text-xs text-emerald-600 font-bold">New Page →</span>
+                <span className="text-xs text-emerald-600 font-bold">Catalog →</span>
               </Link>
               <a
                 href="/#pricing"
@@ -385,7 +386,7 @@ export default function Header() {
                 <span className="text-xs text-emerald-700 font-bold">Articles →</span>
               </Link>
               <Link
-                href="/contactss"
+                href="/contact"
                 onClick={() => setMobileMenuOpen(false)}
                 className={`flex items-center justify-between py-2.5 px-3.5 rounded-xl transition ${isContact ? 'bg-emerald-50 text-emerald-800 font-bold' : 'hover:bg-emerald-50 hover:text-emerald-800'
                   }`}
@@ -414,8 +415,8 @@ export default function Header() {
 
             {/* Quick Contact Line in Mobile Drawer */}
             <div className="pt-3 border-t border-slate-100 flex flex-wrap items-center justify-between gap-3 text-xs text-slate-500">
-              <a href="tel:+12135754946" className="font-bold text-emerald-700 hover:text-emerald-800 flex items-center gap-1.5">
-                <span>📞 +1 (213) 575-4946</span>
+              <a href="tel:+919923790520" className="font-bold text-emerald-700 hover:text-emerald-800 flex items-center gap-1.5">
+                <span>📞 +91 99237 90520</span>
               </a>
               <span className="text-slate-400">⚡ Turnaround: 6–8 Hours</span>
             </div>

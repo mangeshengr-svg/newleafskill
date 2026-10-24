@@ -107,7 +107,7 @@ export default function ServicesSection() {
 
               <div className="pt-3 border-t border-slate-100 mt-auto">
                 <Link
-                  href={`/servicess#${service.slug}`}
+                  href={`/services#${service.slug}`}
                   className="w-full bg-slate-50 hover:bg-emerald-50 text-slate-700 hover:text-emerald-800 font-bold text-xs py-2.5 px-3 rounded-xl border border-slate-200 hover:border-emerald-300 transition flex items-center justify-center gap-1.5"
                 >
                   <span>View Detailed Specifications</span>

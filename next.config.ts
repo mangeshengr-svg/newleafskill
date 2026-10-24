@@ -15,6 +15,35 @@ const nextConfig: NextConfig = {
       },
     },
   },
+  async redirects() {
+    return [
+      {
+        source: '/ourwork',
+        destination: '/our-work',
+        permanent: true,
+      },
+      {
+        source: '/work',
+        destination: '/our-work',
+        permanent: true,
+      },
+      {
+        source: '/contactss',
+        destination: '/contact',
+        permanent: true,
+      },
+      {
+        source: '/servicess',
+        destination: '/services',
+        permanent: true,
+      },
+      {
+        source: '/embroidery-digitizing',
+        destination: '/services/embroidery-digitizing',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

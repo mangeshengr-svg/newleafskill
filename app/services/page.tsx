@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -18,6 +18,25 @@ export default function ServicesPage() {
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [selectedService, setSelectedService] = useState<ServiceItem | null>(null);
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
+
+  // Auto-detect hash in URL to scroll and open service modal
+  useEffect(() => {
+    if (typeof window !== 'undefined' && window.location.hash) {
+      const hash = window.location.hash.replace('#', '').toLowerCase();
+      const matched = servicesData.find(
+        (s) => s.slug.toLowerCase() === hash || s.id.toLowerCase() === hash
+      );
+      if (matched) {
+        setSelectedService(matched);
+        setTimeout(() => {
+          const el = document.getElementById(matched.slug);
+          if (el) {
+            el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+        }, 150);
+      }
+    }
+  }, []);
 
   // Filter services by category and search
   const filteredServices = useMemo(() => {
@@ -44,8 +63,8 @@ export default function ServicesPage() {
   }, [selectedCategory, searchQuery]);
 
   const handleRequestQuote = (serviceTitle: string) => {
-    // Redirect to home page quote section with the service selected
-    window.location.href = `/#faq`;
+    // Redirect to contact quote section with the service selected
+    window.location.href = `/contact#quote`;
   };
 
   return (
@@ -171,10 +190,10 @@ export default function ServicesPage() {
               </a>
             </div>
             <a
-              href="tel:+12135754946"
+              href="tel:+919923790520"
               className="text-slate-700 hover:text-emerald-700 font-bold px-4 py-3 text-xs sm:text-sm flex items-center gap-1.5 transition"
             >
-              <span>📞 +1 (213) 575-4946</span>
+              <span>📞 +91 99237 90520</span>
             </a>
           </div>
         </div>
@@ -584,7 +603,7 @@ export default function ServicesPage() {
               href="tel:+12135754946"
               className="w-full sm:w-auto bg-white hover:bg-slate-50 text-slate-800 font-bold px-7 py-4 rounded-xl text-sm border border-slate-300 hover:border-emerald-600 hover:text-emerald-700 transition-all flex items-center justify-center gap-2 cursor-pointer"
             >
-              <span>📞 Call Us: +1 (213) 575-4946</span>
+              <span>📞 Call Us: +91 99237 90520</span>
             </a>
           </div>
 

@@ -40,6 +40,7 @@ export default function QuoteFaqSection({
 
   return (
     <section id="quote" className="px-4 sm:px-8 lg:px-20 py-16 lg:py-20 bg-gradient-to-b from-white via-slate-50 to-white border-b border-slate-200 scroll-mt-12 relative overflow-hidden">
+      <div id="pricing" className="scroll-mt-24"></div>
       <div className="max-w-7xl mx-auto">
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
@@ -232,13 +233,13 @@ export default function QuoteFaqSection({
                   href="tel:+12135754946"
                   className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold transition shadow-sm"
                 >
-                  <span>📞</span> +1 (213) 575-4946
+                  <span>📞</span> +91 99237 90520
                 </a>
                 <a
-                  href="mailto:support@newleafskills.com"
+                  href="mailto:info@newleafskills.com"
                   className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white font-medium transition border border-slate-700"
                 >
-                  <span>✉️</span> support@newleafskills.com
+                  <span>✉️</span> info@newleafskills.com
                 </a>
               </div>
             </div>

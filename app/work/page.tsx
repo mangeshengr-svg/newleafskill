@@ -1,5 +1,5 @@
 import { redirect } from 'next/navigation';
 
 export default function WorkRedirectPage() {
-  redirect('/ourwork');
+  redirect('/our-work');
 }

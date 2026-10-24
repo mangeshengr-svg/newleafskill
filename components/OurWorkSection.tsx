@@ -151,7 +151,7 @@ export default function OurWorkSection({ onSelectProject }: OurWorkSectionProps)
         {/* View All on Dedicated Page Button */}
         <div className="text-center pt-2">
           <Link
-            href="/ourwork"
+            href="/our-work"
             className="inline-flex items-center gap-3 px-8 py-4 rounded-2xl bg-emerald-500/10 hover:bg-emerald-500 text-emerald-300 hover:text-slate-950 border border-emerald-500/50 hover:border-emerald-400 font-extrabold text-sm sm:text-base shadow-lg hover:shadow-emerald-500/25 transition-all duration-300 transform hover:scale-105"
           >
             <span>Explore Full Our Work Portfolio Page ({workProjects.length} Verified Sewouts &amp; Search)</span>

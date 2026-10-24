@@ -184,7 +184,7 @@ export default function WhyChooseUsSection() {
                 <span>⚡</span>
               </a>
               <Link
-                href="/ourwork"
+                href="/our-work"
                 className="bg-white hover:bg-slate-100 text-slate-800 font-extrabold px-6 py-3.5 rounded-xl text-sm border border-slate-300 hover:border-emerald-500 transition-all text-center flex items-center justify-center gap-2 cursor-pointer"
               >
                 <span>View Our Work</span>

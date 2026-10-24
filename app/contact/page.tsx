@@ -248,7 +248,8 @@ export default function ContactPage() {
       </section>
 
       {/* 4. Main Contact & Free Quote Section (Two Column Form + Visual Studio Showcase) */}
-      <section id="quote" className="px-4 sm:px-8 lg:px-16 py-12 lg:py-16 bg-white">
+      <section id="quote" className="px-4 sm:px-8 lg:px-16 py-12 lg:py-16 bg-white scroll-mt-20">
+        <div id="contact-form" className="scroll-mt-20"></div>
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
             
@@ -747,67 +748,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* 6. Frequently Asked Questions (FAQ) Accordion */}
-      <section className="px-4 sm:px-8 lg:px-16 py-12 lg:py-16 bg-white">
-        <div className="max-w-4xl mx-auto space-y-8">
-          <div className="text-center space-y-2">
-            <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-800 bg-emerald-100/80 px-2.5 py-0.5 rounded-full border border-emerald-300/60">
-              Got Questions?
-            </span>
-            <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
-              Frequently Asked Questions About Contacting Us
-            </h2>
-            <p className="text-xs text-slate-500 max-w-xl mx-auto">
-              Everything you need to know about placing inquiries, turnarounds, machine sewouts, and revisions.
-            </p>
-          </div>
-
-          <div className="space-y-3">
-            {contactFaqs.map((faq, idx) => {
-              const isOpen = activeFaq === idx;
-              return (
-                <div
-                  key={idx}
-                  className={`rounded-2xl border transition-all duration-200 overflow-hidden ${
-                    isOpen
-                      ? 'border-emerald-300 bg-emerald-50/20 shadow-xs'
-                      : 'border-slate-200/90 bg-white hover:border-slate-300'
-                  }`}
-                >
-                  <button
-                    type="button"
-                    onClick={() => setActiveFaq(isOpen ? null : idx)}
-                    className="w-full text-left p-4 sm:p-5 flex items-center justify-between gap-4 focus:outline-none"
-                    aria-expanded={isOpen}
-                  >
-                    <div className="flex items-center gap-3">
-                      <span className="text-xs font-bold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-md">
-                        {faq.category}
-                      </span>
-                      <span className="text-xs sm:text-sm font-bold text-slate-900">
-                        {faq.question}
-                      </span>
-                    </div>
-                    <span
-                      className={`w-6 h-6 rounded-full bg-slate-100 text-slate-600 flex items-center justify-center text-xs font-bold transition-transform duration-200 flex-shrink-0 ${
-                        isOpen ? 'rotate-180 bg-emerald-100 text-emerald-800' : ''
-                      }`}
-                    >
-                      ▾
-                    </span>
-                  </button>
-
-                  {isOpen && (
-                    <div className="px-4 pb-4 sm:px-5 sm:pb-5 pt-0 text-xs text-slate-600 leading-relaxed border-t border-emerald-100/60 mt-1 animate-in fade-in duration-150">
-                      {faq.answer}
-                    </div>
-                  )}
-                </div>
-              );
-            })}
-          </div>
-
-          {/* Still Have Questions Box */}
+      {/* Still Have Questions Box */}
           <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 text-center space-y-2">
             <h3 className="text-xs sm:text-sm font-bold text-slate-900">
               Don’t see what you are looking for?
@@ -830,8 +771,6 @@ export default function ContactPage() {
               </a>
             </div>
           </div>
-        </div>
-      </section>
 
       {/* 7. Footer */}
       <Footer />

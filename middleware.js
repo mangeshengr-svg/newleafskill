@@ -2,16 +2,21 @@ import { NextResponse } from 'next/server';
 
 export function middleware(request) {
   const token = request.cookies.get('admin_token')?.value;
-  const isAuthPage = request.nextUrl.pathname.startsWith('/admin/login');
-  const isAdminRoute = request.nextUrl.pathname.startsWith('/admin');
+  const { pathname } = request.nextUrl;
+  
+  const isLoginPage = pathname === '/admin/login';
+  const isRegisterPage = pathname === '/admin/register'; // Register page ko allow karne ke liye
+  const isResetPasswordPage = pathname === '/admin/reset-password'; // Forgot / Reset Password page ko allow karne ke liye
+  const isAdminRoute = pathname.startsWith('/admin');
 
-  // Agar user logged in nahi hai aur admin route access kar raha hai
-  if (isAdminRoute && !isAuthPage && !token) {
+  // Agar user logged in nahi hai, aur wo admin route par hai, 
+  // lekin wo login, register ya reset-password page par NAHI hai, tab hi redirect karein
+  if (isAdminRoute && !isLoginPage && !isRegisterPage && !isResetPasswordPage && !token) {
     return NextResponse.redirect(new URL('/admin/login', request.url));
   }
 
-  // Agar user logged in hai aur login page par jaa raha hai
-  if (isAuthPage && token) {
+  // Agar user pehle se logged in hai aur login/register page par jaane ki koshish kare
+  if ((isLoginPage || isRegisterPage) && token) {
     return NextResponse.redirect(new URL('/admin', request.url));
   }
 

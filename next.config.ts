@@ -1,9 +1,13 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  output: 'standalone', // <--- YE ADD KIYA HAIN (cPanel Node.js ke liye zaroori)
   /* config options here */
   experimental: {
     agentFeedback: true,
+    serverActions: {
+      bodySizeLimit: '10mb',
+    },
   },
   cacheComponents: true,
   partialPrefetching: true,

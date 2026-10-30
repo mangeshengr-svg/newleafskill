@@ -121,7 +121,7 @@ export default function Header() {
                   </div>
                   <div className="py-1 space-y-0.5">
                     <Link
-                      href="/services#embroidery-digitizing"
+                      href="/services/embroidery-digitizing"
                       onClick={() => setServicesDropdownOpen(false)}
                       className="flex items-center justify-between p-2 rounded-xl hover:bg-emerald-50 text-slate-700 hover:text-emerald-900 transition group/item"
                     >
@@ -133,7 +133,7 @@ export default function Header() {
                     </Link>
 
                     <Link
-                      href="/services#computerized-embroidery"
+                      href="/services/computerized-embroidery"
                       onClick={() => setServicesDropdownOpen(false)}
                       className="flex items-center justify-between p-2 rounded-xl hover:bg-emerald-50 text-slate-700 hover:text-emerald-900 transition group/item"
                     >
@@ -145,7 +145,7 @@ export default function Header() {
                     </Link>
 
                     <Link
-                      href="/services#vestments-embroidery"
+                      href="/services/vestments-embroidery"
                       onClick={() => setServicesDropdownOpen(false)}
                       className="flex items-center justify-between p-2 rounded-xl hover:bg-emerald-50 text-slate-700 hover:text-emerald-900 transition group/item"
                     >
@@ -157,7 +157,7 @@ export default function Header() {
                     </Link>
 
                     <Link
-                      href="/services#apparel-logo-digitizing"
+                      href="/services/apparel-logo-digitizing"
                       onClick={() => setServicesDropdownOpen(false)}
                       className="flex items-center justify-between p-2 rounded-xl hover:bg-emerald-50 text-slate-700 hover:text-emerald-900 transition group/item"
                     >
@@ -169,7 +169,7 @@ export default function Header() {
                     </Link>
 
                     <Link
-                      href="/services#custom-logo-digitizing"
+                      href="/services/custom-logo-digitizing"
                       onClick={() => setServicesDropdownOpen(false)}
                       className="flex items-center justify-between p-2 rounded-xl hover:bg-emerald-50 text-slate-700 hover:text-emerald-900 transition group/item"
                     >
@@ -181,7 +181,7 @@ export default function Header() {
                     </Link>
 
                     <Link
-                      href="/services#3d-puff-digitizing"
+                      href="/services/3d-puff-digitizing"
                       onClick={() => setServicesDropdownOpen(false)}
                       className="flex items-center justify-between p-2 rounded-xl hover:bg-emerald-50 text-slate-700 hover:text-emerald-900 transition group/item"
                     >

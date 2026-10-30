@@ -1,5 +1,5 @@
 export interface BlogPost {
-  id: string;
+  id: string | number;
   slug: string;
   title: string;
   excerpt: string;
@@ -14,6 +14,8 @@ export interface BlogPost {
   content: string[];
   keyTakeaways?: string[];
   commentsCount?: number;
+  sortOrder?: number;
+  isActive?: number;
 }
 
 export type BlogSortOption = 'newest' | 'oldest' | 'readTime' | 'title';

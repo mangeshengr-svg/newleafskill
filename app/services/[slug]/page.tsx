@@ -6,21 +6,21 @@ import Footer from '@/components/Footer';
 import { servicesData } from '@/data/servicesData';
 import { ServiceItem } from '@/types/service';
 
+import { getActiveServices } from '@/lib/serviceActions';
+
+export const instant = false;
+
 interface ServicePageProps {
   params: Promise<{
     slug: string;
   }>;
 }
 
-export async function generateStaticParams() {
-  return servicesData.map((service) => ({
-    slug: service.slug,
-  }));
-}
-
 export async function generateMetadata({ params }: ServicePageProps): Promise<Metadata> {
   const { slug } = await params;
-  const service = servicesData.find((s) => s.slug === slug || s.id === slug);
+  const dbServices = await getActiveServices();
+  const allServices = dbServices.length > 0 ? dbServices : servicesData;
+  const service = allServices.find((s) => s.slug === slug || s.id === slug);
 
   if (!service) {
     return {
@@ -41,13 +41,18 @@ export async function generateMetadata({ params }: ServicePageProps): Promise<Me
 
 export default async function ServiceDetailPage({ params }: ServicePageProps) {
   const { slug } = await params;
-  const service = servicesData.find((s) => s.slug === slug || s.id === slug);
+  const dbServices = await getActiveServices();
+  const allServices = dbServices.length > 0 ? dbServices : servicesData;
+  const service = allServices.find((s) => s.slug === slug || s.id === slug);
 
   if (!service) {
     notFound();
   }
 
-  const otherServices = servicesData.filter((s) => s.slug !== service.slug);
+  const otherServices = allServices.filter((s) => s.slug !== service.slug);
+  const sameCategoryServices = allServices.filter(
+    (s) => s.slug !== service.slug && s.category === service.category
+  );
 
   return (
     <main className="min-h-screen bg-white text-slate-800 font-sans selection:bg-emerald-500 selection:text-white overflow-x-hidden">
@@ -87,12 +92,20 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
 
             {/* Breadcrumb */}
             <div className="flex-shrink-0">
-              <nav aria-label="Breadcrumb" className="bg-slate-900/80 backdrop-blur-md px-4 py-2 rounded-xl border border-slate-700/60 text-xs font-semibold text-slate-300 flex items-center gap-2">
+              <nav aria-label="Breadcrumb" className="bg-slate-900/80 backdrop-blur-md px-4 py-2 rounded-xl border border-slate-700/60 text-xs font-semibold text-slate-300 flex items-center gap-2 flex-wrap">
                 <Link href="/" className="hover:text-emerald-400 transition">Home</Link>
                 <span>/</span>
                 <Link href="/services" className="hover:text-emerald-400 transition">Services</Link>
                 <span>/</span>
-                <span className="text-emerald-400 truncate max-w-[150px]">{service.title}</span>
+                <Link
+                  href={`/services?category=${encodeURIComponent(service.category)}`}
+                  className="text-emerald-300 hover:text-emerald-200 transition font-bold underline decoration-emerald-500/50"
+                  title={`View all ${service.category}`}
+                >
+                  {service.category}
+                </Link>
+                <span>/</span>
+                <span className="text-white truncate max-w-[150px]">{service.title}</span>
               </nav>
             </div>
           </div>
@@ -269,65 +282,91 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
         </div>
       </section>
 
-      {/* 4. Explore Other Services Section */}
-      <section className="px-4 sm:px-8 lg:px-20 py-12 lg:py-16 bg-white border-b border-slate-200">
-        <div className="max-w-7xl mx-auto space-y-8">
-          <div className="text-center space-y-2">
-            <span className="text-xs font-bold text-emerald-800 bg-emerald-100 px-3 py-1 rounded-full uppercase tracking-wider">
-              Complete Punching Suite
-            </span>
-            <h3 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
-              Explore Other Specialized Services
-            </h3>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {otherServices.slice(0, 3).map((other) => (
-              <div key={other.id} className="p-5 rounded-2xl bg-slate-50 border border-slate-200 hover:border-emerald-400 transition-all flex flex-col justify-between group shadow-xs">
-                <div className="space-y-3">
-                  <div className="relative h-40 rounded-xl overflow-hidden border border-slate-200">
-                    <img
-                      src={other.image}
-                      alt={other.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                  </div>
-                  <div>
-                    <span className="text-[10px] uppercase font-bold text-emerald-700 bg-emerald-100/80 px-2 py-0.5 rounded">
-                      {other.category}
-                    </span>
-                    <h4 className="text-base font-bold text-slate-900 mt-1 group-hover:text-emerald-700 transition-colors">
-                      {other.title}
-                    </h4>
-                    <p className="text-xs text-slate-600 mt-1 line-clamp-2 leading-relaxed">
-                      {other.shortDesc}
-                    </p>
-                  </div>
-                </div>
-                <div className="pt-4 border-t border-slate-200/80 mt-4">
-                  <Link
-                    href={`/services/${other.slug}`}
-                    className="text-xs font-bold text-emerald-700 hover:text-emerald-900 flex items-center justify-between"
-                  >
-                    <span>View Service Details</span>
-                    <span>→</span>
-                  </Link>
-                </div>
+      {/* 4. Explore Related Category Services Section (Only shown if other services exist in the same category) */}
+      {sameCategoryServices.length > 0 && (
+        <section className="px-4 sm:px-8 lg:px-20 py-12 lg:py-16 bg-white border-b border-slate-200">
+          <div className="max-w-7xl mx-auto space-y-8">
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
+              <div className="space-y-2">
+                <span className="text-xs font-bold text-emerald-800 bg-emerald-100 px-3 py-1 rounded-full uppercase tracking-wider inline-flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+                  <span>Category: {service.category}</span>
+                </span>
+                <h3 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
+                  More Services in {service.category}
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-600">
+                  Explore other specialized services available in {service.category}.
+                </p>
               </div>
-            ))}
-          </div>
 
-          <div className="text-center pt-4">
-            <Link
-              href="/services"
-              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-2xl bg-slate-900 hover:bg-emerald-700 text-white font-extrabold text-sm shadow-md transition-all"
-            >
-              <span>View Full Services Catalog &amp; Filters</span>
-              <span>⚡</span>
-            </Link>
+              <Link
+                href={`/services?category=${encodeURIComponent(service.category)}`}
+                className="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-700 hover:text-emerald-900 bg-emerald-50 hover:bg-emerald-100 px-4 py-2.5 rounded-xl border border-emerald-200 transition"
+              >
+                <span>View All in {service.category}</span>
+                <span>→</span>
+              </Link>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {sameCategoryServices.slice(0, 3).map((other) => (
+                <div key={other.id} className="p-5 rounded-2xl bg-slate-50 border border-slate-200 hover:border-emerald-400 transition-all flex flex-col justify-between group shadow-xs">
+                  <div className="space-y-3">
+                    <div className="relative h-40 rounded-xl overflow-hidden border border-slate-200">
+                      <img
+                        src={other.image}
+                        alt={other.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                      <span className="absolute top-2 right-2 bg-emerald-600 text-white text-[9px] font-extrabold uppercase px-2 py-0.5 rounded shadow">
+                        Same Category
+                      </span>
+                    </div>
+                    <div>
+                      <span className="text-[10px] uppercase font-bold text-emerald-700 bg-emerald-100/80 px-2 py-0.5 rounded">
+                        {other.category}
+                      </span>
+                      <h4 className="text-base font-bold text-slate-900 mt-1 group-hover:text-emerald-700 transition-colors">
+                        {other.title}
+                      </h4>
+                      <p className="text-xs text-slate-600 mt-1 line-clamp-2 leading-relaxed">
+                        {other.shortDesc}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="pt-4 border-t border-slate-200/80 mt-4">
+                    <Link
+                      href={`/services/${other.slug}`}
+                      className="text-xs font-bold text-emerald-700 hover:text-emerald-900 flex items-center justify-between"
+                    >
+                      <span>View Service Details</span>
+                      <span>→</span>
+                    </Link>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="text-center pt-4 flex flex-wrap items-center justify-center gap-3">
+              <Link
+                href={`/services?category=${encodeURIComponent(service.category)}`}
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs sm:text-sm shadow-md transition-all"
+              >
+                <span>Explore All {service.category} ({allServices.filter(s => s.category === service.category).length})</span>
+                <span>⚡</span>
+              </Link>
+              <Link
+                href="/services"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white font-extrabold text-xs sm:text-sm shadow-md transition-all"
+              >
+                <span>View Full Services Catalog &amp; Filters</span>
+                <span>→</span>
+              </Link>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* 5. Luxury Light Footer */}
       <Footer />

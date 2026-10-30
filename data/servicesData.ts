@@ -2,10 +2,12 @@ import { ServiceItem } from '@/types/service';
 
 export const serviceCategories = [
   'All',
-  'Digitizing Services',
-  'Computerized Stitching',
-  'Apparel & Uniforms',
-  'Liturgical & Sacred',
+  'Cap & Curved Visor',
+  '3D Foam Puff',
+  'Jacket Back',
+  'Left Chest Uniform',
+  'Embroidered Patches',
+  'Vector Art',
 ];
 
 export const servicesData: ServiceItem[] = [

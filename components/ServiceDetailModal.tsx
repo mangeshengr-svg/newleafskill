@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
+import Link from 'next/link';
 import { ServiceItem } from '@/types/service';
 
 interface ServiceDetailModalProps {
@@ -227,6 +228,13 @@ export default function ServiceDetailModal({
           </div>
 
           <div className="flex items-center gap-3 w-full sm:w-auto">
+            <Link
+              href={`/services/${service.slug}`}
+              onClick={onClose}
+              className="px-4 py-3 rounded-xl bg-slate-200/80 hover:bg-slate-300 text-slate-800 text-xs font-bold transition flex items-center gap-1.5"
+            >
+              <span>Dedicated Page →</span>
+            </Link>
             <button
               onClick={() => {
                 onRequestQuote(service.title);
@@ -234,11 +242,11 @@ export default function ServiceDetailModal({
               }}
               className="flex-1 sm:flex-initial bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs sm:text-sm px-6 py-3 rounded-xl shadow-md shadow-emerald-600/20 transition-all hover:scale-105 cursor-pointer flex items-center justify-center gap-2"
             >
-              <span>Get Free Quote For This Service</span>
+              <span>Get Free Quote</span>
               <span>⚡</span>
             </button>
             <a
-              href="tel:+12135754946"
+              href="tel:+919923790520"
               className="px-4 py-3 rounded-xl bg-white border border-slate-300 hover:border-emerald-600 text-slate-700 hover:text-emerald-700 text-xs font-bold transition flex items-center gap-1.5"
             >
               <span>📞</span>

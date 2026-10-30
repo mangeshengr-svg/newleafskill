@@ -3,14 +3,19 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { WorkProject } from '@/types/work';
-import { workCategories, workProjects } from '@/data/workProjects';
+import { workCategories, workProjects as fallbackProjects } from '@/data/workProjects';
 
 interface OurWorkSectionProps {
   onSelectProject: (project: WorkProject) => void;
+  projects?: WorkProject[];
 }
 
-export default function OurWorkSection({ onSelectProject }: OurWorkSectionProps) {
+export default function OurWorkSection({ onSelectProject, projects: initialProjects }: OurWorkSectionProps) {
   const [workFilter, setWorkFilter] = useState<string>('All');
+  const workProjects = initialProjects && initialProjects.length > 0 ? initialProjects : fallbackProjects;
+
+  const categoriesInProjects = Array.from(new Set(workProjects.map((p) => p.category))).filter(Boolean);
+  const categories = ['All', ...Array.from(new Set([...workCategories.filter((c) => c !== 'All'), ...categoriesInProjects]))];
 
   return (
     <section id="our-work" className="px-4 sm:px-8 lg:px-20 py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-slate-950 via-[#031d14] to-slate-950 border-y border-emerald-800/60 text-white relative overflow-hidden">
@@ -39,7 +44,7 @@ export default function OurWorkSection({ onSelectProject }: OurWorkSectionProps)
 
         {/* Category Filter Pills */}
         <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3">
-          {workCategories.map((cat) => {
+          {categories.map((cat) => {
             const count = cat === 'All' ? workProjects.length : workProjects.filter(p => p.category === cat).length;
             const isActive = workFilter === cat;
             return (

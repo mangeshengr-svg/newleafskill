@@ -1,21 +1,27 @@
 'use client';
 
 import { useState } from 'react';
+import { FaqItem } from '@/types/faq';
+import { ContactContentItem } from '@/types/contact';
 
 interface QuoteFaqSectionProps {
   selectedService?: string;
   setSelectedService?: (service: string) => void;
+  faqs?: FaqItem[] | { q: string; a: string }[];
+  contactContent?: ContactContentItem | null;
 }
 
 export default function QuoteFaqSection({
   selectedService = 'Embroidery Digitizing',
-  setSelectedService
+  setSelectedService,
+  faqs: propFaqs,
+  contactContent,
 }: QuoteFaqSectionProps) {
   const [quoteSubmitted, setQuoteSubmitted] = useState<boolean>(false);
   const [turnaroundSpeed, setTurnaroundSpeed] = useState<string>('Standard (6-8 Hours)');
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
-  const faqs = [
+  const defaultFaqs = [
     {
       q: 'How fast can I receive my digitized embroidery file?',
       a: 'Standard delivery takes only 6 to 8 hours. We also provide a dedicated 2–3 hour rush turnaround option for emergency apparel production runs.'
@@ -38,6 +44,13 @@ export default function QuoteFaqSection({
     }
   ];
 
+  const activeFaqs = propFaqs && propFaqs.length > 0
+    ? propFaqs.map((f: any) => ({
+        q: f.question || f.q,
+        a: f.answer || f.a
+      }))
+    : defaultFaqs;
+
   return (
     <section id="quote" className="px-4 sm:px-8 lg:px-20 py-16 lg:py-20 bg-gradient-to-b from-white via-slate-50 to-white border-b border-slate-200 scroll-mt-12 relative overflow-hidden">
       <div id="pricing" className="scroll-mt-24"></div>
@@ -53,14 +66,15 @@ export default function QuoteFaqSection({
             <div className="mb-8 space-y-2">
               <div className="inline-block">
                 <span className="text-emerald-800 font-extrabold text-[11px] uppercase tracking-widest bg-emerald-100 px-3.5 py-1 rounded-full border border-emerald-300 shadow-sm">
-                  Fast Response Studio
+                  {contactContent?.homeBadge || 'Fast Response Studio'}
                 </span>
               </div>
               <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-                Get Your Free Quote &amp; Sewout Estimate
+                {contactContent?.homeHeading || 'Get Your Free Quote & Sewout Estimate'}
               </h3>
               <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
-                Upload your design file and receive an exact price quote, stitch count estimate, and digital preview in 30 minutes.
+                {contactContent?.homeDescription ||
+                  'Upload your design file and receive an exact price quote, stitch count estimate, and digital preview in 30 minutes.'}
               </p>
             </div>
 
@@ -180,19 +194,20 @@ export default function QuoteFaqSection({
             <div className="space-y-2">
               <div className="inline-block">
                 <span className="text-emerald-800 font-extrabold text-[11px] uppercase tracking-widest bg-emerald-100 px-3.5 py-1 rounded-full border border-emerald-300 shadow-sm">
-                  Got Questions?
+                  {contactContent?.homeFaqBadge || 'Got Questions?'}
                 </span>
               </div>
               <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-                Frequently Asked Questions
+                {contactContent?.homeFaqHeading || 'Frequently Asked Questions'}
               </h3>
               <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
-                Everything you need to know about our digitizing process, machines, file formats &amp; turnaround.
+                {contactContent?.homeFaqDesc ||
+                  'Everything you need to know about our digitizing process, machines, file formats & turnaround.'}
               </p>
             </div>
 
             <div className="space-y-3">
-              {faqs.map((faq, idx) => (
+              {activeFaqs.map((faq, idx) => (
                 <div
                   key={idx}
                   className="bg-white border border-slate-200/90 rounded-2xl overflow-hidden transition-all duration-300 shadow-sm hover:border-emerald-400"
@@ -224,22 +239,26 @@ export default function QuoteFaqSection({
                   💬
                 </span>
                 <div>
-                  <h4 className="text-xs sm:text-sm font-extrabold text-white">Need an Instant Answer?</h4>
-                  <p className="text-[11px] text-slate-400">Our digitizers are active 24/7 on WhatsApp &amp; live chat</p>
+                  <h4 className="text-xs sm:text-sm font-extrabold text-white">
+                    {contactContent?.homeSupportTitle || 'Need an Instant Answer?'}
+                  </h4>
+                  <p className="text-[11px] text-slate-400">
+                    {contactContent?.homeSupportDesc || 'Our digitizers are active 24/7 on WhatsApp & live chat'}
+                  </p>
                 </div>
               </div>
               <div className="flex flex-wrap items-center gap-2 pt-1 text-[11px]">
                 <a
-                  href="tel:+12135754946"
+                  href={`tel:${contactContent?.homeSupportPhone?.replace(/[^0-9+]/g, '') || '+919923790520'}`}
                   className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold transition shadow-sm"
                 >
-                  <span>📞</span> +91 99237 90520
+                  <span>📞</span> {contactContent?.homeSupportPhone || '+91 99237 90520'}
                 </a>
                 <a
-                  href="mailto:info@newleafskills.com"
+                  href={`mailto:${contactContent?.homeSupportEmail || 'info@newleafskills.com'}`}
                   className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white font-medium transition border border-slate-700"
                 >
-                  <span>✉️</span> info@newleafskills.com
+                  <span>✉️</span> {contactContent?.homeSupportEmail || 'info@newleafskills.com'}
                 </a>
               </div>
             </div>

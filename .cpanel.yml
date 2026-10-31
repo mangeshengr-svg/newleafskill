@@ -2,4 +2,4 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/newleafs/nodetest.newleafskills.com
-    - /bin/cp -R * $DEPLOYPATH
+    - /bin/cp -r .htaccess server.js app.js package.json .next public $DEPLOYPATH/ 2>/dev/null || true

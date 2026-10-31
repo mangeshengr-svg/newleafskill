@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import TawkChat from "@/components/TawkChat"; // <-- 1. Yahan import kiya
 import "./globals.css";
 
 const geistSans = Geist({
@@ -23,7 +24,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        {children}
+        
+        {/* Tawk.to Live Chat Widget */}
+        <TawkChat /> {/* <-- 2. Yahan render kar diya */}
+      </body>
     </html>
   );
 }

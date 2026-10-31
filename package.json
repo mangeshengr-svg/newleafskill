@@ -9,6 +9,7 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@tawk.to/tawk-messenger-react": "^2.0.2",
     "bcryptjs": "^3.0.3",
     "jsonwebtoken": "^9.0.3",
     "mysql2": "^3.24.6",

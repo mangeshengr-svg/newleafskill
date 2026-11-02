@@ -152,7 +152,7 @@ export default function AboutClient({ initialAbout, servicesList, faqsList }: Ab
   const displayServices = servicesList && servicesList.length > 0 ? servicesList : [];
 
   return (
-    <main className="min-h-screen bg-white text-slate-800 font-jakarta selection:bg-emerald-500 selection:text-white overflow-x-hidden">
+    <main className="min-h-screen bg-white text-slate-800 font-sans selection:bg-emerald-500 selection:text-white overflow-x-hidden">
       {/* 1. Header (Navbar & Top Announcement Bar) */}
       <Header />
 

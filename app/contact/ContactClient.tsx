@@ -80,7 +80,7 @@ export default function ContactClient({ initialContent, initialFaqs }: ContactPa
   };
 
   return (
-    <main className="min-h-screen bg-white text-slate-800 font-jakarta selection:bg-emerald-500 selection:text-white overflow-x-hidden">
+    <main className="min-h-screen bg-white text-slate-800 font-sans selection:bg-emerald-500 selection:text-white overflow-x-hidden">
       {/* 1. Header with announcement bar & luxury navbar */}
       <Header />
 

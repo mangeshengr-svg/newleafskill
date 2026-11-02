@@ -14,15 +14,15 @@ export default function Header() {
     setMounted(true);
   }, []);
 
-  const isOurWork = mounted && (pathname === '/our-work' || pathname === '/ourwork' || pathname === '/work');
-  const isBlog = mounted && (pathname === '/blog' || pathname.startsWith('/blog/'));
-  const isServices = mounted && (pathname === '/services' || pathname.startsWith('/services/'));
-  const isAbout = mounted && (pathname === '/about' || pathname.startsWith('/about/'));
-  const isContact = mounted && (pathname === '/contact' || pathname.startsWith('/contact/'));
-  const isHome = mounted && (pathname === '/');
+  const isOurWork = pathname === '/our-work' || pathname === '/ourwork' || pathname === '/work';
+  const isBlog = pathname === '/blog' || pathname.startsWith('/blog/');
+  const isServices = pathname === '/services' || pathname.startsWith('/services/');
+  const isAbout = pathname === '/about' || pathname.startsWith('/about/');
+  const isContact = pathname === '/contact' || pathname.startsWith('/contact/');
+  const isHome = pathname === '/';
 
   return (
-    <header className="sticky top-0 z-50">
+    <header className="sticky top-0 z-50 font-sans">
       {/* TOP ANNOUNCEMENT BAR */}
       <div className="bg-[#0b1324] text-slate-300 px-4 sm:px-6 lg:px-8 xl:px-12 py-2 sm:py-2.5 text-xs border-b border-slate-800/80">
         <div className="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2 sm:gap-4">

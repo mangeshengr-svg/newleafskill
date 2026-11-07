@@ -162,6 +162,15 @@ export default async function AdminBlogPage() {
                       {/* Actions */}
                       <td className="p-4 text-right space-x-2 whitespace-nowrap">
                         <Link
+                          href={`/blog/${post.slug}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-block bg-slate-100 text-slate-700 hover:bg-slate-200 px-2.5 py-1.5 rounded-lg font-bold text-xs transition cursor-pointer"
+                          title="View Live in New Tab"
+                        >
+                          View ↗
+                        </Link>
+                        <Link
                           href={`/admin/blog/edit/${post.id}`}
                           className="inline-block bg-blue-50 text-blue-700 hover:bg-blue-100 px-3 py-1.5 rounded-lg font-bold text-xs transition cursor-pointer"
                         >

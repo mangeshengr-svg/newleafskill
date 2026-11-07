@@ -149,7 +149,7 @@ export default function BlogPageContent({ initialPosts }: BlogPageContentProps) 
   }, [posts, currentPage, searchQuery, selectedCategory, selectedTag]);
 
   return (
-    <main className="min-h-screen bg-[#f8fafc] text-slate-800 font-sans selection:bg-emerald-500 selection:text-white">
+    <main className="min-h-screen bg-[#f8fafc] text-slate-800 font-sans selection:bg-emerald-500 selection:text-white w-full overflow-x-hidden">
       {/* 1. Header (Navbar & Top Announcement) */}
       <Header />
 
@@ -170,22 +170,22 @@ export default function BlogPageContent({ initialPosts }: BlogPageContentProps) 
         </div>
 
         {/* Banner Content: Left Title + Right Breadcrumb */}
-        <div className="w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-20 py-10 sm:py-14 relative z-10">
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 relative z-10">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-5 sm:gap-6">
 
             {/* Left: Prominent Page Identifier "Blog" */}
-            <div className="space-y-2">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-950/80 border border-emerald-400/60 text-emerald-300 text-[11px] font-extrabold uppercase tracking-widest font-jakarta backdrop-blur-md shadow-lg">
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                <span>Commercial Embroidery Knowledge Hub</span>
+            <div className="space-y-2 max-w-full">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-950/80 border border-emerald-400/60 text-emerald-300 text-[10px] sm:text-[11px] font-extrabold uppercase tracking-widest font-jakarta backdrop-blur-md shadow-lg max-w-full">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0"></span>
+                <span className="truncate">Commercial Embroidery Knowledge Hub</span>
               </div>
 
-              <h1 className="font-outfit text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)] flex items-center gap-3">
+              <h1 className="font-outfit text-2xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)] flex flex-wrap items-center gap-2 sm:gap-3 break-words">
                 <span className="bg-gradient-to-r from-white via-slate-100 to-emerald-200 bg-clip-text text-transparent drop-shadow-md">
                   Blog
                 </span>
-                <span className="text-emerald-400 text-2xl sm:text-4xl font-light drop-shadow">/</span>
-                <span className="text-white sm:text-emerald-300 text-xl sm:text-3xl font-bold font-jakarta drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+                <span className="text-emerald-400 text-xl sm:text-3xl font-light drop-shadow">/</span>
+                <span className="text-white sm:text-emerald-300 text-lg sm:text-2xl font-bold font-jakarta drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
                   Guides &amp; Insights
                 </span>
               </h1>
@@ -196,10 +196,10 @@ export default function BlogPageContent({ initialPosts }: BlogPageContentProps) 
             </div>
 
             {/* Right: Breadcrumb Navigation with Active Page Highlight */}
-            <div className="flex-shrink-0">
+            <div className="flex-shrink-0 self-start md:self-center">
               <nav
                 aria-label="Breadcrumb"
-                className="inline-flex items-center gap-2.5 px-4 sm:px-5 py-2.5 rounded-2xl bg-slate-950/85 border border-slate-700/90 backdrop-blur-md text-xs font-semibold shadow-2xl"
+                className="inline-flex items-center gap-2 px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-2xl bg-slate-950/85 border border-slate-700/90 backdrop-blur-md text-xs font-semibold shadow-2xl"
               >
                 <Link
                   href="/"
@@ -209,7 +209,7 @@ export default function BlogPageContent({ initialPosts }: BlogPageContentProps) 
                   <span>Home</span>
                 </Link>
                 <span className="text-slate-500 font-bold">/</span>
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl bg-emerald-500/25 text-emerald-300 border border-emerald-400/50 font-bold tracking-wide shadow-2xs">
+                <span className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded-xl bg-emerald-500/25 text-emerald-300 border border-emerald-400/50 font-bold tracking-wide shadow-2xs">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
                   <span>Blog</span>
                 </span>
@@ -224,69 +224,71 @@ export default function BlogPageContent({ initialPosts }: BlogPageContentProps) 
       </section>
 
       {/* 2b. Metrics Quick Highlights Bar */}
-      <section className="bg-white border-b border-slate-200/80 px-4 sm:px-8 lg:px-20 py-5">
+      <section className="bg-white border-b border-slate-200/80 px-4 sm:px-6 lg:px-8 py-4 sm:py-5 overflow-hidden">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
-            <div className="bg-slate-50 rounded-2xl p-3.5 border border-slate-200/70 shadow-2xs hover:shadow-xs hover:border-emerald-300 transition-all">
-              <div className="text-2xl sm:text-3xl font-black text-emerald-600 font-outfit">{posts.length}+</div>
-              <div className="text-xs font-bold text-slate-900 uppercase tracking-wider mt-0.5 font-jakarta">Expert Guides</div>
-              <p className="text-[11px] text-slate-500 mt-0.5">Machine-tested embroidery tips</p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-4">
+            <div className="bg-slate-50 rounded-2xl p-3 sm:p-3.5 border border-slate-200/70 shadow-2xs hover:shadow-xs hover:border-emerald-300 transition-all">
+              <div className="text-xl sm:text-2xl lg:text-3xl font-black text-emerald-600 font-outfit">{posts.length}+</div>
+              <div className="text-[11px] sm:text-xs font-bold text-slate-900 uppercase tracking-wider mt-0.5 font-jakarta truncate">Expert Guides</div>
+              <p className="text-[10px] sm:text-[11px] text-slate-500 mt-0.5 line-clamp-1">Machine-tested embroidery tips</p>
             </div>
-            <div className="bg-slate-50 rounded-2xl p-3.5 border border-slate-200/70 shadow-2xs hover:shadow-xs hover:border-emerald-300 transition-all">
-              <div className="text-2xl sm:text-3xl font-black text-emerald-600 font-outfit">10,000+</div>
-              <div className="text-xs font-bold text-slate-900 uppercase tracking-wider mt-0.5 font-jakarta">Shops Helped</div>
-              <p className="text-[11px] text-slate-500 mt-0.5">Commercial decorators worldwide</p>
+            <div className="bg-slate-50 rounded-2xl p-3 sm:p-3.5 border border-slate-200/70 shadow-2xs hover:shadow-xs hover:border-emerald-300 transition-all">
+              <div className="text-xl sm:text-2xl lg:text-3xl font-black text-emerald-600 font-outfit">10,000+</div>
+              <div className="text-[11px] sm:text-xs font-bold text-slate-900 uppercase tracking-wider mt-0.5 font-jakarta truncate">Shops Helped</div>
+              <p className="text-[10px] sm:text-[11px] text-slate-500 mt-0.5 line-clamp-1">Commercial decorators worldwide</p>
             </div>
-            <div className="bg-slate-50 rounded-2xl p-3.5 border border-slate-200/70 shadow-2xs hover:shadow-xs hover:border-emerald-300 transition-all">
-              <div className="text-2xl sm:text-3xl font-black text-emerald-600 font-outfit">0 Breaks</div>
-              <div className="text-xs font-bold text-slate-900 uppercase tracking-wider mt-0.5 font-jakarta">Zero-Thread-Break</div>
-              <p className="text-[11px] text-slate-500 mt-0.5">Proven density &amp; underlay rules</p>
+            <div className="bg-slate-50 rounded-2xl p-3 sm:p-3.5 border border-slate-200/70 shadow-2xs hover:shadow-xs hover:border-emerald-300 transition-all">
+              <div className="text-xl sm:text-2xl lg:text-3xl font-black text-emerald-600 font-outfit">0 Breaks</div>
+              <div className="text-[11px] sm:text-xs font-bold text-slate-900 uppercase tracking-wider mt-0.5 font-jakarta truncate">Zero-Thread-Break</div>
+              <p className="text-[10px] sm:text-[11px] text-slate-500 mt-0.5 line-clamp-1">Proven density &amp; underlay rules</p>
             </div>
-            <div className="bg-slate-50 rounded-2xl p-3.5 border border-slate-200/70 shadow-2xs hover:shadow-xs hover:border-emerald-300 transition-all">
-              <div className="text-2xl sm:text-3xl font-black text-emerald-600 font-outfit">6–8 Hours</div>
-              <div className="text-xs font-bold text-slate-900 uppercase tracking-wider mt-0.5 font-jakarta">Turnaround</div>
-              <p className="text-[11px] text-slate-500 mt-0.5">With rush 2-hour available</p>
+            <div className="bg-slate-50 rounded-2xl p-3 sm:p-3.5 border border-slate-200/70 shadow-2xs hover:shadow-xs hover:border-emerald-300 transition-all">
+              <div className="text-xl sm:text-2xl lg:text-3xl font-black text-emerald-600 font-outfit">6–8 Hours</div>
+              <div className="text-[11px] sm:text-xs font-bold text-slate-900 uppercase tracking-wider mt-0.5 font-jakarta truncate">Turnaround</div>
+              <p className="text-[10px] sm:text-[11px] text-slate-500 mt-0.5 line-clamp-1">With rush 2-hour available</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* 3. Filter Toolbar & Search Bar */}
-      <section className="sticky top-[102px] z-30 bg-white/90 backdrop-blur-xl border-b border-slate-200/80 shadow-xs px-4 sm:px-8 lg:px-20 py-3.5 transition-all">
-        <div className="max-w-7xl mx-auto space-y-3">
+      <section className="bg-white border-b border-slate-200/80 shadow-xs px-4 sm:px-6 lg:px-8 py-3.5 sm:py-4 overflow-hidden">
+        <div className="max-w-7xl mx-auto space-y-3 sm:space-y-3.5">
 
           <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-3 sm:gap-4">
 
-            {/* Category Filter Pills */}
-            <div className="flex items-center gap-1.5 sm:gap-2 overflow-x-auto pb-1 lg:pb-0 scrollbar-none">
-              {blogCategories.map((cat) => {
-                const count = cat === 'All' ? posts.length : posts.filter((p) => p.category === cat).length;
-                const isActive = selectedCategory === cat;
-                return (
-                  <button
-                    key={cat}
-                    onClick={() => handleCategorySelect(cat)}
-                    className={`px-3.5 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200 flex items-center gap-2 whitespace-nowrap cursor-pointer ${isActive
-                      ? 'bg-emerald-600 text-white shadow-sm shadow-emerald-600/30 scale-102 font-jakarta'
-                      : 'bg-slate-100 text-slate-700 hover:text-slate-900 hover:bg-slate-200/80 border border-slate-200/70'
-                      }`}
-                  >
-                    <span>{cat}</span>
-                    <span
-                      className={`text-[10px] font-mono px-2 py-0.5 rounded-full ${isActive ? 'bg-emerald-700/60 text-white font-extrabold' : 'bg-slate-200/80 text-slate-600'
+            {/* Category Filter Pills (Smooth bounded scroll on mobile) */}
+            <div className="w-full lg:flex-1 overflow-hidden">
+              <div className="flex items-center gap-1.5 sm:gap-2 overflow-x-auto pb-1.5 lg:pb-0 scrollbar-none w-full max-w-full">
+                {blogCategories.map((cat) => {
+                  const count = cat === 'All' ? posts.length : posts.filter((p) => p.category === cat).length;
+                  const isActive = selectedCategory === cat;
+                  return (
+                    <button
+                      key={cat}
+                      onClick={() => handleCategorySelect(cat)}
+                      className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200 flex items-center gap-1.5 sm:gap-2 whitespace-nowrap cursor-pointer flex-shrink-0 ${isActive
+                        ? 'bg-emerald-600 text-white shadow-sm shadow-emerald-600/30 font-jakarta'
+                        : 'bg-slate-100 text-slate-700 hover:text-slate-900 hover:bg-slate-200/80 border border-slate-200/70'
                         }`}
                     >
-                      {count}
-                    </span>
-                  </button>
-                );
-              })}
+                      <span>{cat}</span>
+                      <span
+                        className={`text-[10px] font-mono px-1.5 py-0.5 rounded-full ${isActive ? 'bg-emerald-700/60 text-white font-extrabold' : 'bg-slate-200/80 text-slate-600'
+                          }`}
+                      >
+                        {count}
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
             </div>
 
             {/* Search & Sort Controls */}
-            <div className="flex items-center gap-2.5 sm:gap-3">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3 w-full lg:w-auto">
               {/* Search Input */}
-              <div className="relative flex-1 sm:w-64">
+              <div className="relative w-full sm:w-64">
                 <input
                   type="text"
                   value={searchQuery}
@@ -307,11 +309,11 @@ export default function BlogPageContent({ initialPosts }: BlogPageContentProps) 
               </div>
 
               {/* Sort Dropdown */}
-              <div className="relative">
+              <div className="relative w-full sm:w-auto">
                 <select
                   value={sortBy}
                   onChange={(e) => handleSortChange(e.target.value as BlogSortOption)}
-                  className="bg-slate-50 text-slate-700 text-xs sm:text-sm rounded-xl px-3 py-2 border border-slate-200 focus:outline-none focus:border-emerald-500 cursor-pointer"
+                  className="w-full sm:w-auto bg-slate-50 text-slate-700 text-xs sm:text-sm rounded-xl px-3 py-2 border border-slate-200 focus:outline-none focus:border-emerald-500 cursor-pointer"
                 >
                   <option value="newest">Newest First</option>
                   <option value="oldest">Oldest First</option>
@@ -324,13 +326,13 @@ export default function BlogPageContent({ initialPosts }: BlogPageContentProps) 
           </div>
 
           {/* Quick Tag Pills Cloud */}
-          <div className="flex flex-wrap items-center gap-1.5 pt-1 text-xs">
-            <span className="text-slate-500 text-[11px] font-bold uppercase tracking-wider mr-1 font-jakarta">
-              Popular Tags:
+          <div className="flex flex-wrap items-center gap-1.5 pt-2 border-t border-slate-100 text-xs w-full overflow-hidden">
+            <span className="text-slate-500 text-[11px] font-bold uppercase tracking-wider mr-1.5 font-jakarta flex items-center gap-1">
+              <span>🏷️</span> Popular Tags:
             </span>
             <button
               onClick={() => handleTagSelect('All')}
-              className={`px-2.5 py-1 rounded-lg text-xs transition cursor-pointer font-medium ${selectedTag === 'All'
+              className={`px-2.5 sm:px-3 py-1 rounded-lg text-xs transition cursor-pointer font-medium ${selectedTag === 'All'
                 ? 'bg-emerald-600 text-white font-bold shadow-xs'
                 : 'bg-slate-100 text-slate-600 hover:text-slate-900 hover:bg-slate-200/70 border border-slate-200/60'
                 }`}
@@ -341,7 +343,7 @@ export default function BlogPageContent({ initialPosts }: BlogPageContentProps) 
               <button
                 key={tag}
                 onClick={() => handleTagSelect(tag === selectedTag ? 'All' : tag)}
-                className={`px-2.5 py-1 rounded-lg text-xs transition cursor-pointer font-medium ${selectedTag === tag
+                className={`px-2.5 sm:px-3 py-1 rounded-lg text-xs transition cursor-pointer font-medium ${selectedTag === tag
                   ? 'bg-emerald-600 text-white font-bold shadow-xs'
                   : 'bg-slate-100 text-slate-600 hover:text-slate-900 hover:bg-slate-200/70 border border-slate-200/60'
                   }`}
@@ -355,18 +357,18 @@ export default function BlogPageContent({ initialPosts }: BlogPageContentProps) 
       </section>
 
       {/* 4. Main Blog Content Area */}
-      <section ref={gridRef} className="px-4 sm:px-8 lg:px-20 py-10 sm:py-14">
-        <div className="max-w-7xl mx-auto space-y-10">
+      <section ref={gridRef} className="px-4 sm:px-6 lg:px-8 py-8 sm:py-12 overflow-hidden">
+        <div className="max-w-7xl mx-auto space-y-8 sm:space-y-10">
 
           {/* Featured Post Banner */}
           {featuredPost && (
             <div
               onClick={() => setSelectedArticle(featuredPost)}
-              className="bg-gradient-to-br from-white via-emerald-50/40 to-teal-50/40 rounded-3xl border border-emerald-200/80 overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 p-6 sm:p-8 lg:p-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center group cursor-pointer"
+              className="bg-gradient-to-br from-white via-emerald-50/40 to-teal-50/40 rounded-3xl border border-emerald-200/80 overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 p-5 sm:p-8 lg:p-10 flex flex-col-reverse lg:grid lg:grid-cols-12 gap-6 sm:gap-8 items-center group cursor-pointer"
             >
-              <div className="lg:col-span-7 space-y-4">
-                <div className="flex items-center gap-2.5">
-                  <span className="bg-emerald-600 text-white font-bold text-[11px] uppercase tracking-wider px-3 py-1 rounded-full shadow-2xs font-jakarta">
+              <div className="w-full lg:col-span-7 space-y-3 sm:space-y-4">
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className="bg-emerald-600 text-white font-bold text-[10px] sm:text-[11px] uppercase tracking-wider px-2.5 sm:px-3 py-1 rounded-full shadow-2xs font-jakarta">
                     Featured Insight
                   </span>
                   <span className="text-xs text-emerald-800 font-bold">
@@ -380,41 +382,45 @@ export default function BlogPageContent({ initialPosts }: BlogPageContentProps) 
                   {featuredPost.title}
                 </h2>
 
-                <p className="text-slate-600 text-sm sm:text-base leading-relaxed line-clamp-3 font-normal">
+                <p className="text-slate-600 text-xs sm:text-sm lg:text-base leading-relaxed line-clamp-3 font-normal">
                   {featuredPost.excerpt}
                 </p>
 
-                <div className="flex flex-wrap items-center gap-4 pt-2">
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      setSelectedArticle(featuredPost);
-                    }}
-                    className="bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs sm:text-sm px-6 py-2.5 rounded-xl transition shadow-md shadow-emerald-600/20 flex items-center gap-2 cursor-pointer"
+                <div className="flex flex-wrap items-center justify-between sm:justify-start gap-3 sm:gap-4 pt-2">
+                  <Link
+                    href={`/blog/${featuredPost.slug}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs sm:text-sm px-5 sm:px-6 py-2.5 rounded-xl transition shadow-md shadow-emerald-600/20 flex items-center gap-2 cursor-pointer"
                   >
                     <span>Read Full Guide</span>
                     <span>&rarr;</span>
-                  </button>
-                  <span className="text-xs text-slate-500 font-medium">
+                  </Link>
+                  <span className="text-[11px] sm:text-xs text-slate-500 font-medium">
                     Published {featuredPost.date} by {featuredPost.author}
                   </span>
                 </div>
               </div>
 
-              <div className="lg:col-span-5">
-                <div className="relative rounded-2xl overflow-hidden border border-emerald-200/80 bg-slate-100 shadow-md aspect-video">
+              <div className="w-full lg:col-span-5">
+                <Link
+                  href={`/blog/${featuredPost.slug}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block relative rounded-2xl overflow-hidden border border-emerald-200/80 bg-slate-100 shadow-md aspect-video"
+                >
                   <img
                     src={featuredPost.image}
-                    alt={featuredPost.title}
+                    alt={featuredPost.imageAlt || featuredPost.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                </div>
+                </Link>
               </div>
             </div>
           )}
 
           {/* Results Summary Bar */}
-          <div className="flex items-center justify-between text-xs sm:text-sm text-slate-500 border-b border-slate-200 pb-3">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs sm:text-sm text-slate-500 border-b border-slate-200 pb-3">
             <div>
               Showing <span className="font-bold text-emerald-700">{filteredPosts.length}</span> articles
               {selectedCategory !== 'All' && <span> in <strong className="text-slate-900">{selectedCategory}</strong></span>}
@@ -424,7 +430,7 @@ export default function BlogPageContent({ initialPosts }: BlogPageContentProps) 
             {(selectedCategory !== 'All' || selectedTag !== 'All' || searchQuery) && (
               <button
                 onClick={handleResetFilters}
-                className="text-xs text-emerald-700 hover:text-emerald-800 font-bold underline cursor-pointer"
+                className="text-xs text-emerald-700 hover:text-emerald-800 font-bold underline cursor-pointer self-start sm:self-auto"
               >
                 Reset All Filters
               </button>
@@ -451,9 +457,11 @@ export default function BlogPageContent({ initialPosts }: BlogPageContentProps) 
           {/* Articles Grid (6 items per page) */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7">
             {paginatedPosts.map((post) => (
-              <article
+              <Link
                 key={post.id}
-                onClick={() => setSelectedArticle(post)}
+                href={`/blog/${post.slug}`}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="bg-white rounded-3xl border border-slate-200/90 hover:border-emerald-500/70 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_35px_-10px_rgba(16,185,129,0.18)] transition-all duration-300 ease-out hover:-translate-y-1.5 flex flex-col justify-between overflow-hidden group cursor-pointer"
               >
                 <div>
@@ -461,7 +469,7 @@ export default function BlogPageContent({ initialPosts }: BlogPageContentProps) 
                   <div className="relative h-52 overflow-hidden bg-slate-100">
                     <img
                       src={post.image}
-                      alt={post.title}
+                      alt={post.imageAlt || post.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent pointer-events-none"></div>
@@ -500,6 +508,7 @@ export default function BlogPageContent({ initialPosts }: BlogPageContentProps) 
                         <span
                           key={tag}
                           onClick={(e) => {
+                            e.preventDefault();
                             e.stopPropagation();
                             handleTagSelect(tag);
                           }}
@@ -525,7 +534,7 @@ export default function BlogPageContent({ initialPosts }: BlogPageContentProps) 
                   </div>
                 </div>
 
-              </article>
+              </Link>
             ))}
           </div>
 
@@ -533,7 +542,7 @@ export default function BlogPageContent({ initialPosts }: BlogPageContentProps) 
           {totalPages > 1 && (
             <div className="pt-8 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
 
-              <div className="text-xs text-slate-500">
+              <div className="text-xs text-slate-500 text-center sm:text-left">
                 Page <span className="font-bold text-slate-900">{currentPage}</span> of{' '}
                 <span className="font-bold text-slate-900">{totalPages}</span> • Showing posts{' '}
                 <span className="font-bold text-emerald-700">{(currentPage - 1) * POSTS_PER_PAGE + 1}</span>–
@@ -543,7 +552,7 @@ export default function BlogPageContent({ initialPosts }: BlogPageContentProps) 
                 of {filteredPosts.length}
               </div>
 
-              <div className="flex items-center gap-1.5">
+              <div className="flex flex-wrap items-center justify-center gap-1.5 max-w-full">
 
                 {/* Previous Button */}
                 <button
@@ -566,7 +575,7 @@ export default function BlogPageContent({ initialPosts }: BlogPageContentProps) 
                     <button
                       key={pageNum}
                       onClick={() => handlePageChange(pageNum)}
-                      className={`w-9 h-9 rounded-xl text-xs font-bold transition cursor-pointer flex items-center justify-center ${isActive
+                      className={`w-8 h-8 sm:w-9 sm:h-9 rounded-xl text-xs font-bold transition cursor-pointer flex items-center justify-center ${isActive
                         ? 'bg-emerald-600 text-white shadow-sm shadow-emerald-600/30 scale-105'
                         : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200 shadow-2xs'
                         }`}
@@ -597,27 +606,27 @@ export default function BlogPageContent({ initialPosts }: BlogPageContentProps) 
           )}
 
           {/* 6. Studio Free Quote & Service Guarantee Banner */}
-          <div className="bg-gradient-to-br from-emerald-900 via-emerald-800 to-teal-900 rounded-3xl p-8 sm:p-12 border border-emerald-700/60 shadow-2xl relative overflow-hidden text-white">
+          <div className="bg-gradient-to-br from-emerald-900 via-emerald-800 to-teal-900 rounded-3xl p-6 sm:p-10 lg:p-12 border border-emerald-700/60 shadow-2xl relative overflow-hidden text-white">
             <div className="max-w-3xl space-y-4 relative z-10">
-              <span className="bg-white/15 text-emerald-200 border border-white/20 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider backdrop-blur-sm">
+              <span className="inline-block bg-white/15 text-emerald-200 border border-white/20 px-3 py-1 rounded-full text-[11px] sm:text-xs font-bold uppercase tracking-wider backdrop-blur-sm">
                 ⚡ Turnaround: 6–8 Hours | Rush 2 Hours
               </span>
-              <h2 className="font-outfit text-2xl sm:text-4xl font-black text-white tracking-tight">
+              <h2 className="font-outfit text-xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight">
                 Have a Complex Logo or Cap Design to Digitize?
               </h2>
-              <p className="text-emerald-100/90 text-sm sm:text-base leading-relaxed">
+              <p className="text-emerald-100/90 text-xs sm:text-sm lg:text-base leading-relaxed">
                 Send us your artwork today. We calibrate push-pull compensation for your exact machine and fabric, delivering crisp sewouts with zero thread breaks and unlimited free revisions.
               </p>
-              <div className="flex flex-wrap items-center gap-4 pt-2">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 pt-2">
                 <Link
                   href="/#quote"
-                  className="bg-white hover:bg-emerald-50 text-emerald-950 font-black text-sm px-7 py-3.5 rounded-xl shadow-lg transition hover:shadow-xl"
+                  className="bg-white hover:bg-emerald-50 text-emerald-950 font-black text-xs sm:text-sm px-6 sm:px-7 py-3 sm:py-3.5 rounded-xl shadow-lg transition hover:shadow-xl text-center"
                 >
                   Get Instant Free Quote &rarr;
                 </Link>
                 <Link
                   href="/our-work"
-                  className="bg-emerald-700/60 hover:bg-emerald-700 text-white font-bold text-sm px-6 py-3.5 rounded-xl border border-emerald-400/40 transition"
+                  className="bg-emerald-700/60 hover:bg-emerald-700 text-white font-bold text-xs sm:text-sm px-5 sm:px-6 py-3 sm:py-3.5 rounded-xl border border-emerald-400/40 transition text-center"
                 >
                   View Sewout Portfolio
                 </Link>

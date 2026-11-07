@@ -11,6 +11,12 @@ export interface ServiceItem {
   tag: string;
   badge: string;
   category: string;
+  subcategory?: string;
+  categoryId?: number | null;
+  subcategoryId?: number | null;
+  metaTitle?: string;
+  metaDescription?: string;
+  imageAlt?: string;
   image: string;
   secondaryImage?: string;
   shortDesc: string;
@@ -24,4 +30,14 @@ export interface ServiceItem {
   targetIndustries: string[];
 }
 
-export type ServiceCategoryKey = 'All' | 'Digitizing Services' | 'Computerized Stitching' | 'Apparel & Uniforms' | 'Liturgical & Sacred';
+export interface ServiceCategory {
+  id: number;
+  name: string;
+  slug: string;
+  parentId: number | null;
+  description?: string;
+  sortOrder: number;
+  isActive: number;
+  subcategories?: ServiceCategory[];
+  servicesCount?: number;
+}

@@ -35,7 +35,9 @@ export default function ContactClient({ initialContent, initialFaqs }: ContactPa
   const [format, setFormat] = useState<string>(contactMachineFormats[0]);
   const [subject, setSubject] = useState<string>('Digitizing Quote & Stitch Evaluation');
   const [message, setMessage] = useState<string>('');
+  const [file, setFile] = useState<File | null>(null);
   const [fileName, setFileName] = useState<string>('');
+  const [errorMessage, setErrorMessage] = useState<string>('');
   
   // UI states
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
@@ -44,8 +46,9 @@ export default function ContactClient({ initialContent, initialFaqs }: ContactPa
   const [activeFaq, setActiveFaq] = useState<number | null>(0);
   const [copiedEmail, setCopiedEmail] = useState<boolean>(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setErrorMessage('');
     if (!fullName.trim() || !email.trim() || !message.trim()) {
       alert('Please fill in your name, email, and project message.');
       return;
@@ -53,12 +56,41 @@ export default function ContactClient({ initialContent, initialFaqs }: ContactPa
 
     setIsSubmitting(true);
 
-    setTimeout(() => {
+    try {
+      const formData = new FormData();
+      formData.append('fullName', fullName);
+      formData.append('email', email);
+      formData.append('phone', phone);
+      formData.append('company', company);
+      formData.append('service', service);
+      formData.append('turnaround', turnaround);
+      formData.append('format', format);
+      formData.append('subject', subject);
+      formData.append('message', message);
+      formData.append('sourcePage', 'Contact Us Page');
+      if (file) {
+        formData.append('file', file);
+      }
+
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        body: formData,
+      });
+
+      const data = await res.json();
+      if (!res.ok || !data.success) {
+        throw new Error(data.error || 'Failed to send message. Please try again.');
+      }
+
       const generatedTicket = `NLS-${Math.floor(100000 + Math.random() * 900000)}`;
       setTicketId(generatedTicket);
-      setIsSubmitting(false);
       setIsSuccess(true);
-    }, 700);
+    } catch (err: any) {
+      console.error(err);
+      setErrorMessage(err.message || 'Something went wrong while sending your inquiry.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleResetForm = () => {
@@ -67,7 +99,9 @@ export default function ContactClient({ initialContent, initialFaqs }: ContactPa
     setPhone('');
     setCompany('');
     setMessage('');
+    setFile(null);
     setFileName('');
+    setErrorMessage('');
     setIsSuccess(false);
   };
 
@@ -489,7 +523,7 @@ export default function ContactClient({ initialContent, initialFaqs }: ContactPa
                     />
                   </div>
 
-                  {/* Simulated File Upload Zone */}
+                  {/* Upload Zone */}
                   <div className="space-y-1">
                     <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-700">
                       Attach Artwork / Logo (Optional)
@@ -500,7 +534,11 @@ export default function ContactClient({ initialContent, initialFaqs }: ContactPa
                         accept=".jpg,.jpeg,.png,.ai,.pdf,.eps,.svg,.dst,.pes"
                         onChange={(e) => {
                           if (e.target.files && e.target.files[0]) {
+                            setFile(e.target.files[0]);
                             setFileName(e.target.files[0].name);
+                          } else {
+                            setFile(null);
+                            setFileName('');
                           }
                         }}
                         className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
@@ -518,6 +556,12 @@ export default function ContactClient({ initialContent, initialFaqs }: ContactPa
                       </div>
                     </div>
                   </div>
+
+                  {errorMessage && (
+                    <div className="p-3 bg-rose-50 border border-rose-200 text-rose-700 rounded-xl text-xs font-semibold">
+                      ⚠️ {errorMessage}
+                    </div>
+                  )}
 
                   {/* Submit Button */}
                   <div className="pt-2">
@@ -811,11 +855,16 @@ export default function ContactClient({ initialContent, initialFaqs }: ContactPa
                     className="w-full text-left p-4 sm:p-5 flex items-center justify-between gap-4 focus:outline-none cursor-pointer"
                     aria-expanded={isOpen}
                   >
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-2 flex-wrap">
                       <span className="text-xs font-bold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-md">
                         {faq.category || 'General'}
                       </span>
-                      <span className="text-xs sm:text-sm font-bold text-slate-900">
+                      {faq.subcategory && (
+                        <span className="text-[11px] font-semibold text-slate-600 bg-slate-100 px-1.5 py-0.5 rounded">
+                          ↳ {faq.subcategory}
+                        </span>
+                      )}
+                      <span className="text-xs sm:text-sm font-bold text-slate-900 ml-1">
                         {faq.question || faq.q}
                       </span>
                     </div>

@@ -27,6 +27,8 @@ function rowToBlogPost(row: any): BlogPost {
     id: row.id,
     slug: row.slug,
     title: row.title,
+    metaTitle: row.meta_title || row.title,
+    metaDescription: row.meta_description || row.excerpt,
     excerpt: row.excerpt,
     category: row.category,
     tags: safeParseJson(row.tags, []),
@@ -35,6 +37,7 @@ function rowToBlogPost(row: any): BlogPost {
     date: row.date || 'October 20, 2026',
     readTime: row.read_time || '4 min read',
     image: row.image || '/blog/blog-hero-banner.jpg',
+    imageAlt: row.image_alt || row.title,
     featured: Boolean(row.featured),
     content: safeParseJson(row.content, []),
     keyTakeaways: safeParseJson(row.key_takeaways, []),
@@ -139,7 +142,12 @@ export async function createBlogPost(formData: FormData) {
     slug = slugify(slug);
   }
 
+  const meta_title = ((formData.get('meta_title') as string) || '').trim() || title;
+  const meta_description = ((formData.get('meta_description') as string) || '').trim();
+  const image_alt = ((formData.get('image_alt') as string) || '').trim() || title;
+
   const excerpt = ((formData.get('excerpt') as string) || '').trim();
+  const finalMetaDesc = meta_description || excerpt;
   const category = ((formData.get('category') as string) || 'Embroidery Service').trim();
   const author = ((formData.get('author') as string) || 'Admin').trim();
   const author_role = ((formData.get('author_role') as string) || 'Master Digitizing Studio').trim();
@@ -179,11 +187,13 @@ export async function createBlogPost(formData: FormData) {
 
   await pool.query(
     `INSERT INTO blogs 
-     (slug, title, excerpt, category, tags, author, author_role, date, read_time, image, featured, content, key_takeaways, comments_count, sort_order, is_active)
-     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 0, ?, 1)`,
+     (slug, title, meta_title, meta_description, excerpt, category, tags, author, author_role, date, read_time, image, image_alt, featured, content, key_takeaways, comments_count, sort_order, is_active)
+     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 0, ?, 1)`,
     [
       slug,
       title,
+      meta_title,
+      finalMetaDesc,
       excerpt,
       category,
       JSON.stringify(tags),
@@ -192,6 +202,7 @@ export async function createBlogPost(formData: FormData) {
       date,
       read_time,
       image,
+      image_alt,
       featured,
       JSON.stringify(content),
       JSON.stringify(key_takeaways),
@@ -201,6 +212,7 @@ export async function createBlogPost(formData: FormData) {
 
   revalidatePath('/');
   revalidatePath('/blog');
+  revalidatePath(`/blog/${slug}`);
   revalidatePath('/admin/blog');
   redirect('/admin/blog');
 }
@@ -215,7 +227,12 @@ export async function updateBlogPost(id: number, formData: FormData) {
     slug = slugify(slug);
   }
 
+  const meta_title = ((formData.get('meta_title') as string) || '').trim() || title;
+  const meta_description = ((formData.get('meta_description') as string) || '').trim();
+  const image_alt = ((formData.get('image_alt') as string) || '').trim() || title;
+
   const excerpt = ((formData.get('excerpt') as string) || '').trim();
+  const finalMetaDesc = meta_description || excerpt;
   const category = ((formData.get('category') as string) || 'Embroidery Service').trim();
   const author = ((formData.get('author') as string) || 'Admin').trim();
   const author_role = ((formData.get('author_role') as string) || 'Master Digitizing Studio').trim();
@@ -253,6 +270,9 @@ export async function updateBlogPost(id: number, formData: FormData) {
   const updateFields: string[] = [
     'title = ?',
     'slug = ?',
+    'meta_title = ?',
+    'meta_description = ?',
+    'image_alt = ?',
     'excerpt = ?',
     'category = ?',
     'tags = ?',
@@ -270,6 +290,9 @@ export async function updateBlogPost(id: number, formData: FormData) {
   const updateValues: any[] = [
     title,
     slug,
+    meta_title,
+    finalMetaDesc,
+    image_alt,
     excerpt,
     category,
     JSON.stringify(tags),
@@ -298,6 +321,7 @@ export async function updateBlogPost(id: number, formData: FormData) {
 
   revalidatePath('/');
   revalidatePath('/blog');
+  revalidatePath(`/blog/${slug}`);
   revalidatePath('/admin/blog');
   redirect('/admin/blog');
 }

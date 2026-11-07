@@ -19,23 +19,31 @@ export default async function AdminServicesPage() {
             <h1 className="text-2xl font-black text-slate-900 tracking-tight">Services Catalog Management</h1>
           </div>
           <p className="text-slate-500 text-xs sm:text-sm mt-1">
-            Manage commercial digitizing and embroidery services shown across Home and Services pages.
+            Manage commercial digitizing and embroidery services shown across Home, Header, and Services pages.
           </p>
         </div>
-        <Link
-          href="/admin/services/add"
-          className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs px-5 py-2.5 rounded-xl shadow-md shadow-emerald-600/20 transition-all hover:scale-[1.02] cursor-pointer"
-        >
-          <span>+ Add New Service</span>
-          <span>⚡</span>
-        </Link>
+        <div className="flex items-center gap-2 flex-wrap">
+          <Link
+            href="/admin/services/categories"
+            className="inline-flex items-center gap-1.5 bg-slate-100 hover:bg-slate-200 text-slate-800 font-extrabold text-xs px-4 py-2.5 rounded-xl transition cursor-pointer border border-slate-200"
+          >
+            <span>🗂️ Manage Categories</span>
+          </Link>
+          <Link
+            href="/admin/services/add"
+            className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs px-5 py-2.5 rounded-xl shadow-md shadow-emerald-600/20 transition-all hover:scale-[1.02] cursor-pointer"
+          >
+            <span>+ Add New Service</span>
+            <span>⚡</span>
+          </Link>
+        </div>
       </div>
 
       {/* Services Table Card */}
       <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
         <div className="p-4 border-b border-slate-100 flex items-center justify-between text-xs text-slate-500 bg-slate-50/50">
           <span className="font-semibold text-slate-700">Total Services: {rows.length}</span>
-          <span className="text-[11px] text-slate-400">Synchronized with Home Page &amp; Detailed Specs Popup</span>
+          <span className="text-[11px] text-slate-400">SEO Enabled • Categorized • Synchronized with Public Website</span>
         </div>
 
         <div className="overflow-x-auto">
@@ -44,8 +52,8 @@ export default async function AdminServicesPage() {
               <tr className="bg-slate-50/80 border-b border-slate-200 text-[11px] font-bold text-slate-500 uppercase tracking-wider">
                 <th className="p-4 w-12 text-center">#</th>
                 <th className="p-4">Thumbnail</th>
-                <th className="p-4">Title &amp; Slug</th>
-                <th className="p-4">Category &amp; Tag</th>
+                <th className="p-4">Title &amp; SEO Slug</th>
+                <th className="p-4">Category &amp; Subcategory</th>
                 <th className="p-4">Turnaround</th>
                 <th className="p-4 text-center">Sort</th>
                 <th className="p-4 text-center">Status</th>
@@ -74,7 +82,7 @@ export default async function AdminServicesPage() {
                       <div className="w-14 h-14 rounded-xl overflow-hidden border border-slate-200 shadow-xs bg-slate-100 flex-shrink-0">
                         <img
                           src={service.image || '/services/embroidery-digitizing.png'}
-                          alt={service.title}
+                          alt={service.image_alt || service.title}
                           className="w-full h-full object-cover"
                         />
                       </div>
@@ -87,16 +95,27 @@ export default async function AdminServicesPage() {
                         <p className="text-[11px] font-mono text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded inline-block">
                           /{service.slug}
                         </p>
+                        {service.meta_title && (
+                          <p className="text-[10px] text-slate-400 truncate max-w-xs block">
+                            SEO: {service.meta_title}
+                          </p>
+                        )}
                       </div>
                     </td>
 
-                    {/* Category & Tag */}
+                    {/* Category & Subcategory */}
                     <td className="p-4">
                       <div className="space-y-1">
                         <span className="inline-block bg-emerald-100 text-emerald-800 font-bold text-[10px] px-2 py-0.5 rounded-md border border-emerald-300/60 uppercase tracking-wider">
                           {service.category}
                         </span>
-                        <p className="text-[11px] text-slate-500 font-medium truncate max-w-xs">
+                        {service.subcategory && (
+                          <p className="text-[11px] text-slate-600 font-semibold flex items-center gap-1">
+                            <span>↳</span>
+                            <span>{service.subcategory}</span>
+                          </p>
+                        )}
+                        <p className="text-[10px] text-slate-400 font-medium truncate max-w-xs">
                           {service.tag}
                         </p>
                       </div>

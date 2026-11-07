@@ -69,20 +69,7 @@ export default function AddBlogPostPage() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            <div>
-              <label className="block text-xs font-bold text-slate-700 mb-1">
-                Custom URL Slug (Optional)
-              </label>
-              <input
-                type="text"
-                name="slug"
-                placeholder="e.g. why-pull-compensation-matters"
-                className="w-full p-3 border border-slate-300 rounded-xl text-xs focus:outline-none focus:ring-2 focus:ring-emerald-500"
-              />
-              <span className="text-[10px] text-slate-400">Leave blank to auto-generate from title</span>
-            </div>
-
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label className="block text-xs font-bold text-slate-700 mb-1">
                 Sort Order
@@ -108,33 +95,101 @@ export default function AddBlogPostPage() {
           </div>
         </div>
 
-        {/* Section 2: Image File Upload (File Input) */}
+        {/* Section 2: SEO Meta & URL Settings */}
         <div className="space-y-4 pt-4 border-t border-slate-100">
-          <h3 className="text-sm font-black text-slate-900 uppercase tracking-wider pb-2 border-b border-slate-100">
-            2. Article Banner Photo Upload
-          </h3>
+          <div className="flex items-center justify-between pb-2 border-b border-slate-100">
+            <h3 className="text-sm font-black text-slate-900 uppercase tracking-wider">
+              2. SEO &amp; Meta Configuration (Page Optimization)
+            </h3>
+            <span className="text-[11px] font-semibold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200">
+              SEO Best Practice
+            </span>
+          </div>
 
-          <div className="p-4 rounded-2xl bg-emerald-50/50 border border-emerald-200/80 space-y-2">
-            <label className="block text-xs font-bold text-slate-800">
-              Upload Article Image <span className="text-red-500">*</span>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label className="block text-xs font-bold text-slate-700 mb-1">
+                Custom URL Slug
+              </label>
+              <input
+                type="text"
+                name="slug"
+                placeholder="e.g. why-pull-compensation-matters"
+                className="w-full p-3 border border-slate-300 rounded-xl text-xs focus:outline-none focus:ring-2 focus:ring-emerald-500 font-mono"
+              />
+              <span className="text-[10px] text-slate-400">URL path: /blog/your-slug (Leave blank to auto-generate from title)</span>
+            </div>
+
+            <div>
+              <label className="block text-xs font-bold text-slate-700 mb-1">
+                Meta Title (SEO Title Tag)
+              </label>
+              <input
+                type="text"
+                name="meta_title"
+                placeholder="Target 50–60 characters for Google SERP"
+                className="w-full p-3 border border-slate-300 rounded-xl text-xs focus:outline-none focus:ring-2 focus:ring-emerald-500"
+              />
+              <span className="text-[10px] text-slate-400">Leave blank to use Article Title automatically</span>
+            </div>
+          </div>
+
+          <div>
+            <label className="block text-xs font-bold text-slate-700 mb-1">
+              Meta Description (Search Snippet)
             </label>
-            <p className="text-[11px] text-slate-500">
-              Upload genuine sewout photo, article banner or graphic (PNG, JPG, WEBP).
-            </p>
-            <input
-              type="file"
-              name="image"
-              accept="image/*"
-              required
-              className="w-full text-xs text-slate-600 file:mr-4 file:py-2.5 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-emerald-600 file:text-white hover:file:bg-emerald-700 file:cursor-pointer cursor-pointer border border-slate-200 rounded-xl p-2 bg-white"
+            <textarea
+              name="meta_description"
+              rows={2}
+              placeholder="Recommended 120–160 characters summary for Google search results..."
+              className="w-full p-3 border border-slate-300 rounded-xl text-xs focus:outline-none focus:ring-2 focus:ring-emerald-500"
             />
+            <span className="text-[10px] text-slate-400">Leave blank to use Article Excerpt automatically</span>
           </div>
         </div>
 
-        {/* Section 3: Author and Meta Info */}
+        {/* Section 3: Image File Upload & Image Alt */}
         <div className="space-y-4 pt-4 border-t border-slate-100">
           <h3 className="text-sm font-black text-slate-900 uppercase tracking-wider pb-2 border-b border-slate-100">
-            3. Author &amp; Reading Metadata
+            3. Article Banner Photo &amp; Image Alt Text
+          </h3>
+
+          <div className="p-4 rounded-2xl bg-emerald-50/50 border border-emerald-200/80 space-y-4">
+            <div>
+              <label className="block text-xs font-bold text-slate-800 mb-1">
+                Upload Article Image <span className="text-red-500">*</span>
+              </label>
+              <p className="text-[11px] text-slate-500 mb-2">
+                Upload genuine sewout photo, article banner or graphic (PNG, JPG, WEBP).
+              </p>
+              <input
+                type="file"
+                name="image"
+                accept="image/*"
+                required
+                className="w-full text-xs text-slate-600 file:mr-4 file:py-2.5 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-emerald-600 file:text-white hover:file:bg-emerald-700 file:cursor-pointer cursor-pointer border border-slate-200 rounded-xl p-2 bg-white"
+              />
+            </div>
+
+            <div>
+              <label className="block text-xs font-bold text-slate-800 mb-1">
+                Image Alt Text (SEO &amp; Accessibility)
+              </label>
+              <input
+                type="text"
+                name="image_alt"
+                placeholder="e.g. 3D Puff Embroidery Cap Sewout with zero thread breaks"
+                className="w-full p-3 border border-slate-300 rounded-xl text-xs focus:outline-none focus:ring-2 focus:ring-emerald-500 bg-white"
+              />
+              <span className="text-[10px] text-slate-500">Descriptive alt text helps Google Image search ranking and screen readers</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Section 4: Author and Meta Info */}
+        <div className="space-y-4 pt-4 border-t border-slate-100">
+          <h3 className="text-sm font-black text-slate-900 uppercase tracking-wider pb-2 border-b border-slate-100">
+            4. Author &amp; Reading Metadata
           </h3>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">

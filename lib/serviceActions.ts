@@ -26,7 +26,13 @@ function rowToServiceItem(row: any): ServiceItem & { dbId: number } {
     title: row.title,
     tag: row.tag || '',
     badge: row.badge || '',
-    category: row.category || 'Digitizing Services',
+    category: row.category || 'Embroidery Digitizing',
+    subcategory: row.subcategory || '',
+    categoryId: row.category_id || null,
+    subcategoryId: row.subcategory_id || null,
+    metaTitle: row.meta_title || `${row.title} | Commercial Digitizing Studio`,
+    metaDescription: row.meta_description || row.short_desc || '',
+    imageAlt: row.image_alt || row.title || '',
     image: row.image || '',
     secondaryImage: row.secondary_image || '',
     shortDesc: row.short_desc || '',
@@ -109,7 +115,32 @@ export async function createService(formData: FormData) {
   const num = (formData.get('num') as string) || '01';
   const tag = (formData.get('tag') as string) || '';
   const badge = (formData.get('badge') as string) || '';
-  const category = (formData.get('category') as string) || 'Digitizing Services';
+  
+  // Category & Subcategory resolution
+  const category_id_raw = (formData.get('category_id') as string) || '';
+  const subcategory_id_raw = (formData.get('subcategory_id') as string) || '';
+  const category_id = category_id_raw ? parseInt(category_id_raw, 10) : null;
+  const subcategory_id = subcategory_id_raw ? parseInt(subcategory_id_raw, 10) : null;
+
+  let category = (formData.get('category') as string) || '';
+  let subcategory = (formData.get('subcategory') as string) || '';
+
+  // Look up category / subcategory names if IDs provided
+  if (category_id) {
+    const [cRows]: any = await pool.query('SELECT name FROM service_categories WHERE id = ?', [category_id]);
+    if (cRows.length > 0) category = cRows[0].name;
+  }
+  if (subcategory_id) {
+    const [scRows]: any = await pool.query('SELECT name FROM service_categories WHERE id = ?', [subcategory_id]);
+    if (scRows.length > 0) subcategory = scRows[0].name;
+  }
+  if (!category) category = 'Embroidery Digitizing';
+
+  // SEO Fields
+  const meta_title = ((formData.get('meta_title') as string) || `${title} | Commercial Digitizing Studio`).trim();
+  const meta_description = ((formData.get('meta_description') as string) || '').trim();
+  const image_alt = ((formData.get('image_alt') as string) || title).trim();
+
   const short_desc = (formData.get('short_desc') as string) || '';
   const turnaround = (formData.get('turnaround') as string) || '6–8 Hours';
   const revisions = (formData.get('revisions') as string) || '100% Free & Unlimited';
@@ -176,8 +207,8 @@ export async function createService(formData: FormData) {
 
   await pool.query(
     `INSERT INTO services 
-     (service_id, slug, num, title, tag, badge, category, image, secondary_image, short_desc, full_desc, key_highlights, sub_offerings, fabrics, machine_formats, turnaround, revisions, target_industries, sort_order, is_active)
-     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1)`,
+     (service_id, slug, num, title, tag, badge, category, subcategory, category_id, subcategory_id, meta_title, meta_description, image, image_alt, secondary_image, short_desc, full_desc, key_highlights, sub_offerings, fabrics, machine_formats, turnaround, revisions, target_industries, sort_order, is_active)
+     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1)`,
     [
       service_id,
       slug,
@@ -186,7 +217,13 @@ export async function createService(formData: FormData) {
       tag,
       badge,
       category,
+      subcategory,
+      category_id,
+      subcategory_id,
+      meta_title,
+      meta_description || short_desc,
       image,
+      image_alt,
       secondary_image,
       short_desc,
       JSON.stringify(full_desc),
@@ -218,7 +255,30 @@ export async function updateService(id: number, formData: FormData) {
   const num = (formData.get('num') as string) || '01';
   const tag = (formData.get('tag') as string) || '';
   const badge = (formData.get('badge') as string) || '';
-  const category = (formData.get('category') as string) || 'Digitizing Services';
+  
+  // Category & Subcategory resolution
+  const category_id_raw = (formData.get('category_id') as string) || '';
+  const subcategory_id_raw = (formData.get('subcategory_id') as string) || '';
+  const category_id = category_id_raw ? parseInt(category_id_raw, 10) : null;
+  const subcategory_id = subcategory_id_raw ? parseInt(subcategory_id_raw, 10) : null;
+
+  let category = (formData.get('category') as string) || '';
+  let subcategory = (formData.get('subcategory') as string) || '';
+
+  if (category_id) {
+    const [cRows]: any = await pool.query('SELECT name FROM service_categories WHERE id = ?', [category_id]);
+    if (cRows.length > 0) category = cRows[0].name;
+  }
+  if (subcategory_id) {
+    const [scRows]: any = await pool.query('SELECT name FROM service_categories WHERE id = ?', [subcategory_id]);
+    if (scRows.length > 0) subcategory = scRows[0].name;
+  }
+
+  // SEO Fields
+  const meta_title = ((formData.get('meta_title') as string) || `${title} | Commercial Digitizing Studio`).trim();
+  const meta_description = ((formData.get('meta_description') as string) || '').trim();
+  const image_alt = ((formData.get('image_alt') as string) || title).trim();
+
   const short_desc = (formData.get('short_desc') as string) || '';
   const turnaround = (formData.get('turnaround') as string) || '6–8 Hours';
   const revisions = (formData.get('revisions') as string) || '100% Free & Unlimited';
@@ -288,6 +348,12 @@ export async function updateService(id: number, formData: FormData) {
     'tag = ?',
     'badge = ?',
     'category = ?',
+    'subcategory = ?',
+    'category_id = ?',
+    'subcategory_id = ?',
+    'meta_title = ?',
+    'meta_description = ?',
+    'image_alt = ?',
     'short_desc = ?',
     'full_desc = ?',
     'key_highlights = ?',
@@ -309,6 +375,12 @@ export async function updateService(id: number, formData: FormData) {
     tag,
     badge,
     category,
+    subcategory,
+    category_id,
+    subcategory_id,
+    meta_title,
+    meta_description || short_desc,
+    image_alt,
     short_desc,
     JSON.stringify(full_desc),
     JSON.stringify(key_highlights),

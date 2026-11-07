@@ -115,20 +115,7 @@ export default async function EditBlogPostPage({
             </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-4 gap-4">
-            <div>
-              <label className="block text-xs font-bold text-slate-700 mb-1">
-                URL Slug <span className="text-red-500">*</span>
-              </label>
-              <input
-                type="text"
-                name="slug"
-                required
-                defaultValue={post.slug}
-                className="w-full p-3 border border-slate-300 rounded-xl text-xs focus:outline-none focus:ring-2 focus:ring-emerald-500"
-              />
-            </div>
-
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <div>
               <label className="block text-xs font-bold text-slate-700 mb-1">
                 Sort Order
@@ -169,49 +156,121 @@ export default async function EditBlogPostPage({
           </div>
         </div>
 
-        {/* Section 2: Image File Upload */}
+        {/* Section 2: SEO Meta & URL Configuration */}
+        <div className="space-y-4 pt-4 border-t border-slate-100">
+          <div className="flex items-center justify-between pb-2 border-b border-slate-100">
+            <h3 className="text-sm font-black text-slate-900 uppercase tracking-wider">
+              2. SEO &amp; Meta Configuration (Page Optimization)
+            </h3>
+            <span className="text-[11px] font-semibold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200">
+              SEO Best Practice
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label className="block text-xs font-bold text-slate-700 mb-1">
+                Custom URL Slug <span className="text-red-500">*</span>
+              </label>
+              <input
+                type="text"
+                name="slug"
+                required
+                defaultValue={post.slug}
+                className="w-full p-3 border border-slate-300 rounded-xl text-xs focus:outline-none focus:ring-2 focus:ring-emerald-500 font-mono"
+              />
+              <span className="text-[10px] text-slate-400">Public link: /blog/{post.slug}</span>
+            </div>
+
+            <div>
+              <label className="block text-xs font-bold text-slate-700 mb-1">
+                Meta Title (SEO Title Tag)
+              </label>
+              <input
+                type="text"
+                name="meta_title"
+                defaultValue={post.meta_title || post.title}
+                placeholder="Target 50–60 characters for search results"
+                className="w-full p-3 border border-slate-300 rounded-xl text-xs focus:outline-none focus:ring-2 focus:ring-emerald-500"
+              />
+              <span className="text-[10px] text-slate-400">Shown in browser tabs &amp; Google search snippets</span>
+            </div>
+          </div>
+
+          <div>
+            <label className="block text-xs font-bold text-slate-700 mb-1">
+              Meta Description (Search Snippet)
+            </label>
+            <textarea
+              name="meta_description"
+              rows={2}
+              defaultValue={post.meta_description || post.excerpt}
+              placeholder="Recommended 120–160 characters summary for Google search results..."
+              className="w-full p-3 border border-slate-300 rounded-xl text-xs focus:outline-none focus:ring-2 focus:ring-emerald-500"
+            />
+            <span className="text-[10px] text-slate-400">Target concise summary for Google SERP snippet</span>
+          </div>
+        </div>
+
+        {/* Section 3: Article Photo & Image Alt */}
         <div className="space-y-4 pt-4 border-t border-slate-100">
           <h3 className="text-sm font-black text-slate-900 uppercase tracking-wider pb-2 border-b border-slate-100">
-            2. Article Photo &amp; Thumbnail
+            3. Article Photo &amp; Image Alt Text
           </h3>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 items-center">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 items-start">
             {/* Current Image Display */}
             <div className="sm:col-span-1">
               <label className="block text-xs font-bold text-slate-700 mb-1.5">
                 Current Photo
               </label>
-              <div className="rounded-xl overflow-hidden border border-slate-200 bg-slate-100 aspect-video relative max-w-xs shadow-xs">
+              <div className="rounded-xl overflow-hidden border border-slate-200 bg-slate-100 aspect-video relative shadow-xs">
                 <img
                   src={post.image || '/blog/blog-hero-banner.jpg'}
-                  alt={post.title}
+                  alt={post.image_alt || post.title}
                   className="w-full h-full object-cover"
                 />
               </div>
             </div>
 
-            {/* Upload Input */}
-            <div className="sm:col-span-2 p-4 rounded-2xl bg-emerald-50/50 border border-emerald-200/80 space-y-2">
-              <label className="block text-xs font-bold text-slate-800">
-                Upload New Image (Optional)
-              </label>
-              <p className="text-[11px] text-slate-500">
-                Choose a new image file to replace the current photo. Leave blank to keep existing image.
-              </p>
-              <input
-                type="file"
-                name="image"
-                accept="image/*"
-                className="w-full text-xs text-slate-600 file:mr-4 file:py-2.5 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-emerald-600 file:text-white hover:file:bg-emerald-700 file:cursor-pointer cursor-pointer border border-slate-200 rounded-xl p-2 bg-white"
-              />
+            {/* Upload Input & Alt text */}
+            <div className="sm:col-span-2 p-4 rounded-2xl bg-emerald-50/50 border border-emerald-200/80 space-y-3">
+              <div>
+                <label className="block text-xs font-bold text-slate-800 mb-1">
+                  Upload New Image (Optional)
+                </label>
+                <p className="text-[11px] text-slate-500 mb-2">
+                  Choose a new image file to replace the current photo. Leave blank to keep existing image.
+                </p>
+                <input
+                  type="file"
+                  name="image"
+                  accept="image/*"
+                  className="w-full text-xs text-slate-600 file:mr-4 file:py-2.5 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-emerald-600 file:text-white hover:file:bg-emerald-700 file:cursor-pointer cursor-pointer border border-slate-200 rounded-xl p-2 bg-white"
+                />
+              </div>
+
+              <div>
+                <label className="block text-xs font-bold text-slate-800 mb-1">
+                  Image Alt Text (SEO &amp; Accessibility)
+                </label>
+                <input
+                  type="text"
+                  name="image_alt"
+                  defaultValue={post.image_alt || post.title}
+                  placeholder="e.g. 3D Puff Embroidery Cap Sewout with zero thread breaks"
+                  className="w-full p-3 border border-slate-300 rounded-xl text-xs focus:outline-none focus:ring-2 focus:ring-emerald-500 bg-white"
+                />
+                <span className="text-[10px] text-slate-500">Descriptive alt text helps Google Image search ranking and screen readers</span>
+              </div>
             </div>
           </div>
         </div>
 
-        {/* Section 3: Author and Meta Info */}
+        {/* Section 4: Author and Meta Info */}
         <div className="space-y-4 pt-4 border-t border-slate-100">
           <h3 className="text-sm font-black text-slate-900 uppercase tracking-wider pb-2 border-b border-slate-100">
-            3. Author &amp; Reading Metadata
+            4. Author &amp; Reading Metadata
           </h3>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">

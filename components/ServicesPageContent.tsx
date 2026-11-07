@@ -5,86 +5,73 @@ import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ServiceDetailModal from '@/components/ServiceDetailModal';
-import { ServiceItem } from '@/types/service';
+import { ServiceItem, ServiceCategory } from '@/types/service';
 import {
   servicesData as fallbackServicesData,
-  serviceCategories,
   serviceWorkflowSteps,
   servicesFaqList,
 } from '@/data/servicesData';
-
 import { FaqItem } from '@/types/faq';
 
 interface ServicesPageContentProps {
   initialServices?: ServiceItem[];
   faqs?: FaqItem[];
+  categoriesHierarchy?: ServiceCategory[];
   initialCategory?: string;
+  initialSubcategory?: string;
   initialSearch?: string;
 }
 
 export default function ServicesPageContent({
   initialServices,
   faqs: propFaqs,
+  categoriesHierarchy = [],
   initialCategory,
+  initialSubcategory,
   initialSearch,
 }: ServicesPageContentProps) {
   const servicesData = initialServices && initialServices.length > 0 ? initialServices : fallbackServicesData;
   const faqs = propFaqs && propFaqs.length > 0 ? propFaqs : servicesFaqList;
 
-  // Derive all distinct categories dynamically from services data
-  const availableCategories = useMemo(() => {
-    const fromData = Array.from(new Set(servicesData.map((s) => s.category).filter(Boolean)));
-    const merged = ['All', ...serviceCategories.filter((c) => c !== 'All')];
-    fromData.forEach((c) => {
-      if (!merged.includes(c)) merged.push(c);
-    });
-    return merged;
-  }, [servicesData]);
-
-  // Normalize initial category from prop or query param if matched
-  const resolvedInitialCategory = useMemo(() => {
-    if (!initialCategory) return 'All';
-    const decoded = decodeURIComponent(initialCategory).trim().toLowerCase();
-    const matched = availableCategories.find(
-      (c) => c.toLowerCase() === decoded || c.toLowerCase().replace(/\s+/g, '-') === decoded
-    );
-    return matched || 'All';
-  }, [initialCategory, availableCategories]);
-
-  const [selectedCategory, setSelectedCategory] = useState<string>(resolvedInitialCategory);
+  // Active Category & Subcategory Filter state
+  const [selectedCategory, setSelectedCategory] = useState<string>(initialCategory || 'All');
+  const [selectedSubcategory, setSelectedSubcategory] = useState<string>(initialSubcategory || 'All');
   const [searchQuery, setSearchQuery] = useState<string>(initialSearch || '');
   const [selectedService, setSelectedService] = useState<ServiceItem | null>(null);
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
 
-  // Sync state if initialCategory changes (e.g. navigation)
+  const handleRequestQuote = (serviceTitle: string) => {
+    window.location.href = `/contact#quote`;
+  };
+
+  // Synchronize state if URL query params change
   useEffect(() => {
     if (initialCategory) {
-      const decoded = decodeURIComponent(initialCategory).trim().toLowerCase();
-      const matched = availableCategories.find(
-        (c) => c.toLowerCase() === decoded || c.toLowerCase().replace(/\s+/g, '-') === decoded
-      );
-      if (matched) {
-        setSelectedCategory(matched);
-      }
+      setSelectedCategory(decodeURIComponent(initialCategory));
+    } else {
+      setSelectedCategory('All');
     }
-  }, [initialCategory, availableCategories]);
 
-  // Check URL search params or hash on client side as well
+    if (initialSubcategory) {
+      setSelectedSubcategory(decodeURIComponent(initialSubcategory));
+    } else {
+      setSelectedSubcategory('All');
+    }
+  }, [initialCategory, initialSubcategory]);
+
+  // Read client-side search params on first mount if any
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const params = new URLSearchParams(window.location.search);
       const catParam = params.get('category');
-      if (catParam) {
-        const decoded = decodeURIComponent(catParam).trim().toLowerCase();
-        const matched = availableCategories.find(
-          (c) => c.toLowerCase() === decoded || c.toLowerCase().replace(/\s+/g, '-') === decoded
-        );
-        if (matched) setSelectedCategory(matched);
-      }
+      const subParam = params.get('subcategory');
       const searchParam = params.get('search');
+
+      if (catParam) setSelectedCategory(decodeURIComponent(catParam));
+      if (subParam) setSelectedSubcategory(decodeURIComponent(subParam));
       if (searchParam) setSearchQuery(searchParam);
     }
-  }, [availableCategories]);
+  }, []);
 
   // Auto-detect hash in URL to scroll and open service modal
   useEffect(() => {
@@ -105,13 +92,38 @@ export default function ServicesPageContent({
     }
   }, [servicesData]);
 
-  // Filter services by category and search
+  // Find subcategories belonging to current selected category
+  const activeCategoryObject = useMemo(() => {
+    if (selectedCategory === 'All') return null;
+    return categoriesHierarchy.find(
+      (c) => c.name.toLowerCase() === selectedCategory.toLowerCase() || c.slug === selectedCategory.toLowerCase()
+    );
+  }, [selectedCategory, categoriesHierarchy]);
+
+  const activeSubcategories = useMemo(() => {
+    return activeCategoryObject?.subcategories || [];
+  }, [activeCategoryObject]);
+
+  // Filter services by Category, Subcategory, and Search Query
   const filteredServices = useMemo(() => {
     return servicesData.filter((service) => {
-      const matchesCategory =
-        selectedCategory === 'All' || service.category === selectedCategory;
-      if (!matchesCategory) return false;
+      // 1. Category check
+      if (selectedCategory !== 'All') {
+        const matchesCat =
+          (service.category && service.category.toLowerCase() === selectedCategory.toLowerCase()) ||
+          (activeCategoryObject && service.categoryId === activeCategoryObject.id);
+        if (!matchesCat) return false;
+      }
 
+      // 2. Subcategory check
+      if (selectedSubcategory !== 'All') {
+        const matchesSub =
+          (service.subcategory && service.subcategory.toLowerCase() === selectedSubcategory.toLowerCase()) ||
+          service.category.toLowerCase() === selectedSubcategory.toLowerCase();
+        if (!matchesSub) return false;
+      }
+
+      // 3. Search query check
       if (!searchQuery.trim()) return true;
       const q = searchQuery.toLowerCase().trim();
       return (
@@ -119,6 +131,8 @@ export default function ServicesPageContent({
         (service.shortDesc && service.shortDesc.toLowerCase().includes(q)) ||
         (service.tag && service.tag.toLowerCase().includes(q)) ||
         (service.badge && service.badge.toLowerCase().includes(q)) ||
+        (service.category && service.category.toLowerCase().includes(q)) ||
+        (service.subcategory && service.subcategory.toLowerCase().includes(q)) ||
         (service.fabrics && service.fabrics.some((f) => f.toLowerCase().includes(q))) ||
         (service.subOfferings &&
           service.subOfferings.some(
@@ -128,353 +142,372 @@ export default function ServicesPageContent({
           ))
       );
     });
-  }, [servicesData, selectedCategory, searchQuery]);
-
-  const handleRequestQuote = (serviceTitle: string) => {
-    window.location.href = `/contact#quote`;
-  };
+  }, [servicesData, selectedCategory, selectedSubcategory, searchQuery, activeCategoryObject]);
 
   return (
     <main className="min-h-screen bg-white text-slate-800 font-sans selection:bg-emerald-500 selection:text-white overflow-x-hidden">
       {/* 1. Header (Navbar & Announcement Bar) */}
       <Header />
 
-      {/* 2. Cityo-Style Breadcrumb & Title Hero Banner with Background Image */}
-      <section className="relative w-full min-h-[190px] sm:min-h-[230px] lg:min-h-[260px] flex items-center bg-slate-950 border-b border-emerald-900/40 overflow-hidden">
-        {/* Background Image Container with Light Translucent Overlay for high photo visibility */}
+      {/* 2. Hero Banner with Clean Overlay */}
+      <section className="relative w-full min-h-[200px] sm:min-h-[240px] lg:min-h-[280px] flex items-center bg-slate-950 border-b border-emerald-900/40 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
             src="/services/services-hero-banner.jpg"
             alt="NewLeaf Skills Commercial Embroidery Digitizing Services Banner"
             className="w-full h-full object-cover object-center filter brightness-95 contrast-105"
           />
-          {/* Light Cinematic Gradient Overlay so background embroidery is clearly visible */}
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-950/70 via-slate-950/45 to-slate-950/30" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(16,185,129,0.22),transparent_70%)]" />
-          <div className="absolute inset-0 opacity-10 pointer-events-none bg-[radial-gradient(#10b981_1px,transparent_1px)] [background-size:16px_16px]" />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-950/80 via-slate-950/60 to-slate-950/40" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(16,185,129,0.25),transparent_70%)]" />
         </div>
 
-        {/* Banner Content: Left Title + Right Breadcrumb (Identical to Cityo WordPress theme) */}
         <div className="w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-20 py-10 sm:py-14 relative z-10">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
-            
-            {/* Left: Prominent Page Identifier "Services" with high contrast against the visible photo */}
-            <div className="space-y-2">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-950/80 border border-emerald-400/60 text-emerald-300 text-[11px] font-extrabold uppercase tracking-widest font-jakarta backdrop-blur-md shadow-lg">
+            <div className="space-y-3 max-w-2xl">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-950/80 border border-emerald-400/60 text-emerald-300 text-[11px] font-extrabold uppercase tracking-widest backdrop-blur-md">
                 <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                <span>Commercial Embroidery Services &amp; Punching Solutions</span>
+                <span>Industrial Punching • 22+ Years Veteran Studio</span>
               </div>
-              
-              <h1 className="font-outfit text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)] flex items-center gap-3">
-                <span className="bg-gradient-to-r from-white via-slate-100 to-emerald-200 bg-clip-text text-transparent drop-shadow-md">
-                  Services
-                </span>
-                <span className="text-emerald-400 text-2xl sm:text-4xl font-light drop-shadow">/</span>
-                <span className="text-white sm:text-emerald-300 text-xl sm:text-3xl font-bold font-jakarta drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
-                  Master Offerings
-                </span>
+              <h1 className="text-3xl sm:text-5xl font-black text-white tracking-tight drop-shadow-md">
+                Commercial Services &amp; Catalog
               </h1>
-
-              <p className="text-slate-100 text-xs sm:text-sm font-medium max-w-xl leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.95)]">
-                Serving commercial apparel decorators, embroidery factories, and garment brands worldwide with 22+ years of manual punching excellence and zero thread breaks.
+              <p className="text-slate-200 text-xs sm:text-sm leading-relaxed max-w-xl drop-shadow">
+                Explore hand-crafted manual punching, 3D foam puff, vector conversion, and sacred vestments embroidery optimized for multi-head production.
               </p>
             </div>
 
-            {/* Right: Breadcrumb Navigation with Active Page Highlight */}
+            {/* Breadcrumb Navigation */}
             <div className="flex-shrink-0">
-              <nav
-                aria-label="Breadcrumb"
-                className="inline-flex items-center gap-2.5 px-4 sm:px-5 py-2.5 rounded-2xl bg-slate-950/85 border border-slate-700/90 backdrop-blur-md text-xs font-semibold shadow-2xl"
-              >
-                <Link
-                  href="/"
-                  className="text-slate-300 hover:text-white transition-colors flex items-center gap-1.5 hover:underline"
-                >
-                  <span>🏠</span>
-                  <span>Home</span>
-                </Link>
+              <nav aria-label="Breadcrumb" className="bg-slate-900/80 backdrop-blur-md px-4 py-2.5 rounded-2xl border border-slate-700/60 text-xs font-semibold text-slate-300 flex items-center gap-2 flex-wrap shadow-lg">
+                <Link href="/" className="hover:text-emerald-400 transition">Home</Link>
                 <span className="text-slate-500 font-bold">/</span>
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl bg-emerald-500/25 text-emerald-300 border border-emerald-400/50 font-bold tracking-wide shadow-2xs">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl bg-emerald-500/25 text-emerald-300 border border-emerald-400/50 font-bold tracking-wide">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
                   <span>Services</span>
                 </span>
+                {selectedCategory !== 'All' && (
+                  <>
+                    <span className="text-slate-500 font-bold">/</span>
+                    <span className="text-emerald-200 font-bold">{selectedCategory}</span>
+                  </>
+                )}
+                {selectedSubcategory !== 'All' && (
+                  <>
+                    <span className="text-slate-500 font-bold">/</span>
+                    <span className="text-white font-bold">{selectedSubcategory}</span>
+                  </>
+                )}
               </nav>
             </div>
-
           </div>
         </div>
-
-        {/* Bottom subtle glowing border */}
-        <div className="absolute bottom-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-emerald-500/80 to-transparent z-10" />
       </section>
 
-      {/* 2b. Metrics & Quick Actions Bar */}
-      <section className="bg-slate-50 border-b border-slate-200/80 px-4 sm:px-8 lg:px-20 py-8">
+      {/* 3. Main Catalog Container with Category Sidebar & Services Grid */}
+      <section id="service-catalog" className="px-4 sm:px-8 lg:px-20 py-10 sm:py-14 bg-slate-50/70 border-b border-slate-200">
         <div className="max-w-7xl mx-auto space-y-6">
-          {/* Quick Metrics Bar (Clean Luxury Light) */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
-            <div className="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/90 shadow-xs hover:shadow-md transition">
-              <div className="text-2xl sm:text-3xl font-black text-emerald-700 font-mono">22+ Years</div>
-              <div className="text-xs font-extrabold text-slate-900 uppercase tracking-wider mt-0.5">Industry Expertise</div>
-              <p className="text-[11px] text-slate-500 mt-1">Manual punching with zero auto-software flaws</p>
-            </div>
 
-            <div className="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/90 shadow-xs hover:shadow-md transition">
-              <div className="text-2xl sm:text-3xl font-black text-emerald-700 font-mono">6–8 Hours</div>
-              <div className="text-xs font-extrabold text-slate-900 uppercase tracking-wider mt-0.5">Fast Turnaround</div>
-              <p className="text-[11px] text-slate-500 mt-1">Super rush 2-hour delivery available on request</p>
-            </div>
-
-            <div className="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/90 shadow-xs hover:shadow-md transition">
-              <div className="text-2xl sm:text-3xl font-black text-emerald-700 font-mono">1,000 SPM</div>
-              <div className="text-xs font-extrabold text-slate-900 uppercase tracking-wider mt-0.5">Machine Validated</div>
-              <p className="text-[11px] text-slate-500 mt-1">Tajima, Barudan, Brother, Melco &amp; SWF ready</p>
-            </div>
-
-            <div className="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/90 shadow-xs hover:shadow-md transition">
-              <div className="text-2xl sm:text-3xl font-black text-emerald-700 font-mono">100% Free</div>
-              <div className="text-xs font-extrabold text-slate-900 uppercase tracking-wider mt-0.5">Unlimited Revisions</div>
-              <p className="text-[11px] text-slate-500 mt-1">Guaranteed until your machine runs clean</p>
-            </div>
-          </div>
-
-          {/* Quick Action Buttons */}
-          <div className="flex flex-wrap items-center justify-between gap-3 pt-2">
-            <div className="flex flex-wrap items-center gap-3">
-              <a
-                href="#service-catalog"
-                className="bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold px-6 py-3 rounded-xl text-xs sm:text-sm shadow-md shadow-emerald-600/20 hover:scale-105 transition-all flex items-center gap-2"
-              >
-                <span>Explore All Services</span>
-                <span>↓</span>
-              </a>
-              <a
-                href="/#faq"
-                className="bg-white hover:bg-slate-50 text-emerald-800 font-extrabold px-6 py-3 rounded-xl text-xs sm:text-sm border border-emerald-300 shadow-2xs hover:border-emerald-500 transition-all flex items-center gap-2"
-              >
-                <span>Instant Free Quote &amp; Sewout</span>
-                <span>⚡</span>
-              </a>
-            </div>
-            <a
-              href="tel:+919923790520"
-              className="text-slate-700 hover:text-emerald-700 font-bold px-4 py-3 text-xs sm:text-sm flex items-center gap-1.5 transition"
-            >
-              <span>📞 +91 99237 90520</span>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* 3. Sticky Filter Toolbar & Live Search */}
-      <section id="service-catalog" className="sticky top-[95px] z-30 bg-white/95 backdrop-blur-xl border-b border-slate-200 px-4 sm:px-8 lg:px-20 py-3.5 shadow-2xs transition-all">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-3">
-          {/* Category Filter Pills */}
-          <div className="flex items-center gap-1.5 sm:gap-2 overflow-x-auto pb-1 md:pb-0 scrollbar-none">
-            {availableCategories.map((cat) => {
-              const count =
-                cat === 'All'
-                  ? servicesData.length
-                  : servicesData.filter((s) => s.category === cat).length;
-              const isActive = selectedCategory === cat;
-              return (
+          {/* Search Bar & Stats Header */}
+          <div className="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200/90 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="flex items-center gap-2 w-full sm:w-auto">
+              <span className="text-sm font-black text-slate-900">
+                Found {filteredServices.length} {filteredServices.length === 1 ? 'Service' : 'Services'}
+              </span>
+              {(selectedCategory !== 'All' || selectedSubcategory !== 'All' || searchQuery) && (
                 <button
-                  key={cat}
-                  onClick={() => setSelectedCategory(cat)}
-                  className={`px-3.5 py-1.5 sm:py-2 rounded-xl text-xs font-bold transition-all duration-200 flex items-center gap-1.5 whitespace-nowrap cursor-pointer ${
-                    isActive
-                      ? 'bg-emerald-600 text-white shadow-md shadow-emerald-600/25 ring-2 ring-emerald-300'
-                      : 'bg-slate-100 text-slate-700 hover:bg-emerald-50 hover:text-emerald-800 border border-slate-200/80'
-                  }`}
+                  onClick={() => {
+                    setSelectedCategory('All');
+                    setSelectedSubcategory('All');
+                    setSearchQuery('');
+                  }}
+                  className="text-[11px] font-bold text-red-600 bg-red-50 hover:bg-red-100 px-2.5 py-1 rounded-lg border border-red-200 transition cursor-pointer"
                 >
-                  <span>{cat}</span>
-                  <span
-                    className={`text-[10px] px-1.5 py-0.5 rounded-full font-mono ${
-                      isActive ? 'bg-white/20 text-white' : 'bg-slate-200 text-slate-600'
+                  ✕ Reset Filters
+                </button>
+              )}
+            </div>
+
+            {/* Quick Live Search Input */}
+            <div className="relative w-full sm:w-80">
+              <input
+                type="text"
+                placeholder="Search services, fabrics, formats..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2 text-xs font-medium text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:bg-white transition"
+              />
+              {searchQuery ? (
+                <button
+                  onClick={() => setSearchQuery('')}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 text-xs"
+                >
+                  ✕
+                </button>
+              ) : (
+                <span className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 text-xs pointer-events-none">
+                  🔍
+                </span>
+              )}
+            </div>
+          </div>
+
+          {/* 2-Column Layout: Left Category & Subcategory Sidebar + Right Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+
+            {/* Left Sidebar: Categories Navigation */}
+            <aside className="lg:col-span-3 space-y-5 lg:sticky lg:top-24">
+              <div className="bg-white rounded-2xl border border-slate-200/90 shadow-sm p-4 space-y-3">
+                <div className="flex items-center justify-between pb-2 border-b border-slate-100">
+                  <h3 className="font-extrabold text-xs uppercase tracking-wider text-slate-700 flex items-center gap-1.5">
+                    <span>📁</span>
+                    <span>Service Categories</span>
+                  </h3>
+                  <span className="text-[10px] bg-slate-100 text-slate-500 font-bold px-1.5 py-0.5 rounded">
+                    {categoriesHierarchy.length}
+                  </span>
+                </div>
+
+                {/* Category Links */}
+                <div className="space-y-1">
+                  <button
+                    onClick={() => {
+                      setSelectedCategory('All');
+                      setSelectedSubcategory('All');
+                    }}
+                    className={`w-full text-left px-3 py-2 rounded-xl text-xs font-bold transition flex items-center justify-between cursor-pointer ${
+                      selectedCategory === 'All'
+                        ? 'bg-emerald-600 text-white shadow-xs'
+                        : 'text-slate-700 hover:bg-slate-100'
                     }`}
                   >
-                    {count}
-                  </span>
-                </button>
-              );
-            })}
-          </div>
-
-          {/* Live Search Bar */}
-          <div className="relative w-full md:w-72">
-            <input
-              type="text"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search services, fabrics, formats..."
-              className="w-full bg-slate-50 text-slate-900 placeholder-slate-400 text-xs sm:text-sm rounded-xl pl-9 pr-8 py-2 border border-slate-200 focus:outline-none focus:border-emerald-500 focus:bg-white focus:ring-2 focus:ring-emerald-500/20 transition-all"
-            />
-            <span className="absolute left-3 top-2.5 text-slate-400 text-xs">🔍</span>
-            {searchQuery && (
-              <button
-                onClick={() => setSearchQuery('')}
-                className="absolute right-2.5 top-2 text-slate-400 hover:text-slate-700 text-xs p-1"
-                aria-label="Clear search"
-              >
-                ✕
-              </button>
-            )}
-          </div>
-        </div>
-      </section>
-
-      {/* 4. Core Services Showcase Grid */}
-      <section className="px-4 sm:px-8 lg:px-20 py-12 lg:py-16 bg-slate-50/60">
-        <div className="max-w-7xl mx-auto space-y-8">
-          {/* Count and Reset Toolbar */}
-          <div className="flex items-center justify-between text-xs text-slate-500 border-b border-slate-200 pb-3">
-            <div>
-              Showing <span className="font-bold text-emerald-800">{filteredServices.length}</span> specialized services
-              {selectedCategory !== 'All' && (
-                <span> in <strong className="text-slate-800">{selectedCategory}</strong></span>
-              )}
-              {searchQuery && (
-                <span> matching &ldquo;<strong className="text-emerald-700">{searchQuery}</strong>&rdquo;</span>
-              )}
-            </div>
-
-            {(selectedCategory !== 'All' || searchQuery) && (
-              <button
-                onClick={() => {
-                  setSelectedCategory('All');
-                  setSearchQuery('');
-                }}
-                className="text-emerald-700 hover:text-emerald-900 font-bold underline cursor-pointer text-xs"
-              >
-                Reset Filters
-              </button>
-            )}
-          </div>
-
-          {/* Empty state if search returns nothing */}
-          {filteredServices.length === 0 && (
-            <div className="text-center py-16 bg-white rounded-3xl border border-slate-200 p-8 space-y-4 shadow-sm">
-              <div className="text-5xl">🧵</div>
-              <h3 className="text-xl font-bold text-slate-900">No services match your search</h3>
-              <p className="text-slate-500 text-xs sm:text-sm max-w-md mx-auto">
-                We couldn&apos;t find any service matching &ldquo;{searchQuery}&rdquo;. Try another keyword or browse all our offerings.
-              </p>
-              <button
-                onClick={() => {
-                  setSelectedCategory('All');
-                  setSearchQuery('');
-                }}
-                className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-6 py-2.5 rounded-xl text-xs transition"
-              >
-                Show All Services
-              </button>
-            </div>
-          )}
-
-          {/* Services Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredServices.map((service) => (
-              <div
-                key={service.id || service.slug}
-                id={service.slug}
-                className="relative bg-white text-slate-800 rounded-3xl border border-slate-200/90 p-6 sm:p-7 flex flex-col transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-emerald-400 group shadow-sm overflow-hidden"
-              >
-                {/* Number Badge Top Right */}
-                <div className="absolute top-4 right-4 z-10 w-8 h-8 rounded-full bg-emerald-100 text-emerald-800 font-black text-xs flex items-center justify-center border border-emerald-200 shadow-2xs group-hover:bg-emerald-600 group-hover:text-white transition-colors duration-300">
-                  {service.num}
-                </div>
-
-                {/* Showcase Image Frame */}
-                <div className="flex justify-center mb-5 w-full">
-                  <div
-                    onClick={() => setSelectedService(service)}
-                    className="relative h-64 sm:h-72 aspect-[7/10] rounded-2xl overflow-hidden border border-slate-200 shadow-md group-hover:shadow-lg group-hover:border-emerald-500/50 transition-all duration-300 bg-slate-50 cursor-pointer"
-                  >
-                    <img
-                      src={service.image}
-                      alt={service.title}
-                      className="w-full h-full object-cover scale-[1.03] transition-transform duration-500 ease-out group-hover:scale-108"
-                      loading="lazy"
-                    />
-                    <div className="absolute bottom-2 left-2 right-2 bg-slate-900/80 backdrop-blur-md text-emerald-300 text-[10px] font-bold px-2 py-1 rounded-md text-center border border-emerald-500/30">
-                      {service.tag}
-                    </div>
-                  </div>
-                </div>
-
-                {/* Category & Badge */}
-                <div className="flex flex-wrap items-center gap-1.5 mb-2.5">
-                  <span className="inline-block bg-emerald-100 text-emerald-800 font-bold text-[10px] sm:text-[11px] px-2.5 py-1 rounded-md border border-emerald-300/60 uppercase tracking-wider">
-                    {service.category}
-                  </span>
-                  {service.badge && (
-                    <span className="inline-block bg-slate-100 text-slate-600 font-semibold text-[10px] px-2 py-0.5 rounded-md border border-slate-200">
-                      {service.badge.split('•')[0]}
-                    </span>
-                  )}
-                </div>
-
-                {/* Title & Short Description */}
-                <h2
-                  onClick={() => setSelectedService(service)}
-                  className="text-xl font-black text-slate-900 mb-2 group-hover:text-emerald-700 transition-colors tracking-tight cursor-pointer"
-                >
-                  {service.title}
-                </h2>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4 flex-grow">
-                  {service.shortDesc}
-                </p>
-
-                {/* Sub-Offerings Quick Bullet List */}
-                {service.subOfferings && service.subOfferings.length > 0 && (
-                  <div className="bg-slate-50 p-3 rounded-xl border border-slate-200/80 mb-5 space-y-1.5 text-xs">
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500 block">
-                      ✨ Popular Applications:
-                    </span>
-                    <div className="space-y-1 text-slate-700 font-medium">
-                      {service.subOfferings.slice(0, 3).map((sub, i) => (
-                        <div key={i} className="flex items-center gap-1.5 text-[11px]">
-                          <span className="text-emerald-600 font-bold">✓</span>
-                          <span className="truncate">{sub.title}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-                {/* Technical Specs Footer */}
-                <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500 mb-4">
-                  <span className="flex items-center gap-1">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-                    <span>Turnaround: <strong className="text-slate-800">{service.turnaround ? service.turnaround.split('(')[0] : '6–8 Hours'}</strong></span>
-                  </span>
-                  <span className="font-mono text-emerald-700 font-bold text-[11px]">100% Free Edits</span>
-                </div>
-
-                {/* Action Buttons */}
-                <div className="grid grid-cols-2 gap-2 mt-auto">
-                  <Link
-                    href={`/services/${service.slug}`}
-                    className="w-full bg-slate-100 hover:bg-emerald-50 text-slate-800 hover:text-emerald-800 font-bold text-xs py-2.5 px-3 rounded-xl border border-slate-200 hover:border-emerald-300 transition flex items-center justify-center gap-1 cursor-pointer"
-                  >
-                    <span>View Page</span>
-                    <span>→</span>
-                  </Link>
-                  <button
-                    onClick={() => setSelectedService(service)}
-                    className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs py-2.5 px-3 rounded-xl shadow-xs transition hover:shadow-md cursor-pointer flex items-center justify-center gap-1"
-                  >
-                    <span>Quick Preview</span>
-                    <span>🔍</span>
+                    <span>All Services Catalog</span>
+                    <span className="text-[10px] font-mono opacity-80">{servicesData.length}</span>
                   </button>
+
+                  {categoriesHierarchy.map((cat) => {
+                    const isSelected = selectedCategory.toLowerCase() === cat.name.toLowerCase();
+                    const serviceCount = servicesData.filter(
+                      (s) => (s.category && s.category.toLowerCase() === cat.name.toLowerCase()) || s.categoryId === cat.id
+                    ).length;
+
+                    return (
+                      <div key={cat.id} className="space-y-0.5">
+                        <button
+                          onClick={() => {
+                            setSelectedCategory(cat.name);
+                            setSelectedSubcategory('All');
+                          }}
+                          className={`w-full text-left px-3 py-2 rounded-xl text-xs font-bold transition flex items-center justify-between cursor-pointer ${
+                            isSelected
+                              ? 'bg-emerald-600 text-white shadow-xs'
+                              : 'text-slate-700 hover:bg-slate-100'
+                          }`}
+                        >
+                          <span className="truncate">{cat.name}</span>
+                          <span className={`text-[10px] font-mono px-1.5 py-0.5 rounded-full ${isSelected ? 'bg-white/20 text-white' : 'bg-slate-100 text-slate-600'}`}>
+                            {serviceCount}
+                          </span>
+                        </button>
+
+                        {/* Subcategories (Visible if this parent is selected or has subcategories) */}
+                        {cat.subcategories && cat.subcategories.length > 0 && isSelected && (
+                          <div className="pl-3 pt-1 pb-1 space-y-1 border-l-2 border-emerald-400 ml-3">
+                            <button
+                              onClick={() => setSelectedSubcategory('All')}
+                              className={`w-full text-left px-2.5 py-1 rounded-lg text-[11px] font-bold transition cursor-pointer ${
+                                selectedSubcategory === 'All'
+                                  ? 'text-emerald-700 bg-emerald-50 font-black'
+                                  : 'text-slate-500 hover:text-slate-800'
+                              }`}
+                            >
+                              • All in {cat.name}
+                            </button>
+                            {cat.subcategories.map((sub) => {
+                              const isSubActive = selectedSubcategory.toLowerCase() === sub.name.toLowerCase();
+                              return (
+                                <button
+                                  key={sub.id}
+                                  onClick={() => setSelectedSubcategory(sub.name)}
+                                  className={`w-full text-left px-2.5 py-1 rounded-lg text-[11px] font-semibold transition cursor-pointer flex items-center justify-between ${
+                                    isSubActive
+                                      ? 'text-emerald-800 bg-emerald-100/80 font-black'
+                                      : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
+                                  }`}
+                                >
+                                  <span className="truncate">↳ {sub.name}</span>
+                                  {isSubActive && <span className="text-emerald-600 font-bold">✓</span>}
+                                </button>
+                              );
+                            })}
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
-            ))}
+
+              {/* Need Custom Digitizing Callout */}
+              <div className="bg-gradient-to-br from-emerald-900 to-teal-950 text-white rounded-2xl p-5 space-y-3 shadow-md">
+                <span className="text-[10px] font-black uppercase tracking-wider text-emerald-300 bg-emerald-800/60 px-2 py-0.5 rounded">
+                  ⚡ Custom Quote
+                </span>
+                <h4 className="font-extrabold text-sm leading-tight">Need a custom sewout or punch file?</h4>
+                <p className="text-[11px] text-emerald-100/80 leading-relaxed">
+                  Send your logo or rough artwork. We evaluate stitch paths and return an estimate in 15 minutes.
+                </p>
+                <Link
+                  href="/contact#quote"
+                  className="block text-center bg-white hover:bg-emerald-50 text-slate-950 font-black text-xs py-2.5 px-3 rounded-xl shadow-xs transition"
+                >
+                  Request Quote Now →
+                </Link>
+              </div>
+            </aside>
+
+            {/* Right Column: Services Listing Grid (9 cols) */}
+            <div className="lg:col-span-9 space-y-6">
+
+              {/* Filter Active Breadcrumb Indicator */}
+              {(selectedCategory !== 'All' || selectedSubcategory !== 'All') && (
+                <div className="bg-emerald-50 border border-emerald-200/80 rounded-xl p-3 flex items-center justify-between flex-wrap gap-2 text-xs">
+                  <div className="flex items-center gap-2">
+                    <span className="font-bold text-emerald-900">Active View:</span>
+                    <span className="bg-white text-emerald-800 px-2 py-0.5 rounded-md font-extrabold border border-emerald-300">
+                      {selectedCategory}
+                    </span>
+                    {selectedSubcategory !== 'All' && (
+                      <>
+                        <span className="text-emerald-500">↳</span>
+                        <span className="bg-emerald-600 text-white px-2 py-0.5 rounded-md font-bold">
+                          {selectedSubcategory}
+                        </span>
+                      </>
+                    )}
+                  </div>
+                  <button
+                    onClick={() => {
+                      setSelectedCategory('All');
+                      setSelectedSubcategory('All');
+                    }}
+                    className="text-emerald-700 font-bold hover:underline cursor-pointer"
+                  >
+                    Clear Filter
+                  </button>
+                </div>
+              )}
+
+              {/* Empty state if search returns nothing */}
+              {filteredServices.length === 0 && (
+                <div className="text-center py-16 bg-white rounded-3xl border border-slate-200 p-8 space-y-4 shadow-sm">
+                  <div className="text-5xl">🧵</div>
+                  <h3 className="text-xl font-bold text-slate-900">No services found in this category</h3>
+                  <p className="text-slate-500 text-xs sm:text-sm max-w-md mx-auto">
+                    We currently don&apos;t have active services listed under this selection. Try browsing all services.
+                  </p>
+                  <button
+                    onClick={() => {
+                      setSelectedCategory('All');
+                      setSelectedSubcategory('All');
+                      setSearchQuery('');
+                    }}
+                    className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-6 py-2.5 rounded-xl text-xs transition cursor-pointer"
+                  >
+                    View All Services Catalog
+                  </button>
+                </div>
+              )}
+
+              {/* Services Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {filteredServices.map((service) => (
+                  <div
+                    key={service.id || service.slug}
+                    id={service.slug}
+                    className="relative bg-white text-slate-800 rounded-2xl border border-slate-200/90 p-5 flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:border-emerald-400 group shadow-sm overflow-hidden"
+                  >
+                    {/* Number Badge Top Right */}
+                    <div className="absolute top-4 right-4 z-10 w-7 h-7 rounded-full bg-emerald-100 text-emerald-800 font-black text-xs flex items-center justify-center border border-emerald-200 shadow-2xs group-hover:bg-emerald-600 group-hover:text-white transition-colors duration-300">
+                      {service.num}
+                    </div>
+
+                    {/* Showcase Image Frame */}
+                    <div className="flex justify-center mb-4 w-full">
+                      <Link
+                        href={`/services/${service.slug}`}
+                        className="relative h-56 sm:h-64 aspect-[7/10] rounded-xl overflow-hidden border border-slate-200 shadow-xs group-hover:shadow-md group-hover:border-emerald-500/50 transition-all duration-300 bg-slate-50 block w-full"
+                      >
+                        <img
+                          src={service.image}
+                          alt={service.imageAlt || service.title}
+                          className="w-full h-full object-cover scale-[1.02] transition-transform duration-500 ease-out group-hover:scale-108"
+                          loading="lazy"
+                        />
+                        <div className="absolute bottom-2 left-2 right-2 bg-slate-900/80 backdrop-blur-md text-emerald-300 text-[10px] font-bold px-2 py-1 rounded-md text-center border border-emerald-500/30 truncate">
+                          {service.tag}
+                        </div>
+                      </Link>
+                    </div>
+
+                    {/* Category & Subcategory Pill */}
+                    <div className="flex flex-wrap items-center gap-1.5 mb-2">
+                      <span className="inline-block bg-emerald-100 text-emerald-800 font-bold text-[10px] px-2 py-0.5 rounded-md border border-emerald-300/60 uppercase tracking-wider">
+                        {service.category}
+                      </span>
+                      {service.subcategory && (
+                        <span className="inline-block bg-slate-100 text-slate-600 font-semibold text-[10px] px-2 py-0.5 rounded-md border border-slate-200">
+                          {service.subcategory}
+                        </span>
+                      )}
+                    </div>
+
+                    {/* Title & Short Description */}
+                    <Link
+                      href={`/services/${service.slug}`}
+                      className="text-base font-black text-slate-900 mb-1.5 group-hover:text-emerald-700 transition-colors tracking-tight line-clamp-2"
+                    >
+                      {service.title}
+                    </Link>
+                    <p className="text-xs text-slate-600 leading-relaxed mb-4 flex-grow line-clamp-3">
+                      {service.shortDesc}
+                    </p>
+
+                    {/* Technical Specs Footer */}
+                    <div className="pt-2.5 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500 mb-3">
+                      <span className="flex items-center gap-1 truncate">
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0"></span>
+                        <span className="truncate">{service.turnaround ? service.turnaround.split('(')[0] : '6–8 Hours'}</span>
+                      </span>
+                      <span className="font-mono text-emerald-700 font-bold text-[10px] shrink-0">100% Free Edits</span>
+                    </div>
+
+                    {/* Action Buttons */}
+                    <div className="grid grid-cols-2 gap-2 mt-auto">
+                      <Link
+                        href={`/services/${service.slug}`}
+                        className="w-full bg-slate-100 hover:bg-emerald-50 text-slate-800 hover:text-emerald-800 font-bold text-xs py-2 px-2 rounded-xl border border-slate-200 hover:border-emerald-300 transition flex items-center justify-center gap-1"
+                      >
+                        <span>Details</span>
+                        <span>→</span>
+                      </Link>
+                      <button
+                        onClick={() => setSelectedService(service)}
+                        className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs py-2 px-2 rounded-xl shadow-xs transition hover:shadow-md cursor-pointer flex items-center justify-center gap-1"
+                      >
+                        <span>Quick Look</span>
+                        <span>🔍</span>
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+            </div>
           </div>
         </div>
       </section>
 
-      {/* 5. 5-Step Commercial Digitizing & Stitching Workflow */}
+      {/* 4. 5-Step Commercial Digitizing & Stitching Workflow */}
       <section className="px-4 sm:px-8 lg:px-20 py-16 bg-white border-t border-slate-200">
         <div className="max-w-7xl mx-auto space-y-12">
           <div className="text-center max-w-2xl mx-auto space-y-3">
@@ -499,15 +532,15 @@ export default function ServicesPageContent({
                   <span className="w-10 h-10 rounded-xl bg-white shadow-2xs border border-slate-200 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
                     {stepItem.icon}
                   </span>
-                  <span className="font-mono font-black text-xs text-emerald-700 bg-emerald-100/70 px-2 py-0.5 rounded-md">
-                    STEP {stepItem.step}
+                  <span className="text-xs font-black text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">
+                    Step {stepItem.step}
                   </span>
                 </div>
                 <div>
-                  <h3 className="font-extrabold text-slate-900 text-sm mb-1.5 group-hover:text-emerald-700 transition-colors">
+                  <h3 className="font-extrabold text-sm text-slate-900 mb-1 group-hover:text-emerald-700 transition-colors">
                     {stepItem.title}
                   </h3>
-                  <p className="text-xs text-slate-600 leading-relaxed">
+                  <p className="text-xs text-slate-500 leading-relaxed">
                     {stepItem.desc}
                   </p>
                 </div>
@@ -517,188 +550,134 @@ export default function ServicesPageContent({
         </div>
       </section>
 
-      {/* 6. Supported Industrial Machine File Formats */}
-      <section className="bg-slate-900 text-white py-12 px-4 sm:px-8 lg:px-20 text-center border-y border-slate-800">
-        <div className="max-w-7xl mx-auto space-y-5">
-          <div className="inline-block">
-            <span className="text-[11px] uppercase tracking-widest text-emerald-400 font-extrabold bg-slate-800/80 px-3 py-1 rounded-full border border-emerald-500/30">
-              Universal Machine Compatibility
-            </span>
-          </div>
-          <h2 className="text-2xl sm:text-3xl font-black text-white">
-            Supported Commercial Machine Formats &amp; Software
-          </h2>
-          <p className="text-slate-400 text-xs sm:text-sm max-w-2xl mx-auto">
-            Every digitized file is exported in your machine&apos;s native format along with an authentic PDF sewout proof and color stop sequence sheet.
-          </p>
-
-          <div className="flex flex-wrap items-center justify-center gap-3 pt-2 text-xs font-mono">
-            {[
-              { format: 'DST', brand: 'Tajima Commercial' },
-              { format: 'PES', brand: 'Brother / Babylock' },
-              { format: 'EXP', brand: 'Melco / Bernina' },
-              { format: 'JEF', brand: 'Janome / Elna' },
-              { format: 'DSB', brand: 'Barudan Industrial' },
-              { format: 'VP3', brand: 'Husqvarna Viking' },
-              { format: 'XXX', brand: 'Compucon / Singer' },
-              { format: 'EMB', brand: 'Wilcom Source File' },
-              { format: 'PDF', brand: 'Color Stop Sheet' },
-            ].map((item) => (
-              <div
-                key={item.format}
-                className="bg-slate-800/90 px-4 py-2 rounded-xl border border-slate-700/80 hover:border-emerald-400 transition"
-              >
-                <div className="font-bold text-emerald-400 text-sm">{item.format}</div>
-                <div className="text-[10px] text-slate-400">{item.brand}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 7. Why Businesses Worldwide Choose New Leaf Skills */}
-      <section className="px-4 sm:px-8 lg:px-20 py-16 bg-slate-50/70 border-b border-slate-200">
-        <div className="max-w-7xl mx-auto space-y-12">
-          <div className="text-center max-w-3xl mx-auto space-y-3">
-            <span className="inline-block bg-emerald-100 text-emerald-800 font-extrabold text-xs px-3.5 py-1 rounded-full border border-emerald-300 uppercase tracking-widest">
-              🌟 The New Leaf Skills Advantage
-            </span>
-            <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
-              Why 10,000+ Apparel Decorators Trust Our Services
-            </h2>
-            <p className="text-slate-600 text-xs sm:text-sm">
-              Auto-software digitizing creates bird nests, uneven density, and broken needles. Here is why veteran manual punching saves you thousands in production hours.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md hover:border-emerald-400 transition space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold text-lg">
-                ⚡
-              </div>
-              <h3 className="font-extrabold text-slate-900 text-base">Zero Thread Breaks Guarantee</h3>
-              <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
-                We calibrate stitch density (0.38mm–0.42mm) and program gradual angle turns so multi-head machines can cruise at 1,000 stitches per minute without operator interruptions.
-              </p>
-            </div>
-
-            <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md hover:border-emerald-400 transition space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold text-lg">
-                🎯
-              </div>
-              <h3 className="font-extrabold text-slate-900 text-base">Fabric Pull &amp; Push Physics</h3>
-              <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
-                Knits stretch differently than structured cap buckram or delicate silks. Our files feature customized underlay types and pull offsets that completely eliminate fabric puckering.
-              </p>
-            </div>
-
-            <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md hover:border-emerald-400 transition space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold text-lg">
-                🌍
-              </div>
-              <h3 className="font-extrabold text-slate-900 text-base">24/7 Global Delivery &amp; Revisions</h3>
-              <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
-                With punchers active around the clock across the USA, UK, Canada, Australia, Europe, and India, your urgent production files are returned in 6–8 hours with 100% free edits.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 8. Frequently Asked Questions Accordion */}
-      <section className="px-4 sm:px-8 lg:px-20 py-16 bg-white border-b border-slate-200">
+      {/* 5. Production FAQs Accordion (Category & Subcategory Aware) */}
+      <section id="faq" className="px-4 sm:px-8 lg:px-20 py-16 bg-slate-50 border-t border-slate-200 scroll-mt-20">
         <div className="max-w-4xl mx-auto space-y-8">
-          <div className="text-center space-y-3">
-            <span className="inline-block bg-emerald-100 text-emerald-800 font-extrabold text-xs px-3.5 py-1 rounded-full border border-emerald-300 uppercase tracking-widest">
-              💬 Service Questions Answered
+          <div className="text-center space-y-2">
+            <span className="text-xs font-bold text-emerald-700 uppercase tracking-wider bg-emerald-100 px-3 py-1 rounded-full">
+              Common Questions
             </span>
-            <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
-              Frequently Asked Questions About Our Services
+            <h2 className="text-2xl sm:text-4xl font-black text-slate-900">
+              Commercial Services FAQ
             </h2>
-            <p className="text-slate-600 text-xs sm:text-sm">
-              Answers regarding file formats, production turnaround, stitch quality, and order customization.
+            <p className="text-slate-500 text-xs sm:text-sm">
+              {selectedCategory !== 'All' ? (
+                <>Showing questions for <strong className="text-emerald-700">{selectedCategory}</strong>{selectedSubcategory !== 'All' ? <> &bull; <span className="text-slate-700">{selectedSubcategory}</span></> : ''}</>
+              ) : (
+                'Find answers to all commercial embroidery digitizing, file formats, turnarounds, and machine questions.'
+              )}
             </p>
           </div>
+
+          {/* Category Filter Chips inside FAQ */}
+          {categoriesHierarchy.length > 0 && (
+            <div className="flex flex-wrap items-center justify-center gap-2 pt-1">
+              <button
+                type="button"
+                onClick={() => {
+                  setSelectedCategory('All');
+                  setSelectedSubcategory('All');
+                }}
+                className={`px-3 py-1 rounded-xl text-xs font-bold transition cursor-pointer ${
+                  selectedCategory === 'All'
+                    ? 'bg-emerald-600 text-white shadow-xs'
+                    : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'
+                }`}
+              >
+                All FAQs ({faqs.length})
+              </button>
+              {categoriesHierarchy.map((cat) => {
+                const countInCat = faqs.filter(
+                  (f: any) =>
+                    (f.category && f.category.toLowerCase() === cat.name.toLowerCase()) ||
+                    f.category_id === cat.id
+                ).length;
+                if (countInCat === 0) return null;
+                const isCatSelected = selectedCategory.toLowerCase() === cat.name.toLowerCase();
+                return (
+                  <button
+                    key={cat.id}
+                    type="button"
+                    onClick={() => {
+                      setSelectedCategory(cat.name);
+                      setSelectedSubcategory('All');
+                    }}
+                    className={`px-3 py-1 rounded-xl text-xs font-bold transition cursor-pointer flex items-center gap-1.5 ${
+                      isCatSelected
+                        ? 'bg-emerald-600 text-white shadow-xs'
+                        : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'
+                    }`}
+                  >
+                    <span>{cat.name}</span>
+                    <span className="text-[10px] opacity-80">({countInCat})</span>
+                  </button>
+                );
+              })}
+            </div>
+          )}
 
           <div className="space-y-3">
-            {faqs.map((faq, index) => {
-              const isOpen = openFaqIndex === index;
-              return (
+            {(() => {
+              // Filter faqs by selected category/subcategory if user chose one
+              const displayedFaqs = faqs.filter((faq: any) => {
+                if (selectedCategory !== 'All') {
+                  const matchCat =
+                    (faq.category && faq.category.toLowerCase() === selectedCategory.toLowerCase()) ||
+                    (activeCategoryObject && faq.category_id === activeCategoryObject.id);
+                  if (!matchCat) return false;
+                }
+                if (selectedSubcategory !== 'All') {
+                  const matchSub =
+                    (faq.subcategory && faq.subcategory.toLowerCase() === selectedSubcategory.toLowerCase()) ||
+                    faq.subcategory_id === activeCategoryObject?.subcategories?.find((s) => s.name.toLowerCase() === selectedSubcategory.toLowerCase())?.id;
+                  if (!matchSub) return false;
+                }
+                return true;
+              });
+
+              const finalFaqsList = displayedFaqs.length > 0 ? displayedFaqs : faqs;
+
+              return finalFaqsList.map((faq: any, idx: number) => (
                 <div
-                  key={index}
-                  className="rounded-2xl border border-slate-200 overflow-hidden transition-all bg-slate-50/70"
+                  key={faq.id || idx}
+                  className="bg-white rounded-2xl border border-slate-200/90 overflow-hidden shadow-xs hover:border-emerald-300 transition-all"
                 >
                   <button
-                    onClick={() => setOpenFaqIndex(isOpen ? null : index)}
-                    className="w-full text-left p-5 font-extrabold text-slate-900 text-sm sm:text-base flex items-center justify-between gap-4 hover:text-emerald-700 transition cursor-pointer"
+                    onClick={() => setOpenFaqIndex(openFaqIndex === idx ? null : idx)}
+                    className="w-full text-left p-4 sm:p-5 flex items-center justify-between gap-4 font-bold text-xs sm:text-sm text-slate-800 hover:text-emerald-700 transition cursor-pointer"
                   >
-                    <span className="flex items-center gap-2">
-                      <span className="text-emerald-600 text-xs">Q.</span>
-                      <span>{faq.question}</span>
-                    </span>
-                    <span className="w-6 h-6 rounded-full bg-slate-200 flex items-center justify-center text-xs font-bold text-slate-700 flex-shrink-0">
-                      {isOpen ? '−' : '+'}
+                    <div className="space-y-1 pr-2">
+                      <div className="flex items-center gap-2 flex-wrap">
+                        {faq.category && (
+                          <span className="text-[10px] font-bold uppercase tracking-wider bg-emerald-50 text-emerald-800 px-2 py-0.5 rounded border border-emerald-200">
+                            {faq.category}
+                          </span>
+                        )}
+                        {faq.subcategory && (
+                          <span className="text-[10px] font-semibold text-slate-600 bg-slate-100 px-2 py-0.5 rounded">
+                            ↳ {faq.subcategory}
+                          </span>
+                        )}
+                      </div>
+                      <p className="text-sm font-extrabold text-slate-900">{faq.question}</p>
+                    </div>
+                    <span className="w-7 h-7 rounded-full bg-emerald-50 text-emerald-700 flex items-center justify-center font-black text-sm shrink-0 border border-emerald-200">
+                      {openFaqIndex === idx ? '−' : '+'}
                     </span>
                   </button>
-
-                  {isOpen && (
-                    <div className="px-5 pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-200/60 pt-3 bg-white">
-                      <p>{faq.answer}</p>
+                  {openFaqIndex === idx && (
+                    <div className="px-4 pb-4 sm:px-5 sm:pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
+                      {faq.answer}
                     </div>
                   )}
                 </div>
-              );
-            })}
+              ));
+            })()}
           </div>
         </div>
       </section>
 
-      {/* 9. High-Converting Instant Quote / Consultation CTA Banner */}
-      <section className="px-4 sm:px-8 lg:px-20 py-16 bg-gradient-to-b from-slate-100 via-emerald-50/50 to-slate-100 border-b border-slate-200 relative overflow-hidden">
-        <div className="max-w-4xl mx-auto text-center space-y-6 relative z-10">
-          <span className="inline-flex items-center gap-2 text-emerald-800 text-xs font-black uppercase tracking-wider bg-emerald-100 px-4 py-1.5 rounded-full border border-emerald-300">
-            <span>⚡</span> 6–8 Hour Delivery | 100% Free Virtual Sewout Proof
-          </span>
-
-          <h2 className="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight">
-            Ready to Digitize Your Next Design?
-          </h2>
-
-          <p className="text-slate-600 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
-            Upload your logo, artwork, or garment design. Our veteran punchers will analyze your fabric type and provide a high-precision machine file with zero puckering guaranteed.
-          </p>
-
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-3">
-            <a
-              href="/#faq"
-              className="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold px-8 py-4 rounded-xl text-sm shadow-md shadow-emerald-600/30 hover:scale-105 transition-all flex items-center justify-center gap-2 cursor-pointer"
-            >
-              <span>Get Free Instant Quote</span>
-              <span>⚡</span>
-            </a>
-            <a
-              href="tel:+919923790520"
-              className="w-full sm:w-auto bg-white hover:bg-slate-50 text-slate-800 font-bold px-7 py-4 rounded-xl text-sm border border-slate-300 hover:border-emerald-600 hover:text-emerald-700 transition-all flex items-center justify-center gap-2 cursor-pointer"
-            >
-              <span>📞 Call Us: +91 99237 90520</span>
-            </a>
-          </div>
-
-          <div className="pt-4 flex flex-wrap items-center justify-center gap-6 text-xs text-slate-500 font-medium">
-            <span className="flex items-center gap-1.5">
-              <span className="text-emerald-600 font-bold">✓</span> No Credit Card Required for Quote
-            </span>
-            <span className="flex items-center gap-1.5">
-              <span className="text-emerald-600 font-bold">✓</span> 100% Free Unlimited Minor Revisions
-            </span>
-            <span className="flex items-center gap-1.5">
-              <span className="text-emerald-600 font-bold">✓</span> 24/7 Punching Studio Support
-            </span>
-          </div>
-        </div>
-      </section>
-
-      {/* 10. Interactive Service Detail Modal */}
+      {/* 6. Quick Preview Modal */}
       {selectedService && (
         <ServiceDetailModal
           service={selectedService}
@@ -707,7 +686,7 @@ export default function ServicesPageContent({
         />
       )}
 
-      {/* 11. Footer */}
+      {/* 7. Footer */}
       <Footer />
     </main>
   );

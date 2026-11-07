@@ -131,6 +131,7 @@ function SidebarNavItems({ pathname, handleLogout, onLinkClick }) {
   const pageLinks = [
     { name: 'About Us', href: '/admin/about', Icon: Icons.Building },
     { name: 'Services', href: '/admin/services', Icon: Icons.Briefcase },
+    { name: 'Service Categories', href: '/admin/services/categories', Icon: Icons.Layers },
     { name: 'Our Work', href: '/admin/our-work', Icon: Icons.Palette },
     { name: 'Blog', href: '/admin/blog', Icon: Icons.DocumentText },
     { name: 'FAQs', href: '/admin/faqs', Icon: Icons.QuestionMarkCircle },

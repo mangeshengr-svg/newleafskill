@@ -71,15 +71,41 @@ export default function AboutClient({ initialAbout, servicesList, faqsList }: Ab
   const [formMessage, setFormMessage] = useState<string>('');
   const [formSubmitted, setFormSubmitted] = useState<boolean>(false);
   const [formLoading, setFormLoading] = useState<boolean>(false);
+  const [formError, setFormError] = useState<string>('');
 
-  const handleFormSubmit = (e: React.FormEvent) => {
+  const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setFormError('');
     setFormLoading(true);
 
-    setTimeout(() => {
-      setFormLoading(false);
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          fullName: formName,
+          email: formEmail,
+          phone: formPhone,
+          service: formService,
+          turnaround: formTurnaround,
+          subject: formSubject,
+          message: formMessage,
+          sourcePage: 'About Us Page',
+        }),
+      });
+
+      const data = await res.json();
+      if (!res.ok || !data.success) {
+        throw new Error(data.error || 'Failed to submit inquiry.');
+      }
+
       setFormSubmitted(true);
-    }, 600);
+    } catch (err: any) {
+      console.error(err);
+      setFormError(err.message || 'Something went wrong while submitting.');
+    } finally {
+      setFormLoading(false);
+    }
   };
 
   const handleResetForm = () => {
@@ -88,6 +114,7 @@ export default function AboutClient({ initialAbout, servicesList, faqsList }: Ab
     setFormEmail('');
     setFormPhone('');
     setFormMessage('');
+    setFormError('');
   };
 
   const currentMilestone = useMemo(() => {
@@ -1359,6 +1386,12 @@ export default function AboutClient({ initialAbout, servicesList, faqsList }: Ab
                       ></textarea>
                     </div>
 
+                    {formError && (
+                      <div className="p-3 bg-rose-50 border border-rose-200 text-rose-700 rounded-xl text-xs font-semibold">
+                        ⚠️ {formError}
+                      </div>
+                    )}
+
                     <div className="pt-2">
                       <button
                         type="submit"
@@ -1418,7 +1451,23 @@ export default function AboutClient({ initialAbout, servicesList, faqsList }: Ab
                     onClick={() => setActiveFaq(isOpen ? null : fIdx)}
                     className="w-full p-5 text-left bg-white hover:bg-slate-50 flex items-center justify-between gap-4 font-extrabold text-slate-900 text-sm sm:text-base transition cursor-pointer"
                   >
-                    <span>{faq.question}</span>
+                    <div className="space-y-1 pr-2">
+                      {(faq.category || faq.subcategory) && (
+                        <div className="flex items-center gap-1.5 flex-wrap">
+                          {faq.category && (
+                            <span className="text-[10px] font-bold uppercase tracking-wider bg-emerald-50 text-emerald-800 px-2 py-0.5 rounded border border-emerald-200">
+                              {faq.category}
+                            </span>
+                          )}
+                          {faq.subcategory && (
+                            <span className="text-[10px] font-semibold text-slate-600 bg-slate-100 px-1.5 py-0.5 rounded">
+                              ↳ {faq.subcategory}
+                            </span>
+                          )}
+                        </div>
+                      )}
+                      <p className="text-sm sm:text-base font-extrabold text-slate-900">{faq.question}</p>
+                    </div>
                     <span
                       className={`w-6 h-6 rounded-full bg-emerald-50 text-emerald-700 flex items-center justify-center text-sm font-black transition-transform duration-200 flex-shrink-0 ${
                         isOpen ? 'rotate-180 bg-emerald-600 text-white' : ''

@@ -5,8 +5,12 @@ import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 import { FaqItem } from '@/types/faq';
 
-// 1. Fetch active FAQs (filter by optional page location: 'home', 'contact', 'about', or 'all')
-export async function getActiveFaqs(pageLocation?: string): Promise<FaqItem[]> {
+// 1. Fetch active FAQs (filter by optional page location, category, subcategory)
+export async function getActiveFaqs(
+  pageLocation?: string,
+  category?: string,
+  subcategory?: string
+): Promise<FaqItem[]> {
   try {
     let query = 'SELECT * FROM faqs WHERE is_active = 1';
     const params: any[] = [];
@@ -14,6 +18,16 @@ export async function getActiveFaqs(pageLocation?: string): Promise<FaqItem[]> {
     if (pageLocation && pageLocation !== 'all') {
       query += ' AND (page_location = ? OR page_location = "all")';
       params.push(pageLocation);
+    }
+
+    if (category && category !== 'All') {
+      query += ' AND (category = ? OR category_id = ?)';
+      params.push(category, isNaN(Number(category)) ? null : Number(category));
+    }
+
+    if (subcategory && subcategory !== 'All') {
+      query += ' AND (subcategory = ? OR subcategory_id = ?)';
+      params.push(subcategory, isNaN(Number(subcategory)) ? null : Number(subcategory));
     }
 
     query += ' ORDER BY sort_order ASC, id ASC';
@@ -59,6 +73,11 @@ export async function createFaq(formData: FormData) {
     const question = (formData.get('question') as string)?.trim() || '';
     const answer = (formData.get('answer') as string)?.trim() || '';
     const category = (formData.get('category') as string)?.trim() || 'General';
+    const subcategory = (formData.get('subcategory') as string)?.trim() || null;
+    const category_id_raw = (formData.get('category_id') as string)?.trim();
+    const subcategory_id_raw = (formData.get('subcategory_id') as string)?.trim();
+    const category_id = category_id_raw && !isNaN(Number(category_id_raw)) ? parseInt(category_id_raw, 10) : null;
+    const subcategory_id = subcategory_id_raw && !isNaN(Number(subcategory_id_raw)) ? parseInt(subcategory_id_raw, 10) : null;
     const page_location = (formData.get('page_location') as string)?.trim() || 'all';
     const sort_order = parseInt((formData.get('sort_order') as string) || '0', 10);
     const is_active = formData.get('is_active') === 'on' || formData.get('is_active') === '1' ? 1 : 0;
@@ -68,9 +87,9 @@ export async function createFaq(formData: FormData) {
     }
 
     await pool.query(
-      `INSERT INTO faqs (question, answer, category, page_location, sort_order, is_active)
-       VALUES (?, ?, ?, ?, ?, ?)`,
-      [question, answer, category, page_location, sort_order, is_active]
+      `INSERT INTO faqs (question, answer, category, subcategory, category_id, subcategory_id, page_location, sort_order, is_active)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      [question, answer, category, subcategory, category_id, subcategory_id, page_location, sort_order, is_active]
     );
 
     revalidatePath('/');
@@ -92,6 +111,11 @@ export async function updateFaq(id: number, formData: FormData) {
     const question = (formData.get('question') as string)?.trim() || '';
     const answer = (formData.get('answer') as string)?.trim() || '';
     const category = (formData.get('category') as string)?.trim() || 'General';
+    const subcategory = (formData.get('subcategory') as string)?.trim() || null;
+    const category_id_raw = (formData.get('category_id') as string)?.trim();
+    const subcategory_id_raw = (formData.get('subcategory_id') as string)?.trim();
+    const category_id = category_id_raw && !isNaN(Number(category_id_raw)) ? parseInt(category_id_raw, 10) : null;
+    const subcategory_id = subcategory_id_raw && !isNaN(Number(subcategory_id_raw)) ? parseInt(subcategory_id_raw, 10) : null;
     const page_location = (formData.get('page_location') as string)?.trim() || 'all';
     const sort_order = parseInt((formData.get('sort_order') as string) || '0', 10);
     const is_active = formData.get('is_active') === 'on' || formData.get('is_active') === '1' ? 1 : 0;
@@ -102,9 +126,9 @@ export async function updateFaq(id: number, formData: FormData) {
 
     await pool.query(
       `UPDATE faqs 
-       SET question = ?, answer = ?, category = ?, page_location = ?, sort_order = ?, is_active = ?
+       SET question = ?, answer = ?, category = ?, subcategory = ?, category_id = ?, subcategory_id = ?, page_location = ?, sort_order = ?, is_active = ?
        WHERE id = ?`,
-      [question, answer, category, page_location, sort_order, is_active, id]
+      [question, answer, category, subcategory, category_id, subcategory_id, page_location, sort_order, is_active, id]
     );
 
     revalidatePath('/');

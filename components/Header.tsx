@@ -4,14 +4,35 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
+interface DropdownCategory {
+  id: number;
+  name: string;
+  slug: string;
+  subcategories?: { id: number; name: string; slug: string }[];
+}
+
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
   const [mounted, setMounted] = useState<boolean>(false);
   const [servicesDropdownOpen, setServicesDropdownOpen] = useState<boolean>(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState<boolean>(false);
+  const [categories, setCategories] = useState<DropdownCategory[]>([]);
   const pathname = usePathname();
 
   useEffect(() => {
     setMounted(true);
+
+    // Fetch dynamic categories for dropdown menu
+    fetch('/api/services/categories')
+      .then((res) => res.json())
+      .then((data) => {
+        if (data && Array.isArray(data.categories)) {
+          setCategories(data.categories);
+        }
+      })
+      .catch((err) => {
+        console.error('Header categories fetch error:', err);
+      });
   }, []);
 
   const isOurWork = pathname === '/our-work' || pathname === '/ourwork' || pathname === '/work';
@@ -25,9 +46,9 @@ export default function Header() {
     <header className="sticky top-0 z-50 font-sans">
       {/* TOP ANNOUNCEMENT BAR */}
       <div className="bg-[#0b1324] text-slate-300 px-4 sm:px-6 lg:px-8 xl:px-12 py-2 sm:py-2.5 text-xs border-b border-slate-800/80">
-        <div className="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2 sm:gap-4">
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2 sm:gap-4">
           <div className="flex items-center gap-4 sm:gap-6 font-medium">
-            <a href="tel:+919923790520" className="flex items-center gap-1.5 text-emerald-400 font-bold hover:text-emerald-300 transition">
+            <a href="tel:+919923790520" className="flex items-center gap-1.5 text-emerald-400 font-bold hover:text-emerald-300 transition text-[11px] sm:text-xs">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
               <span>📞 +91 99237 90520</span>
             </a>
@@ -37,9 +58,9 @@ export default function Header() {
           </div>
 
           <div className="flex items-center gap-3">
-            <span className="bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 px-2.5 py-1 rounded-full font-bold text-[10px] uppercase tracking-wider flex items-center gap-1.5">
+            <span className="bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 px-2.5 py-0.5 sm:py-1 rounded-full font-bold text-[9px] sm:text-[10px] uppercase tracking-wider flex items-center gap-1.5">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-              ⚡ Turnaround: 6–8 Hours | Rush 2h
+              ⚡ 6–8h Turnaround | Rush 2h
             </span>
             <span className="hidden md:inline-flex text-[11px] text-slate-400 font-medium">
               ⭐ Trusted by 10,000+ Shops
@@ -88,6 +109,7 @@ export default function Header() {
               </Link>
             </li>
 
+            {/* Services with Multi-Tier Category & Subcategory Mega-Dropdown */}
             <li
               className="relative group"
               onMouseEnter={() => setServicesDropdownOpen(true)}
@@ -112,94 +134,82 @@ export default function Header() {
                 </svg>
               </Link>
 
-              {/* Desktop Hover Dropdown */}
+              {/* Mega Dropdown for Categories & Subcategories */}
               {servicesDropdownOpen && (
-                <div className="absolute top-full left-0 mt-1 w-80 bg-white/98 backdrop-blur-2xl rounded-2xl shadow-2xl border border-slate-200 p-2.5 z-50 animate-in fade-in slide-in-from-top-1 duration-150">
-                  <div className="px-3 py-1.5 text-[10px] font-black uppercase tracking-wider text-slate-400 border-b border-slate-100 flex items-center justify-between">
-                    <span>Commercial Studio Offerings</span>
-                    <span className="text-emerald-700 font-bold">22+ Years</span>
-                  </div>
-                  <div className="py-1 space-y-0.5">
-                    <Link
-                      href="/services/embroidery-digitizing"
-                      onClick={() => setServicesDropdownOpen(false)}
-                      className="flex items-center justify-between p-2 rounded-xl hover:bg-emerald-50 text-slate-700 hover:text-emerald-900 transition group/item"
-                    >
-                      <div>
-                        <div className="font-bold text-xs group-hover/item:text-emerald-800">Embroidery Digitizing</div>
-                        <div className="text-[10px] text-slate-400">Manual hand-punched, 1,000 SPM</div>
-                      </div>
-                      <span className="text-[9px] bg-emerald-100 text-emerald-800 font-bold px-1.5 py-0.5 rounded">Core</span>
-                    </Link>
-
-                    <Link
-                      href="/services/computerized-embroidery"
-                      onClick={() => setServicesDropdownOpen(false)}
-                      className="flex items-center justify-between p-2 rounded-xl hover:bg-emerald-50 text-slate-700 hover:text-emerald-900 transition group/item"
-                    >
-                      <div>
-                        <div className="font-bold text-xs group-hover/item:text-emerald-800">Computerized Embroidery</div>
-                        <div className="text-[10px] text-slate-400">High-speed multi-head production</div>
-                      </div>
-                      <span className="text-[9px] bg-slate-100 text-slate-600 font-bold px-1.5 py-0.5 rounded">Bulk</span>
-                    </Link>
-
-                    <Link
-                      href="/services/vestments-embroidery"
-                      onClick={() => setServicesDropdownOpen(false)}
-                      className="flex items-center justify-between p-2 rounded-xl hover:bg-emerald-50 text-slate-700 hover:text-emerald-900 transition group/item"
-                    >
-                      <div>
-                        <div className="font-bold text-xs group-hover/item:text-emerald-800">Vestments Embroidery</div>
-                        <div className="text-[10px] text-slate-400">Gold bullion sacred robes &amp; stoles</div>
-                      </div>
-                      <span className="text-[9px] bg-purple-100 text-purple-800 font-bold px-1.5 py-0.5 rounded">Sacred</span>
-                    </Link>
-
-                    <Link
-                      href="/services/apparel-logo-digitizing"
-                      onClick={() => setServicesDropdownOpen(false)}
-                      className="flex items-center justify-between p-2 rounded-xl hover:bg-emerald-50 text-slate-700 hover:text-emerald-900 transition group/item"
-                    >
-                      <div>
-                        <div className="font-bold text-xs group-hover/item:text-emerald-800">Apparel Logo Digitizing</div>
-                        <div className="text-[10px] text-slate-400">Polos, hoodies, uniforms &amp; caps</div>
-                      </div>
-                      <span className="text-[9px] bg-blue-100 text-blue-800 font-bold px-1.5 py-0.5 rounded">Uniforms</span>
-                    </Link>
-
-                    <Link
-                      href="/services/custom-logo-digitizing"
-                      onClick={() => setServicesDropdownOpen(false)}
-                      className="flex items-center justify-between p-2 rounded-xl hover:bg-emerald-50 text-slate-700 hover:text-emerald-900 transition group/item"
-                    >
-                      <div>
-                        <div className="font-bold text-xs group-hover/item:text-emerald-800">Custom Logo Digitizing</div>
-                        <div className="text-[10px] text-slate-400">Vector-to-stitch Pantone matching</div>
-                      </div>
-                      <span className="text-[9px] bg-amber-100 text-amber-800 font-bold px-1.5 py-0.5 rounded">Vector</span>
-                    </Link>
-
-                    <Link
-                      href="/services/3d-puff-digitizing"
-                      onClick={() => setServicesDropdownOpen(false)}
-                      className="flex items-center justify-between p-2 rounded-xl hover:bg-emerald-50 text-slate-700 hover:text-emerald-900 transition group/item"
-                    >
-                      <div>
-                        <div className="font-bold text-xs group-hover/item:text-emerald-800">3D Puff Digitizing</div>
-                        <div className="text-[10px] text-slate-400">Raised foam relief for snapbacks</div>
-                      </div>
-                      <span className="text-[9px] bg-rose-100 text-rose-800 font-bold px-1.5 py-0.5 rounded">3D Foam</span>
-                    </Link>
+                <div className="absolute top-full left-0 mt-1 w-[540px] bg-white/98 backdrop-blur-2xl rounded-2xl shadow-2xl border border-slate-200 p-4 z-50 animate-in fade-in slide-in-from-top-1 duration-150">
+                  <div className="px-3 py-2 text-[11px] font-black uppercase tracking-wider text-slate-500 border-b border-slate-100 flex items-center justify-between">
+                    <span className="flex items-center gap-1.5">
+                      <span className="text-emerald-600 font-bold">●</span>
+                      <span>Browse Categories &amp; Subcategories</span>
+                    </span>
+                    <span className="text-emerald-700 font-bold">22+ Years Veteran Digitizing</span>
                   </div>
 
-                  <div className="pt-1.5 mt-1 border-t border-slate-100">
+                  <div className="py-3 grid grid-cols-2 gap-4 max-h-[380px] overflow-y-auto pr-1">
+                    {categories.length > 0 ? (
+                      categories.map((cat) => (
+                        <div key={cat.id} className="space-y-1.5 p-2.5 rounded-xl bg-slate-50/60 border border-slate-100 hover:border-emerald-200 hover:bg-emerald-50/20 transition-all">
+                          <Link
+                            href={`/services?category=${encodeURIComponent(cat.name)}`}
+                            onClick={() => setServicesDropdownOpen(false)}
+                            className="font-extrabold text-xs text-slate-900 hover:text-emerald-700 flex items-center justify-between group/cat"
+                          >
+                            <span className="truncate">{cat.name}</span>
+                            <span className="text-[10px] text-emerald-600 opacity-0 group-hover/cat:opacity-100 transition-opacity">→</span>
+                          </Link>
+
+                          {cat.subcategories && cat.subcategories.length > 0 ? (
+                            <ul className="space-y-1 pl-2 border-l-2 border-emerald-300/60 mt-1">
+                              {cat.subcategories.map((sub) => (
+                                <li key={sub.id}>
+                                  <Link
+                                    href={`/services?category=${encodeURIComponent(cat.name)}&subcategory=${encodeURIComponent(sub.name)}`}
+                                    onClick={() => setServicesDropdownOpen(false)}
+                                    className="text-[11px] text-slate-600 hover:text-emerald-700 block truncate transition-colors py-0.5"
+                                  >
+                                    ↳ {sub.name}
+                                  </Link>
+                                </li>
+                              ))}
+                            </ul>
+                          ) : (
+                            <span className="text-[10px] text-slate-400 italic block pl-1">
+                              Single category
+                            </span>
+                          )}
+                        </div>
+                      ))
+                    ) : (
+                      /* Fallback while loading */
+                      <>
+                        <Link
+                          href="/services/embroidery-digitizing"
+                          onClick={() => setServicesDropdownOpen(false)}
+                          className="p-2.5 rounded-xl hover:bg-emerald-50 text-slate-800 hover:text-emerald-900 transition"
+                        >
+                          <div className="font-bold text-xs">Embroidery Digitizing</div>
+                          <div className="text-[10px] text-slate-400">Cap, Chest, Jacket Back</div>
+                        </Link>
+                        <Link
+                          href="/services/3d-puff-digitizing"
+                          onClick={() => setServicesDropdownOpen(false)}
+                          className="p-2.5 rounded-xl hover:bg-emerald-50 text-slate-800 hover:text-emerald-900 transition"
+                        >
+                          <div className="font-bold text-xs">3D Foam Puff Digitizing</div>
+                          <div className="text-[10px] text-slate-400">Raised foam relief for headwear</div>
+                        </Link>
+                      </>
+                    )}
+                  </div>
+
+                  <div className="pt-2 border-t border-slate-100 flex items-center justify-between">
+                    <span className="text-[11px] text-slate-400">Can&apos;t find what you need?</span>
                     <Link
                       href="/services"
                       onClick={() => setServicesDropdownOpen(false)}
-                      className="flex items-center justify-between p-2.5 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-800 font-extrabold text-xs transition shadow-2xs"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs transition shadow-2xs"
                     >
-                      <span>✨ View All Services Catalog</span>
+                      <span>Explore All Services</span>
                       <span>→</span>
                     </Link>
                   </div>
@@ -248,127 +258,128 @@ export default function Header() {
             <li>
               <Link
                 href="/contact#quote"
-                className="ml-1 px-3.5 py-1.5 rounded-xl bg-emerald-50 text-emerald-800 font-bold border border-emerald-200/80 hover:bg-emerald-100 hover:border-emerald-300 transition shadow-xs flex items-center gap-1.5"
+                className="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-xl text-xs font-black shadow-md shadow-emerald-600/20 hover:scale-[1.02] transition-all inline-flex items-center gap-1.5 ml-2 cursor-pointer"
               >
-                <span>FAQ &amp; Quote</span>
-                <span className="text-emerald-600 font-normal">→</span>
+                <span>Get Free Quote</span>
+                <span>⚡</span>
               </Link>
             </li>
           </ul>
 
-          {/* Mobile menu hamburger toggle button (Visible on tablet & mobile below xl) */}
-          <div className="flex items-center gap-2 xl:hidden">
-            <button
-              type="button"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 sm:p-2.5 rounded-xl text-slate-700 hover:text-emerald-700 hover:bg-slate-100 active:bg-slate-200 transition-all border border-slate-200/80 shadow-xs focus:outline-none focus:ring-2 focus:ring-emerald-500/30"
-              aria-label="Toggle Navigation Menu"
-              aria-expanded={mobileMenuOpen}
+          {/* Right Action on Mobile: Hamburger Button */}
+          <div className="flex xl:hidden items-center gap-2">
+            <Link
+              href="/contact#quote"
+              className="bg-emerald-600 text-white px-3 py-1.5 rounded-lg text-xs font-bold shadow-xs inline-flex items-center gap-1"
             >
-              <svg className="w-6 h-6 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                {mobileMenuOpen ? (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.2" d="M6 18L18 6M6 6l12 12" />
-                ) : (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.2" d="M4 6h16M4 12h16M4 18h16" />
-                )}
-              </svg>
+              <span>Quote</span>
+              <span>⚡</span>
+            </Link>
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="p-2 rounded-xl text-slate-700 hover:bg-slate-100 hover:text-emerald-800 transition focus:outline-none focus:ring-2 focus:ring-emerald-500"
+              aria-label="Toggle mobile menu"
+            >
+              {mobileMenuOpen ? (
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              ) : (
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+              )}
             </button>
           </div>
 
         </div>
 
-        {/* Mobile & Tablet Dropdown Menu */}
+        {/* Mobile Navigation Drawer */}
         {mobileMenuOpen && (
-          <div className="xl:hidden mt-3 pt-3 border-t border-slate-200 bg-white/98 backdrop-blur-2xl rounded-2xl p-4 sm:p-6 shadow-2xl space-y-2 text-sm font-semibold text-slate-700 animate-in fade-in slide-in-from-top-2 duration-200">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5">
+          <div className="xl:hidden mt-3 pt-3 border-t border-slate-200/90 space-y-2 text-sm font-semibold text-slate-700 animate-in fade-in slide-in-from-top-2 duration-200 pb-3 max-h-[80vh] overflow-y-auto">
+            <div className="grid grid-cols-1 gap-1">
               <Link
                 href="/"
                 onClick={() => setMobileMenuOpen(false)}
-                className={`flex items-center justify-between py-2.5 px-3.5 rounded-xl transition ${isHome ? 'bg-emerald-50 text-emerald-800 font-bold' : 'hover:bg-emerald-50 hover:text-emerald-800'
+                className={`flex items-center justify-between py-2.5 px-3.5 rounded-xl transition ${isHome ? 'bg-emerald-100/90 text-emerald-950 font-black ring-1 ring-emerald-400' : 'hover:bg-emerald-50 hover:text-emerald-800'
                   }`}
               >
                 <span>Home</span>
-                <span className="text-xs text-emerald-600 font-normal">Top</span>
+                {isHome && <span className="w-2 h-2 rounded-full bg-emerald-600"></span>}
               </Link>
               <Link
                 href="/about"
                 onClick={() => setMobileMenuOpen(false)}
-                className={`flex items-center justify-between py-2.5 px-3.5 rounded-xl transition ${isAbout ? 'bg-emerald-50 text-emerald-800 font-bold' : 'hover:bg-emerald-50 hover:text-emerald-800'
+                className={`flex items-center justify-between py-2.5 px-3.5 rounded-xl transition ${isAbout ? 'bg-emerald-100/90 text-emerald-950 font-black ring-1 ring-emerald-400' : 'hover:bg-emerald-50 hover:text-emerald-800'
                   }`}
               >
-                <span className="flex items-center gap-1.5">
+                <span className="flex items-center gap-2">
                   <span>About Us</span>
                   <span className="text-[10px] bg-emerald-100 text-emerald-800 font-bold px-1.5 py-0.5 rounded">22+ Yrs</span>
                 </span>
-                <span className="text-xs text-emerald-600 font-bold">Story →</span>
+                {isAbout && <span className="w-2 h-2 rounded-full bg-emerald-600"></span>}
               </Link>
-              <a
-                href="/#comparison"
-                onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-between py-2.5 px-3.5 rounded-xl hover:bg-emerald-50 hover:text-emerald-800 transition"
-              >
-                <span>Quality Inspector</span>
-                <span className="text-xs text-slate-400 font-normal">Compare</span>
-              </a>
+
+              {/* Services Accordion with Categories & Subcategories in Mobile */}
+              <div className="rounded-xl border border-slate-200 bg-slate-50/70 p-2">
+                <button
+                  type="button"
+                  onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                  className="w-full flex items-center justify-between py-2 px-2 text-slate-800 font-bold text-sm"
+                >
+                  <span className="flex items-center gap-2">
+                    <span>💼 Services &amp; Categories</span>
+                    <span className="text-[10px] bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-full font-bold">
+                      {categories.length}
+                    </span>
+                  </span>
+                  <span className={`text-xs transition-transform ${mobileServicesOpen ? 'rotate-180' : ''}`}>▼</span>
+                </button>
+
+                {mobileServicesOpen && (
+                  <div className="mt-2 pt-2 border-t border-slate-200 space-y-2 pl-2">
+                    <Link
+                      href="/services"
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="text-xs font-bold text-emerald-700 bg-emerald-50 p-2 rounded-lg block"
+                    >
+                      ✨ View All Services Catalog
+                    </Link>
+                    {categories.map((c) => (
+                      <div key={c.id} className="space-y-1">
+                        <Link
+                          href={`/services?category=${encodeURIComponent(c.name)}`}
+                          onClick={() => setMobileMenuOpen(false)}
+                          className="font-bold text-xs text-slate-800 hover:text-emerald-700 block"
+                        >
+                          • {c.name}
+                        </Link>
+                        {c.subcategories && c.subcategories.map((sub) => (
+                          <Link
+                            key={sub.id}
+                            href={`/services?category=${encodeURIComponent(c.name)}&subcategory=${encodeURIComponent(sub.name)}`}
+                            onClick={() => setMobileMenuOpen(false)}
+                            className="text-[11px] text-slate-600 pl-4 block py-0.5 hover:text-emerald-700"
+                          >
+                            ↳ {sub.name}
+                          </Link>
+                        ))}
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+
               <Link
                 href="/our-work"
                 onClick={() => setMobileMenuOpen(false)}
-                className={`flex items-center justify-between py-2.5 px-3.5 rounded-xl transition ${isOurWork ? 'bg-emerald-50 text-emerald-800 font-bold' : 'hover:bg-emerald-50 hover:text-emerald-800'
+                className={`flex items-center justify-between py-2.5 px-3.5 rounded-xl transition ${isOurWork ? 'bg-emerald-100/90 text-emerald-950 font-black ring-1 ring-emerald-400' : 'hover:bg-emerald-50 hover:text-emerald-800'
                   }`}
               >
                 <span>Our Work</span>
-                <span className="text-xs text-emerald-600 font-bold">Portfolio →</span>
+                {isOurWork && <span className="w-2 h-2 rounded-full bg-emerald-600"></span>}
               </Link>
-              <a
-                href="/#why-choose-us"
-                onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-between py-2.5 px-3.5 rounded-xl hover:bg-emerald-50 hover:text-emerald-800 transition"
-              >
-                <span>Why Choose Us</span>
-                <span className="text-xs text-slate-400 font-normal">Features</span>
-              </a>
-              <a
-                href="/#live-machine"
-                onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-between py-2.5 px-3.5 rounded-xl hover:bg-emerald-50 hover:text-emerald-800 transition"
-              >
-                <span className="flex items-center gap-2">
-                  <span className="relative flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-400 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-rose-500"></span>
-                  </span>
-                  Live Machine
-                </span>
-                <span className="text-xs text-rose-500 font-bold uppercase tracking-wider">Live</span>
-              </a>
-              <a
-                href="/#categories"
-                onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-between py-2.5 px-3.5 rounded-xl hover:bg-emerald-50 hover:text-emerald-800 transition"
-              >
-                <span>Stitch Categories</span>
-                <span className="text-xs text-slate-400 font-normal">Techniques</span>
-              </a>
-              <Link
-                href="/services"
-                onClick={() => setMobileMenuOpen(false)}
-                className={`flex items-center justify-between py-2.5 px-3.5 rounded-xl transition ${isServices ? 'bg-emerald-50 text-emerald-800 font-bold' : 'hover:bg-emerald-50 hover:text-emerald-800'
-                  }`}
-              >
-                <span className="flex items-center gap-1.5">
-                  <span>Services</span>
-                  <span className="text-[10px] bg-emerald-100 text-emerald-800 font-bold px-1.5 py-0.5 rounded">6 Core</span>
-                </span>
-                <span className="text-xs text-emerald-600 font-bold">Catalog →</span>
-              </Link>
-              <a
-                href="/#pricing"
-                onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-between py-2.5 px-3.5 rounded-xl hover:bg-emerald-50 hover:text-emerald-800 transition"
-              >
-                <span>Pricing</span>
-                <span className="text-xs text-slate-400 font-normal">Rates</span>
-              </a>
+
               <Link
                 href="/blog"
                 onClick={() => setMobileMenuOpen(false)}
@@ -383,19 +394,19 @@ export default function Header() {
                     </span>
                   )}
                 </span>
-                <span className="text-xs text-emerald-700 font-bold">Articles →</span>
+                {isBlog && <span className="w-2 h-2 rounded-full bg-emerald-600"></span>}
               </Link>
               <Link
                 href="/contact"
                 onClick={() => setMobileMenuOpen(false)}
-                className={`flex items-center justify-between py-2.5 px-3.5 rounded-xl transition ${isContact ? 'bg-emerald-50 text-emerald-800 font-bold' : 'hover:bg-emerald-50 hover:text-emerald-800'
+                className={`flex items-center justify-between py-2.5 px-3.5 rounded-xl transition ${isContact ? 'bg-emerald-100/90 text-emerald-950 font-black ring-1 ring-emerald-400' : 'hover:bg-emerald-50 hover:text-emerald-800'
                   }`}
               >
                 <span className="flex items-center gap-1.5">
                   <span>Contact Us</span>
                   <span className="text-[10px] bg-emerald-100 text-emerald-800 font-bold px-1.5 py-0.5 rounded">24/7 Studio</span>
                 </span>
-                <span className="text-xs text-emerald-600 font-bold">Inquiry →</span>
+                {isContact && <span className="w-2 h-2 rounded-full bg-emerald-600"></span>}
               </Link>
             </div>
 

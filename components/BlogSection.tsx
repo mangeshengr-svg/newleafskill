@@ -99,16 +99,18 @@ export default function BlogSection({ blogs }: BlogSectionProps) {
               : (blog.date || 'Recent Guide');
 
             return (
-              <div
+              <Link
                 key={blog.id}
-                onClick={() => setSelectedArticle(blog)}
+                href={`/blog/${blog.slug}`}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="bg-slate-900/90 backdrop-blur-xl rounded-3xl border border-emerald-700/60 overflow-hidden shadow-2xl flex flex-col justify-between transform transition-all duration-500 ease-out hover:-translate-y-2 hover:shadow-[0_25px_50px_-12px_rgba(6,78,59,0.5)] group cursor-pointer"
               >
                 <div>
                   <div className="relative h-48 overflow-hidden bg-slate-950">
                     <img
                       src={blog.image || '/blog/blog-hero-banner.jpg'}
-                      alt={blog.title}
+                      alt={blog.imageAlt || blog.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition duration-700"
                     />
                     <span className="absolute top-3 left-3 bg-emerald-600 text-white font-bold text-[10px] uppercase px-3 py-1 rounded-lg shadow">
@@ -130,7 +132,7 @@ export default function BlogSection({ blogs }: BlogSectionProps) {
                     Read Full Article &rarr;
                   </span>
                 </div>
-              </div>
+              </Link>
             );
           })}
         </div>

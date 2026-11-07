@@ -17,6 +17,8 @@ async function setupBlogsTable() {
       id INT AUTO_INCREMENT PRIMARY KEY,
       slug VARCHAR(255) NOT NULL UNIQUE,
       title VARCHAR(255) NOT NULL,
+      meta_title VARCHAR(255) NULL,
+      meta_description TEXT NULL,
       excerpt TEXT NOT NULL,
       category VARCHAR(100) NOT NULL,
       tags JSON NOT NULL,
@@ -25,6 +27,7 @@ async function setupBlogsTable() {
       date VARCHAR(100) NOT NULL,
       read_time VARCHAR(50) NOT NULL,
       image VARCHAR(255) NOT NULL,
+      image_alt VARCHAR(255) NULL,
       featured TINYINT DEFAULT 0,
       content JSON NOT NULL,
       key_takeaways JSON NULL,
@@ -55,11 +58,13 @@ async function setupBlogsTable() {
         const p = posts[i];
         await pool.query(
           `INSERT INTO blogs 
-           (slug, title, excerpt, category, tags, author, author_role, date, read_time, image, featured, content, key_takeaways, comments_count, sort_order, is_active)
-           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1)`,
+           (slug, title, meta_title, meta_description, excerpt, category, tags, author, author_role, date, read_time, image, image_alt, featured, content, key_takeaways, comments_count, sort_order, is_active)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1)`,
           [
             p.slug,
             p.title,
+            p.metaTitle || p.title,
+            p.metaDescription || p.excerpt,
             p.excerpt,
             p.category,
             JSON.stringify(p.tags || []),
@@ -68,6 +73,7 @@ async function setupBlogsTable() {
             p.date || 'October 20, 2026',
             p.readTime || '4 min read',
             p.image || '/blog/blog-hero-banner.jpg',
+            p.imageAlt || p.title,
             p.featured ? 1 : 0,
             JSON.stringify(p.content || []),
             JSON.stringify(p.keyTakeaways || []),

@@ -18,8 +18,58 @@ export default function QuoteFaqSection({
   contactContent,
 }: QuoteFaqSectionProps) {
   const [quoteSubmitted, setQuoteSubmitted] = useState<boolean>(false);
-  const [turnaroundSpeed, setTurnaroundSpeed] = useState<string>('Standard (6-8 Hours)');
+  const [turnaroundSpeed, setTurnaroundSpeed] = useState<string>('Standard (6–8 Hours)');
+  const [garment, setGarment] = useState<string>('');
+  const [contactInfo, setContactInfo] = useState<string>('');
+  const [instructions, setInstructions] = useState<string>('');
+  const [file, setFile] = useState<File | null>(null);
+  const [fileName, setFileName] = useState<string>('');
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+  const [submitError, setSubmitError] = useState<string>('');
   const [openFaq, setOpenFaq] = useState<number | null>(0);
+
+  const handleSubmitQuote = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setSubmitError('');
+    setIsSubmitting(true);
+
+    try {
+      const formData = new FormData();
+      formData.append('service', selectedService);
+      formData.append('turnaround', turnaroundSpeed);
+      formData.append('format', garment ? `Garment/Fabric: ${garment}` : '');
+      formData.append('email', contactInfo);
+      formData.append('phone', contactInfo);
+      formData.append('subject', `Free Quote Request: ${selectedService}`);
+      formData.append('message', `Target Garment/Fabric: ${garment || 'Not specified'}\nInstructions/Dimensions: ${instructions || 'None'}`);
+      formData.append('sourcePage', 'Home / Services Quote Section');
+      if (file) {
+        formData.append('file', file);
+      }
+
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        body: formData,
+      });
+
+      const data = await res.json();
+      if (!res.ok || !data.success) {
+        throw new Error(data.error || 'Failed to submit quote request. Please try again.');
+      }
+
+      setQuoteSubmitted(true);
+      setGarment('');
+      setContactInfo('');
+      setInstructions('');
+      setFile(null);
+      setFileName('');
+    } catch (err: any) {
+      console.error(err);
+      setSubmitError(err.message || 'Something went wrong while submitting.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   const defaultFaqs = [
     {
@@ -47,7 +97,9 @@ export default function QuoteFaqSection({
   const activeFaqs = propFaqs && propFaqs.length > 0
     ? propFaqs.map((f: any) => ({
         q: f.question || f.q,
-        a: f.answer || f.a
+        a: f.answer || f.a,
+        category: f.category,
+        subcategory: f.subcategory,
       }))
     : defaultFaqs;
 
@@ -97,10 +149,7 @@ export default function QuoteFaqSection({
               </div>
             ) : (
               <form
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  setQuoteSubmitted(true);
-                }}
+                onSubmit={handleSubmitQuote}
                 className="space-y-5 text-xs sm:text-sm"
               >
                 <div className="grid sm:grid-cols-2 gap-5">
@@ -140,6 +189,8 @@ export default function QuoteFaqSection({
                     <input
                       type="text"
                       placeholder="e.g. Structured Cap, Pique Polo, Hoodie"
+                      value={garment}
+                      onChange={(e) => setGarment(e.target.value)}
                       required
                       className="w-full bg-slate-50/70 border border-slate-300 rounded-xl px-4 py-3 text-xs sm:text-sm font-medium text-slate-800 outline-none focus:border-emerald-600 transition placeholder:text-slate-400 shadow-sm"
                     />
@@ -150,6 +201,8 @@ export default function QuoteFaqSection({
                     <input
                       type="text"
                       placeholder="name@company.com or phone"
+                      value={contactInfo}
+                      onChange={(e) => setContactInfo(e.target.value)}
                       required
                       className="w-full bg-slate-50/70 border border-slate-300 rounded-xl px-4 py-3 text-xs sm:text-sm font-medium text-slate-800 outline-none focus:border-emerald-600 transition placeholder:text-slate-400 shadow-sm"
                     />
@@ -158,12 +211,30 @@ export default function QuoteFaqSection({
 
                 {/* Upload Zone */}
                 <div>
-                  <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-700 mb-1.5">Upload Design File</label>
+                  <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-700 mb-1.5">Upload Design File (Optional)</label>
                   <label className="border-2 border-dashed border-emerald-300 hover:border-emerald-600 bg-slate-50/50 p-6 text-center rounded-2xl cursor-pointer transition block group shadow-sm">
-                    <input type="file" className="hidden" />
+                    <input
+                      type="file"
+                      className="hidden"
+                      onChange={(e) => {
+                        if (e.target.files && e.target.files[0]) {
+                          setFile(e.target.files[0]);
+                          setFileName(e.target.files[0].name);
+                        } else {
+                          setFile(null);
+                          setFileName('');
+                        }
+                      }}
+                    />
                     <div className="text-2xl mb-1 group-hover:scale-110 transition">📁</div>
-                    <p className="text-xs sm:text-sm font-bold text-slate-800">Click or drag &amp; drop design file here</p>
-                    <p className="text-[11px] text-slate-500 mt-1">Accepts PNG, JPG, PDF, AI, EPS, SVG, DST (Up to 50MB)</p>
+                    {fileName ? (
+                      <p className="text-xs sm:text-sm font-bold text-emerald-700">📎 Selected: {fileName}</p>
+                    ) : (
+                      <>
+                        <p className="text-xs sm:text-sm font-bold text-slate-800">Click or drag &amp; drop design file here</p>
+                        <p className="text-[11px] text-slate-500 mt-1">Accepts PNG, JPG, PDF, AI, EPS, SVG, DST (Up to 50MB)</p>
+                      </>
+                    )}
                   </label>
                 </div>
 
@@ -172,16 +243,34 @@ export default function QuoteFaqSection({
                   <textarea
                     rows={3}
                     placeholder="Specify dimensions (e.g. 3.5 inches wide), color stops, or machine preferences..."
+                    value={instructions}
+                    onChange={(e) => setInstructions(e.target.value)}
                     className="w-full bg-slate-50/70 border border-slate-300 rounded-xl p-3.5 text-xs sm:text-sm font-medium text-slate-800 outline-none focus:border-emerald-600 transition placeholder:text-slate-400 shadow-sm"
                   ></textarea>
                 </div>
 
+                {submitError && (
+                  <div className="p-3 bg-rose-50 border border-rose-200 text-rose-700 rounded-xl text-xs font-semibold">
+                    ⚠️ {submitError}
+                  </div>
+                )}
+
                 <button
                   type="submit"
-                  className="w-full leaf-gradient text-white font-bold py-3.5 rounded-xl shadow-lg shadow-emerald-600/20 transition hover:opacity-95 text-xs sm:text-sm uppercase tracking-wider flex items-center justify-center gap-2 cursor-pointer"
+                  disabled={isSubmitting}
+                  className="w-full leaf-gradient text-white font-bold py-3.5 rounded-xl shadow-lg shadow-emerald-600/20 transition hover:opacity-95 text-xs sm:text-sm uppercase tracking-wider flex items-center justify-center gap-2 cursor-pointer disabled:opacity-75"
                 >
-                  <span>Submit Free Quote Request</span>
-                  <span>🚀</span>
+                  {isSubmitting ? (
+                    <>
+                      <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                      <span>Sending Quote Request...</span>
+                    </>
+                  ) : (
+                    <>
+                      <span>Submit Free Quote Request</span>
+                      <span>🚀</span>
+                    </>
+                  )}
                 </button>
               </form>
             )}
@@ -217,7 +306,23 @@ export default function QuoteFaqSection({
                     onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
                     className="w-full px-5 py-4 text-left flex justify-between items-center gap-4 text-xs sm:text-sm font-bold text-slate-800 hover:text-emerald-700 transition cursor-pointer"
                   >
-                    <span>{faq.q}</span>
+                    <div className="space-y-1 pr-2">
+                      {((faq as any).category || (faq as any).subcategory) && (
+                        <div className="flex items-center gap-1.5 flex-wrap">
+                          {(faq as any).category && (
+                            <span className="text-[9px] uppercase tracking-wider font-extrabold bg-emerald-50 text-emerald-800 px-2 py-0.5 rounded border border-emerald-200">
+                              {(faq as any).category}
+                            </span>
+                          )}
+                          {(faq as any).subcategory && (
+                            <span className="text-[9px] font-semibold text-slate-600 bg-slate-100 px-1.5 py-0.5 rounded">
+                              ↳ {(faq as any).subcategory}
+                            </span>
+                          )}
+                        </div>
+                      )}
+                      <p className="text-xs sm:text-sm font-bold text-slate-900">{faq.q}</p>
+                    </div>
                     <span className="w-6 h-6 rounded-full bg-emerald-50 text-emerald-700 flex items-center justify-center font-black text-xs shrink-0 border border-emerald-200 transition-transform">
                       {openFaq === idx ? '−' : '+'}
                     </span>

@@ -1,0 +1,3 @@
+module.exports=[56810,a=>{"use strict";var b=a.i(7997);a.s(["default",0,function({children:a}){return(0,b.jsx)(b.Fragment,{children:a})},"metadata",0,{title:"Our Work & Authentic Sewout Portfolio | NewLeafSkills Studio",description:"Explore commercial embroidery sewouts hand-punched by 22+ year veteran digitizers. Over 50,000+ files digitized for Tajima, Barudan, Brother, and Melco machines with 6-8 hour turnaround."}])},59623,function(a){a.n(a.i(56810))}];
+
+//# sourceMappingURL=app_our-work_layout_tsx_0r2zycl5qstaz._.js.map

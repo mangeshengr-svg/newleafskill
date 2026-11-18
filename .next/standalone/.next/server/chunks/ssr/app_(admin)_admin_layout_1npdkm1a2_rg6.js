@@ -1,0 +1,3 @@
+module.exports=[44902,a=>{"use strict";let b=(0,a.i(11857).registerClientReference)(function(){throw Error("Attempted to call the default export of [project]/app/(admin)/admin/layout.js from the server, but it's on the client. It's not possible to invoke a client function from the server, it can only be rendered as a Component or passed to props of a Client Component.")},"[project]/app/(admin)/admin/layout.js","default");a.s(["default",0,b])},24165,a=>{"use strict";var b=a.i(44902);a.n(b)},39086,function(a){a.n(a.i(24165))}];
+
+//# sourceMappingURL=app_%28admin%29_admin_layout_1npdkm1a2_rg6.js.map

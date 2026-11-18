@@ -1,0 +1,10 @@
+var R=require("../../../../../chunks/[turbopack]_runtime.js")("server/app/api/admin/google-reviews/sync/route.js")
+R.c("server/chunks/[externals]__0by1nya6abvrv._.js")
+R.c("server/chunks/[root-of-the-server]__1rr6vbmal11gx._.js")
+R.c("server/chunks/_0g41uq8rpjkam._.js")
+R.c("server/chunks/[root-of-the-server]__0jia4t_r1d79k._.js")
+R.c("server/chunks/node_modules_next_dist_1n6-g-cfdvbc-._.js")
+R.c("server/chunks/_0704f0vukikcl._.js")
+R.c("server/chunks/_1a-k61d49hhbr._.js")
+R.m(49514)
+module.exports=R.m(49514).exports

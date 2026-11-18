@@ -1,0 +1,3 @@
+{
+  "/(admin)/admin/about/global-presence/edit/[id]/page": "app/(admin)/admin/about/global-presence/edit/[id]/page.js"
+}

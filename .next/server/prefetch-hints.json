@@ -1,0 +1,1986 @@
+{
+  "/_global-error": {
+    "hints": 49216,
+    "slots": {
+      "children": {
+        "hints": 49312,
+        "slots": null
+      }
+    }
+  },
+  "/_not-found": {
+    "hints": 49216,
+    "slots": {
+      "children": {
+        "hints": 49248,
+        "slots": {
+          "children": {
+            "hints": 49312,
+            "slots": null
+          }
+        }
+      }
+    }
+  },
+  "/admin/about/add": {
+    "hints": 49216,
+    "slots": {
+      "children": {
+        "hints": 49248,
+        "slots": {
+          "children": {
+            "hints": 49248,
+            "slots": {
+              "children": {
+                "hints": 49248,
+                "slots": {
+                  "children": {
+                    "hints": 49248,
+                    "slots": {
+                      "children": {
+                        "hints": 49312,
+                        "slots": null
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/admin/about/craftsmanship/add": {
+    "hints": 49216,
+    "slots": {
+      "children": {
+        "hints": 49248,
+        "slots": {
+          "children": {
+            "hints": 49248,
+            "slots": {
+              "children": {
+                "hints": 49248,
+                "slots": {
+                  "children": {
+                    "hints": 49248,
+                    "slots": {
+                      "children": {
+                        "hints": 49248,
+                        "slots": {
+                          "children": {
+                            "hints": 49312,
+                            "slots": null
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/admin/about/craftsmanship/edit/[id]": {
+    "hints": 16448,
+    "slots": {
+      "children": {
+        "hints": 16480,
+        "slots": {
+          "children": {
+            "hints": 16480,
+            "slots": {
+              "children": {
+                "hints": 16480,
+                "slots": {
+                  "children": {
+                    "hints": 16480,
+                    "slots": {
+                      "children": {
+                        "hints": 16480,
+                        "slots": {
+                          "children": {
+                            "hints": 16480,
+                            "slots": {
+                              "children": {
+                                "hints": 16544,
+                                "slots": null
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/admin/about/craftsmanship": {
+    "hints": 49216,
+    "slots": {
+      "children": {
+        "hints": 49248,
+        "slots": {
+          "children": {
+            "hints": 49248,
+            "slots": {
+              "children": {
+                "hints": 49248,
+                "slots": {
+                  "children": {
+                    "hints": 49248,
+                    "slots": {
+                      "children": {
+                        "hints": 49312,
+                        "slots": null
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/admin/about/cta": {
+    "hints": 49216,
+    "slots": {
+      "children": {
+        "hints": 49248,
+        "slots": {
+          "children": {
+            "hints": 49248,
+            "slots": {
+              "children": {
+                "hints": 49248,
+                "slots": {
+                  "children": {
+                    "hints": 49248,
+                    "slots": {
+                      "children": {
+                        "hints": 49312,
+                        "slots": null
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/admin/about/edit/[id]": {
+    "hints": 16448,
+    "slots": {
+      "children": {
+        "hints": 16480,
+        "slots": {
+          "children": {
+            "hints": 16480,
+            "slots": {
+              "children": {
+                "hints": 16480,
+                "slots": {
+                  "children": {
+                    "hints": 16480,
+                    "slots": {
+                      "children": {
+                        "hints": 16480,
+                        "slots": {
+                          "children": {
+                            "hints": 16544,
+                            "slots": null
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/admin/about/global-presence/add": {
+    "hints": 49216,
+    "slots": {
+      "children": {
+        "hints": 49248,
+        "slots": {
+          "children": {
+            "hints": 49248,
+            "slots": {
+              "children": {
+                "hints": 49248,
+                "slots": {
+                  "children": {
+                    "hints": 49248,
+                    "slots": {
+                      "children": {
+                        "hints": 49248,
+                        "slots": {
+                          "children": {
+                            "hints": 49312,
+                            "slots": null
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/admin/about/global-presence/edit/[id]": {
+    "hints": 16448,
+    "slots": {
+      "children": {
+        "hints": 16480,
+        "slots": {
+          "children": {
+            "hints": 16480,
+            "slots": {
+              "children": {
+                "hints": 16480,
+                "slots": {
+                  "children": {
+                    "hints": 16480,
+                    "slots": {
+                      "children": {
+                        "hints": 16480,
+                        "slots": {
+                          "children": {
+                            "hints": 16480,
+                            "slots": {
+                              "children": {
+                                "hints": 16544,
+                                "slots": null
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/admin/about/global-presence": {
+    "hints": 49216,
+    "slots": {
+      "children": {
+        "hints": 49248,
+        "slots": {
+          "children": {
+            "hints": 49248,
+            "slots": {
+              "children": {
+                "hints": 49248,
+                "slots": {
+                  "children": {
+                    "hints": 49248,
+                    "slots": {
+                      "children": {
+                        "hints": 49312,
+                        "slots": null
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/admin/about/hero": {
+    "hints": 49216,
+    "slots": {
+      "children": {
+        "hints": 49248,
+        "slots": {
+          "children": {
+            "hints": 49248,
+            "slots": {
+              "children": {
+                "hints": 49248,
+                "slots": {
+                  "children": {
+                    "hints": 49248,
+                    "slots": {
+                      "children": {
+                        "hints": 49312,
+                        "slots": null
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/admin/about/machines/add": {
+    "hints": 49216,
+    "slots": {
+      "children": {
+        "hints": 49248,
+        "slots": {
+          "children": {
+            "hints": 49248,
+            "slots": {
+              "children": {
+                "hints": 49248,
+                "slots": {
+                  "children": {
+                    "hints": 49248,
+                    "slots": {
+                      "children": {
+                        "hints": 49248,
+                        "slots": {
+                          "children": {
+                            "hints": 49312,
+                            "slots": null
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/admin/about/machines/edit/[id]": {
+    "hints": 16448,
+    "slots": {
+      "children": {
+        "hints": 16480,
+        "slots": {
+          "children": {
+            "hints": 16480,
+            "slots": {
+              "children": {
+                "hints": 16480,
+                "slots": {
+                  "children": {
+                    "hints": 16480,
+                    "slots": {
+                      "children": {
+                        "hints": 16480,
+                        "slots": {
+                          "children": {
+                            "hints": 16480,
+                            "slots": {
+                              "children": {
+                                "hints": 16544,
+                                "slots": null
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/admin/about/machines": {
+    "hints": 49216,
+    "slots": {
+      "children": {
+        "hints": 49248,
+        "slots": {
+          "children": {
+            "hints": 49248,
+            "slots": {
+              "children": {
+                "hints": 49248,
+                "slots": {
+                  "children": {
+                    "hints": 49248,
+                    "slots": {
+                      "children": {
+                        "hints": 49312,
+                        "slots": null
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/admin/about": {
+    "hints": 49216,
+    "slots": {
+      "children": {
+        "hints": 49248,
+        "slots": {
+          "children": {
+            "hints": 49248,
+            "slots": {
+              "children": {
+                "hints": 49248,
+                "slots": {
+                  "children": {
+                    "hints": 49312,
+                    "slots": null
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/admin/about/story": {
+    "hints": 49216,
+    "slots": {
+      "children": {
+        "hints": 49248,
+        "slots": {
+          "children": {
+            "hints": 49248,
+            "slots": {
+              "children": {
+                "hints": 49248,
+                "slots": {
+                  "children": {
+                    "hints": 49248,
+                    "slots": {
+                      "children": {
+                        "hints": 49312,
+                        "slots": null
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/admin/about/timeline/add": {
+    "hints": 49216,
+    "slots": {
+      "children": {
+        "hints": 49248,
+        "slots": {
+          "children": {
+            "hints": 49248,
+            "slots": {
+              "children": {
+                "hints": 49248,
+                "slots": {
+                  "children": {
+                    "hints": 49248,
+                    "slots": {
+                      "children": {
+                        "hints": 49248,
+                        "slots": {
+                          "children": {
+                            "hints": 49312,
+                            "slots": null
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/admin/about/timeline/edit/[id]": {
+    "hints": 16448,
+    "slots": {
+      "children": {
+        "hints": 16480,
+        "slots": {
+          "children": {
+            "hints": 16480,
+            "slots": {
+              "children": {
+                "hints": 16480,
+                "slots": {
+                  "children": {
+                    "hints": 16480,
+                    "slots": {
+                      "children": {
+                        "hints": 16480,
+                        "slots": {
+                          "children": {
+                            "hints": 16480,
+                            "slots": {
+                              "children": {
+                                "hints": 16544,
+                                "slots": null
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/admin/about/timeline": {
+    "hints": 49216,
+    "slots": {
+      "children": {
+        "hints": 49248,
+        "slots": {
+          "children": {
+            "hints": 49248,
+            "slots": {
+              "children": {
+                "hints": 49248,
+                "slots": {
+                  "children": {
+                    "hints": 49248,
+                    "slots": {
+                      "children": {
+                        "hints": 49312,
+                        "slots": null
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/admin/about/why-choose/add": {
+    "hints": 49216,
+    "slots": {
+      "children": {
+        "hints": 49248,
+        "slots": {
+          "children": {
+            "hints": 49248,
+            "slots": {
+              "children": {
+                "hints": 49248,
+                "slots": {
+                  "children": {
+                    "hints": 49248,
+                    "slots": {
+                      "children": {
+                        "hints": 49248,
+                        "slots": {
+                          "children": {
+                            "hints": 49312,
+                            "slots": null
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/admin/about/why-choose/edit/[id]": {
+    "hints": 16448,
+    "slots": {
+      "children": {
+        "hints": 16480,
+        "slots": {
+          "children": {
+            "hints": 16480,
+            "slots": {
+              "children": {
+                "hints": 16480,
+                "slots": {
+                  "children": {
+                    "hints": 16480,
+                    "slots": {
+                      "children": {
+                        "hints": 16480,
+                        "slots": {
+                          "children": {
+                            "hints": 16480,
+                            "slots": {
+                              "children": {
+                                "hints": 16544,
+                                "slots": null
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/admin/about/why-choose": {
+    "hints": 49216,
+    "slots": {
+      "children": {
+        "hints": 49248,
+        "slots": {
+          "children": {
+            "hints": 49248,
+            "slots": {
+              "children": {
+                "hints": 49248,
+                "slots": {
+                  "children": {
+                    "hints": 49248,
+                    "slots": {
+                      "children": {
+                        "hints": 49312,
+                        "slots": null
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/admin/blog/add": {
+    "hints": 49216,
+    "slots": {
+      "children": {
+        "hints": 49248,
+        "slots": {
+          "children": {
+            "hints": 49248,
+            "slots": {
+              "children": {
+                "hints": 49248,
+                "slots": {
+                  "children": {
+                    "hints": 49248,
+                    "slots": {
+                      "children": {
+                        "hints": 49312,
+                        "slots": null
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/admin/blog/edit/[id]": {
+    "hints": 16448,
+    "slots": {
+      "children": {
+        "hints": 16480,
+        "slots": {
+          "children": {
+            "hints": 16480,
+            "slots": {
+              "children": {
+                "hints": 16480,
+                "slots": {
+                  "children": {
+                    "hints": 16480,
+                    "slots": {
+                      "children": {
+                        "hints": 16480,
+                        "slots": {
+                          "children": {
+                            "hints": 16544,
+                            "slots": null
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/admin/blog": {
+    "hints": 49216,
+    "slots": {
+      "children": {
+        "hints": 49248,
+        "slots": {
+          "children": {
+            "hints": 49248,
+            "slots": {
+              "children": {
+                "hints": 49248,
+                "slots": {
+                  "children": {
+                    "hints": 49312,
+                    "slots": null
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/admin/contact/add": {
+    "hints": 49216,
+    "slots": {
+      "children": {
+        "hints": 49248,
+        "slots": {
+          "children": {
+            "hints": 49248,
+            "slots": {
+              "children": {
+                "hints": 49248,
+                "slots": {
+                  "children": {
+                    "hints": 49248,
+                    "slots": {
+                      "children": {
+                        "hints": 49312,
+                        "slots": null
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/admin/contact/edit/[id]": {
+    "hints": 16448,
+    "slots": {
+      "children": {
+        "hints": 16480,
+        "slots": {
+          "children": {
+            "hints": 16480,
+            "slots": {
+              "children": {
+                "hints": 16480,
+                "slots": {
+                  "children": {
+                    "hints": 16480,
+                    "slots": {
+                      "children": {
+                        "hints": 16480,
+                        "slots": {
+                          "children": {
+                            "hints": 16544,
+                            "slots": null
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/admin/contact": {
+    "hints": 49216,
+    "slots": {
+      "children": {
+        "hints": 49248,
+        "slots": {
+          "children": {
+            "hints": 49248,
+            "slots": {
+              "children": {
+                "hints": 49248,
+                "slots": {
+                  "children": {
+                    "hints": 49312,
+                    "slots": null
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/admin/faqs/add": {
+    "hints": 49216,
+    "slots": {
+      "children": {
+        "hints": 49248,
+        "slots": {
+          "children": {
+            "hints": 49248,
+            "slots": {
+              "children": {
+                "hints": 49248,
+                "slots": {
+                  "children": {
+                    "hints": 49248,
+                    "slots": {
+                      "children": {
+                        "hints": 49312,
+                        "slots": null
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/admin/faqs/edit/[id]": {
+    "hints": 16448,
+    "slots": {
+      "children": {
+        "hints": 16480,
+        "slots": {
+          "children": {
+            "hints": 16480,
+            "slots": {
+              "children": {
+                "hints": 16480,
+                "slots": {
+                  "children": {
+                    "hints": 16480,
+                    "slots": {
+                      "children": {
+                        "hints": 16480,
+                        "slots": {
+                          "children": {
+                            "hints": 16544,
+                            "slots": null
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/admin/faqs": {
+    "hints": 16448,
+    "slots": {
+      "children": {
+        "hints": 16480,
+        "slots": {
+          "children": {
+            "hints": 16480,
+            "slots": {
+              "children": {
+                "hints": 16480,
+                "slots": {
+                  "children": {
+                    "hints": 16544,
+                    "slots": null
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/admin/home/embroidery/add": {
+    "hints": 49216,
+    "slots": {
+      "children": {
+        "hints": 49248,
+        "slots": {
+          "children": {
+            "hints": 49248,
+            "slots": {
+              "children": {
+                "hints": 49248,
+                "slots": {
+                  "children": {
+                    "hints": 49248,
+                    "slots": {
+                      "children": {
+                        "hints": 49248,
+                        "slots": {
+                          "children": {
+                            "hints": 49312,
+                            "slots": null
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/admin/home/embroidery/edit/[id]": {
+    "hints": 16448,
+    "slots": {
+      "children": {
+        "hints": 16480,
+        "slots": {
+          "children": {
+            "hints": 16480,
+            "slots": {
+              "children": {
+                "hints": 16480,
+                "slots": {
+                  "children": {
+                    "hints": 16480,
+                    "slots": {
+                      "children": {
+                        "hints": 16480,
+                        "slots": {
+                          "children": {
+                            "hints": 16480,
+                            "slots": {
+                              "children": {
+                                "hints": 16544,
+                                "slots": null
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/admin/home/embroidery": {
+    "hints": 49216,
+    "slots": {
+      "children": {
+        "hints": 49248,
+        "slots": {
+          "children": {
+            "hints": 49248,
+            "slots": {
+              "children": {
+                "hints": 49248,
+                "slots": {
+                  "children": {
+                    "hints": 49248,
+                    "slots": {
+                      "children": {
+                        "hints": 49312,
+                        "slots": null
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/admin/home/hero": {
+    "hints": 49216,
+    "slots": {
+      "children": {
+        "hints": 49248,
+        "slots": {
+          "children": {
+            "hints": 49248,
+            "slots": {
+              "children": {
+                "hints": 49248,
+                "slots": {
+                  "children": {
+                    "hints": 49248,
+                    "slots": {
+                      "children": {
+                        "hints": 49312,
+                        "slots": null
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/admin/home/slider": {
+    "hints": 49216,
+    "slots": {
+      "children": {
+        "hints": 49248,
+        "slots": {
+          "children": {
+            "hints": 49248,
+            "slots": {
+              "children": {
+                "hints": 49248,
+                "slots": {
+                  "children": {
+                    "hints": 49248,
+                    "slots": {
+                      "children": {
+                        "hints": 49312,
+                        "slots": null
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/admin/home/stitch-categories/add": {
+    "hints": 49216,
+    "slots": {
+      "children": {
+        "hints": 49248,
+        "slots": {
+          "children": {
+            "hints": 49248,
+            "slots": {
+              "children": {
+                "hints": 49248,
+                "slots": {
+                  "children": {
+                    "hints": 49248,
+                    "slots": {
+                      "children": {
+                        "hints": 49248,
+                        "slots": {
+                          "children": {
+                            "hints": 49312,
+                            "slots": null
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/admin/home/stitch-categories/edit/[id]": {
+    "hints": 16448,
+    "slots": {
+      "children": {
+        "hints": 16480,
+        "slots": {
+          "children": {
+            "hints": 16480,
+            "slots": {
+              "children": {
+                "hints": 16480,
+                "slots": {
+                  "children": {
+                    "hints": 16480,
+                    "slots": {
+                      "children": {
+                        "hints": 16480,
+                        "slots": {
+                          "children": {
+                            "hints": 16480,
+                            "slots": {
+                              "children": {
+                                "hints": 16544,
+                                "slots": null
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/admin/home/stitch-categories": {
+    "hints": 49216,
+    "slots": {
+      "children": {
+        "hints": 49248,
+        "slots": {
+          "children": {
+            "hints": 49248,
+            "slots": {
+              "children": {
+                "hints": 49248,
+                "slots": {
+                  "children": {
+                    "hints": 49248,
+                    "slots": {
+                      "children": {
+                        "hints": 49312,
+                        "slots": null
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/admin/login": {
+    "hints": 49216,
+    "slots": {
+      "children": {
+        "hints": 49248,
+        "slots": {
+          "children": {
+            "hints": 49248,
+            "slots": {
+              "children": {
+                "hints": 49248,
+                "slots": {
+                  "children": {
+                    "hints": 49312,
+                    "slots": null
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/admin/our-work/add": {
+    "hints": 49216,
+    "slots": {
+      "children": {
+        "hints": 49248,
+        "slots": {
+          "children": {
+            "hints": 49248,
+            "slots": {
+              "children": {
+                "hints": 49248,
+                "slots": {
+                  "children": {
+                    "hints": 49248,
+                    "slots": {
+                      "children": {
+                        "hints": 49312,
+                        "slots": null
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/admin/our-work/edit/[id]": {
+    "hints": 16448,
+    "slots": {
+      "children": {
+        "hints": 16480,
+        "slots": {
+          "children": {
+            "hints": 16480,
+            "slots": {
+              "children": {
+                "hints": 16480,
+                "slots": {
+                  "children": {
+                    "hints": 16480,
+                    "slots": {
+                      "children": {
+                        "hints": 16480,
+                        "slots": {
+                          "children": {
+                            "hints": 16544,
+                            "slots": null
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/admin/our-work": {
+    "hints": 49216,
+    "slots": {
+      "children": {
+        "hints": 49248,
+        "slots": {
+          "children": {
+            "hints": 49248,
+            "slots": {
+              "children": {
+                "hints": 49248,
+                "slots": {
+                  "children": {
+                    "hints": 49312,
+                    "slots": null
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/admin": {
+    "hints": 49216,
+    "slots": {
+      "children": {
+        "hints": 49248,
+        "slots": {
+          "children": {
+            "hints": 49248,
+            "slots": {
+              "children": {
+                "hints": 49312,
+                "slots": null
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/admin/register": {
+    "hints": 49216,
+    "slots": {
+      "children": {
+        "hints": 49248,
+        "slots": {
+          "children": {
+            "hints": 49248,
+            "slots": {
+              "children": {
+                "hints": 49248,
+                "slots": {
+                  "children": {
+                    "hints": 49312,
+                    "slots": null
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/admin/reset-password": {
+    "hints": 49216,
+    "slots": {
+      "children": {
+        "hints": 49248,
+        "slots": {
+          "children": {
+            "hints": 49248,
+            "slots": {
+              "children": {
+                "hints": 49248,
+                "slots": {
+                  "children": {
+                    "hints": 49312,
+                    "slots": null
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/admin/reviews": {
+    "hints": 49216,
+    "slots": {
+      "children": {
+        "hints": 49248,
+        "slots": {
+          "children": {
+            "hints": 49248,
+            "slots": {
+              "children": {
+                "hints": 49248,
+                "slots": {
+                  "children": {
+                    "hints": 49312,
+                    "slots": null
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/admin/services/add": {
+    "hints": 49216,
+    "slots": {
+      "children": {
+        "hints": 49248,
+        "slots": {
+          "children": {
+            "hints": 49248,
+            "slots": {
+              "children": {
+                "hints": 49248,
+                "slots": {
+                  "children": {
+                    "hints": 49248,
+                    "slots": {
+                      "children": {
+                        "hints": 49312,
+                        "slots": null
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/admin/services/categories/add": {
+    "hints": 49216,
+    "slots": {
+      "children": {
+        "hints": 49248,
+        "slots": {
+          "children": {
+            "hints": 49248,
+            "slots": {
+              "children": {
+                "hints": 49248,
+                "slots": {
+                  "children": {
+                    "hints": 49248,
+                    "slots": {
+                      "children": {
+                        "hints": 49248,
+                        "slots": {
+                          "children": {
+                            "hints": 49312,
+                            "slots": null
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/admin/services/categories/edit/[id]": {
+    "hints": 16448,
+    "slots": {
+      "children": {
+        "hints": 16480,
+        "slots": {
+          "children": {
+            "hints": 16480,
+            "slots": {
+              "children": {
+                "hints": 16480,
+                "slots": {
+                  "children": {
+                    "hints": 16480,
+                    "slots": {
+                      "children": {
+                        "hints": 16480,
+                        "slots": {
+                          "children": {
+                            "hints": 16480,
+                            "slots": {
+                              "children": {
+                                "hints": 16544,
+                                "slots": null
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/admin/services/categories": {
+    "hints": 49216,
+    "slots": {
+      "children": {
+        "hints": 49248,
+        "slots": {
+          "children": {
+            "hints": 49248,
+            "slots": {
+              "children": {
+                "hints": 49248,
+                "slots": {
+                  "children": {
+                    "hints": 49248,
+                    "slots": {
+                      "children": {
+                        "hints": 49312,
+                        "slots": null
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/admin/services/categories/subcategories/add": {
+    "hints": 16448,
+    "slots": {
+      "children": {
+        "hints": 16480,
+        "slots": {
+          "children": {
+            "hints": 16480,
+            "slots": {
+              "children": {
+                "hints": 16480,
+                "slots": {
+                  "children": {
+                    "hints": 16480,
+                    "slots": {
+                      "children": {
+                        "hints": 16480,
+                        "slots": {
+                          "children": {
+                            "hints": 16480,
+                            "slots": {
+                              "children": {
+                                "hints": 16544,
+                                "slots": null
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/admin/services/categories/subcategories/edit/[id]": {
+    "hints": 16448,
+    "slots": {
+      "children": {
+        "hints": 16480,
+        "slots": {
+          "children": {
+            "hints": 16480,
+            "slots": {
+              "children": {
+                "hints": 16480,
+                "slots": {
+                  "children": {
+                    "hints": 16480,
+                    "slots": {
+                      "children": {
+                        "hints": 16480,
+                        "slots": {
+                          "children": {
+                            "hints": 16480,
+                            "slots": {
+                              "children": {
+                                "hints": 16480,
+                                "slots": {
+                                  "children": {
+                                    "hints": 16544,
+                                    "slots": null
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/admin/services/edit/[id]": {
+    "hints": 16448,
+    "slots": {
+      "children": {
+        "hints": 16480,
+        "slots": {
+          "children": {
+            "hints": 16480,
+            "slots": {
+              "children": {
+                "hints": 16480,
+                "slots": {
+                  "children": {
+                    "hints": 16480,
+                    "slots": {
+                      "children": {
+                        "hints": 16480,
+                        "slots": {
+                          "children": {
+                            "hints": 16544,
+                            "slots": null
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/admin/services": {
+    "hints": 49216,
+    "slots": {
+      "children": {
+        "hints": 49248,
+        "slots": {
+          "children": {
+            "hints": 49248,
+            "slots": {
+              "children": {
+                "hints": 49248,
+                "slots": {
+                  "children": {
+                    "hints": 49312,
+                    "slots": null
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/admin/settings": {
+    "hints": 49216,
+    "slots": {
+      "children": {
+        "hints": 49248,
+        "slots": {
+          "children": {
+            "hints": 49248,
+            "slots": {
+              "children": {
+                "hints": 49248,
+                "slots": {
+                  "children": {
+                    "hints": 49312,
+                    "slots": null
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/admin/users": {
+    "hints": 49216,
+    "slots": {
+      "children": {
+        "hints": 49248,
+        "slots": {
+          "children": {
+            "hints": 49248,
+            "slots": {
+              "children": {
+                "hints": 49248,
+                "slots": {
+                  "children": {
+                    "hints": 49312,
+                    "slots": null
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/admin/why-choose-us/add": {
+    "hints": 49216,
+    "slots": {
+      "children": {
+        "hints": 49248,
+        "slots": {
+          "children": {
+            "hints": 49248,
+            "slots": {
+              "children": {
+                "hints": 49248,
+                "slots": {
+                  "children": {
+                    "hints": 49248,
+                    "slots": {
+                      "children": {
+                        "hints": 49312,
+                        "slots": null
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/admin/why-choose-us/edit/[id]": {
+    "hints": 16448,
+    "slots": {
+      "children": {
+        "hints": 16480,
+        "slots": {
+          "children": {
+            "hints": 16480,
+            "slots": {
+              "children": {
+                "hints": 16480,
+                "slots": {
+                  "children": {
+                    "hints": 16480,
+                    "slots": {
+                      "children": {
+                        "hints": 16480,
+                        "slots": {
+                          "children": {
+                            "hints": 16544,
+                            "slots": null
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/admin/why-choose-us": {
+    "hints": 49216,
+    "slots": {
+      "children": {
+        "hints": 49248,
+        "slots": {
+          "children": {
+            "hints": 49248,
+            "slots": {
+              "children": {
+                "hints": 49248,
+                "slots": {
+                  "children": {
+                    "hints": 49312,
+                    "slots": null
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/about": {
+    "hints": 49216,
+    "slots": {
+      "children": {
+        "hints": 49248,
+        "slots": {
+          "children": {
+            "hints": 49312,
+            "slots": null
+          }
+        }
+      }
+    }
+  },
+  "/blog/[slug]": {
+    "hints": 16448,
+    "slots": {
+      "children": {
+        "hints": 16480,
+        "slots": {
+          "children": {
+            "hints": 16480,
+            "slots": {
+              "children": {
+                "hints": 16544,
+                "slots": null
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/blog": {
+    "hints": 49216,
+    "slots": {
+      "children": {
+        "hints": 49248,
+        "slots": {
+          "children": {
+            "hints": 49312,
+            "slots": null
+          }
+        }
+      }
+    }
+  },
+  "/contact": {
+    "hints": 49216,
+    "slots": {
+      "children": {
+        "hints": 49248,
+        "slots": {
+          "children": {
+            "hints": 49312,
+            "slots": null
+          }
+        }
+      }
+    }
+  },
+  "/our-work": {
+    "hints": 49216,
+    "slots": {
+      "children": {
+        "hints": 49248,
+        "slots": {
+          "children": {
+            "hints": 49312,
+            "slots": null
+          }
+        }
+      }
+    }
+  },
+  "/ourwork": {
+    "hints": 49216,
+    "slots": {
+      "children": {
+        "hints": 49248,
+        "slots": {
+          "children": {
+            "hints": 49312,
+            "slots": null
+          }
+        }
+      }
+    }
+  },
+  "/": {
+    "hints": 49216,
+    "slots": {
+      "children": {
+        "hints": 49312,
+        "slots": null
+      }
+    }
+  },
+  "/services/[slug]": {
+    "hints": 16448,
+    "slots": {
+      "children": {
+        "hints": 16480,
+        "slots": {
+          "children": {
+            "hints": 16480,
+            "slots": {
+              "children": {
+                "hints": 16544,
+                "slots": null
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/services": {
+    "hints": 16448,
+    "slots": {
+      "children": {
+        "hints": 16480,
+        "slots": {
+          "children": {
+            "hints": 16544,
+            "slots": null
+          }
+        }
+      }
+    }
+  },
+  "/work": {
+    "hints": 49216,
+    "slots": {
+      "children": {
+        "hints": 49248,
+        "slots": {
+          "children": {
+            "hints": 49312,
+            "slots": null
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "node": {
+    "00b1945a068155bbf02bf5a0ce6bf176c78345e451": {
+      "workers": {
+        "app/(admin)/admin/why-choose-us/add/page": {
+          "moduleId": 60056,
+          "async": false
+        }
+      },
+      "exportedName": "getAllWhyChooseUsAdmin",
+      "filename": "lib/whyChooseUsActions.ts"
+    },
+    "00c505e3ead50fc57648e77bc6b74d9688e99dd0fa": {
+      "workers": {
+        "app/(admin)/admin/why-choose-us/add/page": {
+          "moduleId": 60056,
+          "async": false
+        }
+      },
+      "exportedName": "getActiveWhyChooseUs",
+      "filename": "lib/whyChooseUsActions.ts"
+    },
+    "400371555fedcc5958aa704f2e9e3d743ec0b0dbe4": {
+      "workers": {
+        "app/(admin)/admin/why-choose-us/add/page": {
+          "moduleId": 60056,
+          "async": false
+        }
+      },
+      "exportedName": "createWhyChooseUs",
+      "filename": "lib/whyChooseUsActions.ts"
+    },
+    "403c0d362928b8cfc1f6ef10ba0ebffd90359e65da": {
+      "workers": {
+        "app/(admin)/admin/why-choose-us/add/page": {
+          "moduleId": 60056,
+          "async": false
+        }
+      },
+      "exportedName": "getWhyChooseUsById",
+      "filename": "lib/whyChooseUsActions.ts"
+    },
+    "40f5154292f96a5ff77f5befa677882e4b216b0649": {
+      "workers": {
+        "app/(admin)/admin/why-choose-us/add/page": {
+          "moduleId": 60056,
+          "async": false
+        }
+      },
+      "exportedName": "deleteWhyChooseUs",
+      "filename": "lib/whyChooseUsActions.ts"
+    },
+    "60a94ad96d271216e155d690827acc5c30f48d3c16": {
+      "workers": {
+        "app/(admin)/admin/why-choose-us/add/page": {
+          "moduleId": 60056,
+          "async": false
+        }
+      },
+      "exportedName": "updateWhyChooseUs",
+      "filename": "lib/whyChooseUsActions.ts"
+    }
+  },
+  "edge": {}
+}

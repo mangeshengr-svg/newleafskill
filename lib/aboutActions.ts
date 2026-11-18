@@ -5,6 +5,7 @@ import { writeFile, mkdir } from 'fs/promises';
 import path from 'path';
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
+import { getAggregatedAboutData, getActiveAboutContent as getActiveFromSplit } from '@/lib/aboutSplitActions';
 
 export interface AboutRecord {
   id: number;
@@ -111,6 +112,11 @@ function rowToAboutRecord(row: any): AboutRecord {
 // 1. Fetch active about content for website page
 export async function getActiveAboutContent(): Promise<AboutRecord | null> {
   try {
+    const splitData: any = await getActiveFromSplit();
+    if (splitData) {
+      return splitData;
+    }
+
     const [rows]: any = await pool.query(
       'SELECT * FROM about_content WHERE is_active = 1 ORDER BY sort_order ASC, id DESC LIMIT 1'
     );

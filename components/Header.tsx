@@ -1,14 +1,26 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+
+interface DropdownSubcategory {
+  id: number;
+  name: string;
+  slug: string;
+  serviceSlug?: string | null;
+  serviceTitle?: string | null;
+  directUrl?: string;
+}
 
 interface DropdownCategory {
   id: number;
   name: string;
   slug: string;
-  subcategories?: { id: number; name: string; slug: string }[];
+  serviceSlug?: string | null;
+  serviceTitle?: string | null;
+  directUrl?: string;
+  subcategories?: DropdownSubcategory[];
 }
 
 export default function Header() {
@@ -18,6 +30,32 @@ export default function Header() {
   const [mobileServicesOpen, setMobileServicesOpen] = useState<boolean>(false);
   const [categories, setCategories] = useState<DropdownCategory[]>([]);
   const pathname = usePathname();
+  const dropdownTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  const handleMouseEnter = () => {
+    if (dropdownTimeoutRef.current) {
+      clearTimeout(dropdownTimeoutRef.current);
+      dropdownTimeoutRef.current = null;
+    }
+    setServicesDropdownOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    if (dropdownTimeoutRef.current) {
+      clearTimeout(dropdownTimeoutRef.current);
+    }
+    dropdownTimeoutRef.current = setTimeout(() => {
+      setServicesDropdownOpen(false);
+    }, 250);
+  };
+
+  useEffect(() => {
+    return () => {
+      if (dropdownTimeoutRef.current) {
+        clearTimeout(dropdownTimeoutRef.current);
+      }
+    };
+  }, []);
 
   useEffect(() => {
     setMounted(true);
@@ -111,12 +149,13 @@ export default function Header() {
 
             {/* Services with Multi-Tier Category & Subcategory Mega-Dropdown */}
             <li
-              className="relative group"
-              onMouseEnter={() => setServicesDropdownOpen(true)}
-              onMouseLeave={() => setServicesDropdownOpen(false)}
+              className="relative group py-2"
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
             >
               <Link
                 href="/services"
+                onClick={() => setServicesDropdownOpen(false)}
                 className={`px-3 py-1.5 rounded-lg transition inline-flex items-center gap-1 ${isServices
                   ? 'text-emerald-900 font-extrabold bg-emerald-100/90 ring-1.5 ring-emerald-400 shadow-2xs'
                   : 'hover:text-emerald-700 hover:bg-emerald-50/70'
@@ -136,85 +175,114 @@ export default function Header() {
 
               {/* Mega Dropdown for Categories & Subcategories */}
               {servicesDropdownOpen && (
-                <div className="absolute top-full left-0 mt-1 w-[540px] bg-white/98 backdrop-blur-2xl rounded-2xl shadow-2xl border border-slate-200 p-4 z-50 animate-in fade-in slide-in-from-top-1 duration-150">
-                  <div className="px-3 py-2 text-[11px] font-black uppercase tracking-wider text-slate-500 border-b border-slate-100 flex items-center justify-between">
-                    <span className="flex items-center gap-1.5">
-                      <span className="text-emerald-600 font-bold">●</span>
-                      <span>Browse Categories &amp; Subcategories</span>
-                    </span>
-                    <span className="text-emerald-700 font-bold">22+ Years Veteran Digitizing</span>
-                  </div>
+                <div
+                  className="absolute top-full left-0 pt-2 z-50 animate-in fade-in slide-in-from-top-1 duration-150"
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  <div className="w-[640px] bg-white rounded-2xl shadow-2xl border border-slate-200/90 p-5 font-outfit">
+                    {/* Header Bar */}
+                    <div className="px-1 pb-3 text-xs font-semibold uppercase tracking-wider text-slate-500 border-b border-slate-100 flex items-center justify-between">
+                      <span className="flex items-center gap-2">
+                        <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
+                        <span className="font-bold text-slate-700 tracking-wide font-outfit">Our Services &amp; Capabilities</span>
+                      </span>
+                      <span className="text-emerald-700 font-bold text-[11px] normal-case bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200/60">
+                        ⚡ 6–8h Turnaround • 22+ Yrs
+                      </span>
+                    </div>
 
-                  <div className="py-3 grid grid-cols-2 gap-4 max-h-[380px] overflow-y-auto pr-1">
+                  {/* Categories Grid */}
+                  <div className="py-3.5 grid grid-cols-2 gap-3.5 max-h-[420px] overflow-y-auto pr-1">
                     {categories.length > 0 ? (
-                      categories.map((cat) => (
-                        <div key={cat.id} className="space-y-1.5 p-2.5 rounded-xl bg-slate-50/60 border border-slate-100 hover:border-emerald-200 hover:bg-emerald-50/20 transition-all">
-                          <Link
-                            href={`/services?category=${encodeURIComponent(cat.name)}`}
-                            onClick={() => setServicesDropdownOpen(false)}
-                            className="font-extrabold text-xs text-slate-900 hover:text-emerald-700 flex items-center justify-between group/cat"
+                      categories.map((cat) => {
+                        const catDirectUrl = cat.directUrl || (cat.serviceSlug ? `/services/${cat.serviceSlug}` : `/services?category=${encodeURIComponent(cat.name)}`);
+                        return (
+                          <div
+                            key={cat.id}
+                            className="p-3.5 rounded-xl bg-slate-50/70 border border-slate-100 hover:border-emerald-300 hover:bg-emerald-50/20 transition-all flex flex-col justify-between"
                           >
-                            <span className="truncate">{cat.name}</span>
-                            <span className="text-[10px] text-emerald-600 opacity-0 group-hover/cat:opacity-100 transition-opacity">→</span>
-                          </Link>
+                            <div>
+                              <Link
+                                href={catDirectUrl}
+                                onClick={() => setServicesDropdownOpen(false)}
+                                className="font-bold text-sm text-slate-900 hover:text-emerald-700 flex items-center justify-between group/cat transition-colors"
+                              >
+                                <span className="font-outfit tracking-tight">{cat.name}</span>
+                                <span className="text-xs text-emerald-600 opacity-0 group-hover/cat:opacity-100 transition-opacity">
+                                  →
+                                </span>
+                              </Link>
 
-                          {cat.subcategories && cat.subcategories.length > 0 ? (
-                            <ul className="space-y-1 pl-2 border-l-2 border-emerald-300/60 mt-1">
-                              {cat.subcategories.map((sub) => (
-                                <li key={sub.id}>
-                                  <Link
-                                    href={`/services?category=${encodeURIComponent(cat.name)}&subcategory=${encodeURIComponent(sub.name)}`}
-                                    onClick={() => setServicesDropdownOpen(false)}
-                                    className="text-[11px] text-slate-600 hover:text-emerald-700 block truncate transition-colors py-0.5"
-                                  >
-                                    ↳ {sub.name}
-                                  </Link>
-                                </li>
-                              ))}
-                            </ul>
-                          ) : (
-                            <span className="text-[10px] text-slate-400 italic block pl-1">
-                              Single category
-                            </span>
-                          )}
-                        </div>
-                      ))
+                              {cat.subcategories && cat.subcategories.length > 0 ? (
+                                <ul className="mt-2.5 space-y-1.5 pl-2.5 border-l-2 border-emerald-300/60 font-jakarta">
+                                  {cat.subcategories.map((sub) => {
+                                    const subDirectUrl = sub.directUrl || (sub.serviceSlug ? `/services/${sub.serviceSlug}` : `/services?category=${encodeURIComponent(cat.name)}&subcategory=${encodeURIComponent(sub.name)}`);
+                                    return (
+                                      <li key={sub.id}>
+                                        <Link
+                                          href={subDirectUrl}
+                                          onClick={() => setServicesDropdownOpen(false)}
+                                          className="text-xs text-slate-600 hover:text-emerald-700 hover:font-semibold flex items-center justify-between group/sub py-0.5 transition-colors"
+                                        >
+                                          <span className="truncate">{sub.name}</span>
+                                          {sub.serviceSlug && (
+                                            <span className="text-[10px] text-emerald-600 font-bold opacity-0 group-hover/sub:opacity-100 transition-opacity ml-1">
+                                              Open ↗
+                                            </span>
+                                          )}
+                                        </Link>
+                                      </li>
+                                    );
+                                  })}
+                                </ul>
+                              ) : (
+                                <span className="text-[11px] text-slate-400 italic block mt-1.5 font-jakarta">
+                                  Single service category
+                                </span>
+                              )}
+                            </div>
+                          </div>
+                        );
+                      })
                     ) : (
                       /* Fallback while loading */
                       <>
                         <Link
                           href="/services/embroidery-digitizing"
                           onClick={() => setServicesDropdownOpen(false)}
-                          className="p-2.5 rounded-xl hover:bg-emerald-50 text-slate-800 hover:text-emerald-900 transition"
+                          className="p-3.5 rounded-xl hover:bg-emerald-50 text-slate-800 hover:text-emerald-900 transition"
                         >
-                          <div className="font-bold text-xs">Embroidery Digitizing</div>
-                          <div className="text-[10px] text-slate-400">Cap, Chest, Jacket Back</div>
+                          <div className="font-bold text-sm font-outfit">Embroidery Digitizing</div>
+                          <div className="text-xs text-slate-400 font-jakarta mt-0.5">Cap, Left Chest, Jacket Back</div>
                         </Link>
                         <Link
-                          href="/services/3d-puff-digitizing"
+                          href="/services/custom-logo-digitizing"
                           onClick={() => setServicesDropdownOpen(false)}
-                          className="p-2.5 rounded-xl hover:bg-emerald-50 text-slate-800 hover:text-emerald-900 transition"
+                          className="p-3.5 rounded-xl hover:bg-emerald-50 text-slate-800 hover:text-emerald-900 transition"
                         >
-                          <div className="font-bold text-xs">3D Foam Puff Digitizing</div>
-                          <div className="text-[10px] text-slate-400">Raised foam relief for headwear</div>
+                          <div className="font-bold text-sm font-outfit">Custom Logo Digitizing</div>
+                          <div className="text-xs text-slate-400 font-jakarta mt-0.5">Vector-to-Stitch Precision</div>
                         </Link>
                       </>
                     )}
                   </div>
 
-                  <div className="pt-2 border-t border-slate-100 flex items-center justify-between">
-                    <span className="text-[11px] text-slate-400">Can&apos;t find what you need?</span>
+                  {/* Footer Bar */}
+                  <div className="pt-3 border-t border-slate-100 flex items-center justify-between font-jakarta">
+                    <span className="text-xs text-slate-500">Need custom format or high volume pricing?</span>
                     <Link
                       href="/services"
                       onClick={() => setServicesDropdownOpen(false)}
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs transition shadow-2xs"
+                      className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs transition shadow-xs hover:shadow-emerald-600/20"
                     >
                       <span>Explore All Services</span>
                       <span>→</span>
                     </Link>
                   </div>
                 </div>
-              )}
+              </div>
+            )}
             </li>
 
             <li>
@@ -345,27 +413,33 @@ export default function Header() {
                     >
                       ✨ View All Services Catalog
                     </Link>
-                    {categories.map((c) => (
-                      <div key={c.id} className="space-y-1">
-                        <Link
-                          href={`/services?category=${encodeURIComponent(c.name)}`}
-                          onClick={() => setMobileMenuOpen(false)}
-                          className="font-bold text-xs text-slate-800 hover:text-emerald-700 block"
-                        >
-                          • {c.name}
-                        </Link>
-                        {c.subcategories && c.subcategories.map((sub) => (
+                    {categories.map((c) => {
+                      const catDirectUrl = c.directUrl || (c.serviceSlug ? `/services/${c.serviceSlug}` : `/services?category=${encodeURIComponent(c.name)}`);
+                      return (
+                        <div key={c.id} className="space-y-1">
                           <Link
-                            key={sub.id}
-                            href={`/services?category=${encodeURIComponent(c.name)}&subcategory=${encodeURIComponent(sub.name)}`}
+                            href={catDirectUrl}
                             onClick={() => setMobileMenuOpen(false)}
-                            className="text-[11px] text-slate-600 pl-4 block py-0.5 hover:text-emerald-700"
+                            className="font-bold text-xs text-slate-800 hover:text-emerald-700 block"
                           >
-                            ↳ {sub.name}
+                            • {c.name}
                           </Link>
-                        ))}
-                      </div>
-                    ))}
+                          {c.subcategories && c.subcategories.map((sub) => {
+                            const subDirectUrl = sub.directUrl || (sub.serviceSlug ? `/services/${sub.serviceSlug}` : `/services?category=${encodeURIComponent(c.name)}&subcategory=${encodeURIComponent(sub.name)}`);
+                            return (
+                              <Link
+                                key={sub.id}
+                                href={subDirectUrl}
+                                onClick={() => setMobileMenuOpen(false)}
+                                className="text-[11px] text-slate-600 pl-4 block py-0.5 hover:text-emerald-700"
+                              >
+                                ↳ {sub.name} {sub.serviceSlug && <span className="text-[9px] text-emerald-600 font-bold ml-1">↗</span>}
+                              </Link>
+                            );
+                          })}
+                        </div>
+                      );
+                    })}
                   </div>
                 )}
               </div>

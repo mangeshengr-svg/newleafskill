@@ -340,7 +340,7 @@ export default function AddContactPage() {
               <div>
                 <label className="block text-[11px] font-bold text-slate-600 mb-1">Button Text &amp; Href</label>
                 <div className="flex gap-2">
-                  <input type="text" name="card_1_action_text" defaultValue="Call India Studio" placeholder="Text" className="w-1/2 p-2.5 border rounded-xl text-xs bg-white" />
+                  <input type="text" name="card_1_action_text" defaultValue="Call Us" placeholder="Text" className="w-1/2 p-2.5 border rounded-xl text-xs bg-white" />
                   <input type="text" name="card_1_action_href" defaultValue="tel:+919923790520" placeholder="Href" className="w-1/2 p-2.5 border rounded-xl text-xs bg-white" />
                 </div>
               </div>
@@ -391,11 +391,11 @@ export default function AddContactPage() {
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
               <div>
                 <label className="block text-[11px] font-bold text-slate-600 mb-1">Card Title</label>
-                <input type="text" name="card_3_title" defaultValue="Production Studio & HQ" className="w-full p-2.5 border rounded-xl text-xs bg-white" />
+                <input type="text" name="card_3_title" defaultValue="Business Address" className="w-full p-2.5 border rounded-xl text-xs bg-white" />
               </div>
               <div>
                 <label className="block text-[11px] font-bold text-slate-600 mb-1">Badge</label>
-                <input type="text" name="card_3_badge" defaultValue="Nagpur Hub" className="w-full p-2.5 border rounded-xl text-xs bg-white" />
+                <input type="text" name="card_3_badge" defaultValue="Our Location" className="w-full p-2.5 border rounded-xl text-xs bg-white" />
               </div>
               <div>
                 <label className="block text-[11px] font-bold text-slate-600 mb-1">Icon</label>
@@ -429,7 +429,7 @@ export default function AddContactPage() {
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
               <div>
                 <label className="block text-[11px] font-bold text-slate-600 mb-1">Card Title</label>
-                <input type="text" name="card_4_title" defaultValue="Studio Production Hours" className="w-full p-2.5 border rounded-xl text-xs bg-white" />
+                <input type="text" name="card_4_title" defaultValue="We're here to Help" className="w-full p-2.5 border rounded-xl text-xs bg-white" />
               </div>
               <div>
                 <label className="block text-[11px] font-bold text-slate-600 mb-1">Badge</label>
@@ -585,7 +585,7 @@ export default function AddContactPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label className="block text-xs font-bold text-slate-700 mb-1">Map Section Eyebrow</label>
-              <input type="text" name="map_badge" defaultValue="Studio Location" className="w-full p-3 border rounded-xl text-xs" />
+              <input type="text" name="map_badge" defaultValue="Business Address" className="w-full p-3 border rounded-xl text-xs" />
             </div>
             <div>
               <label className="block text-xs font-bold text-slate-700 mb-1">Map Heading</label>

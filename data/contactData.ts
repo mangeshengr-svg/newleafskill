@@ -58,7 +58,7 @@ export const contactInfoCards: ContactOfficeInfo[] = [
     primaryDetail: "+91 99237 90520 (India HQ)",
     secondaryDetail: "+91 99237 90520 (US Toll-Free)",
     icon: "📞",
-    actionText: "Call India Studio",
+    actionText: "Call Us",
     actionHref: "tel:+919923790520"
   },
   {
@@ -72,8 +72,8 @@ export const contactInfoCards: ContactOfficeInfo[] = [
     actionHref: "mailto:info@newleafskills.com"
   },
   {
-    title: "Production Studio & HQ",
-    badge: "Nagpur Hub",
+    title: "Business Address",
+    badge: "Our Location",
     description: "Our physical digitization facility & computerized testing lab.",
     primaryDetail: "1440 Near Budh Nagar, Asi Nagar",
     secondaryDetail: "Nagpur, Maharashtra 440017, India",
@@ -82,7 +82,7 @@ export const contactInfoCards: ContactOfficeInfo[] = [
     actionHref: contactDetails.googleMapsDirectionsUrl
   },
   {
-    title: "Studio Production Hours",
+    title: "We're here to Help",
     badge: "24/7 Active",
     description: "Non-stop production shifts serving US, UK, Europe & India.",
     primaryDetail: "24 Hours / 7 Days a Week",

@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import pool from '@/lib/db';
 import Header from '@/components/Header';
 import HeroSection, { HeroContent, HeroSlide } from '@/components/HeroSection';
@@ -8,6 +9,26 @@ import MainContentWrapper from '@/components/MainContentWrapper';
 import EmbroideryInspector from '@/components/EmbroideryInspector';
 
 export const instant = false;
+
+export async function generateMetadata(): Promise<Metadata> {
+  try {
+    const [rows]: any = await pool.query('SELECT meta_title, meta_description FROM home_hero_content ORDER BY id DESC LIMIT 1');
+    if (rows && rows.length > 0) {
+      const { meta_title, meta_description } = rows[0];
+      return {
+        title: meta_title || "Professional Embroidery Digitizing & Vector Art Services | NewLeafSkills",
+        description: meta_description || "Expert manual embroidery digitizing and vector art conversion services. 6-8 hour turnaround, zero thread breakage guarantee, all machine formats (DST, PES, EXP, JEF).",
+      };
+    }
+  } catch (error) {
+    console.error('Failed to fetch home metadata:', error);
+  }
+
+  return {
+    title: "Professional Embroidery Digitizing & Vector Art Services | NewLeafSkills",
+    description: "Expert manual embroidery digitizing and vector art conversion services. 6-8 hour turnaround, zero thread breakage guarantee, all machine formats (DST, PES, EXP, JEF).",
+  };
+}
 
 async function getHeroContent(): Promise<HeroContent | null> {
   try {
@@ -96,6 +117,7 @@ import { getActiveBlogPosts } from '@/lib/blogActions';
 import { getActiveWhyChooseUs } from '@/lib/whyChooseUsActions';
 import { getActiveFaqs } from '@/lib/faqActions';
 import { getActiveContactContent } from '@/lib/contactActions';
+import { getActiveGoogleReviews } from '@/lib/googleReviewsActions';
 
 export default async function Home() {
   const [
@@ -109,6 +131,7 @@ export default async function Home() {
     whyChooseUsData,
     faqsData,
     contactContentData,
+    googleReviewsData,
   ] = await Promise.all([
     getHeroContent(),
     getHeroSlides(),
@@ -120,6 +143,7 @@ export default async function Home() {
     getActiveWhyChooseUs(),
     getActiveFaqs('home'),
     getActiveContactContent(),
+    getActiveGoogleReviews(),
   ]);
 
   return (
@@ -140,6 +164,7 @@ export default async function Home() {
         whyChooseUs={whyChooseUsData} 
         faqs={faqsData}
         contactContent={contactContentData}
+        googleReviews={googleReviewsData}
       />
     </main>
   );

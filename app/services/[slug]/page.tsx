@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import RichContent, { renderRichText } from '@/components/RichContent';
 import { servicesData } from '@/data/servicesData';
 import { getActiveServices } from '@/lib/serviceActions';
 import { getServiceCategoriesHierarchy } from '@/lib/categoryActions';
@@ -97,9 +98,9 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
                 {service.title}
               </h1>
 
-              <p className="text-slate-200 text-sm sm:text-base leading-relaxed drop-shadow">
-                {service.shortDesc}
-              </p>
+              <div className="text-slate-200 text-sm sm:text-base leading-relaxed drop-shadow">
+                {renderRichText(service.shortDesc)}
+              </div>
             </div>
 
             {/* Breadcrumb with category & subcategory links */}
@@ -271,9 +272,9 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
                   {service.title}
                 </h2>
 
-                <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
-                  {service.shortDesc}
-                </p>
+                <div className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                  {renderRichText(service.shortDesc)}
+                </div>
 
                 {service.secondaryImage && (
                   <div className="flex items-center gap-3 pt-2">
@@ -301,10 +302,10 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
               <div className="space-y-3.5 text-slate-600 text-xs sm:text-sm leading-relaxed">
                 {service.fullDesc && service.fullDesc.length > 0 ? (
                   service.fullDesc.map((paragraph, pIdx) => (
-                    <p key={pIdx}>{paragraph}</p>
+                    <RichContent key={pIdx} content={paragraph} />
                   ))
                 ) : (
-                  <p>{service.shortDesc}</p>
+                  <RichContent content={service.shortDesc} />
                 )}
               </div>
             </div>
@@ -319,7 +320,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
                   {service.keyHighlights.map((highlight, hIdx) => (
                     <div key={hIdx} className="flex items-start gap-2.5 p-3 rounded-xl bg-slate-50 border border-slate-200/80">
                       <span className="text-emerald-600 font-bold text-sm shrink-0">✓</span>
-                      <span className="text-xs sm:text-sm font-semibold text-slate-800">{highlight}</span>
+                      <span className="text-xs sm:text-sm font-semibold text-slate-800">{renderRichText(highlight)}</span>
                     </div>
                   ))}
                 </div>
@@ -372,10 +373,10 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
                     <div key={sIdx} className="p-4 rounded-2xl bg-gradient-to-b from-white to-slate-50 border border-slate-200/90 hover:border-emerald-400 transition-all space-y-1 shadow-2xs">
                       <div className="font-black text-xs sm:text-sm text-slate-900 flex items-center gap-2">
                         <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
-                        <span>{sub.title}</span>
+                        <span>{renderRichText(sub.title)}</span>
                       </div>
                       <p className="text-xs text-slate-600 leading-relaxed">
-                        {sub.desc}
+                        {renderRichText(sub.desc)}
                       </p>
                     </div>
                   ))}

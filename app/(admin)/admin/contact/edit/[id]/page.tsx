@@ -38,7 +38,7 @@ export default async function EditContactPage({
     description: 'Speak directly with our studio manager or production supervisor.',
     primaryDetail: '+91 99237 90520 (India HQ)',
     secondaryDetail: '+91 99237 90520 (US Toll-Free)',
-    actionText: 'Call India Studio',
+    actionText: 'Call Us',
     actionHref: 'tel:+919923790520',
   };
 
@@ -54,8 +54,8 @@ export default async function EditContactPage({
   };
 
   const c3 = parsedCards[2] || {
-    title: 'Production Studio & HQ',
-    badge: 'Nagpur Hub',
+    title: 'Business Address',
+    badge: 'Our Location',
     icon: '📍',
     description: 'Our physical digitization facility & computerized testing lab.',
     primaryDetail: '1440 Near Budh Nagar, Asi Nagar',
@@ -65,7 +65,7 @@ export default async function EditContactPage({
   };
 
   const c4 = parsedCards[3] || {
-    title: 'Studio Production Hours',
+    title: "We're here to Help",
     badge: '24/7 Active',
     icon: '⚡',
     description: 'Non-stop production shifts serving US, UK, Europe & India.',
@@ -724,7 +724,7 @@ export default async function EditContactPage({
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label className="block text-xs font-bold text-slate-700 mb-1">Map Section Eyebrow</label>
-              <input type="text" name="map_badge" defaultValue={item.map_badge || 'Studio Location'} className="w-full p-3 border rounded-xl text-xs" />
+              <input type="text" name="map_badge" defaultValue={item.map_badge || 'Business Address'} className="w-full p-3 border rounded-xl text-xs" />
             </div>
             <div>
               <label className="block text-xs font-bold text-slate-700 mb-1">Map Heading</label>

@@ -118,6 +118,22 @@ function SidebarNavItems({ pathname, handleLogout, onLinkClick }) {
   const isHomeActive = pathname.startsWith('/admin/home') || pathname.startsWith('/admin/why-choose-us');
   const [isHomeOpen, setIsHomeOpen] = useState(true);
 
+  const isAboutActive = pathname.startsWith('/admin/about');
+  const [isAboutOpen, setIsAboutOpen] = useState(true);
+
+  // About components links
+  const aboutSubLinks = [
+    { name: 'All Sections Overview', href: '/admin/about', Icon: Icons.Layers },
+    { name: 'Hero Banner & Metrics', href: '/admin/about/hero', Icon: Icons.Sparkles },
+    { name: 'Studio Story & Roots', href: '/admin/about/story', Icon: Icons.DocumentText },
+    { name: '5-Layer Stitch Anatomy', href: '/admin/about/craftsmanship', Icon: Icons.Layers },
+    { name: 'Commercial Machines', href: '/admin/about/machines', Icon: Icons.SearchCheck },
+    { name: 'Heritage Timeline', href: '/admin/about/timeline', Icon: Icons.Star },
+    { name: 'Why Choose Pillars', href: '/admin/about/why-choose', Icon: Icons.Star },
+    { name: 'Global Presence', href: '/admin/about/global-presence', Icon: Icons.Palette },
+    { name: 'CTA & Contacts', href: '/admin/about/cta', Icon: Icons.Phone },
+  ];
+
   // Home components links
   const homeSubLinks = [
     { name: 'Hero Content', href: '/admin/home/hero', Icon: Icons.Sparkles },
@@ -129,11 +145,11 @@ function SidebarNavItems({ pathname, handleLogout, onLinkClick }) {
 
   // Standalone pages links
   const pageLinks = [
-    { name: 'About Us', href: '/admin/about', Icon: Icons.Building },
     { name: 'Services', href: '/admin/services', Icon: Icons.Briefcase },
     { name: 'Service Categories', href: '/admin/services/categories', Icon: Icons.Layers },
     { name: 'Our Work', href: '/admin/our-work', Icon: Icons.Palette },
     { name: 'Blog', href: '/admin/blog', Icon: Icons.DocumentText },
+    { name: 'Google Reviews', href: '/admin/reviews', Icon: Icons.Star },
     { name: 'FAQs', href: '/admin/faqs', Icon: Icons.QuestionMarkCircle },
     { name: 'Contact Page', href: '/admin/contact', Icon: Icons.Phone },
   ];
@@ -249,6 +265,64 @@ function SidebarNavItems({ pathname, handleLogout, onLinkClick }) {
                       >
                         <div className="flex items-center gap-2.5">
                           <span className={active ? 'text-white' : 'text-slate-400 group-hover:text-blue-600 transition-colors'}>
+                            <SubIcon />
+                          </span>
+                          <span>{link.name}</span>
+                        </div>
+                        <Icons.ChevronRight />
+                      </Link>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+          </div>
+
+          {/* ABOUT US SECTIONS ACCORDION */}
+          <div>
+            <div className="px-3 pb-2 text-[10px] font-bold uppercase tracking-wider text-slate-400">
+              About Us Page
+            </div>
+            <div className="rounded-xl border border-slate-200/80 bg-slate-50/50 p-1.5 transition-colors">
+              <button
+                type="button"
+                onClick={() => setIsAboutOpen(!isAboutOpen)}
+                className={`w-full flex items-center justify-between px-3 py-2 rounded-lg font-medium text-xs tracking-wide transition-colors ${isAboutActive
+                    ? 'text-emerald-700 bg-white shadow-xs font-semibold'
+                    : 'text-slate-700 hover:bg-white/80 hover:text-slate-900'
+                  }`}
+              >
+                <div className="flex items-center gap-2.5">
+                  <span className={isAboutActive ? 'text-emerald-600' : 'text-slate-400'}>
+                    <Icons.Building />
+                  </span>
+                  <span>About Sections</span>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <span className="text-[10px] px-1.5 py-0.5 rounded-md bg-slate-200/70 text-slate-600 font-semibold">
+                    {aboutSubLinks.length}
+                  </span>
+                  <Icons.ChevronDown className={isAboutOpen ? 'rotate-180 text-emerald-600' : 'text-slate-400'} />
+                </div>
+              </button>
+
+              {isAboutOpen && (
+                <div className="mt-1.5 pt-1.5 border-t border-slate-200/60 space-y-0.5 pl-1.5">
+                  {aboutSubLinks.map((link) => {
+                    const active = isLinkActive(link.href);
+                    const SubIcon = link.Icon;
+                    return (
+                      <Link
+                        key={link.href}
+                        href={link.href}
+                        onClick={onLinkClick}
+                        className={`group flex items-center justify-between px-3 py-2 rounded-lg text-xs font-medium transition-all ${active
+                            ? 'bg-emerald-600 text-white font-semibold shadow-xs'
+                            : 'text-slate-600 hover:bg-white hover:text-slate-900'
+                          }`}
+                      >
+                        <div className="flex items-center gap-2.5">
+                          <span className={active ? 'text-white' : 'text-slate-400 group-hover:text-emerald-600 transition-colors'}>
                             <SubIcon />
                           </span>
                           <span>{link.name}</span>

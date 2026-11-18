@@ -1,6 +1,7 @@
 import pool from '@/lib/db';
 import { updateBlogPost } from '@/lib/blogActions';
 import Link from 'next/link';
+import BlogContentEditor from '@/components/admin/BlogContentEditor';
 
 export const instant = false;
 
@@ -369,17 +370,21 @@ export default async function EditBlogPostPage({
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-slate-700 mb-1">
-              Full Article Body <span className="text-red-500">*</span>
-            </label>
-            <textarea
+            <div className="flex items-center justify-between mb-1.5">
+              <label className="block text-xs font-bold text-slate-800">
+                Full Article Body (with Subheadings &amp; Hyperlinks) <span className="text-red-500">*</span>
+              </label>
+              <span className="text-[11px] text-emerald-600 font-semibold">
+                Supports H2, H3, H4 Subheadings, Hyperlinks, Bold, &amp; HTML
+              </span>
+            </div>
+            <BlogContentEditor
               name="content"
-              rows={8}
+              rows={12}
               required
-              defaultValue={contentString}
-              className="w-full p-3 border border-slate-300 rounded-xl text-xs focus:outline-none focus:ring-2 focus:ring-emerald-500 leading-relaxed"
+              initialValue={contentString}
+              placeholder="Write the full article body. Use the toolbar buttons above to insert subheadings (H2, H3, H4), hyperlinks [text](url), or bullet points..."
             />
-            <span className="text-[10px] text-slate-400">Separate paragraphs with a blank line</span>
           </div>
         </div>
 

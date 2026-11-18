@@ -1,165 +1,149 @@
-import pool from '@/lib/db';
+import { getAggregatedAboutData } from '@/lib/aboutSplitActions';
 import Link from 'next/link';
-import DeleteAboutButton from '@/components/admin/DeleteAboutButton';
 
 export const instant = false;
 
 export default async function AdminAboutPage() {
-  const [rows]: any = await pool.query(
-    'SELECT * FROM about_content ORDER BY sort_order ASC, id DESC'
-  );
+  const data = await getAggregatedAboutData();
+
+  const sections = [
+    {
+      id: 'hero',
+      title: 'Hero Banner & Metrics',
+      desc: 'Top headline, eyebrow badge, studio description, hero background photo, and the 4 live metrics.',
+      count: '4 Metrics',
+      href: '/admin/about/hero',
+      icon: '✨',
+      status: data?.hero ? 'Configured' : 'Empty',
+    },
+    {
+      id: 'story',
+      title: 'Studio Story & Roots',
+      desc: '22+ years heritage origin, 4 narrative paragraphs, inspection badge card, and 4 key production pillars.',
+      count: `${data?.story?.story_features?.length || 4} Features`,
+      href: '/admin/about/story',
+      icon: '📖',
+      status: data?.story ? 'Configured' : 'Empty',
+    },
+    {
+      id: 'craftsmanship',
+      title: '5-Layer Stitch Anatomy',
+      desc: 'Interactive craftsmanship layers: Underlay, Push-Pull, Stitch Density, Pathing, and Tie-Off locks with technical specs.',
+      count: `${data?.craftsmanship?.length || 0} Layers`,
+      href: '/admin/about/craftsmanship',
+      icon: '🪡',
+      status: `${data?.craftsmanship?.length || 0} Active`,
+    },
+    {
+      id: 'machines',
+      title: 'Commercial Machines Explorer',
+      desc: 'Brand profiles for Tajima, Barudan, Brother, Melco, HappyJapan & Ricoma with SPM, tension & formats.',
+      count: `${data?.machines?.length || 0} Brands`,
+      href: '/admin/about/machines',
+      icon: '🖨️',
+      status: `${data?.machines?.length || 0} Active`,
+    },
+    {
+      id: 'timeline',
+      title: 'Heritage Timeline Milestones',
+      desc: 'Chronological timeline milestones from 2004 to present day with highlights and descriptions.',
+      count: `${data?.timeline?.length || 0} Milestones`,
+      href: '/admin/about/timeline',
+      icon: '⏳',
+      status: `${data?.timeline?.length || 0} Active`,
+    },
+    {
+      id: 'why-choose',
+      title: 'Why Choose Us Pillars',
+      desc: 'Core value propositions: 100% Manual punching, zero thread break guarantee, 6-8 hr turnaround, unlimited edits.',
+      count: `${data?.whyChoose?.length || 0} Pillars`,
+      href: '/admin/about/why-choose',
+      icon: '🎖️',
+      status: `${data?.whyChoose?.length || 0} Active`,
+    },
+    {
+      id: 'global-presence',
+      title: 'Global Presence & Continents',
+      desc: 'Country production percentages, flags, cities, and regional specialization tags.',
+      count: `${data?.globalPresence?.length || 0} Regions`,
+      href: '/admin/about/global-presence',
+      icon: '🌍',
+      status: `${data?.globalPresence?.length || 0} Active`,
+    },
+    {
+      id: 'cta',
+      title: 'Bottom CTA & Studio Contacts',
+      desc: 'Final conversion banner, phone, email, and 24/7 global production operating hours.',
+      count: 'Live Contacts',
+      href: '/admin/about/cta',
+      icon: '⚡',
+      status: data?.cta ? 'Configured' : 'Empty',
+    },
+  ];
 
   return (
-    <div className="space-y-6">
-      {/* Top Banner & Action */}
+    <div className="space-y-6 max-w-7xl mx-auto">
+      {/* Top Banner */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
         <div>
-          <div className="flex items-center gap-2">
-            <span className="text-xl">🏢</span>
-            <h1 className="text-2xl font-black text-slate-900 tracking-tight">About Us Page Management</h1>
+          <div className="flex items-center gap-2.5">
+            <span className="text-2xl">🏢</span>
+            <h1 className="text-2xl font-black text-slate-900 tracking-tight">About Us Management Dashboard</h1>
           </div>
           <p className="text-slate-500 text-xs sm:text-sm mt-1">
-            Manage the About page hero banner, studio heritage story, metrics, and production details dynamically.
+            The About Us page is split into clean, dedicated section modules so you can edit each part independently without large cluttered forms.
           </p>
         </div>
         <div className="flex items-center gap-2.5">
           <Link
             href="/about"
             target="_blank"
-            className="inline-flex items-center gap-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs px-4 py-2.5 rounded-xl transition cursor-pointer"
+            className="inline-flex items-center gap-1.5 bg-slate-900 hover:bg-emerald-700 text-white font-extrabold text-xs px-4 py-2.5 rounded-xl shadow-sm transition"
           >
-            <span>Live About Page</span>
+            <span>Preview Live /about</span>
             <span>↗</span>
           </Link>
-          {/* <Link
-            href="/admin/about/add"
-            className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs px-5 py-2.5 rounded-xl shadow-md shadow-emerald-600/20 transition-all hover:scale-[1.02] cursor-pointer"
-          >
-            <span>+ Add About Entry</span>
-            <span>⚡</span>
-          </Link> */}
         </div>
       </div>
 
-      {/* About Content Table Card */}
-      <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
-        <div className="p-4 border-b border-slate-100 flex items-center justify-between text-xs text-slate-500 bg-slate-50/50">
-          <span className="font-semibold text-slate-700">Total Entries: {rows.length}</span>
-          <span className="text-[11px] text-slate-400">The first active entry is rendered on the public /about page</span>
-        </div>
+      {/* Grid of About Sections */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+        {sections.map((sec) => (
+          <div
+            key={sec.id}
+            className="bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md hover:border-emerald-300 transition-all p-5 flex flex-col justify-between group"
+          >
+            <div className="space-y-3">
+              <div className="flex items-center justify-between">
+                <span className="text-2xl p-2 rounded-xl bg-slate-50 border border-slate-100 group-hover:scale-110 transition-transform">
+                  {sec.icon}
+                </span>
+                <span className="text-[10px] font-bold px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-700 border border-emerald-200">
+                  {sec.status}
+                </span>
+              </div>
+              <h3 className="font-outfit font-black text-base text-slate-900 group-hover:text-emerald-700 transition-colors">
+                {sec.title}
+              </h3>
+              <p className="text-xs text-slate-500 leading-relaxed line-clamp-3">
+                {sec.desc}
+              </p>
+            </div>
 
-        <div className="overflow-x-auto">
-          <table className="w-full text-left border-collapse">
-            <thead>
-              <tr className="bg-slate-50/80 border-b border-slate-200 text-[11px] font-bold text-slate-500 uppercase tracking-wider">
-                <th className="p-4 w-12 text-center">ID</th>
-                <th className="p-4">Hero Image</th>
-                <th className="p-4">Story Image</th>
-                <th className="p-4">Hero Title &amp; Eyebrow</th>
-                <th className="p-4">Story Title</th>
-                <th className="p-4 text-center">Sort</th>
-                <th className="p-4 text-center">Status</th>
-                <th className="p-4 text-right">Actions</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-slate-100 text-xs">
-              {rows.length === 0 ? (
-                <tr>
-                  <td colSpan={8} className="p-8 text-center text-slate-400">
-                    No About page entries found. Click &quot;+ Add About Entry&quot; to create one.
-                  </td>
-                </tr>
-              ) : (
-                rows.map((item: any) => (
-                  <tr key={item.id} className="hover:bg-slate-50/70 transition-colors">
-                    {/* ID */}
-                    <td className="p-4 text-center font-mono font-bold text-slate-600">
-                      #{item.id}
-                    </td>
-
-                    {/* Hero Image */}
-                    <td className="p-4">
-                      <div className="w-16 h-12 rounded-xl overflow-hidden border border-slate-200 shadow-xs bg-slate-100 flex-shrink-0">
-                        <img
-                          src={item.hero_image || '/about/about-hero-banner.jpg'}
-                          alt={item.hero_title}
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                    </td>
-
-                    {/* Story Image */}
-                    <td className="p-4">
-                      <div className="w-16 h-12 rounded-xl overflow-hidden border border-slate-200 shadow-xs bg-slate-100 flex-shrink-0">
-                        <img
-                          src={item.story_image || '/about/roots-story.jpg'}
-                          alt={item.story_title}
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                    </td>
-
-                    {/* Hero Title & Eyebrow */}
-                    <td className="p-4 max-w-xs">
-                      <div className="space-y-1">
-                        <span className="text-[10px] uppercase font-bold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200 inline-block">
-                          {item.hero_eyebrow || 'About New Leaf Skills'}
-                        </span>
-                        <p className="font-extrabold text-slate-900 line-clamp-2">{item.hero_title}</p>
-                      </div>
-                    </td>
-
-                    {/* Story Title */}
-                    <td className="p-4 max-w-xs">
-                      <div className="space-y-1">
-                        <p className="font-bold text-slate-800 line-clamp-2">{item.story_title}</p>
-                        <span className="text-[11px] text-slate-500 font-mono">
-                          {item.story_card_badge || '99.8% Pass'}
-                        </span>
-                      </div>
-                    </td>
-
-                    {/* Sort Order */}
-                    <td className="p-4 text-center">
-                      <span className="px-2 py-1 bg-slate-100 rounded text-slate-700 font-mono text-[11px] font-bold">
-                        {item.sort_order ?? 0}
-                      </span>
-                    </td>
-
-                    {/* Status */}
-                    <td className="p-4 text-center">
-                      {item.is_active ? (
-                        <span className="inline-flex items-center gap-1 bg-emerald-100 text-emerald-800 font-bold text-[10px] px-2.5 py-1 rounded-full">
-                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-                          <span>Active</span>
-                        </span>
-                      ) : (
-                        <span className="inline-flex items-center gap-1 bg-slate-100 text-slate-500 font-bold text-[10px] px-2.5 py-1 rounded-full">
-                          <span className="w-1.5 h-1.5 rounded-full bg-slate-400"></span>
-                          <span>Inactive</span>
-                        </span>
-                      )}
-                    </td>
-
-                    {/* Actions */}
-                    <td className="p-4 text-right">
-                      <div className="flex items-center justify-end gap-2">
-                        <Link
-                          href={`/admin/about/edit/${item.id}`}
-                          className="bg-emerald-50 hover:bg-emerald-100 text-emerald-700 px-3 py-1.5 rounded-lg font-bold text-xs transition flex items-center gap-1"
-                        >
-                          <span>Edit</span>
-                          <span>✏️</span>
-                        </Link>
-                        {/* <DeleteAboutButton id={item.id} title={item.hero_title} /> */}
-                      </div>
-                    </td>
-                  </tr>
-                ))
-              )}
-            </tbody>
-          </table>
-        </div>
+            <div className="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between">
+              <span className="text-[11px] font-bold text-slate-400">
+                {sec.count}
+              </span>
+              <Link
+                href={sec.href}
+                className="inline-flex items-center gap-1 text-xs font-bold text-emerald-700 hover:text-emerald-900 transition"
+              >
+                <span>Manage</span>
+                <span className="group-hover:translate-x-0.5 transition-transform">→</span>
+              </Link>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );

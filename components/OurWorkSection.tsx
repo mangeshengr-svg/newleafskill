@@ -1,9 +1,8 @@
 'use client';
 
-import { useState } from 'react';
 import Link from 'next/link';
 import { WorkProject } from '@/types/work';
-import { workCategories, workProjects as fallbackProjects } from '@/data/workProjects';
+import { workProjects as fallbackProjects } from '@/data/workProjects';
 
 interface OurWorkSectionProps {
   onSelectProject: (project: WorkProject) => void;
@@ -11,11 +10,7 @@ interface OurWorkSectionProps {
 }
 
 export default function OurWorkSection({ onSelectProject, projects: initialProjects }: OurWorkSectionProps) {
-  const [workFilter, setWorkFilter] = useState<string>('All');
   const workProjects = initialProjects && initialProjects.length > 0 ? initialProjects : fallbackProjects;
-
-  const categoriesInProjects = Array.from(new Set(workProjects.map((p) => p.category))).filter(Boolean);
-  const categories = ['All', ...Array.from(new Set([...workCategories.filter((c) => c !== 'All'), ...categoriesInProjects]))];
 
   return (
     <section id="our-work" className="px-4 sm:px-8 lg:px-20 py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-slate-950 via-[#031d14] to-slate-950 border-y border-emerald-800/60 text-white relative overflow-hidden">
@@ -42,34 +37,10 @@ export default function OurWorkSection({ onSelectProject, projects: initialProje
           </p>
         </div>
 
-        {/* Category Filter Pills */}
-        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3">
-          {categories.map((cat) => {
-            const count = cat === 'All' ? workProjects.length : workProjects.filter(p => p.category === cat).length;
-            const isActive = workFilter === cat;
-            return (
-              <button
-                key={cat}
-                onClick={() => setWorkFilter(cat)}
-                className={`px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all duration-200 flex items-center gap-2 cursor-pointer ${isActive
-                    ? 'bg-emerald-500 text-slate-950 shadow-lg shadow-emerald-500/30 scale-105 ring-2 ring-emerald-300'
-                    : 'bg-slate-900/90 text-slate-300 hover:text-white hover:bg-slate-800 border border-slate-800 hover:border-emerald-600/60'
-                  }`}
-              >
-                <span>{cat}</span>
-                <span className={`text-[10px] font-mono px-2 py-0.5 rounded-full ${isActive ? 'bg-slate-950/20 text-slate-950 font-black' : 'bg-slate-800 text-slate-400'
-                  }`}>
-                  {count}
-                </span>
-              </button>
-            );
-          })}
-        </div>
-
         {/* Portfolio Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {workProjects
-            .filter((p) => workFilter === 'All' || p.category === workFilter)
+            .slice(0, 4)
             .map((project) => (
               <div
                 key={project.id}

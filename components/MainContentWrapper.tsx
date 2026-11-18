@@ -14,6 +14,7 @@ import { BlogPost } from '@/types/blog';
 import { WhyChooseUsItem } from '@/types/whyChooseUs';
 import { FaqItem } from '@/types/faq';
 import { ContactContentItem } from '@/types/contact';
+import { GoogleReview } from '@/types/googleReview';
 
 interface MainContentWrapperProps {
   workProjects?: WorkProject[];
@@ -21,9 +22,10 @@ interface MainContentWrapperProps {
   whyChooseUs?: WhyChooseUsItem | null;
   faqs?: FaqItem[];
   contactContent?: ContactContentItem | null;
+  googleReviews?: GoogleReview[];
 }
 
-export default function MainContentWrapper({ workProjects, blogs, whyChooseUs, faqs, contactContent }: MainContentWrapperProps) {
+export default function MainContentWrapper({ workProjects, blogs, whyChooseUs, faqs, contactContent, googleReviews }: MainContentWrapperProps) {
   const [selectedWorkProject, setSelectedWorkProject] = useState<WorkProject | null>(null);
   const [selectedService, setSelectedService] = useState<string>('Embroidery Digitizing');
 
@@ -33,7 +35,7 @@ export default function MainContentWrapper({ workProjects, blogs, whyChooseUs, f
       <WhyChooseUsSection data={whyChooseUs} />
       <FormatsSection />
       <BlogSection blogs={blogs} />
-      <TestimonialsSection />
+      <TestimonialsSection googleReviews={googleReviews} />
       <QuoteFaqSection
         selectedService={selectedService}
         setSelectedService={setSelectedService}

@@ -7,6 +7,8 @@ export default function AdminHomeHeroPage() {
     badge_text: '',
     main_heading: '',
     description: '',
+    meta_title: '',
+    meta_description: '',
     btn1_text: '',
     btn1_link: '',
     btn2_text: '',
@@ -115,6 +117,46 @@ export default function AdminHomeHeroPage() {
             required
             className="w-full px-4 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-sm focus:ring-2 focus:ring-blue-500 focus:bg-white text-slate-900"
           />
+        </div>
+
+        {/* SEO Settings */}
+        <div className="pt-4 border-t border-slate-100 bg-slate-50/50 p-5 rounded-2xl border">
+          <div className="mb-4">
+            <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+              <span>🔍</span> Home Page SEO Settings
+            </h3>
+            <p className="text-xs text-slate-500 mt-0.5">Configure Meta Title and Meta Description for search engine optimization (SEO).</p>
+          </div>
+          <div className="space-y-4">
+            <div>
+              <div className="flex justify-between items-center mb-1">
+                <label className="block text-xs font-semibold text-slate-700">Meta Title</label>
+                <span className="text-[11px] text-slate-400 font-mono">{(formData.meta_title || '').length} / 60-70 chars</span>
+              </div>
+              <input
+                type="text"
+                name="meta_title"
+                value={formData.meta_title || ''}
+                onChange={handleChange}
+                placeholder="e.g. Professional Embroidery Digitizing & Vector Art Services | NewLeafSkills"
+                className="w-full px-4 py-2.5 bg-white border border-slate-300 rounded-xl text-sm focus:ring-2 focus:ring-blue-500 text-slate-900"
+              />
+            </div>
+            <div>
+              <div className="flex justify-between items-center mb-1">
+                <label className="block text-xs font-semibold text-slate-700">Meta Description</label>
+                <span className="text-[11px] text-slate-400 font-mono">{(formData.meta_description || '').length} / 150-160 chars</span>
+              </div>
+              <textarea
+                name="meta_description"
+                rows="3"
+                value={formData.meta_description || ''}
+                onChange={handleChange}
+                placeholder="e.g. Expert manual embroidery digitizing and vector art conversion services. 6-8 hour turnaround..."
+                className="w-full px-4 py-2.5 bg-white border border-slate-300 rounded-xl text-sm focus:ring-2 focus:ring-blue-500 text-slate-900"
+              />
+            </div>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4 border-t border-slate-100">

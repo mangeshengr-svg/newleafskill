@@ -20,6 +20,8 @@ export async function POST(request) {
       badge_text,
       main_heading,
       description,
+      meta_title,
+      meta_description,
       btn1_text,
       btn1_link,
       btn2_text,
@@ -40,11 +42,13 @@ export async function POST(request) {
       await pool.query(
         `UPDATE home_hero_content SET 
           badge_text = ?, main_heading = ?, description = ?, 
+          meta_title = ?, meta_description = ?,
           btn1_text = ?, btn1_link = ?, btn2_text = ?, btn2_link = ?, 
           stat1_value = ?, stat1_label = ?, stat2_value = ?, stat2_label = ?, 
           stat3_value = ?, stat3_label = ? WHERE id = ?`,
         [
           badge_text, main_heading, description,
+          meta_title || null, meta_description || null,
           btn1_text, btn1_link, btn2_text, btn2_link,
           stat1_value, stat1_label, stat2_value, stat2_label,
           stat3_value, stat3_label, existing[0].id
@@ -54,10 +58,11 @@ export async function POST(request) {
       // Agar nahi hai toh INSERT karein
       await pool.query(
         `INSERT INTO home_hero_content 
-          (badge_text, main_heading, description, btn1_text, btn1_link, btn2_text, btn2_link, stat1_value, stat1_label, stat2_value, stat2_label, stat3_value, stat3_label) 
-          VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+          (badge_text, main_heading, description, meta_title, meta_description, btn1_text, btn1_link, btn2_text, btn2_link, stat1_value, stat1_label, stat2_value, stat2_label, stat3_value, stat3_label) 
+          VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
         [
           badge_text, main_heading, description,
+          meta_title || null, meta_description || null,
           btn1_text, btn1_link, btn2_text, btn2_link,
           stat1_value, stat1_label, stat2_value, stat2_label,
           stat3_value, stat3_label

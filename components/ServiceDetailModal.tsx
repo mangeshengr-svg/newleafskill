@@ -3,6 +3,7 @@
 import { useEffect } from 'react';
 import Link from 'next/link';
 import { ServiceItem } from '@/types/service';
+import RichContent, { renderRichText } from '@/components/RichContent';
 
 interface ServiceDetailModalProps {
   service: ServiceItem;
@@ -128,9 +129,9 @@ export default function ServiceDetailModal({
             </h4>
             <div className="space-y-3 text-slate-600 text-sm leading-relaxed">
               {service.fullDesc.map((paragraph, idx) => (
-                <p key={idx} className="bg-slate-50/70 p-4 rounded-xl border border-slate-100">
-                  {paragraph}
-                </p>
+                <div key={idx} className="bg-slate-50/70 p-4 rounded-xl border border-slate-100">
+                  <RichContent content={paragraph} />
+                </div>
               ))}
             </div>
           </div>

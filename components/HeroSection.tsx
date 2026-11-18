@@ -149,6 +149,12 @@ export default function HeroSection({ content, slides }: HeroSectionProps) {
                     muted
                     playsInline
                     className="w-full h-full object-cover transition-opacity duration-500"
+                    ref={(el) => {
+                      if (el) {
+                        el.muted = true;
+                        el.volume = 0;
+                      }
+                    }}
                   >
                     <source src={activeHeroSlide.mediaUrl} type="video/mp4" />
                   </video>

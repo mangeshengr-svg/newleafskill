@@ -3,6 +3,8 @@
 import { useEffect } from 'react';
 import Link from 'next/link';
 import { BlogPost } from '@/types/blog';
+import RichTextRenderer from '@/components/RichTextRenderer';
+import BlogFeatureBanner from '@/components/BlogFeatureBanner';
 
 interface BlogDetailModalProps {
   post: BlogPost | null;
@@ -94,14 +96,13 @@ export default function BlogDetailModal({ post, onClose }: BlogDetailModalProps)
             </div>
           </div>
 
-          {/* Featured Image */}
-          <div className="relative rounded-2xl overflow-hidden border border-slate-200 bg-slate-100 shadow-md max-h-[420px]">
-            <img
-              src={post.image}
-              alt={post.title}
-              className="w-full h-full object-cover max-h-[420px]"
-            />
-          </div>
+          {/* Featured Image / Dynamic Live Banner */}
+          <BlogFeatureBanner
+            title={post.title}
+            category={post.category}
+            image={post.image}
+            imageAlt={post.title}
+          />
 
           {/* Key Takeaways Box (if available) */}
           {post.keyTakeaways && post.keyTakeaways.length > 0 && (
@@ -123,14 +124,8 @@ export default function BlogDetailModal({ post, onClose }: BlogDetailModalProps)
             </div>
           )}
 
-          {/* Article Full Paragraphs */}
-          <div className="space-y-4 text-slate-700 text-sm sm:text-base leading-relaxed font-normal">
-            {post.content.map((paragraph, idx) => (
-              <p key={idx} className="leading-relaxed">
-                {paragraph}
-              </p>
-            ))}
-          </div>
+          {/* Article Full Paragraphs and Subheadings */}
+          <RichTextRenderer content={post.content} className="text-sm sm:text-base" />
 
           {/* Topic Tags */}
           <div className="pt-4 border-t border-slate-100 space-y-2.5">

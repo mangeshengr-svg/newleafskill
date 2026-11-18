@@ -3,6 +3,8 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import RichTextRenderer from '@/components/RichTextRenderer';
+import BlogFeatureBanner from '@/components/BlogFeatureBanner';
 import { getBlogPostBySlug, getActiveBlogPosts } from '@/lib/blogActions';
 
 export const instant = false;
@@ -71,9 +73,21 @@ export default async function BlogPostDetailPage({ params }: BlogSlugPageProps) 
       <Header />
 
       {/* 2. Breadcrumb & Article Header */}
-      <section className="bg-slate-950 text-white py-12 sm:py-16 border-b border-emerald-950/60 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(16,185,129,0.18),transparent_70%)] pointer-events-none" />
-        <div className="max-w-5xl mx-auto px-4 sm:px-8 relative z-10 space-y-5">
+      <section className="relative w-full py-12 sm:py-16 bg-slate-950 text-white border-b border-emerald-950/60 overflow-hidden">
+        {/* Background Image Container with Balanced Translucent Overlay */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src={post.image || '/blog/blog-hero-banner.jpg'}
+            alt={post.imageAlt || post.title}
+            className="w-full h-full object-cover object-center filter brightness-90 contrast-105"
+          />
+          {/* Balanced gradient overlay: Keeps photo clearly visible while ensuring text readability */}
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-950/80 via-slate-950/60 to-slate-950/40" />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-slate-950/40" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(16,185,129,0.18),transparent_70%)]" />
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-5">
           
           {/* Breadcrumb Navigation */}
           <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs font-semibold text-slate-400 flex-wrap">
@@ -101,7 +115,7 @@ export default async function BlogPostDetailPage({ params }: BlogSlugPageProps) 
           </div>
 
           {/* Main Title */}
-          <h1 className="font-outfit text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-tight">
+          <h1 className="font-outfit text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-tight drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)]">
             {post.title}
           </h1>
 
@@ -128,20 +142,19 @@ export default async function BlogPostDetailPage({ params }: BlogSlugPageProps) 
 
       {/* 3. Main Article Body */}
       <section className="py-12 sm:py-16">
-        <div className="max-w-5xl mx-auto px-4 sm:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
 
             {/* Left Content Area (8 cols) */}
             <article className="lg:col-span-8 bg-white p-6 sm:p-10 rounded-3xl border border-slate-200 shadow-sm space-y-8">
               
-              {/* Feature Image with Alt Text */}
-              <div className="relative rounded-2xl overflow-hidden border border-slate-200/90 shadow-md bg-slate-100 aspect-video">
-                <img
-                  src={post.image || '/blog/blog-hero-banner.jpg'}
-                  alt={post.imageAlt || post.title}
-                  className="w-full h-full object-cover"
-                />
-              </div>
+              {/* Feature Image / Dynamic Banner with Live Title */}
+              <BlogFeatureBanner
+                title={post.title}
+                category={post.category}
+                image={post.image || '/blog/blog-hero-banner.jpg'}
+                imageAlt={post.imageAlt || post.title}
+              />
 
               {/* Excerpt Lead Paragraph */}
               <p className="text-slate-700 text-base sm:text-lg leading-relaxed font-medium border-l-4 border-emerald-600 pl-4 bg-emerald-50/40 py-3 rounded-r-xl">
@@ -168,14 +181,8 @@ export default async function BlogPostDetailPage({ params }: BlogSlugPageProps) 
                 </div>
               )}
 
-              {/* Paragraphs of Article */}
-              <div className="space-y-5 text-slate-700 text-sm sm:text-base leading-relaxed font-normal">
-                {Array.isArray(post.content) && post.content.map((paragraph, idx) => (
-                  <p key={idx} className="leading-relaxed text-justify">
-                    {paragraph}
-                  </p>
-                ))}
-              </div>
+              {/* Paragraphs and Subheadings of Article */}
+              <RichTextRenderer content={post.content} className="text-sm sm:text-base" />
 
               {/* Tags Section */}
               {Array.isArray(post.tags) && post.tags.length > 0 && (
@@ -257,7 +264,7 @@ export default async function BlogPostDetailPage({ params }: BlogSlugPageProps) 
                   href="/contact"
                   className="block text-center bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold py-2.5 rounded-xl transition shadow-xs"
                 >
-                  Contact Studio
+                  Connect with us
                 </Link>
               </div>
 

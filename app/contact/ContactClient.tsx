@@ -719,7 +719,7 @@ export default function ContactClient({ initialContent, initialFaqs }: ContactPa
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
             <div>
               <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-800 bg-emerald-100/80 px-2.5 py-0.5 rounded-full border border-emerald-300/60">
-                {content?.mapBadge || 'Studio Location'}
+                {content?.mapBadge || 'Business Address'}
               </span>
               <h2 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight mt-1.5">
                 {content?.mapHeading || 'Visit Our Digitization & Test Production Facility'}

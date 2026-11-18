@@ -3,6 +3,7 @@
 import { useState, useMemo } from 'react';
 import Link from 'next/link';
 import { updateService } from '@/lib/serviceActions';
+import ServiceContentEditor from '@/components/admin/ServiceContentEditor';
 
 interface EditServiceFormProps {
   service: any;
@@ -355,14 +356,19 @@ export default function EditServiceForm({
         </div>
 
         <div>
-          <label className="block text-xs font-bold text-slate-700 mb-1">
-            Full Description Paragraphs (Separate paragraphs with an empty line)
-          </label>
-          <textarea
+          <div className="flex items-center justify-between mb-2">
+            <label className="block text-xs font-bold text-slate-700">
+              Full Description &amp; Specifications (Rich Editor with Subheadings &amp; Links)
+            </label>
+            <span className="text-[10px] text-emerald-700 font-bold bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200">
+              Interactive Toolbar &amp; Live Preview Active
+            </span>
+          </div>
+          <ServiceContentEditor
             name="full_desc"
-            rows={4}
-            defaultValue={parsedData.fullDescText}
-            className="w-full p-3 border border-slate-300 rounded-xl text-xs focus:outline-none focus:ring-2 focus:ring-emerald-500 font-mono"
+            initialValue={parsedData.fullDescText}
+            rows={8}
+            placeholder="Write full detailed paragraphs for this service...&#10;&#10;Use 'H2' or 'H3' to insert subheadings.&#10;Click 'Hyperlink' to insert links like [Contact Team](/contact) or [PlixaLabs](https://www.plixalabs.com/).&#10;Switch to 'Live Preview' to see how it renders."
           />
         </div>
 

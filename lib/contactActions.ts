@@ -77,7 +77,7 @@ export async function rowToContactContent(row: any): Promise<ContactContentItem>
     urgentCallNumber: row.urgent_call_number || '+91 9923790520',
     
     // 6. Office
-    mapBadge: row.map_badge || 'Studio Location',
+    mapBadge: row.map_badge || 'Business Address',
     mapHeading: row.map_heading || 'Visit Our Digitization & Test Production Facility',
     mapDesc: row.map_desc || '',
     officeTitle: row.office_title || 'Registered Office',

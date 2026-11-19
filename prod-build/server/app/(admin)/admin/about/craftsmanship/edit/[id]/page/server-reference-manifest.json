@@ -1,0 +1,285 @@
+{
+  "node": {
+    "000410e5afdbe045fe66f2053b3fb42cf94dd668a0": {
+      "workers": {
+        "app/(admin)/admin/about/craftsmanship/edit/[id]/page": {
+          "moduleId": 29809,
+          "async": false
+        }
+      },
+      "exportedName": "getCraftsmanshipLayers",
+      "filename": "lib/aboutSplitActions.ts"
+    },
+    "0037ea97ba5af722a62bd926707168fc4cb5697382": {
+      "workers": {
+        "app/(admin)/admin/about/craftsmanship/edit/[id]/page": {
+          "moduleId": 29809,
+          "async": false
+        }
+      },
+      "exportedName": "getAboutMachines",
+      "filename": "lib/aboutSplitActions.ts"
+    },
+    "003f28e6039eefdac2aefc5a9e545357e64231af2b": {
+      "workers": {
+        "app/(admin)/admin/about/craftsmanship/edit/[id]/page": {
+          "moduleId": 29809,
+          "async": false
+        }
+      },
+      "exportedName": "getAboutCta",
+      "filename": "lib/aboutSplitActions.ts"
+    },
+    "0062e5060f4a7672b6d6b20dc19b5109fdea5bcfa5": {
+      "workers": {
+        "app/(admin)/admin/about/craftsmanship/edit/[id]/page": {
+          "moduleId": 29809,
+          "async": false
+        }
+      },
+      "exportedName": "getAboutGlobalPresence",
+      "filename": "lib/aboutSplitActions.ts"
+    },
+    "006d7a42fd997cee5c271e0d851b0bb603ff7ddd45": {
+      "workers": {
+        "app/(admin)/admin/about/craftsmanship/edit/[id]/page": {
+          "moduleId": 29809,
+          "async": false
+        }
+      },
+      "exportedName": "getActiveAboutContent",
+      "filename": "lib/aboutSplitActions.ts"
+    },
+    "008343e0c7f8759bab9b9629bf19bc1b16b134bac4": {
+      "workers": {
+        "app/(admin)/admin/about/craftsmanship/edit/[id]/page": {
+          "moduleId": 29809,
+          "async": false
+        }
+      },
+      "exportedName": "getAboutWhyChoose",
+      "filename": "lib/aboutSplitActions.ts"
+    },
+    "00987d08b078aa5aaede8f88d497f84a5f6de256c7": {
+      "workers": {
+        "app/(admin)/admin/about/craftsmanship/edit/[id]/page": {
+          "moduleId": 29809,
+          "async": false
+        }
+      },
+      "exportedName": "getAboutStory",
+      "filename": "lib/aboutSplitActions.ts"
+    },
+    "00a1bee699b19cfb6a6ab79240fde01d5029c30c69": {
+      "workers": {
+        "app/(admin)/admin/about/craftsmanship/edit/[id]/page": {
+          "moduleId": 29809,
+          "async": false
+        }
+      },
+      "exportedName": "getAboutHero",
+      "filename": "lib/aboutSplitActions.ts"
+    },
+    "00c9fc56ad8fe3b29be7c75e2a521977b9febc3dbd": {
+      "workers": {
+        "app/(admin)/admin/about/craftsmanship/edit/[id]/page": {
+          "moduleId": 29809,
+          "async": false
+        }
+      },
+      "exportedName": "getAggregatedAboutData",
+      "filename": "lib/aboutSplitActions.ts"
+    },
+    "00fd6682ac79ce6c3d12889cc3655e1862c429d23f": {
+      "workers": {
+        "app/(admin)/admin/about/craftsmanship/edit/[id]/page": {
+          "moduleId": 29809,
+          "async": false
+        }
+      },
+      "exportedName": "getAboutTimeline",
+      "filename": "lib/aboutSplitActions.ts"
+    },
+    "403e5ee78154b0f97d1d48a2a5731193866d7cb12a": {
+      "workers": {
+        "app/(admin)/admin/about/craftsmanship/edit/[id]/page": {
+          "moduleId": 29809,
+          "async": false
+        }
+      },
+      "exportedName": "deleteAboutTimeline",
+      "filename": "lib/aboutSplitActions.ts"
+    },
+    "4043d23f0fad9d210005a840bca7f72d42ba60e368": {
+      "workers": {
+        "app/(admin)/admin/about/craftsmanship/edit/[id]/page": {
+          "moduleId": 29809,
+          "async": false
+        }
+      },
+      "exportedName": "deleteAboutWhyChoose",
+      "filename": "lib/aboutSplitActions.ts"
+    },
+    "40451cb1a665366d975bc14e763e8233c4a6429f07": {
+      "workers": {
+        "app/(admin)/admin/about/craftsmanship/edit/[id]/page": {
+          "moduleId": 29809,
+          "async": false
+        }
+      },
+      "exportedName": "getGlobalPresenceById",
+      "filename": "lib/aboutSplitActions.ts"
+    },
+    "4052f2be122f2191e2da872f3bf66907918fbcbfe3": {
+      "workers": {
+        "app/(admin)/admin/about/craftsmanship/edit/[id]/page": {
+          "moduleId": 29809,
+          "async": false
+        }
+      },
+      "exportedName": "getMachineById",
+      "filename": "lib/aboutSplitActions.ts"
+    },
+    "405920cd3a66b24e69aee978b034bc3433ce99535a": {
+      "workers": {
+        "app/(admin)/admin/about/craftsmanship/edit/[id]/page": {
+          "moduleId": 29809,
+          "async": false
+        }
+      },
+      "exportedName": "deleteCraftsmanshipLayer",
+      "filename": "lib/aboutSplitActions.ts"
+    },
+    "4069bfd417e07cd018b2ab2ae7fdd49551b32c01d4": {
+      "workers": {
+        "app/(admin)/admin/about/craftsmanship/edit/[id]/page": {
+          "moduleId": 29809,
+          "async": false
+        }
+      },
+      "exportedName": "getCraftsmanshipById",
+      "filename": "lib/aboutSplitActions.ts"
+    },
+    "407455c18f6a48c6bc8db0b531b94a2b72d9ec59a8": {
+      "workers": {
+        "app/(admin)/admin/about/craftsmanship/edit/[id]/page": {
+          "moduleId": 29809,
+          "async": false
+        }
+      },
+      "exportedName": "saveAboutWhyChoose",
+      "filename": "lib/aboutSplitActions.ts"
+    },
+    "407942510f5860c7fe6ea93a1c017da8bbca2b0b1e": {
+      "workers": {
+        "app/(admin)/admin/about/craftsmanship/edit/[id]/page": {
+          "moduleId": 29809,
+          "async": false
+        }
+      },
+      "exportedName": "saveCraftsmanshipLayer",
+      "filename": "lib/aboutSplitActions.ts"
+    },
+    "408aed10ad7663561c65b611d406bd227c98e6fbd7": {
+      "workers": {
+        "app/(admin)/admin/about/craftsmanship/edit/[id]/page": {
+          "moduleId": 29809,
+          "async": false
+        }
+      },
+      "exportedName": "updateAboutHero",
+      "filename": "lib/aboutSplitActions.ts"
+    },
+    "409e0f702a0975e26f7d6389705245b7fb348f8523": {
+      "workers": {
+        "app/(admin)/admin/about/craftsmanship/edit/[id]/page": {
+          "moduleId": 29809,
+          "async": false
+        }
+      },
+      "exportedName": "deleteAboutMachine",
+      "filename": "lib/aboutSplitActions.ts"
+    },
+    "40a4d3794b733b2b53f815aa1bf528e0e6351d2eec": {
+      "workers": {
+        "app/(admin)/admin/about/craftsmanship/edit/[id]/page": {
+          "moduleId": 29809,
+          "async": false
+        }
+      },
+      "exportedName": "deleteAboutGlobalPresence",
+      "filename": "lib/aboutSplitActions.ts"
+    },
+    "40af2378ab30d0a8398f1f688cf88995a689f03215": {
+      "workers": {
+        "app/(admin)/admin/about/craftsmanship/edit/[id]/page": {
+          "moduleId": 29809,
+          "async": false
+        }
+      },
+      "exportedName": "updateAboutCta",
+      "filename": "lib/aboutSplitActions.ts"
+    },
+    "40dd99f38bec61ab07298b3e71dbb257cf7cc6a864": {
+      "workers": {
+        "app/(admin)/admin/about/craftsmanship/edit/[id]/page": {
+          "moduleId": 29809,
+          "async": false
+        }
+      },
+      "exportedName": "getWhyChooseById",
+      "filename": "lib/aboutSplitActions.ts"
+    },
+    "40de8f44e81459d27090fde3e081d33bea2cbbfe14": {
+      "workers": {
+        "app/(admin)/admin/about/craftsmanship/edit/[id]/page": {
+          "moduleId": 29809,
+          "async": false
+        }
+      },
+      "exportedName": "updateAboutStory",
+      "filename": "lib/aboutSplitActions.ts"
+    },
+    "40e02781737df8cd35a37e0f13af46ca6819296d85": {
+      "workers": {
+        "app/(admin)/admin/about/craftsmanship/edit/[id]/page": {
+          "moduleId": 29809,
+          "async": false
+        }
+      },
+      "exportedName": "saveAboutGlobalPresence",
+      "filename": "lib/aboutSplitActions.ts"
+    },
+    "40e185f273d45c5a9d5f424917055a25384db12dbc": {
+      "workers": {
+        "app/(admin)/admin/about/craftsmanship/edit/[id]/page": {
+          "moduleId": 29809,
+          "async": false
+        }
+      },
+      "exportedName": "saveAboutMachine",
+      "filename": "lib/aboutSplitActions.ts"
+    },
+    "40e77377d29f2b951e0cf434c5e40a6238d9b3633a": {
+      "workers": {
+        "app/(admin)/admin/about/craftsmanship/edit/[id]/page": {
+          "moduleId": 29809,
+          "async": false
+        }
+      },
+      "exportedName": "getTimelineById",
+      "filename": "lib/aboutSplitActions.ts"
+    },
+    "40fd442d57392b9ea13c4fcc3353c81d7330707101": {
+      "workers": {
+        "app/(admin)/admin/about/craftsmanship/edit/[id]/page": {
+          "moduleId": 29809,
+          "async": false
+        }
+      },
+      "exportedName": "saveAboutTimeline",
+      "filename": "lib/aboutSplitActions.ts"
+    }
+  },
+  "edge": {}
+}

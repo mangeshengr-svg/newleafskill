@@ -13,9 +13,8 @@
 
 # Next.js Build optimization for Git:
 # Ignore large dev/cache (1.7GB+), keep only production runtime
-/.next/cache/
-/.next/dev/
-/.next/diagnostics/
+/.next/
+prod-build/build.zip
 
 /out/
 /build

@@ -1,0 +1,3 @@
+{
+  "/(admin)/admin/services/categories/subcategories/edit/[id]/page": "app/(admin)/admin/services/categories/subcategories/edit/[id]/page.js"
+}

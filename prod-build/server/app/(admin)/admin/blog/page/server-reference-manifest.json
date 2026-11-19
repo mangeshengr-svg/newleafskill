@@ -1,0 +1,15 @@
+{
+  "node": {
+    "40e8f4003ce04ee5d6196c2a220aa2ce35263608be": {
+      "workers": {
+        "app/(admin)/admin/blog/page": {
+          "moduleId": 34918,
+          "async": false
+        }
+      },
+      "exportedName": "deleteBlogPost",
+      "filename": "lib/blogActions.ts"
+    }
+  },
+  "edge": {}
+}

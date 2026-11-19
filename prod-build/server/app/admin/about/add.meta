@@ -1,0 +1,51 @@
+{
+  "status": 200,
+  "headers": {
+    "link": "</_next/static/media/07a39a8a4660cc7c-s.p.0r6juujl39pe6.woff2>; rel=preload; as=\"font\"; crossorigin=\"\"; type=\"font/woff2\", </_next/static/media/605ce01b664af129-s.p.0wgildi0cnwt9.woff2>; rel=preload; as=\"font\"; crossorigin=\"\"; type=\"font/woff2\"",
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/(admin)/layout,_N_T_/(admin)/admin/layout,_N_T_/(admin)/admin/about/layout,_N_T_/(admin)/admin/about/add/layout,_N_T_/(admin)/admin/about/add/page,_N_T_/admin/about/add"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/!KGFkbWluKQ/admin/about/add/__PAGE__"
+  ],
+  "prefetchHints": {
+    "hints": 49216,
+    "slots": {
+      "children": {
+        "hints": 49248,
+        "slots": {
+          "children": {
+            "hints": 49248,
+            "slots": {
+              "children": {
+                "hints": 49248,
+                "slots": {
+                  "children": {
+                    "hints": 49248,
+                    "slots": {
+                      "children": {
+                        "hints": 49312,
+                        "slots": null
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "routeCache": {
+    "key": "/route-cache/APP_PAGE/d5ade48afd97b00e17866e849b2df5ac3b44f900ee39036fa5963aa73b08d2f4/$/admin/about/add",
+    "owner": {
+      "kind": "APP_PAGE",
+      "sourceRoute": "/(admin)/admin/about/add/page"
+    },
+    "isFallback": false
+  }
+}

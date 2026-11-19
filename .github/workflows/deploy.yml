@@ -13,16 +13,12 @@ jobs:
       - name: 1. Checkout repository code
         uses: actions/checkout@v4
 
-      - name: 2. Deploy to cPanel via FTP
+      - name: 2. Deploy .next build files to cPanel
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: ${{ secrets.FTP_DESTINATION_FOLDER || 'nodetest.newleafskills.com/' }}
-          exclude: |
-            **/.git*
-            **/.git*/**
-            **/node_modules/**
-            .env.local
-            *.zip
+          server-dir: ${{ secrets.FTP_DESTINATION_FOLDER || 'nodetest.newleafskills.com/' }}.next/
+          local-dir: prod-build/
+          dangerous-clean-slate: false

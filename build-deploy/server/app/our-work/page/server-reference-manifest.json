@@ -1,0 +1,65 @@
+{
+  "node": {
+    "00a2d9254bae758771a188b222e64d4d9f116c37cd": {
+      "workers": {
+        "app/our-work/page": {
+          "moduleId": 27220,
+          "async": false
+        }
+      },
+      "exportedName": "getAllWorkProjectsAdmin",
+      "filename": "lib/workActions.ts"
+    },
+    "00ab1bc7acb71f777752614bdbf620f8a2fc5cfea3": {
+      "workers": {
+        "app/our-work/page": {
+          "moduleId": 27220,
+          "async": false
+        }
+      },
+      "exportedName": "getActiveWorkProjects",
+      "filename": "lib/workActions.ts"
+    },
+    "404452527c7af7fd108379aac8d12b8e0f07e8de2a": {
+      "workers": {
+        "app/our-work/page": {
+          "moduleId": 27220,
+          "async": false
+        }
+      },
+      "exportedName": "deleteWorkProject",
+      "filename": "lib/workActions.ts"
+    },
+    "405d38768d8bf747250e325a5dac0bc9ae3fa18f1e": {
+      "workers": {
+        "app/our-work/page": {
+          "moduleId": 27220,
+          "async": false
+        }
+      },
+      "exportedName": "createWorkProject",
+      "filename": "lib/workActions.ts"
+    },
+    "40bb569dee1def8393e05dc1f767715c8eae89253a": {
+      "workers": {
+        "app/our-work/page": {
+          "moduleId": 27220,
+          "async": false
+        }
+      },
+      "exportedName": "getWorkProjectById",
+      "filename": "lib/workActions.ts"
+    },
+    "60f108c8604b638e3f4f77f504c950cfc90d18db3f": {
+      "workers": {
+        "app/our-work/page": {
+          "moduleId": 27220,
+          "async": false
+        }
+      },
+      "exportedName": "updateWorkProject",
+      "filename": "lib/workActions.ts"
+    }
+  },
+  "edge": {}
+}

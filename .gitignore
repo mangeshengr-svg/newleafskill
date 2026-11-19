@@ -12,9 +12,10 @@
 /coverage
 
 # Next.js Build optimization for Git:
-# Ignore large dev/cache (1.7GB+), keep only production runtime
 /.next/
-prod-build/build.zip
+prod-build/
+*.tar.gz
+*.zip
 
 /out/
 /build

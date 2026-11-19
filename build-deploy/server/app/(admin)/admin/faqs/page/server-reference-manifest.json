@@ -1,0 +1,15 @@
+{
+  "node": {
+    "403f76433207c2e831d2a2248d04e0ae35f81479d5": {
+      "workers": {
+        "app/(admin)/admin/faqs/page": {
+          "moduleId": 74934,
+          "async": false
+        }
+      },
+      "exportedName": "deleteFaq",
+      "filename": "lib/faqActions.ts"
+    }
+  },
+  "edge": {}
+}

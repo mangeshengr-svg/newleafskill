@@ -1,0 +1,37 @@
+{
+  "status": 307,
+  "headers": {
+    "location": "/our-work",
+    "link": "</_next/static/media/07a39a8a4660cc7c-s.p.0r6juujl39pe6.woff2>; rel=preload; as=\"font\"; crossorigin=\"\"; type=\"font/woff2\", </_next/static/media/605ce01b664af129-s.p.0wgildi0cnwt9.woff2>; rel=preload; as=\"font\"; crossorigin=\"\"; type=\"font/woff2\"",
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/ourwork/layout,_N_T_/ourwork/page,_N_T_/ourwork"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/ourwork/__PAGE__"
+  ],
+  "prefetchHints": {
+    "hints": 49216,
+    "slots": {
+      "children": {
+        "hints": 49248,
+        "slots": {
+          "children": {
+            "hints": 49312,
+            "slots": null
+          }
+        }
+      }
+    }
+  },
+  "routeCache": {
+    "key": "/route-cache/APP_PAGE/c72fae14ac46b4c736102cd8137feb45dd8b74f408998cf14b84e09821946460/$/ourwork",
+    "owner": {
+      "kind": "APP_PAGE",
+      "sourceRoute": "/ourwork/page"
+    },
+    "isFallback": false
+  }
+}

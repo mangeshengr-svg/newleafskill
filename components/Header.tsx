@@ -176,7 +176,7 @@ export default function Header() {
               {/* Mega Dropdown for Categories & Subcategories */}
               {servicesDropdownOpen && (
                 <div
-                  className="absolute top-full left-0 pt-2 z-50 animate-in fade-in slide-in-from-top-1 duration-150"
+                  className="absolute top-full left-1/2 -translate-x-1/2 pt-2 z-50 animate-in fade-in slide-in-from-top-1 duration-150"
                   onMouseEnter={handleMouseEnter}
                   onMouseLeave={handleMouseLeave}
                 >
@@ -389,57 +389,106 @@ export default function Header() {
               </Link>
 
               {/* Services Accordion with Categories & Subcategories in Mobile */}
-              <div className="rounded-xl border border-slate-200 bg-slate-50/70 p-2">
+              <div className="rounded-2xl border border-slate-200/90 bg-slate-50/80 p-3 shadow-xs">
                 <button
                   type="button"
                   onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-                  className="w-full flex items-center justify-between py-2 px-2 text-slate-800 font-bold text-sm"
+                  className="w-full flex items-center justify-between py-1 px-1 text-slate-800 font-bold text-sm select-none"
                 >
                   <span className="flex items-center gap-2">
-                    <span>💼 Services &amp; Categories</span>
-                    <span className="text-[10px] bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-full font-bold">
-                      {categories.length}
+                    <span className="font-outfit font-extrabold text-slate-900 tracking-tight">Services &amp; Capabilities</span>
+                    <span className="text-[10px] bg-emerald-500/15 text-emerald-700 border border-emerald-500/30 px-2 py-0.5 rounded-full font-bold">
+                      {categories.length > 0 ? `${categories.length} Categories` : 'Explore'}
                     </span>
                   </span>
-                  <span className={`text-xs transition-transform ${mobileServicesOpen ? 'rotate-180' : ''}`}>▼</span>
+                  <span className={`w-5 h-5 flex items-center justify-center rounded-lg bg-white border border-slate-200 text-slate-500 text-xs transition-transform duration-200 ${mobileServicesOpen ? 'rotate-180 text-emerald-600 border-emerald-300' : ''}`}>
+                    ▼
+                  </span>
                 </button>
 
                 {mobileServicesOpen && (
-                  <div className="mt-2 pt-2 border-t border-slate-200 space-y-2 pl-2">
-                    <Link
-                      href="/services"
-                      onClick={() => setMobileMenuOpen(false)}
-                      className="text-xs font-bold text-emerald-700 bg-emerald-50 p-2 rounded-lg block"
-                    >
-                      ✨ View All Services Catalog
-                    </Link>
-                    {categories.map((c) => {
-                      const catDirectUrl = c.directUrl || (c.serviceSlug ? `/services/${c.serviceSlug}` : `/services?category=${encodeURIComponent(c.name)}`);
-                      return (
-                        <div key={c.id} className="space-y-1">
-                          <Link
-                            href={catDirectUrl}
-                            onClick={() => setMobileMenuOpen(false)}
-                            className="font-bold text-xs text-slate-800 hover:text-emerald-700 block"
-                          >
-                            • {c.name}
-                          </Link>
-                          {c.subcategories && c.subcategories.map((sub) => {
-                            const subDirectUrl = sub.directUrl || (sub.serviceSlug ? `/services/${sub.serviceSlug}` : `/services?category=${encodeURIComponent(c.name)}&subcategory=${encodeURIComponent(sub.name)}`);
-                            return (
+                  <div className="mt-3 pt-3 border-t border-slate-200/80 space-y-3 font-outfit">
+                    {/* Categories Grid (similar card style as desktop mega menu) */}
+                    <div className="space-y-2.5">
+                      {categories.length > 0 ? (
+                        categories.map((c) => {
+                          const catDirectUrl = c.directUrl || (c.serviceSlug ? `/services/${c.serviceSlug}` : `/services?category=${encodeURIComponent(c.name)}`);
+                          return (
+                            <div key={c.id} className="p-3 rounded-xl bg-white border border-slate-200/80 shadow-2xs">
                               <Link
-                                key={sub.id}
-                                href={subDirectUrl}
+                                href={catDirectUrl}
                                 onClick={() => setMobileMenuOpen(false)}
-                                className="text-[11px] text-slate-600 pl-4 block py-0.5 hover:text-emerald-700"
+                                className="font-bold text-sm text-slate-900 hover:text-emerald-700 flex items-center justify-between group transition-colors"
                               >
-                                ↳ {sub.name} {sub.serviceSlug && <span className="text-[9px] text-emerald-600 font-bold ml-1">↗</span>}
+                                <span className="font-outfit font-bold">{c.name}</span>
+                                <span className="text-xs text-emerald-600 opacity-60 group-hover:opacity-100 transition-opacity">
+                                  →
+                                </span>
                               </Link>
-                            );
-                          })}
+
+                              {c.subcategories && c.subcategories.length > 0 ? (
+                                <ul className="mt-2 space-y-1.5 pl-2.5 border-l-2 border-emerald-400/60 font-jakarta">
+                                  {c.subcategories.map((sub) => {
+                                    const subDirectUrl = sub.directUrl || (sub.serviceSlug ? `/services/${sub.serviceSlug}` : `/services?category=${encodeURIComponent(c.name)}&subcategory=${encodeURIComponent(sub.name)}`);
+                                    return (
+                                      <li key={sub.id}>
+                                        <Link
+                                          href={subDirectUrl}
+                                          onClick={() => setMobileMenuOpen(false)}
+                                          className="text-xs text-slate-600 hover:text-emerald-700 flex items-center justify-between py-0.5 transition-colors"
+                                        >
+                                          <span className="truncate">{sub.name}</span>
+                                          {sub.serviceSlug && (
+                                            <span className="text-[10px] text-emerald-600 font-bold ml-1">
+                                              Open ↗
+                                            </span>
+                                          )}
+                                        </Link>
+                                      </li>
+                                    );
+                                  })}
+                                </ul>
+                              ) : (
+                                <span className="text-[11px] text-slate-400 italic block mt-1 font-jakarta">
+                                  Single service category
+                                </span>
+                              )}
+                            </div>
+                          );
+                        })
+                      ) : (
+                        <div className="space-y-2">
+                          <Link
+                            href="/services/embroidery-digitizing"
+                            onClick={() => setMobileMenuOpen(false)}
+                            className="p-3 rounded-xl bg-white border border-slate-200/80 block hover:border-emerald-300"
+                          >
+                            <div className="font-bold text-xs text-slate-900">Embroidery Digitizing</div>
+                            <div className="text-[11px] text-slate-400">Cap, Left Chest, Jacket Back</div>
+                          </Link>
+                          <Link
+                            href="/services/custom-logo-digitizing"
+                            onClick={() => setMobileMenuOpen(false)}
+                            className="p-3 rounded-xl bg-white border border-slate-200/80 block hover:border-emerald-300"
+                          >
+                            <div className="font-bold text-xs text-slate-900">Custom Logo Digitizing</div>
+                            <div className="text-[11px] text-slate-400">Vector-to-Stitch Precision</div>
+                          </Link>
                         </div>
-                      );
-                    })}
+                      )}
+                    </div>
+
+                    {/* View All Button */}
+                    <div className="pt-1">
+                      <Link
+                        href="/services"
+                        onClick={() => setMobileMenuOpen(false)}
+                        className="w-full inline-flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs transition shadow-xs"
+                      >
+                        <span>Explore All Services</span>
+                        <span>→</span>
+                      </Link>
+                    </div>
                   </div>
                 )}
               </div>

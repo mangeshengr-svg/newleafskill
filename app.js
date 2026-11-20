@@ -4,15 +4,37 @@ const fs = require('fs');
 process.env.NODE_ENV = 'production';
 process.env.PORT = process.env.PORT || 3000;
 
-// Agar standalone server exist karta hai toh use chalayein
-const standaloneServer = path.join(__dirname, '.next', 'standalone', 'server.js');
+// Deep recursive unmask for all subdirectories in .next
+function unmaskRecursively(dir) {
+  if (!fs.existsSync(dir)) return;
+  const entries = fs.readdirSync(dir, { withFileTypes: true });
+  for (const entry of entries) {
+    const fullPath = path.join(dir, entry.name);
+    if (entry.isDirectory()) {
+      unmaskRecursively(fullPath);
+    } else if (entry.name.endsWith('.js.txt')) {
+      const realJs = fullPath.slice(0, -4); // removes .txt -> leaves .js
+      try {
+        fs.renameSync(fullPath, realJs);
+      } catch (err) {
+        // ignore if already renamed
+      }
+    }
+  }
+}
 
-if (fs.existsSync(standaloneServer)) {
-  require(standaloneServer);
-} else if (fs.existsSync(path.join(__dirname, 'server.js'))) {
+try {
+  unmaskRecursively(path.join(__dirname, '.next', 'server'));
+  unmaskRecursively(path.join(__dirname, '.next', 'static'));
+  console.log('Unmask completed successfully!');
+} catch (e) {
+  console.error('Unmask error:', e);
+}
+
+// Start Next.js Server
+if (fs.existsSync(path.join(__dirname, 'server.js'))) {
   require(path.join(__dirname, 'server.js'));
 } else {
-  // Fallback direct Next.js start
   const next = require('next');
   const http = require('http');
   const app = next({ dev: false, dir: __dirname });

@@ -1,16 +1,6 @@
 {
   "node": {
-    "00b1945a068155bbf02bf5a0ce6bf176c78345e451": {
-      "workers": {
-        "app/(admin)/admin/why-choose-us/add/page": {
-          "moduleId": 60056,
-          "async": false
-        }
-      },
-      "exportedName": "getAllWhyChooseUsAdmin",
-      "filename": "lib/whyChooseUsActions.ts"
-    },
-    "00c505e3ead50fc57648e77bc6b74d9688e99dd0fa": {
+    "007ba3662071f364ff42fdc16784f246d23396c056": {
       "workers": {
         "app/(admin)/admin/why-choose-us/add/page": {
           "moduleId": 60056,
@@ -20,17 +10,17 @@
       "exportedName": "getActiveWhyChooseUs",
       "filename": "lib/whyChooseUsActions.ts"
     },
-    "400371555fedcc5958aa704f2e9e3d743ec0b0dbe4": {
+    "00ae88d15eb9d3e02a74e7af153696824bfeb715dd": {
       "workers": {
         "app/(admin)/admin/why-choose-us/add/page": {
           "moduleId": 60056,
           "async": false
         }
       },
-      "exportedName": "createWhyChooseUs",
+      "exportedName": "getAllWhyChooseUsAdmin",
       "filename": "lib/whyChooseUsActions.ts"
     },
-    "403c0d362928b8cfc1f6ef10ba0ebffd90359e65da": {
+    "408a9ee0fba664e9b3e0171afd232cd41525ec01cd": {
       "workers": {
         "app/(admin)/admin/why-choose-us/add/page": {
           "moduleId": 60056,
@@ -40,7 +30,17 @@
       "exportedName": "getWhyChooseUsById",
       "filename": "lib/whyChooseUsActions.ts"
     },
-    "40f5154292f96a5ff77f5befa677882e4b216b0649": {
+    "409786e6dbbab9db7adb8bcd4738e31125932b70fd": {
+      "workers": {
+        "app/(admin)/admin/why-choose-us/add/page": {
+          "moduleId": 60056,
+          "async": false
+        }
+      },
+      "exportedName": "createWhyChooseUs",
+      "filename": "lib/whyChooseUsActions.ts"
+    },
+    "40a4da2e35a67b48f8682601b67a8c03e78c2b6ff6": {
       "workers": {
         "app/(admin)/admin/why-choose-us/add/page": {
           "moduleId": 60056,
@@ -50,7 +50,7 @@
       "exportedName": "deleteWhyChooseUs",
       "filename": "lib/whyChooseUsActions.ts"
     },
-    "60a94ad96d271216e155d690827acc5c30f48d3c16": {
+    "6073ebe711b0946cedb69407872b113b112dca5e8a": {
       "workers": {
         "app/(admin)/admin/why-choose-us/add/page": {
           "moduleId": 60056,

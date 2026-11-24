@@ -3,7 +3,7 @@ import pool from '@/lib/db';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 
-const JWT_SECRET = process.env.JWT_SECRET || 'newleafskills_secret_key_123';
+const JWT_SECRET = process.env.JWT_SECRET;
 
 // 1. Password update by logged-in admin (Settings / Profile)
 export async function PUT(request) {
@@ -12,6 +12,11 @@ export async function PUT(request) {
 
     if (!token) {
       return NextResponse.json({ message: 'Unauthorized. Please login first.' }, { status: 401 });
+    }
+
+    if (!JWT_SECRET) {
+      console.error('JWT_SECRET is missing in environment.');
+      return NextResponse.json({ message: 'Server configuration error' }, { status: 500 });
     }
 
     let decoded;
@@ -30,9 +35,9 @@ export async function PUT(request) {
       );
     }
 
-    if (newPassword.length < 6) {
+    if (newPassword.length < 8) {
       return NextResponse.json(
-        { message: 'New password must be at least 6 characters long' },
+        { message: 'New password must be at least 8 characters long' },
         { status: 400 }
       );
     }
@@ -68,9 +73,26 @@ export async function PUT(request) {
   }
 }
 
-// 2. Direct Reset by Email or User ID (for Forgot Password or Users Management)
+// 2. Reset by Authenticated Admin for a User in Users Management
 export async function POST(request) {
   try {
+    const token = request.cookies.get('admin_token')?.value;
+
+    if (!token) {
+      return NextResponse.json({ message: 'Unauthorized. Please login first.' }, { status: 401 });
+    }
+
+    if (!JWT_SECRET) {
+      console.error('JWT_SECRET is missing in environment.');
+      return NextResponse.json({ message: 'Server configuration error' }, { status: 500 });
+    }
+
+    try {
+      jwt.verify(token, JWT_SECRET);
+    } catch (err) {
+      return NextResponse.json({ message: 'Invalid or expired session' }, { status: 401 });
+    }
+
     const { email, userId, newPassword } = await request.json();
 
     if ((!email && !userId) || !newPassword) {
@@ -80,9 +102,9 @@ export async function POST(request) {
       );
     }
 
-    if (newPassword.length < 6) {
+    if (newPassword.length < 8) {
       return NextResponse.json(
-        { message: 'New password must be at least 6 characters long' },
+        { message: 'New password must be at least 8 characters long' },
         { status: 400 }
       );
     }

@@ -1,0 +1,850 @@
+{
+  "version": 3,
+  "pages404": true,
+  "appType": "app",
+  "caseSensitive": false,
+  "basePath": "",
+  "redirects": [
+    {
+      "source": "/:path+/",
+      "destination": "/:path+",
+      "internal": true,
+      "priority": true,
+      "statusCode": 308,
+      "regex": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))/$"
+    },
+    {
+      "source": "/ourwork",
+      "destination": "/our-work",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/ourwork(?:/)?$"
+    },
+    {
+      "source": "/work",
+      "destination": "/our-work",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/work(?:/)?$"
+    },
+    {
+      "source": "/contactss",
+      "destination": "/contact",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/contactss(?:/)?$"
+    },
+    {
+      "source": "/servicess",
+      "destination": "/services",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/servicess(?:/)?$"
+    },
+    {
+      "source": "/embroidery-digitizing",
+      "destination": "/services/embroidery-digitizing",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/embroidery-digitizing(?:/)?$"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/:path*",
+      "headers": [
+        {
+          "key": "X-DNS-Prefetch-Control",
+          "value": "on"
+        },
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=63072000; includeSubDomains; preload"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=()"
+        }
+      ],
+      "regex": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))?(?:/)?$"
+    }
+  ],
+  "onMatchHeaders": [],
+  "rewrites": {
+    "beforeFiles": [],
+    "afterFiles": [],
+    "fallback": []
+  },
+  "dynamicRoutes": [
+    {
+      "page": "/admin/about/craftsmanship/edit/[id]",
+      "regex": "^/admin/about/craftsmanship/edit/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/admin/about/craftsmanship/edit/(?<nxtPid>[^/]+?)(?:/)?$",
+      "prefetchSegmentDataRoutes": [
+        {
+          "destination": "/admin/about/craftsmanship/edit/[id].segments/!KGFkbWluKQ/admin/about/craftsmanship/edit/$d$id$segment",
+          "source": "^/admin/about/craftsmanship/edit/(?<nxtPid>[^/]+?)\\.segments/!KGFkbWluKQ/admin/about/craftsmanship/edit/\\$d\\$id(?<segment>/__PAGE__\\.segment\\.rsc|\\.segment\\.rsc)(?:/)?$",
+          "routeKeys": {
+            "nxtPid": "nxtPid"
+          }
+        }
+      ]
+    },
+    {
+      "page": "/admin/about/edit/[id]",
+      "regex": "^/admin/about/edit/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/admin/about/edit/(?<nxtPid>[^/]+?)(?:/)?$",
+      "prefetchSegmentDataRoutes": [
+        {
+          "destination": "/admin/about/edit/[id].segments/!KGFkbWluKQ/admin/about/edit/$d$id$segment",
+          "source": "^/admin/about/edit/(?<nxtPid>[^/]+?)\\.segments/!KGFkbWluKQ/admin/about/edit/\\$d\\$id(?<segment>/__PAGE__\\.segment\\.rsc|\\.segment\\.rsc)(?:/)?$",
+          "routeKeys": {
+            "nxtPid": "nxtPid"
+          }
+        }
+      ]
+    },
+    {
+      "page": "/admin/about/global-presence/edit/[id]",
+      "regex": "^/admin/about/global\\-presence/edit/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/admin/about/global\\-presence/edit/(?<nxtPid>[^/]+?)(?:/)?$",
+      "prefetchSegmentDataRoutes": [
+        {
+          "destination": "/admin/about/global-presence/edit/[id].segments/!KGFkbWluKQ/admin/about/global-presence/edit/$d$id$segment",
+          "source": "^/admin/about/global\\-presence/edit/(?<nxtPid>[^/]+?)\\.segments/!KGFkbWluKQ/admin/about/global\\-presence/edit/\\$d\\$id(?<segment>/__PAGE__\\.segment\\.rsc|\\.segment\\.rsc)(?:/)?$",
+          "routeKeys": {
+            "nxtPid": "nxtPid"
+          }
+        }
+      ]
+    },
+    {
+      "page": "/admin/about/machines/edit/[id]",
+      "regex": "^/admin/about/machines/edit/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/admin/about/machines/edit/(?<nxtPid>[^/]+?)(?:/)?$",
+      "prefetchSegmentDataRoutes": [
+        {
+          "destination": "/admin/about/machines/edit/[id].segments/!KGFkbWluKQ/admin/about/machines/edit/$d$id$segment",
+          "source": "^/admin/about/machines/edit/(?<nxtPid>[^/]+?)\\.segments/!KGFkbWluKQ/admin/about/machines/edit/\\$d\\$id(?<segment>/__PAGE__\\.segment\\.rsc|\\.segment\\.rsc)(?:/)?$",
+          "routeKeys": {
+            "nxtPid": "nxtPid"
+          }
+        }
+      ]
+    },
+    {
+      "page": "/admin/about/timeline/edit/[id]",
+      "regex": "^/admin/about/timeline/edit/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/admin/about/timeline/edit/(?<nxtPid>[^/]+?)(?:/)?$",
+      "prefetchSegmentDataRoutes": [
+        {
+          "destination": "/admin/about/timeline/edit/[id].segments/!KGFkbWluKQ/admin/about/timeline/edit/$d$id$segment",
+          "source": "^/admin/about/timeline/edit/(?<nxtPid>[^/]+?)\\.segments/!KGFkbWluKQ/admin/about/timeline/edit/\\$d\\$id(?<segment>/__PAGE__\\.segment\\.rsc|\\.segment\\.rsc)(?:/)?$",
+          "routeKeys": {
+            "nxtPid": "nxtPid"
+          }
+        }
+      ]
+    },
+    {
+      "page": "/admin/about/why-choose/edit/[id]",
+      "regex": "^/admin/about/why\\-choose/edit/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/admin/about/why\\-choose/edit/(?<nxtPid>[^/]+?)(?:/)?$",
+      "prefetchSegmentDataRoutes": [
+        {
+          "destination": "/admin/about/why-choose/edit/[id].segments/!KGFkbWluKQ/admin/about/why-choose/edit/$d$id$segment",
+          "source": "^/admin/about/why\\-choose/edit/(?<nxtPid>[^/]+?)\\.segments/!KGFkbWluKQ/admin/about/why\\-choose/edit/\\$d\\$id(?<segment>/__PAGE__\\.segment\\.rsc|\\.segment\\.rsc)(?:/)?$",
+          "routeKeys": {
+            "nxtPid": "nxtPid"
+          }
+        }
+      ]
+    },
+    {
+      "page": "/admin/blog/edit/[id]",
+      "regex": "^/admin/blog/edit/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/admin/blog/edit/(?<nxtPid>[^/]+?)(?:/)?$",
+      "prefetchSegmentDataRoutes": [
+        {
+          "destination": "/admin/blog/edit/[id].segments/!KGFkbWluKQ/admin/blog/edit/$d$id$segment",
+          "source": "^/admin/blog/edit/(?<nxtPid>[^/]+?)\\.segments/!KGFkbWluKQ/admin/blog/edit/\\$d\\$id(?<segment>/__PAGE__\\.segment\\.rsc|\\.segment\\.rsc)(?:/)?$",
+          "routeKeys": {
+            "nxtPid": "nxtPid"
+          }
+        }
+      ]
+    },
+    {
+      "page": "/admin/contact/edit/[id]",
+      "regex": "^/admin/contact/edit/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/admin/contact/edit/(?<nxtPid>[^/]+?)(?:/)?$",
+      "prefetchSegmentDataRoutes": [
+        {
+          "destination": "/admin/contact/edit/[id].segments/!KGFkbWluKQ/admin/contact/edit/$d$id$segment",
+          "source": "^/admin/contact/edit/(?<nxtPid>[^/]+?)\\.segments/!KGFkbWluKQ/admin/contact/edit/\\$d\\$id(?<segment>/__PAGE__\\.segment\\.rsc|\\.segment\\.rsc)(?:/)?$",
+          "routeKeys": {
+            "nxtPid": "nxtPid"
+          }
+        }
+      ]
+    },
+    {
+      "page": "/admin/faqs/edit/[id]",
+      "regex": "^/admin/faqs/edit/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/admin/faqs/edit/(?<nxtPid>[^/]+?)(?:/)?$",
+      "prefetchSegmentDataRoutes": [
+        {
+          "destination": "/admin/faqs/edit/[id].segments/!KGFkbWluKQ/admin/faqs/edit/$d$id$segment",
+          "source": "^/admin/faqs/edit/(?<nxtPid>[^/]+?)\\.segments/!KGFkbWluKQ/admin/faqs/edit/\\$d\\$id(?<segment>/__PAGE__\\.segment\\.rsc|\\.segment\\.rsc)(?:/)?$",
+          "routeKeys": {
+            "nxtPid": "nxtPid"
+          }
+        }
+      ]
+    },
+    {
+      "page": "/admin/home/embroidery/edit/[id]",
+      "regex": "^/admin/home/embroidery/edit/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/admin/home/embroidery/edit/(?<nxtPid>[^/]+?)(?:/)?$",
+      "prefetchSegmentDataRoutes": [
+        {
+          "destination": "/admin/home/embroidery/edit/[id].segments/!KGFkbWluKQ/admin/home/embroidery/edit/$d$id$segment",
+          "source": "^/admin/home/embroidery/edit/(?<nxtPid>[^/]+?)\\.segments/!KGFkbWluKQ/admin/home/embroidery/edit/\\$d\\$id(?<segment>/__PAGE__\\.segment\\.rsc|\\.segment\\.rsc)(?:/)?$",
+          "routeKeys": {
+            "nxtPid": "nxtPid"
+          }
+        }
+      ]
+    },
+    {
+      "page": "/admin/home/stitch-categories/edit/[id]",
+      "regex": "^/admin/home/stitch\\-categories/edit/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/admin/home/stitch\\-categories/edit/(?<nxtPid>[^/]+?)(?:/)?$",
+      "prefetchSegmentDataRoutes": [
+        {
+          "destination": "/admin/home/stitch-categories/edit/[id].segments/!KGFkbWluKQ/admin/home/stitch-categories/edit/$d$id$segment",
+          "source": "^/admin/home/stitch\\-categories/edit/(?<nxtPid>[^/]+?)\\.segments/!KGFkbWluKQ/admin/home/stitch\\-categories/edit/\\$d\\$id(?<segment>/__PAGE__\\.segment\\.rsc|\\.segment\\.rsc)(?:/)?$",
+          "routeKeys": {
+            "nxtPid": "nxtPid"
+          }
+        }
+      ]
+    },
+    {
+      "page": "/admin/our-work/edit/[id]",
+      "regex": "^/admin/our\\-work/edit/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/admin/our\\-work/edit/(?<nxtPid>[^/]+?)(?:/)?$",
+      "prefetchSegmentDataRoutes": [
+        {
+          "destination": "/admin/our-work/edit/[id].segments/!KGFkbWluKQ/admin/our-work/edit/$d$id$segment",
+          "source": "^/admin/our\\-work/edit/(?<nxtPid>[^/]+?)\\.segments/!KGFkbWluKQ/admin/our\\-work/edit/\\$d\\$id(?<segment>/__PAGE__\\.segment\\.rsc|\\.segment\\.rsc)(?:/)?$",
+          "routeKeys": {
+            "nxtPid": "nxtPid"
+          }
+        }
+      ]
+    },
+    {
+      "page": "/admin/services/categories/edit/[id]",
+      "regex": "^/admin/services/categories/edit/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/admin/services/categories/edit/(?<nxtPid>[^/]+?)(?:/)?$",
+      "prefetchSegmentDataRoutes": [
+        {
+          "destination": "/admin/services/categories/edit/[id].segments/!KGFkbWluKQ/admin/services/categories/edit/$d$id$segment",
+          "source": "^/admin/services/categories/edit/(?<nxtPid>[^/]+?)\\.segments/!KGFkbWluKQ/admin/services/categories/edit/\\$d\\$id(?<segment>/__PAGE__\\.segment\\.rsc|\\.segment\\.rsc)(?:/)?$",
+          "routeKeys": {
+            "nxtPid": "nxtPid"
+          }
+        }
+      ]
+    },
+    {
+      "page": "/admin/services/categories/subcategories/edit/[id]",
+      "regex": "^/admin/services/categories/subcategories/edit/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/admin/services/categories/subcategories/edit/(?<nxtPid>[^/]+?)(?:/)?$",
+      "prefetchSegmentDataRoutes": [
+        {
+          "destination": "/admin/services/categories/subcategories/edit/[id].segments/!KGFkbWluKQ/admin/services/categories/subcategories/edit/$d$id$segment",
+          "source": "^/admin/services/categories/subcategories/edit/(?<nxtPid>[^/]+?)\\.segments/!KGFkbWluKQ/admin/services/categories/subcategories/edit/\\$d\\$id(?<segment>/__PAGE__\\.segment\\.rsc|\\.segment\\.rsc)(?:/)?$",
+          "routeKeys": {
+            "nxtPid": "nxtPid"
+          }
+        }
+      ]
+    },
+    {
+      "page": "/admin/services/edit/[id]",
+      "regex": "^/admin/services/edit/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/admin/services/edit/(?<nxtPid>[^/]+?)(?:/)?$",
+      "prefetchSegmentDataRoutes": [
+        {
+          "destination": "/admin/services/edit/[id].segments/!KGFkbWluKQ/admin/services/edit/$d$id$segment",
+          "source": "^/admin/services/edit/(?<nxtPid>[^/]+?)\\.segments/!KGFkbWluKQ/admin/services/edit/\\$d\\$id(?<segment>/__PAGE__\\.segment\\.rsc|\\.segment\\.rsc)(?:/)?$",
+          "routeKeys": {
+            "nxtPid": "nxtPid"
+          }
+        }
+      ]
+    },
+    {
+      "page": "/admin/why-choose-us/edit/[id]",
+      "regex": "^/admin/why\\-choose\\-us/edit/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/admin/why\\-choose\\-us/edit/(?<nxtPid>[^/]+?)(?:/)?$",
+      "prefetchSegmentDataRoutes": [
+        {
+          "destination": "/admin/why-choose-us/edit/[id].segments/!KGFkbWluKQ/admin/why-choose-us/edit/$d$id$segment",
+          "source": "^/admin/why\\-choose\\-us/edit/(?<nxtPid>[^/]+?)\\.segments/!KGFkbWluKQ/admin/why\\-choose\\-us/edit/\\$d\\$id(?<segment>/__PAGE__\\.segment\\.rsc|\\.segment\\.rsc)(?:/)?$",
+          "routeKeys": {
+            "nxtPid": "nxtPid"
+          }
+        }
+      ]
+    },
+    {
+      "page": "/blog/[slug]",
+      "regex": "^/blog/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPslug": "nxtPslug"
+      },
+      "namedRegex": "^/blog/(?<nxtPslug>[^/]+?)(?:/)?$",
+      "prefetchSegmentDataRoutes": [
+        {
+          "destination": "/blog/[slug].segments/blog/$d$slug$segment",
+          "source": "^/blog/(?<nxtPslug>[^/]+?)\\.segments/blog/\\$d\\$slug(?<segment>/__PAGE__\\.segment\\.rsc|\\.segment\\.rsc)(?:/)?$",
+          "routeKeys": {
+            "nxtPslug": "nxtPslug"
+          }
+        }
+      ]
+    },
+    {
+      "page": "/services/[slug]",
+      "regex": "^/services/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPslug": "nxtPslug"
+      },
+      "namedRegex": "^/services/(?<nxtPslug>[^/]+?)(?:/)?$",
+      "prefetchSegmentDataRoutes": [
+        {
+          "destination": "/services/[slug].segments/services/$d$slug$segment",
+          "source": "^/services/(?<nxtPslug>[^/]+?)\\.segments/services/\\$d\\$slug(?<segment>/__PAGE__\\.segment\\.rsc|\\.segment\\.rsc)(?:/)?$",
+          "routeKeys": {
+            "nxtPslug": "nxtPslug"
+          }
+        }
+      ]
+    }
+  ],
+  "staticRoutes": [
+    {
+      "page": "/",
+      "regex": "^/(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/(?:/)?$"
+    },
+    {
+      "page": "/_global-error",
+      "regex": "^/_global\\-error(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_global\\-error(?:/)?$"
+    },
+    {
+      "page": "/_not-found",
+      "regex": "^/_not\\-found(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_not\\-found(?:/)?$"
+    },
+    {
+      "page": "/about",
+      "regex": "^/about(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/about(?:/)?$"
+    },
+    {
+      "page": "/admin",
+      "regex": "^/admin(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin(?:/)?$"
+    },
+    {
+      "page": "/admin/about",
+      "regex": "^/admin/about(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/about(?:/)?$"
+    },
+    {
+      "page": "/admin/about/add",
+      "regex": "^/admin/about/add(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/about/add(?:/)?$"
+    },
+    {
+      "page": "/admin/about/craftsmanship",
+      "regex": "^/admin/about/craftsmanship(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/about/craftsmanship(?:/)?$"
+    },
+    {
+      "page": "/admin/about/craftsmanship/add",
+      "regex": "^/admin/about/craftsmanship/add(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/about/craftsmanship/add(?:/)?$"
+    },
+    {
+      "page": "/admin/about/cta",
+      "regex": "^/admin/about/cta(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/about/cta(?:/)?$"
+    },
+    {
+      "page": "/admin/about/global-presence",
+      "regex": "^/admin/about/global\\-presence(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/about/global\\-presence(?:/)?$"
+    },
+    {
+      "page": "/admin/about/global-presence/add",
+      "regex": "^/admin/about/global\\-presence/add(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/about/global\\-presence/add(?:/)?$"
+    },
+    {
+      "page": "/admin/about/hero",
+      "regex": "^/admin/about/hero(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/about/hero(?:/)?$"
+    },
+    {
+      "page": "/admin/about/machines",
+      "regex": "^/admin/about/machines(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/about/machines(?:/)?$"
+    },
+    {
+      "page": "/admin/about/machines/add",
+      "regex": "^/admin/about/machines/add(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/about/machines/add(?:/)?$"
+    },
+    {
+      "page": "/admin/about/story",
+      "regex": "^/admin/about/story(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/about/story(?:/)?$"
+    },
+    {
+      "page": "/admin/about/timeline",
+      "regex": "^/admin/about/timeline(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/about/timeline(?:/)?$"
+    },
+    {
+      "page": "/admin/about/timeline/add",
+      "regex": "^/admin/about/timeline/add(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/about/timeline/add(?:/)?$"
+    },
+    {
+      "page": "/admin/about/why-choose",
+      "regex": "^/admin/about/why\\-choose(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/about/why\\-choose(?:/)?$"
+    },
+    {
+      "page": "/admin/about/why-choose/add",
+      "regex": "^/admin/about/why\\-choose/add(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/about/why\\-choose/add(?:/)?$"
+    },
+    {
+      "page": "/admin/blog",
+      "regex": "^/admin/blog(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/blog(?:/)?$"
+    },
+    {
+      "page": "/admin/blog/add",
+      "regex": "^/admin/blog/add(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/blog/add(?:/)?$"
+    },
+    {
+      "page": "/admin/contact",
+      "regex": "^/admin/contact(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/contact(?:/)?$"
+    },
+    {
+      "page": "/admin/contact/add",
+      "regex": "^/admin/contact/add(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/contact/add(?:/)?$"
+    },
+    {
+      "page": "/admin/faqs",
+      "regex": "^/admin/faqs(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/faqs(?:/)?$"
+    },
+    {
+      "page": "/admin/faqs/add",
+      "regex": "^/admin/faqs/add(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/faqs/add(?:/)?$"
+    },
+    {
+      "page": "/admin/home/embroidery",
+      "regex": "^/admin/home/embroidery(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/home/embroidery(?:/)?$"
+    },
+    {
+      "page": "/admin/home/embroidery/add",
+      "regex": "^/admin/home/embroidery/add(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/home/embroidery/add(?:/)?$"
+    },
+    {
+      "page": "/admin/home/hero",
+      "regex": "^/admin/home/hero(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/home/hero(?:/)?$"
+    },
+    {
+      "page": "/admin/home/slider",
+      "regex": "^/admin/home/slider(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/home/slider(?:/)?$"
+    },
+    {
+      "page": "/admin/home/stitch-categories",
+      "regex": "^/admin/home/stitch\\-categories(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/home/stitch\\-categories(?:/)?$"
+    },
+    {
+      "page": "/admin/home/stitch-categories/add",
+      "regex": "^/admin/home/stitch\\-categories/add(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/home/stitch\\-categories/add(?:/)?$"
+    },
+    {
+      "page": "/admin/login",
+      "regex": "^/admin/login(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/login(?:/)?$"
+    },
+    {
+      "page": "/admin/our-work",
+      "regex": "^/admin/our\\-work(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/our\\-work(?:/)?$"
+    },
+    {
+      "page": "/admin/our-work/add",
+      "regex": "^/admin/our\\-work/add(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/our\\-work/add(?:/)?$"
+    },
+    {
+      "page": "/admin/register",
+      "regex": "^/admin/register(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/register(?:/)?$"
+    },
+    {
+      "page": "/admin/reset-password",
+      "regex": "^/admin/reset\\-password(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/reset\\-password(?:/)?$"
+    },
+    {
+      "page": "/admin/reviews",
+      "regex": "^/admin/reviews(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/reviews(?:/)?$"
+    },
+    {
+      "page": "/admin/services",
+      "regex": "^/admin/services(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/services(?:/)?$"
+    },
+    {
+      "page": "/admin/services/add",
+      "regex": "^/admin/services/add(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/services/add(?:/)?$"
+    },
+    {
+      "page": "/admin/services/categories",
+      "regex": "^/admin/services/categories(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/services/categories(?:/)?$"
+    },
+    {
+      "page": "/admin/services/categories/add",
+      "regex": "^/admin/services/categories/add(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/services/categories/add(?:/)?$"
+    },
+    {
+      "page": "/admin/services/categories/subcategories/add",
+      "regex": "^/admin/services/categories/subcategories/add(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/services/categories/subcategories/add(?:/)?$"
+    },
+    {
+      "page": "/admin/settings",
+      "regex": "^/admin/settings(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/settings(?:/)?$"
+    },
+    {
+      "page": "/admin/users",
+      "regex": "^/admin/users(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/users(?:/)?$"
+    },
+    {
+      "page": "/admin/why-choose-us",
+      "regex": "^/admin/why\\-choose\\-us(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/why\\-choose\\-us(?:/)?$"
+    },
+    {
+      "page": "/admin/why-choose-us/add",
+      "regex": "^/admin/why\\-choose\\-us/add(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/why\\-choose\\-us/add(?:/)?$"
+    },
+    {
+      "page": "/api/admin/blogs",
+      "regex": "^/api/admin/blogs(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/admin/blogs(?:/)?$"
+    },
+    {
+      "page": "/api/admin/faqs",
+      "regex": "^/api/admin/faqs(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/admin/faqs(?:/)?$"
+    },
+    {
+      "page": "/api/admin/google-reviews/sync",
+      "regex": "^/api/admin/google\\-reviews/sync(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/admin/google\\-reviews/sync(?:/)?$"
+    },
+    {
+      "page": "/api/admin/home-hero",
+      "regex": "^/api/admin/home\\-hero(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/admin/home\\-hero(?:/)?$"
+    },
+    {
+      "page": "/api/admin/home-slider",
+      "regex": "^/api/admin/home\\-slider(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/admin/home\\-slider(?:/)?$"
+    },
+    {
+      "page": "/api/admin/login",
+      "regex": "^/api/admin/login(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/admin/login(?:/)?$"
+    },
+    {
+      "page": "/api/admin/logout",
+      "regex": "^/api/admin/logout(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/admin/logout(?:/)?$"
+    },
+    {
+      "page": "/api/admin/our-work",
+      "regex": "^/api/admin/our\\-work(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/admin/our\\-work(?:/)?$"
+    },
+    {
+      "page": "/api/admin/register",
+      "regex": "^/api/admin/register(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/admin/register(?:/)?$"
+    },
+    {
+      "page": "/api/admin/reset-password",
+      "regex": "^/api/admin/reset\\-password(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/admin/reset\\-password(?:/)?$"
+    },
+    {
+      "page": "/api/admin/services",
+      "regex": "^/api/admin/services(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/admin/services(?:/)?$"
+    },
+    {
+      "page": "/api/admin/users",
+      "regex": "^/api/admin/users(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/admin/users(?:/)?$"
+    },
+    {
+      "page": "/api/admin/why-choose-us",
+      "regex": "^/api/admin/why\\-choose\\-us(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/admin/why\\-choose\\-us(?:/)?$"
+    },
+    {
+      "page": "/api/contact",
+      "regex": "^/api/contact(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/contact(?:/)?$"
+    },
+    {
+      "page": "/api/cron/sync-reviews",
+      "regex": "^/api/cron/sync\\-reviews(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/cron/sync\\-reviews(?:/)?$"
+    },
+    {
+      "page": "/api/reviews",
+      "regex": "^/api/reviews(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/reviews(?:/)?$"
+    },
+    {
+      "page": "/api/services/categories",
+      "regex": "^/api/services/categories(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/services/categories(?:/)?$"
+    },
+    {
+      "page": "/blog",
+      "regex": "^/blog(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/blog(?:/)?$"
+    },
+    {
+      "page": "/contact",
+      "regex": "^/contact(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/contact(?:/)?$"
+    },
+    {
+      "page": "/favicon.ico",
+      "regex": "^/favicon\\.ico(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/favicon\\.ico(?:/)?$"
+    },
+    {
+      "page": "/our-work",
+      "regex": "^/our\\-work(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/our\\-work(?:/)?$"
+    },
+    {
+      "page": "/ourwork",
+      "regex": "^/ourwork(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/ourwork(?:/)?$"
+    },
+    {
+      "page": "/services",
+      "regex": "^/services(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/services(?:/)?$"
+    },
+    {
+      "page": "/work",
+      "regex": "^/work(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/work(?:/)?$"
+    }
+  ],
+  "dataRoutes": [],
+  "rsc": {
+    "header": "rsc",
+    "varyHeader": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+    "prefetchHeader": "next-router-prefetch",
+    "didPostponeHeader": "x-nextjs-postponed",
+    "contentTypeHeader": "text/x-component",
+    "suffix": ".rsc",
+    "prefetchSegmentHeader": "next-router-segment-prefetch",
+    "prefetchSegmentSuffix": ".segment.rsc",
+    "prefetchSegmentDirSuffix": ".segments",
+    "clientParamParsing": true,
+    "dynamicRSCPrerender": true
+  },
+  "rewriteHeaders": {
+    "pathHeader": "x-nextjs-rewritten-path",
+    "queryHeader": "x-nextjs-rewritten-query"
+  },
+  "ppr": {
+    "chain": {
+      "headers": {
+        "next-resume": "1"
+      }
+    }
+  }
+}

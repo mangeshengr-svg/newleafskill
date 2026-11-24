@@ -1,0 +1,10 @@
+var R=require("../../../../chunks/[turbopack]_runtime.js")("server/app/api/cron/sync-reviews/route.js")
+R.c("server/chunks/[externals]__0by1nya6abvrv._.js")
+R.c("server/chunks/[root-of-the-server]__1rr6vbmal11gx._.js")
+R.c("server/chunks/_0i24v4o8dqpr0._.js")
+R.c("server/chunks/[root-of-the-server]__0r1ueedszl789._.js")
+R.c("server/chunks/node_modules_next_dist_1n6-g-cfdvbc-._.js")
+R.c("server/chunks/_0704f0vukikcl._.js")
+R.c("server/chunks/_1a-k61d49hhbr._.js")
+R.m(39155)
+module.exports=R.m(39155).exports

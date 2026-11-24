@@ -1,0 +1,15 @@
+{
+  "node": {
+    "4046e680467bde4a42613f09d2d861984e6f413a68": {
+      "workers": {
+        "app/(admin)/admin/blog/add/page": {
+          "moduleId": 73833,
+          "async": false
+        }
+      },
+      "exportedName": "createBlogPost",
+      "filename": "lib/blogActions.ts"
+    }
+  },
+  "edge": {}
+}

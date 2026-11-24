@@ -1,0 +1,15 @@
+{
+  "node": {
+    "40277d643bb8401100eca23a14bbeafa65b5dc2773": {
+      "workers": {
+        "app/(admin)/admin/home/embroidery/add/page": {
+          "moduleId": 16934,
+          "async": false
+        }
+      },
+      "exportedName": "$$RSC_SERVER_ACTION_0",
+      "filename": "app/(admin)/admin/home/embroidery/add/page.tsx"
+    }
+  },
+  "edge": {}
+}

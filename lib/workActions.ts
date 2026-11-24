@@ -6,6 +6,7 @@ import path from 'path';
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 import { WorkProject } from '@/types/work';
+import { assertAdmin } from '@/lib/auth';
 
 function rowToWorkProject(row: any): WorkProject & { sortOrder?: number; isActive?: number } {
   return {
@@ -64,17 +65,28 @@ export async function getWorkProjectById(id: number | string): Promise<any | nul
   }
 }
 
+const ALLOWED_IMAGE_EXTENSIONS = new Set(['.jpg', '.jpeg', '.png', '.webp', '.gif']);
+
 // Helper to save uploaded file
 async function handleFileUpload(file: File | null): Promise<string | null> {
   if (!file || file.size === 0 || !file.name) {
     return null;
   }
 
+  // File size limit: 10MB
+  if (file.size > 10 * 1024 * 1024) {
+    throw new Error('Image size exceeds 10MB limit.');
+  }
+
+  const rawExt = path.extname(file.name).toLowerCase();
+  if (!ALLOWED_IMAGE_EXTENSIONS.has(rawExt)) {
+    throw new Error('Invalid file type. Allowed image formats: jpg, jpeg, png, webp, gif.');
+  }
+
   const bytes = await file.arrayBuffer();
   const buffer = Buffer.from(bytes);
-  const ext = path.extname(file.name) || '.jpg';
-  const rawBase = path.basename(file.name, ext).replace(/[^a-zA-Z0-9_-]/g, '_');
-  const filename = `${Date.now()}-${rawBase}${ext}`;
+  const rawBase = path.basename(file.name, rawExt).replace(/[^a-zA-Z0-9_-]/g, '_');
+  const filename = `${Date.now()}-${rawBase}${rawExt}`;
   const uploadDir = path.join(process.cwd(), 'public', 'uploads');
 
   await mkdir(uploadDir, { recursive: true });
@@ -85,6 +97,8 @@ async function handleFileUpload(file: File | null): Promise<string | null> {
 
 // 4. Create Work Project
 export async function createWorkProject(formData: FormData) {
+  await assertAdmin();
+
   const title = ((formData.get('title') as string) || '').trim();
   const category = ((formData.get('category') as string) || 'Caps & 3D Puff').trim();
   const tag = ((formData.get('tag') as string) || '').trim();
@@ -134,6 +148,8 @@ export async function createWorkProject(formData: FormData) {
 
 // 5. Update Work Project
 export async function updateWorkProject(id: number, formData: FormData) {
+  await assertAdmin();
+
   const title = ((formData.get('title') as string) || '').trim();
   const category = ((formData.get('category') as string) || 'Caps & 3D Puff').trim();
   const tag = ((formData.get('tag') as string) || '').trim();
@@ -201,6 +217,8 @@ export async function updateWorkProject(id: number, formData: FormData) {
 
 // 6. Delete Work Project
 export async function deleteWorkProject(id: number) {
+  await assertAdmin();
+
   await pool.query('DELETE FROM our_work WHERE id = ?', [id]);
   revalidatePath('/');
   revalidatePath('/our-work');

@@ -1,11 +1,15 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { syncGoogleReviewsFromSerpApi } from '@/lib/googleReviewsActions';
 
-// Secret cron key to prevent unauthorized access
-const CRON_SECRET = process.env.CRON_SECRET || 'newleafskills_cron_secret_key_2026';
+const CRON_SECRET = process.env.CRON_SECRET;
 
 export async function GET(req: NextRequest) {
   try {
+    if (!CRON_SECRET) {
+      console.error('CRON_SECRET is not configured in the environment.');
+      return NextResponse.json({ error: 'Server configuration error' }, { status: 500 });
+    }
+
     const { searchParams } = new URL(req.url);
     const key = searchParams.get('key') || req.headers.get('x-cron-key');
 

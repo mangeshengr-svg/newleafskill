@@ -14,7 +14,9 @@
 # Next.js Build optimization for Git:
 /.next/
 prod-build/
+*.tar
 *.tar.gz
+*.bak
 *.zip
 
 /out/

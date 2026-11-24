@@ -1,6 +1,6 @@
 {
   "node": {
-    "40e8f4003ce04ee5d6196c2a220aa2ce35263608be": {
+    "40b0c7bb45c7056bd5197a1c90f65b16a33358fe09": {
       "workers": {
         "app/(admin)/admin/blog/page": {
           "moduleId": 34918,

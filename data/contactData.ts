@@ -46,7 +46,7 @@ export const contactDetails = {
     rushTurnaround: "2–4 Hours Priority Rush Available"
   },
   
-  mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3720.0906325510617!2d79.1176211758781!3d21.188556582236353!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd4c70034d650ff%3A0xc39bc6dfa42bf43!2sCodereva%20-%20AI%20and%20Software%20Development%20Company!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin",
+  mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3720.0906325510617!2d79.1020575!3d21.1742967!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd4c0df58f0c565%3A0xb145f5be463aaa53!2sNew+leaf+Skills+%7C+Embroidery+Digitizing+Service%2C+C%2FO%2C+Chaudhari+Cable+Network+1440+Near+Budh+Nagar%2C+Asi+Nagar%2C+Gurudwara+Rd%2C+Nagpur%2C+Maharashtra+440017!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin",
   googleMapsDirectionsUrl: "https://maps.app.goo.gl/6EQSKCUPYBFZ5knd6"
 };
 

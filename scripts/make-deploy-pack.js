@@ -66,8 +66,9 @@ if (fs.existsSync(tarGzFile)) {
 
 console.log('Compressing into deploy-update.tar.gz...');
 try {
-  // Use tar command (built-in Windows 10/11)
-  cp.execSync(`tar -czf "${tarGzFile}" -C "${packDir}" .`, { stdio: 'inherit' });
+  // Use relative path for tar to avoid drive letter colon (D:) in Git Bash / MSYS tar
+  const archiveName = 'deploy-update.tar.gz';
+  cp.execSync(`tar -czf "${archiveName}" -C "deploy-pack" .`, { cwd: rootDir, stdio: 'inherit' });
   const stat = fs.statSync(tarGzFile);
   const sizeMB = (stat.size / (1024 * 1024)).toFixed(2);
   console.log(`\n========================================`);

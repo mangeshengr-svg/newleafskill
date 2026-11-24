@@ -3,10 +3,15 @@ import pool from '@/lib/db';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 
-const JWT_SECRET = process.env.JWT_SECRET || 'newleafskills_secret_key_123';
+const JWT_SECRET = process.env.JWT_SECRET;
 
 export async function POST(request) {
   try {
+    if (!JWT_SECRET) {
+      console.error('JWT_SECRET is missing in environment.');
+      return NextResponse.json({ message: 'Server configuration error' }, { status: 500 });
+    }
+
     const { email, password } = await request.json();
 
     if (!email || !password) {

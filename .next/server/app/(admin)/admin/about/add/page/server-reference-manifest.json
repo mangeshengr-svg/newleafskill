@@ -1,6 +1,6 @@
 {
   "node": {
-    "0085aa52ec695545448ce912cc2e8162528e86689e": {
+    "004fcd60bd53559c17a3078d0665777e3f750aa872": {
       "workers": {
         "app/(admin)/admin/about/add/page": {
           "moduleId": 92520,
@@ -10,7 +10,7 @@
       "exportedName": "getAllAboutContent",
       "filename": "lib/aboutActions.ts"
     },
-    "00cd9fd771f9d3b7ffd5afe610fae63969998144c1": {
+    "00572b2f63b4169a3b25a7d587f51072a23c0bb9b9": {
       "workers": {
         "app/(admin)/admin/about/add/page": {
           "moduleId": 92520,
@@ -20,17 +20,7 @@
       "exportedName": "getActiveAboutContent",
       "filename": "lib/aboutActions.ts"
     },
-    "404cbae5e96c920451cf09061a5a0bbe2c5c7b3988": {
-      "workers": {
-        "app/(admin)/admin/about/add/page": {
-          "moduleId": 92520,
-          "async": false
-        }
-      },
-      "exportedName": "createAboutContent",
-      "filename": "lib/aboutActions.ts"
-    },
-    "40d07daa1ed28f71eb2969b5353b58b8540d89c895": {
+    "4036390bb55a77c5ea8cc2a6d8287227f9f26b2935": {
       "workers": {
         "app/(admin)/admin/about/add/page": {
           "moduleId": 92520,
@@ -40,7 +30,7 @@
       "exportedName": "getAboutById",
       "filename": "lib/aboutActions.ts"
     },
-    "40db3e757c8dadae39498e527c3c6b46e2b9286899": {
+    "40eeab41a0c28f0948de9a54ef682c76af96bb1031": {
       "workers": {
         "app/(admin)/admin/about/add/page": {
           "moduleId": 92520,
@@ -50,7 +40,17 @@
       "exportedName": "deleteAboutContent",
       "filename": "lib/aboutActions.ts"
     },
-    "609335f125957e46cd778b9ebf5c53c7ba3692fb6f": {
+    "40f5fb6d4050ebc9e7b91d17f7d00dd1daabd6a96d": {
+      "workers": {
+        "app/(admin)/admin/about/add/page": {
+          "moduleId": 92520,
+          "async": false
+        }
+      },
+      "exportedName": "createAboutContent",
+      "filename": "lib/aboutActions.ts"
+    },
+    "601d90df0fded6750cdd24e31beb07a94e00b7eb1e": {
       "workers": {
         "app/(admin)/admin/about/add/page": {
           "moduleId": 92520,
@@ -60,67 +60,7 @@
       "exportedName": "updateAboutContent",
       "filename": "lib/aboutActions.ts"
     },
-    "000410e5afdbe045fe66f2053b3fb42cf94dd668a0": {
-      "workers": {
-        "app/(admin)/admin/about/add/page": {
-          "moduleId": 92520,
-          "async": false
-        }
-      },
-      "exportedName": "getCraftsmanshipLayers",
-      "filename": "lib/aboutSplitActions.ts"
-    },
-    "0037ea97ba5af722a62bd926707168fc4cb5697382": {
-      "workers": {
-        "app/(admin)/admin/about/add/page": {
-          "moduleId": 92520,
-          "async": false
-        }
-      },
-      "exportedName": "getAboutMachines",
-      "filename": "lib/aboutSplitActions.ts"
-    },
-    "003f28e6039eefdac2aefc5a9e545357e64231af2b": {
-      "workers": {
-        "app/(admin)/admin/about/add/page": {
-          "moduleId": 92520,
-          "async": false
-        }
-      },
-      "exportedName": "getAboutCta",
-      "filename": "lib/aboutSplitActions.ts"
-    },
-    "0062e5060f4a7672b6d6b20dc19b5109fdea5bcfa5": {
-      "workers": {
-        "app/(admin)/admin/about/add/page": {
-          "moduleId": 92520,
-          "async": false
-        }
-      },
-      "exportedName": "getAboutGlobalPresence",
-      "filename": "lib/aboutSplitActions.ts"
-    },
-    "006d7a42fd997cee5c271e0d851b0bb603ff7ddd45": {
-      "workers": {
-        "app/(admin)/admin/about/add/page": {
-          "moduleId": 92520,
-          "async": false
-        }
-      },
-      "exportedName": "getActiveAboutContent",
-      "filename": "lib/aboutSplitActions.ts"
-    },
-    "008343e0c7f8759bab9b9629bf19bc1b16b134bac4": {
-      "workers": {
-        "app/(admin)/admin/about/add/page": {
-          "moduleId": 92520,
-          "async": false
-        }
-      },
-      "exportedName": "getAboutWhyChoose",
-      "filename": "lib/aboutSplitActions.ts"
-    },
-    "00987d08b078aa5aaede8f88d497f84a5f6de256c7": {
+    "00246fc6fd82d0389aed3b721307b8c3f422ac1b84": {
       "workers": {
         "app/(admin)/admin/about/add/page": {
           "moduleId": 92520,
@@ -130,27 +70,17 @@
       "exportedName": "getAboutStory",
       "filename": "lib/aboutSplitActions.ts"
     },
-    "00a1bee699b19cfb6a6ab79240fde01d5029c30c69": {
+    "003fd3a714b8d4814462e951b25335ddcc7f42bf67": {
       "workers": {
         "app/(admin)/admin/about/add/page": {
           "moduleId": 92520,
           "async": false
         }
       },
-      "exportedName": "getAboutHero",
+      "exportedName": "getAboutMachines",
       "filename": "lib/aboutSplitActions.ts"
     },
-    "00c9fc56ad8fe3b29be7c75e2a521977b9febc3dbd": {
-      "workers": {
-        "app/(admin)/admin/about/add/page": {
-          "moduleId": 92520,
-          "async": false
-        }
-      },
-      "exportedName": "getAggregatedAboutData",
-      "filename": "lib/aboutSplitActions.ts"
-    },
-    "00fd6682ac79ce6c3d12889cc3655e1862c429d23f": {
+    "0049c0b07e19800ebb9ec0416ee6fc8d95e8e0e48e": {
       "workers": {
         "app/(admin)/admin/about/add/page": {
           "moduleId": 92520,
@@ -160,87 +90,77 @@
       "exportedName": "getAboutTimeline",
       "filename": "lib/aboutSplitActions.ts"
     },
-    "403e5ee78154b0f97d1d48a2a5731193866d7cb12a": {
+    "0055488e1cfece59daff6e0be5ff7fc02f03ff9bfb": {
       "workers": {
         "app/(admin)/admin/about/add/page": {
           "moduleId": 92520,
           "async": false
         }
       },
-      "exportedName": "deleteAboutTimeline",
+      "exportedName": "getAboutCta",
       "filename": "lib/aboutSplitActions.ts"
     },
-    "4043d23f0fad9d210005a840bca7f72d42ba60e368": {
+    "0056b45dddc805a8dfbf6baf0c4ee9c5700dfbec79": {
       "workers": {
         "app/(admin)/admin/about/add/page": {
           "moduleId": 92520,
           "async": false
         }
       },
-      "exportedName": "deleteAboutWhyChoose",
+      "exportedName": "getCraftsmanshipLayers",
       "filename": "lib/aboutSplitActions.ts"
     },
-    "40451cb1a665366d975bc14e763e8233c4a6429f07": {
+    "0068abb0992c4b27d4f36bc62a66c8728a40a8cec2": {
       "workers": {
         "app/(admin)/admin/about/add/page": {
           "moduleId": 92520,
           "async": false
         }
       },
-      "exportedName": "getGlobalPresenceById",
+      "exportedName": "getAboutWhyChoose",
       "filename": "lib/aboutSplitActions.ts"
     },
-    "4052f2be122f2191e2da872f3bf66907918fbcbfe3": {
+    "006c89374594f3a5039e0ec03b7f4ad63537a15007": {
       "workers": {
         "app/(admin)/admin/about/add/page": {
           "moduleId": 92520,
           "async": false
         }
       },
-      "exportedName": "getMachineById",
+      "exportedName": "getAggregatedAboutData",
       "filename": "lib/aboutSplitActions.ts"
     },
-    "405920cd3a66b24e69aee978b034bc3433ce99535a": {
+    "009c098b6a41ccddadee2d8295b6a4eb2cc80e7a45": {
       "workers": {
         "app/(admin)/admin/about/add/page": {
           "moduleId": 92520,
           "async": false
         }
       },
-      "exportedName": "deleteCraftsmanshipLayer",
+      "exportedName": "getAboutHero",
       "filename": "lib/aboutSplitActions.ts"
     },
-    "4069bfd417e07cd018b2ab2ae7fdd49551b32c01d4": {
+    "009caa3cd44d820c16e75bc087afde97beebe89af6": {
       "workers": {
         "app/(admin)/admin/about/add/page": {
           "moduleId": 92520,
           "async": false
         }
       },
-      "exportedName": "getCraftsmanshipById",
+      "exportedName": "getActiveAboutContent",
       "filename": "lib/aboutSplitActions.ts"
     },
-    "407455c18f6a48c6bc8db0b531b94a2b72d9ec59a8": {
+    "00d4ec3b6d63ffb39e08946fb3985bf942a6d459b1": {
       "workers": {
         "app/(admin)/admin/about/add/page": {
           "moduleId": 92520,
           "async": false
         }
       },
-      "exportedName": "saveAboutWhyChoose",
+      "exportedName": "getAboutGlobalPresence",
       "filename": "lib/aboutSplitActions.ts"
     },
-    "407942510f5860c7fe6ea93a1c017da8bbca2b0b1e": {
-      "workers": {
-        "app/(admin)/admin/about/add/page": {
-          "moduleId": 92520,
-          "async": false
-        }
-      },
-      "exportedName": "saveCraftsmanshipLayer",
-      "filename": "lib/aboutSplitActions.ts"
-    },
-    "408aed10ad7663561c65b611d406bd227c98e6fbd7": {
+    "4006132f4d307f30b8f79b8ac97ac85648cfcb18ec": {
       "workers": {
         "app/(admin)/admin/about/add/page": {
           "moduleId": 92520,
@@ -250,67 +170,17 @@
       "exportedName": "updateAboutHero",
       "filename": "lib/aboutSplitActions.ts"
     },
-    "409e0f702a0975e26f7d6389705245b7fb348f8523": {
+    "40092a78b79d215570656a941f5e80a8142672d526": {
       "workers": {
         "app/(admin)/admin/about/add/page": {
           "moduleId": 92520,
           "async": false
         }
       },
-      "exportedName": "deleteAboutMachine",
+      "exportedName": "saveAboutTimeline",
       "filename": "lib/aboutSplitActions.ts"
     },
-    "40a4d3794b733b2b53f815aa1bf528e0e6351d2eec": {
-      "workers": {
-        "app/(admin)/admin/about/add/page": {
-          "moduleId": 92520,
-          "async": false
-        }
-      },
-      "exportedName": "deleteAboutGlobalPresence",
-      "filename": "lib/aboutSplitActions.ts"
-    },
-    "40af2378ab30d0a8398f1f688cf88995a689f03215": {
-      "workers": {
-        "app/(admin)/admin/about/add/page": {
-          "moduleId": 92520,
-          "async": false
-        }
-      },
-      "exportedName": "updateAboutCta",
-      "filename": "lib/aboutSplitActions.ts"
-    },
-    "40dd99f38bec61ab07298b3e71dbb257cf7cc6a864": {
-      "workers": {
-        "app/(admin)/admin/about/add/page": {
-          "moduleId": 92520,
-          "async": false
-        }
-      },
-      "exportedName": "getWhyChooseById",
-      "filename": "lib/aboutSplitActions.ts"
-    },
-    "40de8f44e81459d27090fde3e081d33bea2cbbfe14": {
-      "workers": {
-        "app/(admin)/admin/about/add/page": {
-          "moduleId": 92520,
-          "async": false
-        }
-      },
-      "exportedName": "updateAboutStory",
-      "filename": "lib/aboutSplitActions.ts"
-    },
-    "40e02781737df8cd35a37e0f13af46ca6819296d85": {
-      "workers": {
-        "app/(admin)/admin/about/add/page": {
-          "moduleId": 92520,
-          "async": false
-        }
-      },
-      "exportedName": "saveAboutGlobalPresence",
-      "filename": "lib/aboutSplitActions.ts"
-    },
-    "40e185f273d45c5a9d5f424917055a25384db12dbc": {
+    "400cb10f8946a9c971d0a0932f46fdf5ffac29ebf9": {
       "workers": {
         "app/(admin)/admin/about/add/page": {
           "moduleId": 92520,
@@ -320,7 +190,37 @@
       "exportedName": "saveAboutMachine",
       "filename": "lib/aboutSplitActions.ts"
     },
-    "40e77377d29f2b951e0cf434c5e40a6238d9b3633a": {
+    "4029d2d05214059082e509dabf6f0f0fbf91020f17": {
+      "workers": {
+        "app/(admin)/admin/about/add/page": {
+          "moduleId": 92520,
+          "async": false
+        }
+      },
+      "exportedName": "getCraftsmanshipById",
+      "filename": "lib/aboutSplitActions.ts"
+    },
+    "402d5933d3e6f0adcc135272e89868e22f5b30f894": {
+      "workers": {
+        "app/(admin)/admin/about/add/page": {
+          "moduleId": 92520,
+          "async": false
+        }
+      },
+      "exportedName": "deleteAboutWhyChoose",
+      "filename": "lib/aboutSplitActions.ts"
+    },
+    "40335eac2b0ea1d2cb6258f6c5de68bb80506fedfd": {
+      "workers": {
+        "app/(admin)/admin/about/add/page": {
+          "moduleId": 92520,
+          "async": false
+        }
+      },
+      "exportedName": "getGlobalPresenceById",
+      "filename": "lib/aboutSplitActions.ts"
+    },
+    "403b1be9ab56bdc2b49b2089ff54d89cd1b4b5d212": {
       "workers": {
         "app/(admin)/admin/about/add/page": {
           "moduleId": 92520,
@@ -330,14 +230,114 @@
       "exportedName": "getTimelineById",
       "filename": "lib/aboutSplitActions.ts"
     },
-    "40fd442d57392b9ea13c4fcc3353c81d7330707101": {
+    "4045e35784a5667ee246e882b41f10aa11cc5d59f8": {
       "workers": {
         "app/(admin)/admin/about/add/page": {
           "moduleId": 92520,
           "async": false
         }
       },
-      "exportedName": "saveAboutTimeline",
+      "exportedName": "deleteCraftsmanshipLayer",
+      "filename": "lib/aboutSplitActions.ts"
+    },
+    "4057499d417a9b250649a33f8c994e03d2d46274e5": {
+      "workers": {
+        "app/(admin)/admin/about/add/page": {
+          "moduleId": 92520,
+          "async": false
+        }
+      },
+      "exportedName": "getWhyChooseById",
+      "filename": "lib/aboutSplitActions.ts"
+    },
+    "40690be4dab5eaf8e428d1596d1140412e54ed35cb": {
+      "workers": {
+        "app/(admin)/admin/about/add/page": {
+          "moduleId": 92520,
+          "async": false
+        }
+      },
+      "exportedName": "deleteAboutMachine",
+      "filename": "lib/aboutSplitActions.ts"
+    },
+    "40803fa13b4259df471d54ddea09dfd601c848498d": {
+      "workers": {
+        "app/(admin)/admin/about/add/page": {
+          "moduleId": 92520,
+          "async": false
+        }
+      },
+      "exportedName": "deleteAboutGlobalPresence",
+      "filename": "lib/aboutSplitActions.ts"
+    },
+    "408f70d324d12b31b1b5326e82b8b7341ee0c0c3a7": {
+      "workers": {
+        "app/(admin)/admin/about/add/page": {
+          "moduleId": 92520,
+          "async": false
+        }
+      },
+      "exportedName": "saveAboutGlobalPresence",
+      "filename": "lib/aboutSplitActions.ts"
+    },
+    "40a1773f99e36fb0fb3191079a3062c693b4e328a4": {
+      "workers": {
+        "app/(admin)/admin/about/add/page": {
+          "moduleId": 92520,
+          "async": false
+        }
+      },
+      "exportedName": "deleteAboutTimeline",
+      "filename": "lib/aboutSplitActions.ts"
+    },
+    "40bdc40f417aa0cc4b6e3f0da9f1faa6b73a6862d0": {
+      "workers": {
+        "app/(admin)/admin/about/add/page": {
+          "moduleId": 92520,
+          "async": false
+        }
+      },
+      "exportedName": "saveAboutWhyChoose",
+      "filename": "lib/aboutSplitActions.ts"
+    },
+    "40d4e86ff59128a80fa42ea3f2bb5310238c87c0aa": {
+      "workers": {
+        "app/(admin)/admin/about/add/page": {
+          "moduleId": 92520,
+          "async": false
+        }
+      },
+      "exportedName": "saveCraftsmanshipLayer",
+      "filename": "lib/aboutSplitActions.ts"
+    },
+    "40d88a06944afc5e9063c0d0f645ed7b097e8b233a": {
+      "workers": {
+        "app/(admin)/admin/about/add/page": {
+          "moduleId": 92520,
+          "async": false
+        }
+      },
+      "exportedName": "updateAboutCta",
+      "filename": "lib/aboutSplitActions.ts"
+    },
+    "40e0b0dabfd205431de08f1d4ba45e405e5993540c": {
+      "workers": {
+        "app/(admin)/admin/about/add/page": {
+          "moduleId": 92520,
+          "async": false
+        }
+      },
+      "exportedName": "updateAboutStory",
+      "filename": "lib/aboutSplitActions.ts"
+    },
+    "40f04c8cd6cedf734d67e3792a794e714861740452": {
+      "workers": {
+        "app/(admin)/admin/about/add/page": {
+          "moduleId": 92520,
+          "async": false
+        }
+      },
+      "exportedName": "getMachineById",
       "filename": "lib/aboutSplitActions.ts"
     }
   },

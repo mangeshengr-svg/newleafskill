@@ -1,0 +1,45 @@
+{
+  "node": {
+    "40cef76d0cd96600ed7754cd7d644435b742d536a0": {
+      "workers": {
+        "app/(admin)/admin/home/embroidery/page": {
+          "moduleId": 84063,
+          "async": false
+        }
+      },
+      "exportedName": "$$RSC_SERVER_ACTION_0",
+      "filename": "app/(admin)/admin/home/embroidery/page.tsx"
+    },
+    "4010899a50cb45fd8ac2d9eb902fb8a07c68f1fa3c": {
+      "workers": {
+        "app/(admin)/admin/home/embroidery/page": {
+          "moduleId": 84063,
+          "async": false
+        }
+      },
+      "exportedName": "$$RSC_SERVER_ACTION_0",
+      "filename": "lib/actions.ts"
+    },
+    "402a0888cf2a2b99731b7cf152b970b30bd1492945": {
+      "workers": {
+        "app/(admin)/admin/home/embroidery/page": {
+          "moduleId": 84063,
+          "async": false
+        }
+      },
+      "exportedName": "$$RSC_SERVER_ACTION_2",
+      "filename": "lib/actions.ts"
+    },
+    "60d57e0460b9715a1386fd910cf3c52751b88aeac3": {
+      "workers": {
+        "app/(admin)/admin/home/embroidery/page": {
+          "moduleId": 84063,
+          "async": false
+        }
+      },
+      "exportedName": "$$RSC_SERVER_ACTION_1",
+      "filename": "lib/actions.ts"
+    }
+  },
+  "edge": {}
+}

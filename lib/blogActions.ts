@@ -7,6 +7,7 @@ import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 import { BlogPost } from '@/types/blog';
 import { blogPosts as fallbackBlogPosts } from '@/data/blogPosts';
+import { assertAdmin } from '@/lib/auth';
 
 function safeParseJson(value: any, defaultValue: any = []) {
   if (!value) return defaultValue;
@@ -104,17 +105,28 @@ export async function getBlogPostBySlug(slug: string): Promise<BlogPost | null> 
   }
 }
 
+const ALLOWED_IMAGE_EXTENSIONS = new Set(['.jpg', '.jpeg', '.png', '.webp', '.gif']);
+
 // Helper to save uploaded file
 async function handleFileUpload(file: File | null): Promise<string | null> {
   if (!file || file.size === 0 || !file.name) {
     return null;
   }
 
+  // File size limit: 10MB
+  if (file.size > 10 * 1024 * 1024) {
+    throw new Error('Image size exceeds 10MB limit.');
+  }
+
+  const rawExt = path.extname(file.name).toLowerCase();
+  if (!ALLOWED_IMAGE_EXTENSIONS.has(rawExt)) {
+    throw new Error('Invalid file type. Allowed image formats: jpg, jpeg, png, webp, gif.');
+  }
+
   const bytes = await file.arrayBuffer();
   const buffer = Buffer.from(bytes);
-  const ext = path.extname(file.name) || '.jpg';
-  const rawBase = path.basename(file.name, ext).replace(/[^a-zA-Z0-9_-]/g, '_');
-  const filename = `blog-${Date.now()}-${rawBase}${ext}`;
+  const rawBase = path.basename(file.name, rawExt).replace(/[^a-zA-Z0-9_-]/g, '_');
+  const filename = `blog-${Date.now()}-${rawBase}${rawExt}`;
   const uploadDir = path.join(process.cwd(), 'public', 'uploads');
 
   await mkdir(uploadDir, { recursive: true });
@@ -134,6 +146,8 @@ function slugify(text: string): string {
 
 // 5. Create Blog Post
 export async function createBlogPost(formData: FormData) {
+  await assertAdmin();
+
   const title = ((formData.get('title') as string) || '').trim();
   let slug = ((formData.get('slug') as string) || '').trim();
   if (!slug) {
@@ -219,6 +233,8 @@ export async function createBlogPost(formData: FormData) {
 
 // 6. Update Blog Post
 export async function updateBlogPost(id: number, formData: FormData) {
+  await assertAdmin();
+
   const title = ((formData.get('title') as string) || '').trim();
   let slug = ((formData.get('slug') as string) || '').trim();
   if (!slug) {
@@ -328,6 +344,8 @@ export async function updateBlogPost(id: number, formData: FormData) {
 
 // 7. Delete Blog Post
 export async function deleteBlogPost(id: number) {
+  await assertAdmin();
+
   try {
     await pool.query('DELETE FROM blogs WHERE id = ?', [id]);
     revalidatePath('/');

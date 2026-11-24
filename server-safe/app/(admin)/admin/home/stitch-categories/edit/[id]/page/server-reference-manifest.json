@@ -1,0 +1,35 @@
+{
+  "node": {
+    "400e3a15a020c1ad0468e1ad9491a8cab579027ae8": {
+      "workers": {
+        "app/(admin)/admin/home/stitch-categories/edit/[id]/page": {
+          "moduleId": 80873,
+          "async": false
+        }
+      },
+      "exportedName": "addStitchCategory",
+      "filename": "lib/stitchActions.ts"
+    },
+    "404f25b715d3bf75e5602aecf18571c02a1dc8f7da": {
+      "workers": {
+        "app/(admin)/admin/home/stitch-categories/edit/[id]/page": {
+          "moduleId": 80873,
+          "async": false
+        }
+      },
+      "exportedName": "deleteStitchCategory",
+      "filename": "lib/stitchActions.ts"
+    },
+    "60c8248db2c00f6990f74204defaf8dac37fb095a5": {
+      "workers": {
+        "app/(admin)/admin/home/stitch-categories/edit/[id]/page": {
+          "moduleId": 80873,
+          "async": false
+        }
+      },
+      "exportedName": "updateStitchCategory",
+      "filename": "lib/stitchActions.ts"
+    }
+  },
+  "edge": {}
+}

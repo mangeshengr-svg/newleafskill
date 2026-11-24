@@ -1,0 +1,65 @@
+{
+  "node": {
+    "004925937efe8f982f7c22f789b0ad42aba56f58b3": {
+      "workers": {
+        "app/(admin)/admin/services/page": {
+          "moduleId": 54171,
+          "async": false
+        }
+      },
+      "exportedName": "getAllServices",
+      "filename": "lib/serviceActions.ts"
+    },
+    "0068fb8040c3c337a5949cb044022214cce59c8305": {
+      "workers": {
+        "app/(admin)/admin/services/page": {
+          "moduleId": 54171,
+          "async": false
+        }
+      },
+      "exportedName": "getActiveServices",
+      "filename": "lib/serviceActions.ts"
+    },
+    "40767c1d2896fc9b8b53a4deaa2ba2c1211cabfc59": {
+      "workers": {
+        "app/(admin)/admin/services/page": {
+          "moduleId": 54171,
+          "async": false
+        }
+      },
+      "exportedName": "createService",
+      "filename": "lib/serviceActions.ts"
+    },
+    "408d9319b27cea2a7f18c2e9a81c9e8f585c6110d1": {
+      "workers": {
+        "app/(admin)/admin/services/page": {
+          "moduleId": 54171,
+          "async": false
+        }
+      },
+      "exportedName": "getServiceById",
+      "filename": "lib/serviceActions.ts"
+    },
+    "40b7f30b8d502fbde0a4fa7af3b5a6ab7c995a69e0": {
+      "workers": {
+        "app/(admin)/admin/services/page": {
+          "moduleId": 54171,
+          "async": false
+        }
+      },
+      "exportedName": "deleteService",
+      "filename": "lib/serviceActions.ts"
+    },
+    "603acfddbd60291310832d7a08f84689f241bbff25": {
+      "workers": {
+        "app/(admin)/admin/services/page": {
+          "moduleId": 54171,
+          "async": false
+        }
+      },
+      "exportedName": "updateService",
+      "filename": "lib/serviceActions.ts"
+    }
+  },
+  "edge": {}
+}

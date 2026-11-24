@@ -15,13 +15,13 @@ a:X
 11:X
 13:X
 14:X
-0:{"P":null,"c":["","_global-error"],"q":"","i":false,"t":{"t":{"s":"","h":530,"d":{"r":["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],"p":true,"v":"$5"},"c":"$Q6"},"h":{"r":["$","$1","h",{"children":[null,["$","$Lc",null,{"children":"$Ld"}],["$","$Lf",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$8",null,{"name":"Next.Metadata","children":"$L10"}]}],null]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"p":true,"v":"$11"}},"m":"$undefined","G":["$12",[]],"S":true,"r":"$13","s":"$14","a":"$@15","l":"$undefined","p":"$undefined","d":"$undefined","b":"U4qrw6G4_afrQLj5Y0GZ2","u":"$@16"}
+0:{"P":null,"c":["","_global-error"],"q":"","i":false,"t":{"t":{"s":"","h":530,"d":{"r":["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],"p":true,"v":"$5"},"c":"$Q6"},"h":{"r":["$","$1","h",{"children":[null,["$","$Lc",null,{"children":"$Ld"}],["$","$Lf",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$8",null,{"name":"Next.Metadata","children":"$L10"}]}],null]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"p":true,"v":"$11"}},"m":"$undefined","G":["$12",[]],"S":true,"r":"$13","s":"$14","a":"$@15","l":"$undefined","p":"$undefined","d":"$undefined","b":"YK0lzLiKwJjZc0IMtWrei","u":"$@16"}
 5:C
 14:300
 d:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
 17:I[27201,["$2"],"IconMark"]
 9:null
-10:[["$","link","0",{"rel":"icon","href":"/favicon.ico?favicon.117ezoe8m31dk.ico","sizes":"48x48","type":"image/x-icon"}],["$","$L17","1",{}]]
+10:[["$","link","0",{"rel":"icon","href":"/favicon.ico?favicon.1xnkamj5lvp9d.ico","sizes":"48x48","type":"image/x-icon"}],["$","$L17","1",{}]]
 14:C
 11:C
 13:C

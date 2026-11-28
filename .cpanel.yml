@@ -1,8 +1,13 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/newleafs/nodetest.newleafskills.com
+    - export DEPLOYPATH=/home/newleafs/public_html
     - /bin/cp -r .htaccess server.js app.js package.json public $DEPLOYPATH/ 2>/dev/null || true
     - mkdir -p $DEPLOYPATH/.next
     - /bin/cp -r build-deploy/* $DEPLOYPATH/.next/ 2>/dev/null || true
     - touch $DEPLOYPATH/tmp/restart.txt 2>/dev/null || true
+    - export TESTPATH=/home/newleafs/nodetest.newleafskills.com
+    - /bin/cp -r .htaccess server.js app.js package.json public $TESTPATH/ 2>/dev/null || true
+    - mkdir -p $TESTPATH/.next
+    - /bin/cp -r build-deploy/* $TESTPATH/.next/ 2>/dev/null || true
+    - touch $TESTPATH/tmp/restart.txt 2>/dev/null || true

@@ -353,6 +353,16 @@ self.__SERVER_FILES_MANIFEST={
     },
     "repoRoot": "D:\\newleafskills-web",
     "distDirRoot": ".next",
+    "_originalRewrites": {
+      "beforeFiles": [],
+      "afterFiles": [
+        {
+          "source": "/internal-console",
+          "destination": "/admin/login"
+        }
+      ],
+      "fallback": []
+    },
     "_originalRedirects": [
       {
         "source": "/ourwork",

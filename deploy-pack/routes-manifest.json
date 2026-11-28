@@ -83,7 +83,13 @@
   "onMatchHeaders": [],
   "rewrites": {
     "beforeFiles": [],
-    "afterFiles": [],
+    "afterFiles": [
+      {
+        "source": "/internal-console",
+        "destination": "/admin/login",
+        "regex": "^/internal-console(?:/)?$"
+      }
+    ],
     "fallback": []
   },
   "dynamicRoutes": [

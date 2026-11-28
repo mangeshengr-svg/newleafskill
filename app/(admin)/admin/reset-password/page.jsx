@@ -42,7 +42,7 @@ export default function AdminResetPasswordPage() {
       if (res.ok) {
         setSuccess(data.message || 'Password reset successfully! Redirecting to login...');
         setTimeout(() => {
-          router.push('/admin/login');
+          router.push('/internal-console');
         }, 2000);
       } else {
         setError(data.message || 'Failed to reset password');
@@ -135,7 +135,7 @@ export default function AdminResetPasswordPage() {
 
         <div className="mt-6 text-center text-xs text-slate-400">
           Remember your password?{' '}
-          <Link href="/admin/login" className="text-blue-400 hover:underline font-semibold">
+          <Link href="/internal-console" className="text-blue-400 hover:underline font-semibold">
             Back to Login
           </Link>
         </div>

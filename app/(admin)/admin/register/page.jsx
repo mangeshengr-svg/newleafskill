@@ -24,7 +24,7 @@ export default function AdminRegisterPage() {
       const data = await res.json();
 
       if (res.ok) {
-        router.push('/admin/login');
+        router.push('/internal-console');
       } else {
         setError(data.message || 'Registration failed');
       }

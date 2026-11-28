@@ -18,12 +18,16 @@
         {
           "regexp": "/:nextData(_next/data/[^/]{1,})?/api/admin/:path*{(\\.json|\\.rsc|\\.segments/.+\\.segment\\.rsc)}?",
           "originalSource": "/api/admin/:path*"
+        },
+        {
+          "regexp": "/:nextData(_next/data/[^/]{1,})?/internal-console{(\\.json|\\.rsc|\\.segments/.+\\.segment\\.rsc)}?",
+          "originalSource": "/internal-console"
         }
       ],
       "wasm": [],
       "assets": [],
       "env": {
-        "__NEXT_BUILD_ID": "YK0lzLiKwJjZc0IMtWrei",
+        "__NEXT_BUILD_ID": "U0zHSmKvxHS5Y1fTJEdmy",
         "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "dqN9P8yxdFHnsilxirOHKmK6pZ6LRodL9FvUdMfu95c=",
         "__NEXT_PREVIEW_MODE_ID": "e14a084e5fd644d5b3e06faf29f0e348",
         "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "e2f15845e03ba137543f58e37df39010ed7bd4464b8cfab14f497e5e0e909004",

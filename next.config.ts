@@ -58,6 +58,14 @@ const nextConfig: NextConfig = {
       },
     },
   },
+  async rewrites() {
+    return [
+      {
+        source: '/internal-console',
+        destination: '/admin/login',
+      },
+    ];
+  },
   async redirects() {
     return [
       {

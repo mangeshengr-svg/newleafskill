@@ -502,6 +502,7 @@ function AdminLayoutInner({ children }) {
 
   const isAuthPage =
     pathname === '/admin/login' ||
+    pathname === '/internal-console' ||
     pathname === '/admin/register' ||
     pathname === '/admin/reset-password';
 
@@ -509,11 +510,11 @@ function AdminLayoutInner({ children }) {
     try {
       const res = await fetch('/api/admin/logout', { method: 'POST' });
       if (res.ok) {
-        window.location.href = '/admin/login';
+        window.location.href = '/internal-console';
       }
     } catch (error) {
       console.error('Logout failed', error);
-      window.location.href = '/admin/login';
+      window.location.href = '/internal-console';
     }
   };
 

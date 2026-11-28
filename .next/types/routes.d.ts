@@ -6,7 +6,7 @@ type AppRouteHandlerRoutes = "/api/admin/blogs" | "/api/admin/faqs" | "/api/admi
 type PageRoutes = never
 type LayoutRoutes = "/" | "/admin" | "/our-work"
 type RedirectRoutes = "/contactss" | "/embroidery-digitizing" | "/ourwork" | "/servicess" | "/work"
-type RewriteRoutes = never
+type RewriteRoutes = "/internal-console"
 type Routes = AppRoutes | PageRoutes | LayoutRoutes | RedirectRoutes | RewriteRoutes | AppRouteHandlerRoutes
 
 
@@ -87,6 +87,7 @@ interface ParamMap {
   "/contact": {}
   "/contactss": {}
   "/embroidery-digitizing": {}
+  "/internal-console": {}
   "/our-work": {}
   "/ourwork": {}
   "/services": {}

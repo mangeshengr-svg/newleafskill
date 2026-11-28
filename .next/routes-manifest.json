@@ -804,6 +804,12 @@
       "namedRegex": "^/favicon\\.ico(?:/)?$"
     },
     {
+      "page": "/internal-console",
+      "regex": "^/internal\\-console(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/internal\\-console(?:/)?$"
+    },
+    {
       "page": "/our-work",
       "regex": "^/our\\-work(?:/)?$",
       "routeKeys": {},

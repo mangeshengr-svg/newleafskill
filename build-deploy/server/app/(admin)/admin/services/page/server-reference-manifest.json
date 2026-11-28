@@ -1,6 +1,6 @@
 {
   "node": {
-    "0005a4596571a4c965292e8ab24141b81e8434de72": {
+    "004925937efe8f982f7c22f789b0ad42aba56f58b3": {
       "workers": {
         "app/(admin)/admin/services/page": {
           "moduleId": 54171,
@@ -10,7 +10,7 @@
       "exportedName": "getAllServices",
       "filename": "lib/serviceActions.ts"
     },
-    "000a2eabf0248c5ae9a17fa1aa309087d636dcc727": {
+    "0068fb8040c3c337a5949cb044022214cce59c8305": {
       "workers": {
         "app/(admin)/admin/services/page": {
           "moduleId": 54171,
@@ -20,17 +20,7 @@
       "exportedName": "getActiveServices",
       "filename": "lib/serviceActions.ts"
     },
-    "4041a365f12a4aaa551343f4b1625d38473ad2fe7f": {
-      "workers": {
-        "app/(admin)/admin/services/page": {
-          "moduleId": 54171,
-          "async": false
-        }
-      },
-      "exportedName": "deleteService",
-      "filename": "lib/serviceActions.ts"
-    },
-    "404464a58b5b2b75adb1e4561651817aea64942ab0": {
+    "40767c1d2896fc9b8b53a4deaa2ba2c1211cabfc59": {
       "workers": {
         "app/(admin)/admin/services/page": {
           "moduleId": 54171,
@@ -40,7 +30,7 @@
       "exportedName": "createService",
       "filename": "lib/serviceActions.ts"
     },
-    "40c1d7250365db0c16e46d6cc33dc7886b399c814c": {
+    "408d9319b27cea2a7f18c2e9a81c9e8f585c6110d1": {
       "workers": {
         "app/(admin)/admin/services/page": {
           "moduleId": 54171,
@@ -50,7 +40,17 @@
       "exportedName": "getServiceById",
       "filename": "lib/serviceActions.ts"
     },
-    "60ed8edad20a579a2355132882937a872f36115028": {
+    "40b7f30b8d502fbde0a4fa7af3b5a6ab7c995a69e0": {
+      "workers": {
+        "app/(admin)/admin/services/page": {
+          "moduleId": 54171,
+          "async": false
+        }
+      },
+      "exportedName": "deleteService",
+      "filename": "lib/serviceActions.ts"
+    },
+    "603acfddbd60291310832d7a08f84689f241bbff25": {
       "workers": {
         "app/(admin)/admin/services/page": {
           "moduleId": 54171,

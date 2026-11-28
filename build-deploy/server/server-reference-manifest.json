@@ -1,6 +1,6 @@
 {
   "node": {
-    "006e1321e6ff58af165e7912187b512614f860c4b7": {
+    "003dcfcf9fff47e403843570e41f91cbdc54d921d2": {
       "workers": {
         "app/(admin)/admin/reviews/page": {
           "moduleId": 92256,
@@ -26,7 +26,7 @@
       "filename": "lib/googleReviewsActions.ts",
       "exportedName": "getGoogleReviewsSettings"
     },
-    "00d3719ea7340584a61f1956e7e23ae0bc70e19fa3": {
+    "00417ff08c90aaf06ea58de43a7242305e752b96a7": {
       "workers": {
         "app/(admin)/admin/reviews/page": {
           "moduleId": 92256,
@@ -52,33 +52,7 @@
       "filename": "lib/googleReviewsActions.ts",
       "exportedName": "getAllGoogleReviews"
     },
-    "40f65d076e0807f207b19bf5814dfdca914fbf223c": {
-      "workers": {
-        "app/(admin)/admin/reviews/page": {
-          "moduleId": 92256,
-          "async": false
-        },
-        "app/api/admin/google-reviews/sync/route": {
-          "moduleId": 27161,
-          "async": false
-        },
-        "app/api/cron/sync-reviews/route": {
-          "moduleId": 31326,
-          "async": false
-        },
-        "app/api/reviews/route": {
-          "moduleId": 40987,
-          "async": false
-        },
-        "app/page": {
-          "moduleId": 46148,
-          "async": false
-        }
-      },
-      "filename": "lib/googleReviewsActions.ts",
-      "exportedName": "addGoogleReview"
-    },
-    "40f80da52ce41722a4659e44bf38d84d08944ed969": {
+    "4071481b8a2111326b7286aa6ae3749d6334723f3d": {
       "workers": {
         "app/(admin)/admin/reviews/page": {
           "moduleId": 92256,
@@ -104,7 +78,33 @@
       "filename": "lib/googleReviewsActions.ts",
       "exportedName": "deleteGoogleReview"
     },
-    "601734bf1ce326ab8929722ff389b2681769225906": {
+    "40c6dc1dcc97be56f3e3db9758e067f7523a474a85": {
+      "workers": {
+        "app/(admin)/admin/reviews/page": {
+          "moduleId": 92256,
+          "async": false
+        },
+        "app/api/admin/google-reviews/sync/route": {
+          "moduleId": 27161,
+          "async": false
+        },
+        "app/api/cron/sync-reviews/route": {
+          "moduleId": 31326,
+          "async": false
+        },
+        "app/api/reviews/route": {
+          "moduleId": 40987,
+          "async": false
+        },
+        "app/page": {
+          "moduleId": 46148,
+          "async": false
+        }
+      },
+      "filename": "lib/googleReviewsActions.ts",
+      "exportedName": "addGoogleReview"
+    },
+    "604081db752e7dcac044c4d65f41b7fccb324d04f8": {
       "workers": {
         "app/(admin)/admin/reviews/page": {
           "moduleId": 92256,
@@ -130,7 +130,7 @@
       "filename": "lib/googleReviewsActions.ts",
       "exportedName": "fetchPaginatedGoogleReviews"
     },
-    "60472c66a34713aa789ca5f7cb59765d9850e48ea7": {
+    "60c4a99c6df9caaf536b4536f0cc0b04ca5f991a04": {
       "workers": {
         "app/(admin)/admin/reviews/page": {
           "moduleId": 92256,
@@ -156,59 +156,7 @@
       "filename": "lib/googleReviewsActions.ts",
       "exportedName": "getActiveGoogleReviews"
     },
-    "60666be34887274630610278514052027c74356e37": {
-      "workers": {
-        "app/(admin)/admin/reviews/page": {
-          "moduleId": 92256,
-          "async": false
-        },
-        "app/api/admin/google-reviews/sync/route": {
-          "moduleId": 27161,
-          "async": false
-        },
-        "app/api/cron/sync-reviews/route": {
-          "moduleId": 31326,
-          "async": false
-        },
-        "app/api/reviews/route": {
-          "moduleId": 40987,
-          "async": false
-        },
-        "app/page": {
-          "moduleId": 46148,
-          "async": false
-        }
-      },
-      "filename": "lib/googleReviewsActions.ts",
-      "exportedName": "toggleGoogleReviewStatus"
-    },
-    "60826d6f91a689bb88a9b3bf0bb6ed1607d2a35987": {
-      "workers": {
-        "app/(admin)/admin/reviews/page": {
-          "moduleId": 92256,
-          "async": false
-        },
-        "app/api/admin/google-reviews/sync/route": {
-          "moduleId": 27161,
-          "async": false
-        },
-        "app/api/cron/sync-reviews/route": {
-          "moduleId": 31326,
-          "async": false
-        },
-        "app/api/reviews/route": {
-          "moduleId": 40987,
-          "async": false
-        },
-        "app/page": {
-          "moduleId": 46148,
-          "async": false
-        }
-      },
-      "filename": "lib/googleReviewsActions.ts",
-      "exportedName": "updateGoogleReviewsSettings"
-    },
-    "60d6990f2dcc6ec12b066368e84bd6265edc2717d9": {
+    "60c6bd609c167dfe2747bf7835c5715b734e10d4f9": {
       "workers": {
         "app/(admin)/admin/reviews/page": {
           "moduleId": 92256,
@@ -234,7 +182,59 @@
       "filename": "lib/googleReviewsActions.ts",
       "exportedName": "syncGoogleReviewsFromSerpApi"
     },
-    "0005a4596571a4c965292e8ab24141b81e8434de72": {
+    "60d934ea8db6198ddd70da6d4d6447a59c413f1da1": {
+      "workers": {
+        "app/(admin)/admin/reviews/page": {
+          "moduleId": 92256,
+          "async": false
+        },
+        "app/api/admin/google-reviews/sync/route": {
+          "moduleId": 27161,
+          "async": false
+        },
+        "app/api/cron/sync-reviews/route": {
+          "moduleId": 31326,
+          "async": false
+        },
+        "app/api/reviews/route": {
+          "moduleId": 40987,
+          "async": false
+        },
+        "app/page": {
+          "moduleId": 46148,
+          "async": false
+        }
+      },
+      "filename": "lib/googleReviewsActions.ts",
+      "exportedName": "toggleGoogleReviewStatus"
+    },
+    "60f5617ce32dec01b9f2210ca289bfe2a5b17060ad": {
+      "workers": {
+        "app/(admin)/admin/reviews/page": {
+          "moduleId": 92256,
+          "async": false
+        },
+        "app/api/admin/google-reviews/sync/route": {
+          "moduleId": 27161,
+          "async": false
+        },
+        "app/api/cron/sync-reviews/route": {
+          "moduleId": 31326,
+          "async": false
+        },
+        "app/api/reviews/route": {
+          "moduleId": 40987,
+          "async": false
+        },
+        "app/page": {
+          "moduleId": 46148,
+          "async": false
+        }
+      },
+      "filename": "lib/googleReviewsActions.ts",
+      "exportedName": "updateGoogleReviewsSettings"
+    },
+    "004925937efe8f982f7c22f789b0ad42aba56f58b3": {
       "workers": {
         "app/(admin)/admin/services/page": {
           "moduleId": 54171,
@@ -256,7 +256,7 @@
       "filename": "lib/serviceActions.ts",
       "exportedName": "getAllServices"
     },
-    "000a2eabf0248c5ae9a17fa1aa309087d636dcc727": {
+    "0068fb8040c3c337a5949cb044022214cce59c8305": {
       "workers": {
         "app/(admin)/admin/services/page": {
           "moduleId": 54171,
@@ -278,29 +278,7 @@
       "filename": "lib/serviceActions.ts",
       "exportedName": "getActiveServices"
     },
-    "4041a365f12a4aaa551343f4b1625d38473ad2fe7f": {
-      "workers": {
-        "app/(admin)/admin/services/page": {
-          "moduleId": 54171,
-          "async": false
-        },
-        "app/page": {
-          "moduleId": 46148,
-          "async": false
-        },
-        "app/services/[slug]/page": {
-          "moduleId": 49036,
-          "async": false
-        },
-        "app/services/page": {
-          "moduleId": 19354,
-          "async": false
-        }
-      },
-      "filename": "lib/serviceActions.ts",
-      "exportedName": "deleteService"
-    },
-    "404464a58b5b2b75adb1e4561651817aea64942ab0": {
+    "40767c1d2896fc9b8b53a4deaa2ba2c1211cabfc59": {
       "workers": {
         "app/(admin)/admin/services/add/page": {
           "moduleId": 84171,
@@ -326,7 +304,7 @@
       "filename": "lib/serviceActions.ts",
       "exportedName": "createService"
     },
-    "40c1d7250365db0c16e46d6cc33dc7886b399c814c": {
+    "408d9319b27cea2a7f18c2e9a81c9e8f585c6110d1": {
       "workers": {
         "app/(admin)/admin/services/page": {
           "moduleId": 54171,
@@ -348,7 +326,29 @@
       "filename": "lib/serviceActions.ts",
       "exportedName": "getServiceById"
     },
-    "60ed8edad20a579a2355132882937a872f36115028": {
+    "40b7f30b8d502fbde0a4fa7af3b5a6ab7c995a69e0": {
+      "workers": {
+        "app/(admin)/admin/services/page": {
+          "moduleId": 54171,
+          "async": false
+        },
+        "app/page": {
+          "moduleId": 46148,
+          "async": false
+        },
+        "app/services/[slug]/page": {
+          "moduleId": 49036,
+          "async": false
+        },
+        "app/services/page": {
+          "moduleId": 19354,
+          "async": false
+        }
+      },
+      "filename": "lib/serviceActions.ts",
+      "exportedName": "deleteService"
+    },
+    "603acfddbd60291310832d7a08f84689f241bbff25": {
       "workers": {
         "app/(admin)/admin/services/edit/[id]/page": {
           "moduleId": 64516,
@@ -374,33 +374,7 @@
       "filename": "lib/serviceActions.ts",
       "exportedName": "updateService"
     },
-    "00a2d9254bae758771a188b222e64d4d9f116c37cd": {
-      "workers": {
-        "app/(admin)/admin/our-work/add/page": {
-          "moduleId": 6722,
-          "async": false
-        },
-        "app/(admin)/admin/our-work/edit/[id]/page": {
-          "moduleId": 83101,
-          "async": false
-        },
-        "app/(admin)/admin/our-work/page": {
-          "moduleId": 75123,
-          "async": false
-        },
-        "app/our-work/page": {
-          "moduleId": 27220,
-          "async": false
-        },
-        "app/page": {
-          "moduleId": 46148,
-          "async": false
-        }
-      },
-      "filename": "lib/workActions.ts",
-      "exportedName": "getAllWorkProjectsAdmin"
-    },
-    "00ab1bc7acb71f777752614bdbf620f8a2fc5cfea3": {
+    "0016764d0e8bec89b0d79a00f7a9d4b819eb48f9c1": {
       "workers": {
         "app/(admin)/admin/our-work/add/page": {
           "moduleId": 6722,
@@ -426,7 +400,33 @@
       "filename": "lib/workActions.ts",
       "exportedName": "getActiveWorkProjects"
     },
-    "404452527c7af7fd108379aac8d12b8e0f07e8de2a": {
+    "00590580cfd404a2f67760c4aa3714bee40e634662": {
+      "workers": {
+        "app/(admin)/admin/our-work/add/page": {
+          "moduleId": 6722,
+          "async": false
+        },
+        "app/(admin)/admin/our-work/edit/[id]/page": {
+          "moduleId": 83101,
+          "async": false
+        },
+        "app/(admin)/admin/our-work/page": {
+          "moduleId": 75123,
+          "async": false
+        },
+        "app/our-work/page": {
+          "moduleId": 27220,
+          "async": false
+        },
+        "app/page": {
+          "moduleId": 46148,
+          "async": false
+        }
+      },
+      "filename": "lib/workActions.ts",
+      "exportedName": "getAllWorkProjectsAdmin"
+    },
+    "406ebd62451f743368a678fc53982645d21856eeee": {
       "workers": {
         "app/(admin)/admin/our-work/add/page": {
           "moduleId": 6722,
@@ -452,33 +452,7 @@
       "filename": "lib/workActions.ts",
       "exportedName": "deleteWorkProject"
     },
-    "405d38768d8bf747250e325a5dac0bc9ae3fa18f1e": {
-      "workers": {
-        "app/(admin)/admin/our-work/add/page": {
-          "moduleId": 6722,
-          "async": false
-        },
-        "app/(admin)/admin/our-work/edit/[id]/page": {
-          "moduleId": 83101,
-          "async": false
-        },
-        "app/(admin)/admin/our-work/page": {
-          "moduleId": 75123,
-          "async": false
-        },
-        "app/our-work/page": {
-          "moduleId": 27220,
-          "async": false
-        },
-        "app/page": {
-          "moduleId": 46148,
-          "async": false
-        }
-      },
-      "filename": "lib/workActions.ts",
-      "exportedName": "createWorkProject"
-    },
-    "40bb569dee1def8393e05dc1f767715c8eae89253a": {
+    "40dbb5bfaec4cca5f3f5c18fb441e86ab7bb88cfac": {
       "workers": {
         "app/(admin)/admin/our-work/add/page": {
           "moduleId": 6722,
@@ -504,7 +478,33 @@
       "filename": "lib/workActions.ts",
       "exportedName": "getWorkProjectById"
     },
-    "60f108c8604b638e3f4f77f504c950cfc90d18db3f": {
+    "40eac9af13f23676c342058b9c2aca4e8200431600": {
+      "workers": {
+        "app/(admin)/admin/our-work/add/page": {
+          "moduleId": 6722,
+          "async": false
+        },
+        "app/(admin)/admin/our-work/edit/[id]/page": {
+          "moduleId": 83101,
+          "async": false
+        },
+        "app/(admin)/admin/our-work/page": {
+          "moduleId": 75123,
+          "async": false
+        },
+        "app/our-work/page": {
+          "moduleId": 27220,
+          "async": false
+        },
+        "app/page": {
+          "moduleId": 46148,
+          "async": false
+        }
+      },
+      "filename": "lib/workActions.ts",
+      "exportedName": "createWorkProject"
+    },
+    "601c309c145bd0a7bf4f66bb05d852a90fd9328e98": {
       "workers": {
         "app/(admin)/admin/our-work/add/page": {
           "moduleId": 6722,
@@ -530,7 +530,7 @@
       "filename": "lib/workActions.ts",
       "exportedName": "updateWorkProject"
     },
-    "000de11b651af25a285f9a2f5cc69e40e0f40aa76b": {
+    "0001db21dcac597c4df0cf100e50f98d3049e654db": {
       "workers": {
         "app/(admin)/admin/blog/edit/[id]/page": {
           "moduleId": 7484,
@@ -552,7 +552,7 @@
       "filename": "lib/blogActions.ts",
       "exportedName": "getAllBlogPostsAdmin"
     },
-    "00d449b4e1159bd905af28dd432827ba4af83a6a1c": {
+    "0027a03cb36a00a39dacdbb303ead59678f3a0f478": {
       "workers": {
         "app/(admin)/admin/blog/edit/[id]/page": {
           "moduleId": 7484,
@@ -574,7 +574,51 @@
       "filename": "lib/blogActions.ts",
       "exportedName": "getActiveBlogPosts"
     },
-    "4046e680467bde4a42613f09d2d861984e6f413a68": {
+    "4002f911c023e39b82e53bdf494046e2a817b94e85": {
+      "workers": {
+        "app/(admin)/admin/blog/edit/[id]/page": {
+          "moduleId": 7484,
+          "async": false
+        },
+        "app/blog/[slug]/page": {
+          "moduleId": 70794,
+          "async": false
+        },
+        "app/blog/page": {
+          "moduleId": 18595,
+          "async": false
+        },
+        "app/page": {
+          "moduleId": 46148,
+          "async": false
+        }
+      },
+      "filename": "lib/blogActions.ts",
+      "exportedName": "getBlogPostById"
+    },
+    "40202af1a5b0a9892c5855b8f88ae19fee8cc4a009": {
+      "workers": {
+        "app/(admin)/admin/blog/edit/[id]/page": {
+          "moduleId": 7484,
+          "async": false
+        },
+        "app/blog/[slug]/page": {
+          "moduleId": 70794,
+          "async": false
+        },
+        "app/blog/page": {
+          "moduleId": 18595,
+          "async": false
+        },
+        "app/page": {
+          "moduleId": 46148,
+          "async": false
+        }
+      },
+      "filename": "lib/blogActions.ts",
+      "exportedName": "getBlogPostBySlug"
+    },
+    "4084ae1c0128ccf9bf602cee944d9b60a542e06a0b": {
       "workers": {
         "app/(admin)/admin/blog/add/page": {
           "moduleId": 73833,
@@ -600,51 +644,7 @@
       "filename": "lib/blogActions.ts",
       "exportedName": "createBlogPost"
     },
-    "40515bc8ffbd595363ffc597f526fe955a30a98189": {
-      "workers": {
-        "app/(admin)/admin/blog/edit/[id]/page": {
-          "moduleId": 7484,
-          "async": false
-        },
-        "app/blog/[slug]/page": {
-          "moduleId": 70794,
-          "async": false
-        },
-        "app/blog/page": {
-          "moduleId": 18595,
-          "async": false
-        },
-        "app/page": {
-          "moduleId": 46148,
-          "async": false
-        }
-      },
-      "filename": "lib/blogActions.ts",
-      "exportedName": "getBlogPostBySlug"
-    },
-    "405cfcd923d739ea8a587844aaab3663429d4c878a": {
-      "workers": {
-        "app/(admin)/admin/blog/edit/[id]/page": {
-          "moduleId": 7484,
-          "async": false
-        },
-        "app/blog/[slug]/page": {
-          "moduleId": 70794,
-          "async": false
-        },
-        "app/blog/page": {
-          "moduleId": 18595,
-          "async": false
-        },
-        "app/page": {
-          "moduleId": 46148,
-          "async": false
-        }
-      },
-      "filename": "lib/blogActions.ts",
-      "exportedName": "getBlogPostById"
-    },
-    "40e8f4003ce04ee5d6196c2a220aa2ce35263608be": {
+    "40b0c7bb45c7056bd5197a1c90f65b16a33358fe09": {
       "workers": {
         "app/(admin)/admin/blog/edit/[id]/page": {
           "moduleId": 7484,
@@ -670,7 +670,7 @@
       "filename": "lib/blogActions.ts",
       "exportedName": "deleteBlogPost"
     },
-    "60e574bc4e399287c8f4b80bb3243dc75f5a57d09a": {
+    "60f2723e6c32684be083d459226fcec881eb572276": {
       "workers": {
         "app/(admin)/admin/blog/edit/[id]/page": {
           "moduleId": 7484,
@@ -692,25 +692,7 @@
       "filename": "lib/blogActions.ts",
       "exportedName": "updateBlogPost"
     },
-    "00b1945a068155bbf02bf5a0ce6bf176c78345e451": {
-      "workers": {
-        "app/(admin)/admin/why-choose-us/add/page": {
-          "moduleId": 60056,
-          "async": false
-        },
-        "app/(admin)/admin/why-choose-us/edit/[id]/page": {
-          "moduleId": 72972,
-          "async": false
-        },
-        "app/page": {
-          "moduleId": 46148,
-          "async": false
-        }
-      },
-      "filename": "lib/whyChooseUsActions.ts",
-      "exportedName": "getAllWhyChooseUsAdmin"
-    },
-    "00c505e3ead50fc57648e77bc6b74d9688e99dd0fa": {
+    "007ba3662071f364ff42fdc16784f246d23396c056": {
       "workers": {
         "app/(admin)/admin/why-choose-us/add/page": {
           "moduleId": 60056,
@@ -728,7 +710,7 @@
       "filename": "lib/whyChooseUsActions.ts",
       "exportedName": "getActiveWhyChooseUs"
     },
-    "400371555fedcc5958aa704f2e9e3d743ec0b0dbe4": {
+    "00ae88d15eb9d3e02a74e7af153696824bfeb715dd": {
       "workers": {
         "app/(admin)/admin/why-choose-us/add/page": {
           "moduleId": 60056,
@@ -744,9 +726,9 @@
         }
       },
       "filename": "lib/whyChooseUsActions.ts",
-      "exportedName": "createWhyChooseUs"
+      "exportedName": "getAllWhyChooseUsAdmin"
     },
-    "403c0d362928b8cfc1f6ef10ba0ebffd90359e65da": {
+    "408a9ee0fba664e9b3e0171afd232cd41525ec01cd": {
       "workers": {
         "app/(admin)/admin/why-choose-us/add/page": {
           "moduleId": 60056,
@@ -764,7 +746,25 @@
       "filename": "lib/whyChooseUsActions.ts",
       "exportedName": "getWhyChooseUsById"
     },
-    "40f5154292f96a5ff77f5befa677882e4b216b0649": {
+    "409786e6dbbab9db7adb8bcd4738e31125932b70fd": {
+      "workers": {
+        "app/(admin)/admin/why-choose-us/add/page": {
+          "moduleId": 60056,
+          "async": false
+        },
+        "app/(admin)/admin/why-choose-us/edit/[id]/page": {
+          "moduleId": 72972,
+          "async": false
+        },
+        "app/page": {
+          "moduleId": 46148,
+          "async": false
+        }
+      },
+      "filename": "lib/whyChooseUsActions.ts",
+      "exportedName": "createWhyChooseUs"
+    },
+    "40a4da2e35a67b48f8682601b67a8c03e78c2b6ff6": {
       "workers": {
         "app/(admin)/admin/why-choose-us/add/page": {
           "moduleId": 60056,
@@ -782,7 +782,7 @@
       "filename": "lib/whyChooseUsActions.ts",
       "exportedName": "deleteWhyChooseUs"
     },
-    "60a94ad96d271216e155d690827acc5c30f48d3c16": {
+    "6073ebe711b0946cedb69407872b113b112dca5e8a": {
       "workers": {
         "app/(admin)/admin/why-choose-us/add/page": {
           "moduleId": 60056,
@@ -800,7 +800,7 @@
       "filename": "lib/whyChooseUsActions.ts",
       "exportedName": "updateWhyChooseUs"
     },
-    "005ba5bdfcadd6522ff2c163fbec1e51125e78278c": {
+    "009fa1c43e5a9f1b0987c3978b2a1ea3bf3702e52a": {
       "workers": {
         "app/(admin)/admin/faqs/add/page": {
           "moduleId": 88483,
@@ -834,7 +834,41 @@
       "filename": "lib/faqActions.ts",
       "exportedName": "getAllFaqs"
     },
-    "403f76433207c2e831d2a2248d04e0ae35f81479d5": {
+    "4050c5eb11804d5ebbbe84a686c2adcfbfe51d0ea1": {
+      "workers": {
+        "app/(admin)/admin/faqs/add/page": {
+          "moduleId": 88483,
+          "async": false
+        },
+        "app/(admin)/admin/faqs/edit/[id]/page": {
+          "moduleId": 67965,
+          "async": false
+        },
+        "app/about/page": {
+          "moduleId": 4818,
+          "async": false
+        },
+        "app/contact/page": {
+          "moduleId": 14301,
+          "async": false
+        },
+        "app/page": {
+          "moduleId": 46148,
+          "async": false
+        },
+        "app/services/[slug]/page": {
+          "moduleId": 49036,
+          "async": false
+        },
+        "app/services/page": {
+          "moduleId": 19354,
+          "async": false
+        }
+      },
+      "filename": "lib/faqActions.ts",
+      "exportedName": "getFaqById"
+    },
+    "406e78f104c42b959406f7b46338f3d40e8704660a": {
       "workers": {
         "app/(admin)/admin/faqs/add/page": {
           "moduleId": 88483,
@@ -872,7 +906,7 @@
       "filename": "lib/faqActions.ts",
       "exportedName": "deleteFaq"
     },
-    "405c41f0886fc6b9d3a349f2bf8dca16e4f9eefedf": {
+    "40d2875151b5392aab8aff8e0644bc848a2120ac2e": {
       "workers": {
         "app/(admin)/admin/faqs/add/page": {
           "moduleId": 88483,
@@ -906,41 +940,7 @@
       "filename": "lib/faqActions.ts",
       "exportedName": "createFaq"
     },
-    "4069912a69ec14c18925646b876757979d961ee62e": {
-      "workers": {
-        "app/(admin)/admin/faqs/add/page": {
-          "moduleId": 88483,
-          "async": false
-        },
-        "app/(admin)/admin/faqs/edit/[id]/page": {
-          "moduleId": 67965,
-          "async": false
-        },
-        "app/about/page": {
-          "moduleId": 4818,
-          "async": false
-        },
-        "app/contact/page": {
-          "moduleId": 14301,
-          "async": false
-        },
-        "app/page": {
-          "moduleId": 46148,
-          "async": false
-        },
-        "app/services/[slug]/page": {
-          "moduleId": 49036,
-          "async": false
-        },
-        "app/services/page": {
-          "moduleId": 19354,
-          "async": false
-        }
-      },
-      "filename": "lib/faqActions.ts",
-      "exportedName": "getFaqById"
-    },
-    "6069e579de5125815ddd9a44b4032645e6a2edd694": {
+    "6095659aca6c2cd6fa7d9354153cd204e4a3a4853f": {
       "workers": {
         "app/(admin)/admin/faqs/add/page": {
           "moduleId": 88483,
@@ -974,7 +974,7 @@
       "filename": "lib/faqActions.ts",
       "exportedName": "updateFaq"
     },
-    "7062d36dfda00b118a997235c504f75ce1d540453b": {
+    "70e31540c54bf800a1b7e0f4cebd4665d75277eaa8": {
       "workers": {
         "app/(admin)/admin/faqs/add/page": {
           "moduleId": 88483,
@@ -1008,7 +1008,7 @@
       "filename": "lib/faqActions.ts",
       "exportedName": "getActiveFaqs"
     },
-    "0075edea7004180a9a34d5cd0c30fb1176915f26a3": {
+    "004ec5b770bf19410ba52477cdad595c1edee39305": {
       "workers": {
         "app/(admin)/admin/contact/add/page": {
           "moduleId": 16688,
@@ -1030,7 +1030,7 @@
       "filename": "lib/contactActions.ts",
       "exportedName": "getActiveContactContent"
     },
-    "00957aebed8f332a087e9ad11ae4d4d9238386fc22": {
+    "0098cf9f6fb0f314f849f524df449fde61814427ce": {
       "workers": {
         "app/(admin)/admin/contact/add/page": {
           "moduleId": 16688,
@@ -1052,73 +1052,7 @@
       "filename": "lib/contactActions.ts",
       "exportedName": "getAllContactAdmin"
     },
-    "401eb2040da75771127b78db33c8db6266d4c20384": {
-      "workers": {
-        "app/(admin)/admin/contact/add/page": {
-          "moduleId": 16688,
-          "async": false
-        },
-        "app/(admin)/admin/contact/edit/[id]/page": {
-          "moduleId": 66938,
-          "async": false
-        },
-        "app/contact/page": {
-          "moduleId": 14301,
-          "async": false
-        },
-        "app/page": {
-          "moduleId": 46148,
-          "async": false
-        }
-      },
-      "filename": "lib/contactActions.ts",
-      "exportedName": "createContactContent"
-    },
-    "402a0cc77651e00a2ad347f23324f2053c5ce385c5": {
-      "workers": {
-        "app/(admin)/admin/contact/add/page": {
-          "moduleId": 16688,
-          "async": false
-        },
-        "app/(admin)/admin/contact/edit/[id]/page": {
-          "moduleId": 66938,
-          "async": false
-        },
-        "app/contact/page": {
-          "moduleId": 14301,
-          "async": false
-        },
-        "app/page": {
-          "moduleId": 46148,
-          "async": false
-        }
-      },
-      "filename": "lib/contactActions.ts",
-      "exportedName": "deleteContactContent"
-    },
-    "4088d044da9a26c54f64b0f559fb8a780c89060fe4": {
-      "workers": {
-        "app/(admin)/admin/contact/add/page": {
-          "moduleId": 16688,
-          "async": false
-        },
-        "app/(admin)/admin/contact/edit/[id]/page": {
-          "moduleId": 66938,
-          "async": false
-        },
-        "app/contact/page": {
-          "moduleId": 14301,
-          "async": false
-        },
-        "app/page": {
-          "moduleId": 46148,
-          "async": false
-        }
-      },
-      "filename": "lib/contactActions.ts",
-      "exportedName": "rowToContactContent"
-    },
-    "409b5687642ae72903cedd1bcae4438f66b16ec1b2": {
+    "40570b9135cbc808c182ed87ec976d4217cabc3e20": {
       "workers": {
         "app/(admin)/admin/contact/add/page": {
           "moduleId": 16688,
@@ -1140,7 +1074,73 @@
       "filename": "lib/contactActions.ts",
       "exportedName": "getContactById"
     },
-    "608b305c0aa5eef7839263d1ad8f5a94a361b30979": {
+    "405f9f4fe70bda61a77e0316bb6f66061039bb4dd4": {
+      "workers": {
+        "app/(admin)/admin/contact/add/page": {
+          "moduleId": 16688,
+          "async": false
+        },
+        "app/(admin)/admin/contact/edit/[id]/page": {
+          "moduleId": 66938,
+          "async": false
+        },
+        "app/contact/page": {
+          "moduleId": 14301,
+          "async": false
+        },
+        "app/page": {
+          "moduleId": 46148,
+          "async": false
+        }
+      },
+      "filename": "lib/contactActions.ts",
+      "exportedName": "rowToContactContent"
+    },
+    "40666f38454be1046039274ea3fb760dc63bfa05a9": {
+      "workers": {
+        "app/(admin)/admin/contact/add/page": {
+          "moduleId": 16688,
+          "async": false
+        },
+        "app/(admin)/admin/contact/edit/[id]/page": {
+          "moduleId": 66938,
+          "async": false
+        },
+        "app/contact/page": {
+          "moduleId": 14301,
+          "async": false
+        },
+        "app/page": {
+          "moduleId": 46148,
+          "async": false
+        }
+      },
+      "filename": "lib/contactActions.ts",
+      "exportedName": "deleteContactContent"
+    },
+    "40a2665d12aeaa6e76c19f56afaaa8714a25192209": {
+      "workers": {
+        "app/(admin)/admin/contact/add/page": {
+          "moduleId": 16688,
+          "async": false
+        },
+        "app/(admin)/admin/contact/edit/[id]/page": {
+          "moduleId": 66938,
+          "async": false
+        },
+        "app/contact/page": {
+          "moduleId": 14301,
+          "async": false
+        },
+        "app/page": {
+          "moduleId": 46148,
+          "async": false
+        }
+      },
+      "filename": "lib/contactActions.ts",
+      "exportedName": "createContactContent"
+    },
+    "603a909a6c54867443f72bcf4a7e6c0ba46b1a797c": {
       "workers": {
         "app/(admin)/admin/contact/add/page": {
           "moduleId": 16688,
@@ -1162,571 +1162,7 @@
       "filename": "lib/contactActions.ts",
       "exportedName": "updateContactContent"
     },
-    "000410e5afdbe045fe66f2053b3fb42cf94dd668a0": {
-      "workers": {
-        "app/(admin)/admin/about/add/page": {
-          "moduleId": 92520,
-          "async": false
-        },
-        "app/(admin)/admin/about/craftsmanship/add/page": {
-          "moduleId": 96737,
-          "async": false
-        },
-        "app/(admin)/admin/about/craftsmanship/edit/[id]/page": {
-          "moduleId": 29809,
-          "async": false
-        },
-        "app/(admin)/admin/about/craftsmanship/page": {
-          "moduleId": 35317,
-          "async": false
-        },
-        "app/(admin)/admin/about/cta/page": {
-          "moduleId": 66505,
-          "async": false
-        },
-        "app/(admin)/admin/about/edit/[id]/page": {
-          "moduleId": 59781,
-          "async": false
-        },
-        "app/(admin)/admin/about/global-presence/add/page": {
-          "moduleId": 57627,
-          "async": false
-        },
-        "app/(admin)/admin/about/global-presence/edit/[id]/page": {
-          "moduleId": 68865,
-          "async": false
-        },
-        "app/(admin)/admin/about/global-presence/page": {
-          "moduleId": 75425,
-          "async": false
-        },
-        "app/(admin)/admin/about/hero/page": {
-          "moduleId": 4497,
-          "async": false
-        },
-        "app/(admin)/admin/about/machines/add/page": {
-          "moduleId": 23875,
-          "async": false
-        },
-        "app/(admin)/admin/about/machines/edit/[id]/page": {
-          "moduleId": 83645,
-          "async": false
-        },
-        "app/(admin)/admin/about/machines/page": {
-          "moduleId": 23850,
-          "async": false
-        },
-        "app/(admin)/admin/about/page": {
-          "moduleId": 57671,
-          "async": false
-        },
-        "app/(admin)/admin/about/story/page": {
-          "moduleId": 91965,
-          "async": false
-        },
-        "app/(admin)/admin/about/timeline/add/page": {
-          "moduleId": 56462,
-          "async": false
-        },
-        "app/(admin)/admin/about/timeline/edit/[id]/page": {
-          "moduleId": 98187,
-          "async": false
-        },
-        "app/(admin)/admin/about/timeline/page": {
-          "moduleId": 75112,
-          "async": false
-        },
-        "app/(admin)/admin/about/why-choose/add/page": {
-          "moduleId": 23052,
-          "async": false
-        },
-        "app/(admin)/admin/about/why-choose/edit/[id]/page": {
-          "moduleId": 12850,
-          "async": false
-        },
-        "app/(admin)/admin/about/why-choose/page": {
-          "moduleId": 40531,
-          "async": false
-        },
-        "app/about/page": {
-          "moduleId": 4818,
-          "async": false
-        }
-      },
-      "filename": "lib/aboutSplitActions.ts",
-      "exportedName": "getCraftsmanshipLayers"
-    },
-    "0037ea97ba5af722a62bd926707168fc4cb5697382": {
-      "workers": {
-        "app/(admin)/admin/about/add/page": {
-          "moduleId": 92520,
-          "async": false
-        },
-        "app/(admin)/admin/about/craftsmanship/add/page": {
-          "moduleId": 96737,
-          "async": false
-        },
-        "app/(admin)/admin/about/craftsmanship/edit/[id]/page": {
-          "moduleId": 29809,
-          "async": false
-        },
-        "app/(admin)/admin/about/craftsmanship/page": {
-          "moduleId": 35317,
-          "async": false
-        },
-        "app/(admin)/admin/about/cta/page": {
-          "moduleId": 66505,
-          "async": false
-        },
-        "app/(admin)/admin/about/edit/[id]/page": {
-          "moduleId": 59781,
-          "async": false
-        },
-        "app/(admin)/admin/about/global-presence/add/page": {
-          "moduleId": 57627,
-          "async": false
-        },
-        "app/(admin)/admin/about/global-presence/edit/[id]/page": {
-          "moduleId": 68865,
-          "async": false
-        },
-        "app/(admin)/admin/about/global-presence/page": {
-          "moduleId": 75425,
-          "async": false
-        },
-        "app/(admin)/admin/about/hero/page": {
-          "moduleId": 4497,
-          "async": false
-        },
-        "app/(admin)/admin/about/machines/add/page": {
-          "moduleId": 23875,
-          "async": false
-        },
-        "app/(admin)/admin/about/machines/edit/[id]/page": {
-          "moduleId": 83645,
-          "async": false
-        },
-        "app/(admin)/admin/about/machines/page": {
-          "moduleId": 23850,
-          "async": false
-        },
-        "app/(admin)/admin/about/page": {
-          "moduleId": 57671,
-          "async": false
-        },
-        "app/(admin)/admin/about/story/page": {
-          "moduleId": 91965,
-          "async": false
-        },
-        "app/(admin)/admin/about/timeline/add/page": {
-          "moduleId": 56462,
-          "async": false
-        },
-        "app/(admin)/admin/about/timeline/edit/[id]/page": {
-          "moduleId": 98187,
-          "async": false
-        },
-        "app/(admin)/admin/about/timeline/page": {
-          "moduleId": 75112,
-          "async": false
-        },
-        "app/(admin)/admin/about/why-choose/add/page": {
-          "moduleId": 23052,
-          "async": false
-        },
-        "app/(admin)/admin/about/why-choose/edit/[id]/page": {
-          "moduleId": 12850,
-          "async": false
-        },
-        "app/(admin)/admin/about/why-choose/page": {
-          "moduleId": 40531,
-          "async": false
-        },
-        "app/about/page": {
-          "moduleId": 4818,
-          "async": false
-        }
-      },
-      "filename": "lib/aboutSplitActions.ts",
-      "exportedName": "getAboutMachines"
-    },
-    "003f28e6039eefdac2aefc5a9e545357e64231af2b": {
-      "workers": {
-        "app/(admin)/admin/about/add/page": {
-          "moduleId": 92520,
-          "async": false
-        },
-        "app/(admin)/admin/about/craftsmanship/add/page": {
-          "moduleId": 96737,
-          "async": false
-        },
-        "app/(admin)/admin/about/craftsmanship/edit/[id]/page": {
-          "moduleId": 29809,
-          "async": false
-        },
-        "app/(admin)/admin/about/craftsmanship/page": {
-          "moduleId": 35317,
-          "async": false
-        },
-        "app/(admin)/admin/about/cta/page": {
-          "moduleId": 66505,
-          "async": false
-        },
-        "app/(admin)/admin/about/edit/[id]/page": {
-          "moduleId": 59781,
-          "async": false
-        },
-        "app/(admin)/admin/about/global-presence/add/page": {
-          "moduleId": 57627,
-          "async": false
-        },
-        "app/(admin)/admin/about/global-presence/edit/[id]/page": {
-          "moduleId": 68865,
-          "async": false
-        },
-        "app/(admin)/admin/about/global-presence/page": {
-          "moduleId": 75425,
-          "async": false
-        },
-        "app/(admin)/admin/about/hero/page": {
-          "moduleId": 4497,
-          "async": false
-        },
-        "app/(admin)/admin/about/machines/add/page": {
-          "moduleId": 23875,
-          "async": false
-        },
-        "app/(admin)/admin/about/machines/edit/[id]/page": {
-          "moduleId": 83645,
-          "async": false
-        },
-        "app/(admin)/admin/about/machines/page": {
-          "moduleId": 23850,
-          "async": false
-        },
-        "app/(admin)/admin/about/page": {
-          "moduleId": 57671,
-          "async": false
-        },
-        "app/(admin)/admin/about/story/page": {
-          "moduleId": 91965,
-          "async": false
-        },
-        "app/(admin)/admin/about/timeline/add/page": {
-          "moduleId": 56462,
-          "async": false
-        },
-        "app/(admin)/admin/about/timeline/edit/[id]/page": {
-          "moduleId": 98187,
-          "async": false
-        },
-        "app/(admin)/admin/about/timeline/page": {
-          "moduleId": 75112,
-          "async": false
-        },
-        "app/(admin)/admin/about/why-choose/add/page": {
-          "moduleId": 23052,
-          "async": false
-        },
-        "app/(admin)/admin/about/why-choose/edit/[id]/page": {
-          "moduleId": 12850,
-          "async": false
-        },
-        "app/(admin)/admin/about/why-choose/page": {
-          "moduleId": 40531,
-          "async": false
-        },
-        "app/about/page": {
-          "moduleId": 4818,
-          "async": false
-        }
-      },
-      "filename": "lib/aboutSplitActions.ts",
-      "exportedName": "getAboutCta"
-    },
-    "0062e5060f4a7672b6d6b20dc19b5109fdea5bcfa5": {
-      "workers": {
-        "app/(admin)/admin/about/add/page": {
-          "moduleId": 92520,
-          "async": false
-        },
-        "app/(admin)/admin/about/craftsmanship/add/page": {
-          "moduleId": 96737,
-          "async": false
-        },
-        "app/(admin)/admin/about/craftsmanship/edit/[id]/page": {
-          "moduleId": 29809,
-          "async": false
-        },
-        "app/(admin)/admin/about/craftsmanship/page": {
-          "moduleId": 35317,
-          "async": false
-        },
-        "app/(admin)/admin/about/cta/page": {
-          "moduleId": 66505,
-          "async": false
-        },
-        "app/(admin)/admin/about/edit/[id]/page": {
-          "moduleId": 59781,
-          "async": false
-        },
-        "app/(admin)/admin/about/global-presence/add/page": {
-          "moduleId": 57627,
-          "async": false
-        },
-        "app/(admin)/admin/about/global-presence/edit/[id]/page": {
-          "moduleId": 68865,
-          "async": false
-        },
-        "app/(admin)/admin/about/global-presence/page": {
-          "moduleId": 75425,
-          "async": false
-        },
-        "app/(admin)/admin/about/hero/page": {
-          "moduleId": 4497,
-          "async": false
-        },
-        "app/(admin)/admin/about/machines/add/page": {
-          "moduleId": 23875,
-          "async": false
-        },
-        "app/(admin)/admin/about/machines/edit/[id]/page": {
-          "moduleId": 83645,
-          "async": false
-        },
-        "app/(admin)/admin/about/machines/page": {
-          "moduleId": 23850,
-          "async": false
-        },
-        "app/(admin)/admin/about/page": {
-          "moduleId": 57671,
-          "async": false
-        },
-        "app/(admin)/admin/about/story/page": {
-          "moduleId": 91965,
-          "async": false
-        },
-        "app/(admin)/admin/about/timeline/add/page": {
-          "moduleId": 56462,
-          "async": false
-        },
-        "app/(admin)/admin/about/timeline/edit/[id]/page": {
-          "moduleId": 98187,
-          "async": false
-        },
-        "app/(admin)/admin/about/timeline/page": {
-          "moduleId": 75112,
-          "async": false
-        },
-        "app/(admin)/admin/about/why-choose/add/page": {
-          "moduleId": 23052,
-          "async": false
-        },
-        "app/(admin)/admin/about/why-choose/edit/[id]/page": {
-          "moduleId": 12850,
-          "async": false
-        },
-        "app/(admin)/admin/about/why-choose/page": {
-          "moduleId": 40531,
-          "async": false
-        },
-        "app/about/page": {
-          "moduleId": 4818,
-          "async": false
-        }
-      },
-      "filename": "lib/aboutSplitActions.ts",
-      "exportedName": "getAboutGlobalPresence"
-    },
-    "006d7a42fd997cee5c271e0d851b0bb603ff7ddd45": {
-      "workers": {
-        "app/(admin)/admin/about/add/page": {
-          "moduleId": 92520,
-          "async": false
-        },
-        "app/(admin)/admin/about/craftsmanship/add/page": {
-          "moduleId": 96737,
-          "async": false
-        },
-        "app/(admin)/admin/about/craftsmanship/edit/[id]/page": {
-          "moduleId": 29809,
-          "async": false
-        },
-        "app/(admin)/admin/about/craftsmanship/page": {
-          "moduleId": 35317,
-          "async": false
-        },
-        "app/(admin)/admin/about/cta/page": {
-          "moduleId": 66505,
-          "async": false
-        },
-        "app/(admin)/admin/about/edit/[id]/page": {
-          "moduleId": 59781,
-          "async": false
-        },
-        "app/(admin)/admin/about/global-presence/add/page": {
-          "moduleId": 57627,
-          "async": false
-        },
-        "app/(admin)/admin/about/global-presence/edit/[id]/page": {
-          "moduleId": 68865,
-          "async": false
-        },
-        "app/(admin)/admin/about/global-presence/page": {
-          "moduleId": 75425,
-          "async": false
-        },
-        "app/(admin)/admin/about/hero/page": {
-          "moduleId": 4497,
-          "async": false
-        },
-        "app/(admin)/admin/about/machines/add/page": {
-          "moduleId": 23875,
-          "async": false
-        },
-        "app/(admin)/admin/about/machines/edit/[id]/page": {
-          "moduleId": 83645,
-          "async": false
-        },
-        "app/(admin)/admin/about/machines/page": {
-          "moduleId": 23850,
-          "async": false
-        },
-        "app/(admin)/admin/about/page": {
-          "moduleId": 57671,
-          "async": false
-        },
-        "app/(admin)/admin/about/story/page": {
-          "moduleId": 91965,
-          "async": false
-        },
-        "app/(admin)/admin/about/timeline/add/page": {
-          "moduleId": 56462,
-          "async": false
-        },
-        "app/(admin)/admin/about/timeline/edit/[id]/page": {
-          "moduleId": 98187,
-          "async": false
-        },
-        "app/(admin)/admin/about/timeline/page": {
-          "moduleId": 75112,
-          "async": false
-        },
-        "app/(admin)/admin/about/why-choose/add/page": {
-          "moduleId": 23052,
-          "async": false
-        },
-        "app/(admin)/admin/about/why-choose/edit/[id]/page": {
-          "moduleId": 12850,
-          "async": false
-        },
-        "app/(admin)/admin/about/why-choose/page": {
-          "moduleId": 40531,
-          "async": false
-        },
-        "app/about/page": {
-          "moduleId": 4818,
-          "async": false
-        }
-      },
-      "filename": "lib/aboutSplitActions.ts",
-      "exportedName": "getActiveAboutContent"
-    },
-    "008343e0c7f8759bab9b9629bf19bc1b16b134bac4": {
-      "workers": {
-        "app/(admin)/admin/about/add/page": {
-          "moduleId": 92520,
-          "async": false
-        },
-        "app/(admin)/admin/about/craftsmanship/add/page": {
-          "moduleId": 96737,
-          "async": false
-        },
-        "app/(admin)/admin/about/craftsmanship/edit/[id]/page": {
-          "moduleId": 29809,
-          "async": false
-        },
-        "app/(admin)/admin/about/craftsmanship/page": {
-          "moduleId": 35317,
-          "async": false
-        },
-        "app/(admin)/admin/about/cta/page": {
-          "moduleId": 66505,
-          "async": false
-        },
-        "app/(admin)/admin/about/edit/[id]/page": {
-          "moduleId": 59781,
-          "async": false
-        },
-        "app/(admin)/admin/about/global-presence/add/page": {
-          "moduleId": 57627,
-          "async": false
-        },
-        "app/(admin)/admin/about/global-presence/edit/[id]/page": {
-          "moduleId": 68865,
-          "async": false
-        },
-        "app/(admin)/admin/about/global-presence/page": {
-          "moduleId": 75425,
-          "async": false
-        },
-        "app/(admin)/admin/about/hero/page": {
-          "moduleId": 4497,
-          "async": false
-        },
-        "app/(admin)/admin/about/machines/add/page": {
-          "moduleId": 23875,
-          "async": false
-        },
-        "app/(admin)/admin/about/machines/edit/[id]/page": {
-          "moduleId": 83645,
-          "async": false
-        },
-        "app/(admin)/admin/about/machines/page": {
-          "moduleId": 23850,
-          "async": false
-        },
-        "app/(admin)/admin/about/page": {
-          "moduleId": 57671,
-          "async": false
-        },
-        "app/(admin)/admin/about/story/page": {
-          "moduleId": 91965,
-          "async": false
-        },
-        "app/(admin)/admin/about/timeline/add/page": {
-          "moduleId": 56462,
-          "async": false
-        },
-        "app/(admin)/admin/about/timeline/edit/[id]/page": {
-          "moduleId": 98187,
-          "async": false
-        },
-        "app/(admin)/admin/about/timeline/page": {
-          "moduleId": 75112,
-          "async": false
-        },
-        "app/(admin)/admin/about/why-choose/add/page": {
-          "moduleId": 23052,
-          "async": false
-        },
-        "app/(admin)/admin/about/why-choose/edit/[id]/page": {
-          "moduleId": 12850,
-          "async": false
-        },
-        "app/(admin)/admin/about/why-choose/page": {
-          "moduleId": 40531,
-          "async": false
-        },
-        "app/about/page": {
-          "moduleId": 4818,
-          "async": false
-        }
-      },
-      "filename": "lib/aboutSplitActions.ts",
-      "exportedName": "getAboutWhyChoose"
-    },
-    "00987d08b078aa5aaede8f88d497f84a5f6de256c7": {
+    "00246fc6fd82d0389aed3b721307b8c3f422ac1b84": {
       "workers": {
         "app/(admin)/admin/about/add/page": {
           "moduleId": 92520,
@@ -1820,7 +1256,7 @@
       "filename": "lib/aboutSplitActions.ts",
       "exportedName": "getAboutStory"
     },
-    "00a1bee699b19cfb6a6ab79240fde01d5029c30c69": {
+    "003fd3a714b8d4814462e951b25335ddcc7f42bf67": {
       "workers": {
         "app/(admin)/admin/about/add/page": {
           "moduleId": 92520,
@@ -1912,103 +1348,9 @@
         }
       },
       "filename": "lib/aboutSplitActions.ts",
-      "exportedName": "getAboutHero"
+      "exportedName": "getAboutMachines"
     },
-    "00c9fc56ad8fe3b29be7c75e2a521977b9febc3dbd": {
-      "workers": {
-        "app/(admin)/admin/about/add/page": {
-          "moduleId": 92520,
-          "async": false
-        },
-        "app/(admin)/admin/about/craftsmanship/add/page": {
-          "moduleId": 96737,
-          "async": false
-        },
-        "app/(admin)/admin/about/craftsmanship/edit/[id]/page": {
-          "moduleId": 29809,
-          "async": false
-        },
-        "app/(admin)/admin/about/craftsmanship/page": {
-          "moduleId": 35317,
-          "async": false
-        },
-        "app/(admin)/admin/about/cta/page": {
-          "moduleId": 66505,
-          "async": false
-        },
-        "app/(admin)/admin/about/edit/[id]/page": {
-          "moduleId": 59781,
-          "async": false
-        },
-        "app/(admin)/admin/about/global-presence/add/page": {
-          "moduleId": 57627,
-          "async": false
-        },
-        "app/(admin)/admin/about/global-presence/edit/[id]/page": {
-          "moduleId": 68865,
-          "async": false
-        },
-        "app/(admin)/admin/about/global-presence/page": {
-          "moduleId": 75425,
-          "async": false
-        },
-        "app/(admin)/admin/about/hero/page": {
-          "moduleId": 4497,
-          "async": false
-        },
-        "app/(admin)/admin/about/machines/add/page": {
-          "moduleId": 23875,
-          "async": false
-        },
-        "app/(admin)/admin/about/machines/edit/[id]/page": {
-          "moduleId": 83645,
-          "async": false
-        },
-        "app/(admin)/admin/about/machines/page": {
-          "moduleId": 23850,
-          "async": false
-        },
-        "app/(admin)/admin/about/page": {
-          "moduleId": 57671,
-          "async": false
-        },
-        "app/(admin)/admin/about/story/page": {
-          "moduleId": 91965,
-          "async": false
-        },
-        "app/(admin)/admin/about/timeline/add/page": {
-          "moduleId": 56462,
-          "async": false
-        },
-        "app/(admin)/admin/about/timeline/edit/[id]/page": {
-          "moduleId": 98187,
-          "async": false
-        },
-        "app/(admin)/admin/about/timeline/page": {
-          "moduleId": 75112,
-          "async": false
-        },
-        "app/(admin)/admin/about/why-choose/add/page": {
-          "moduleId": 23052,
-          "async": false
-        },
-        "app/(admin)/admin/about/why-choose/edit/[id]/page": {
-          "moduleId": 12850,
-          "async": false
-        },
-        "app/(admin)/admin/about/why-choose/page": {
-          "moduleId": 40531,
-          "async": false
-        },
-        "app/about/page": {
-          "moduleId": 4818,
-          "async": false
-        }
-      },
-      "filename": "lib/aboutSplitActions.ts",
-      "exportedName": "getAggregatedAboutData"
-    },
-    "00fd6682ac79ce6c3d12889cc3655e1862c429d23f": {
+    "0049c0b07e19800ebb9ec0416ee6fc8d95e8e0e48e": {
       "workers": {
         "app/(admin)/admin/about/add/page": {
           "moduleId": 92520,
@@ -2102,7 +1444,7 @@
       "filename": "lib/aboutSplitActions.ts",
       "exportedName": "getAboutTimeline"
     },
-    "403e5ee78154b0f97d1d48a2a5731193866d7cb12a": {
+    "0055488e1cfece59daff6e0be5ff7fc02f03ff9bfb": {
       "workers": {
         "app/(admin)/admin/about/add/page": {
           "moduleId": 92520,
@@ -2194,9 +1536,9 @@
         }
       },
       "filename": "lib/aboutSplitActions.ts",
-      "exportedName": "deleteAboutTimeline"
+      "exportedName": "getAboutCta"
     },
-    "4043d23f0fad9d210005a840bca7f72d42ba60e368": {
+    "0056b45dddc805a8dfbf6baf0c4ee9c5700dfbec79": {
       "workers": {
         "app/(admin)/admin/about/add/page": {
           "moduleId": 92520,
@@ -2288,9 +1630,9 @@
         }
       },
       "filename": "lib/aboutSplitActions.ts",
-      "exportedName": "deleteAboutWhyChoose"
+      "exportedName": "getCraftsmanshipLayers"
     },
-    "40451cb1a665366d975bc14e763e8233c4a6429f07": {
+    "0068abb0992c4b27d4f36bc62a66c8728a40a8cec2": {
       "workers": {
         "app/(admin)/admin/about/add/page": {
           "moduleId": 92520,
@@ -2382,9 +1724,9 @@
         }
       },
       "filename": "lib/aboutSplitActions.ts",
-      "exportedName": "getGlobalPresenceById"
+      "exportedName": "getAboutWhyChoose"
     },
-    "4052f2be122f2191e2da872f3bf66907918fbcbfe3": {
+    "006c89374594f3a5039e0ec03b7f4ad63537a15007": {
       "workers": {
         "app/(admin)/admin/about/add/page": {
           "moduleId": 92520,
@@ -2476,9 +1818,9 @@
         }
       },
       "filename": "lib/aboutSplitActions.ts",
-      "exportedName": "getMachineById"
+      "exportedName": "getAggregatedAboutData"
     },
-    "405920cd3a66b24e69aee978b034bc3433ce99535a": {
+    "009c098b6a41ccddadee2d8295b6a4eb2cc80e7a45": {
       "workers": {
         "app/(admin)/admin/about/add/page": {
           "moduleId": 92520,
@@ -2570,9 +1912,9 @@
         }
       },
       "filename": "lib/aboutSplitActions.ts",
-      "exportedName": "deleteCraftsmanshipLayer"
+      "exportedName": "getAboutHero"
     },
-    "4069bfd417e07cd018b2ab2ae7fdd49551b32c01d4": {
+    "009caa3cd44d820c16e75bc087afde97beebe89af6": {
       "workers": {
         "app/(admin)/admin/about/add/page": {
           "moduleId": 92520,
@@ -2664,9 +2006,9 @@
         }
       },
       "filename": "lib/aboutSplitActions.ts",
-      "exportedName": "getCraftsmanshipById"
+      "exportedName": "getActiveAboutContent"
     },
-    "407455c18f6a48c6bc8db0b531b94a2b72d9ec59a8": {
+    "00d4ec3b6d63ffb39e08946fb3985bf942a6d459b1": {
       "workers": {
         "app/(admin)/admin/about/add/page": {
           "moduleId": 92520,
@@ -2758,103 +2100,9 @@
         }
       },
       "filename": "lib/aboutSplitActions.ts",
-      "exportedName": "saveAboutWhyChoose"
+      "exportedName": "getAboutGlobalPresence"
     },
-    "407942510f5860c7fe6ea93a1c017da8bbca2b0b1e": {
-      "workers": {
-        "app/(admin)/admin/about/add/page": {
-          "moduleId": 92520,
-          "async": false
-        },
-        "app/(admin)/admin/about/craftsmanship/add/page": {
-          "moduleId": 96737,
-          "async": false
-        },
-        "app/(admin)/admin/about/craftsmanship/edit/[id]/page": {
-          "moduleId": 29809,
-          "async": false
-        },
-        "app/(admin)/admin/about/craftsmanship/page": {
-          "moduleId": 35317,
-          "async": false
-        },
-        "app/(admin)/admin/about/cta/page": {
-          "moduleId": 66505,
-          "async": false
-        },
-        "app/(admin)/admin/about/edit/[id]/page": {
-          "moduleId": 59781,
-          "async": false
-        },
-        "app/(admin)/admin/about/global-presence/add/page": {
-          "moduleId": 57627,
-          "async": false
-        },
-        "app/(admin)/admin/about/global-presence/edit/[id]/page": {
-          "moduleId": 68865,
-          "async": false
-        },
-        "app/(admin)/admin/about/global-presence/page": {
-          "moduleId": 75425,
-          "async": false
-        },
-        "app/(admin)/admin/about/hero/page": {
-          "moduleId": 4497,
-          "async": false
-        },
-        "app/(admin)/admin/about/machines/add/page": {
-          "moduleId": 23875,
-          "async": false
-        },
-        "app/(admin)/admin/about/machines/edit/[id]/page": {
-          "moduleId": 83645,
-          "async": false
-        },
-        "app/(admin)/admin/about/machines/page": {
-          "moduleId": 23850,
-          "async": false
-        },
-        "app/(admin)/admin/about/page": {
-          "moduleId": 57671,
-          "async": false
-        },
-        "app/(admin)/admin/about/story/page": {
-          "moduleId": 91965,
-          "async": false
-        },
-        "app/(admin)/admin/about/timeline/add/page": {
-          "moduleId": 56462,
-          "async": false
-        },
-        "app/(admin)/admin/about/timeline/edit/[id]/page": {
-          "moduleId": 98187,
-          "async": false
-        },
-        "app/(admin)/admin/about/timeline/page": {
-          "moduleId": 75112,
-          "async": false
-        },
-        "app/(admin)/admin/about/why-choose/add/page": {
-          "moduleId": 23052,
-          "async": false
-        },
-        "app/(admin)/admin/about/why-choose/edit/[id]/page": {
-          "moduleId": 12850,
-          "async": false
-        },
-        "app/(admin)/admin/about/why-choose/page": {
-          "moduleId": 40531,
-          "async": false
-        },
-        "app/about/page": {
-          "moduleId": 4818,
-          "async": false
-        }
-      },
-      "filename": "lib/aboutSplitActions.ts",
-      "exportedName": "saveCraftsmanshipLayer"
-    },
-    "408aed10ad7663561c65b611d406bd227c98e6fbd7": {
+    "4006132f4d307f30b8f79b8ac97ac85648cfcb18ec": {
       "workers": {
         "app/(admin)/admin/about/add/page": {
           "moduleId": 92520,
@@ -2948,759 +2196,7 @@
       "filename": "lib/aboutSplitActions.ts",
       "exportedName": "updateAboutHero"
     },
-    "409e0f702a0975e26f7d6389705245b7fb348f8523": {
-      "workers": {
-        "app/(admin)/admin/about/add/page": {
-          "moduleId": 92520,
-          "async": false
-        },
-        "app/(admin)/admin/about/craftsmanship/add/page": {
-          "moduleId": 96737,
-          "async": false
-        },
-        "app/(admin)/admin/about/craftsmanship/edit/[id]/page": {
-          "moduleId": 29809,
-          "async": false
-        },
-        "app/(admin)/admin/about/craftsmanship/page": {
-          "moduleId": 35317,
-          "async": false
-        },
-        "app/(admin)/admin/about/cta/page": {
-          "moduleId": 66505,
-          "async": false
-        },
-        "app/(admin)/admin/about/edit/[id]/page": {
-          "moduleId": 59781,
-          "async": false
-        },
-        "app/(admin)/admin/about/global-presence/add/page": {
-          "moduleId": 57627,
-          "async": false
-        },
-        "app/(admin)/admin/about/global-presence/edit/[id]/page": {
-          "moduleId": 68865,
-          "async": false
-        },
-        "app/(admin)/admin/about/global-presence/page": {
-          "moduleId": 75425,
-          "async": false
-        },
-        "app/(admin)/admin/about/hero/page": {
-          "moduleId": 4497,
-          "async": false
-        },
-        "app/(admin)/admin/about/machines/add/page": {
-          "moduleId": 23875,
-          "async": false
-        },
-        "app/(admin)/admin/about/machines/edit/[id]/page": {
-          "moduleId": 83645,
-          "async": false
-        },
-        "app/(admin)/admin/about/machines/page": {
-          "moduleId": 23850,
-          "async": false
-        },
-        "app/(admin)/admin/about/page": {
-          "moduleId": 57671,
-          "async": false
-        },
-        "app/(admin)/admin/about/story/page": {
-          "moduleId": 91965,
-          "async": false
-        },
-        "app/(admin)/admin/about/timeline/add/page": {
-          "moduleId": 56462,
-          "async": false
-        },
-        "app/(admin)/admin/about/timeline/edit/[id]/page": {
-          "moduleId": 98187,
-          "async": false
-        },
-        "app/(admin)/admin/about/timeline/page": {
-          "moduleId": 75112,
-          "async": false
-        },
-        "app/(admin)/admin/about/why-choose/add/page": {
-          "moduleId": 23052,
-          "async": false
-        },
-        "app/(admin)/admin/about/why-choose/edit/[id]/page": {
-          "moduleId": 12850,
-          "async": false
-        },
-        "app/(admin)/admin/about/why-choose/page": {
-          "moduleId": 40531,
-          "async": false
-        },
-        "app/about/page": {
-          "moduleId": 4818,
-          "async": false
-        }
-      },
-      "filename": "lib/aboutSplitActions.ts",
-      "exportedName": "deleteAboutMachine"
-    },
-    "40a4d3794b733b2b53f815aa1bf528e0e6351d2eec": {
-      "workers": {
-        "app/(admin)/admin/about/add/page": {
-          "moduleId": 92520,
-          "async": false
-        },
-        "app/(admin)/admin/about/craftsmanship/add/page": {
-          "moduleId": 96737,
-          "async": false
-        },
-        "app/(admin)/admin/about/craftsmanship/edit/[id]/page": {
-          "moduleId": 29809,
-          "async": false
-        },
-        "app/(admin)/admin/about/craftsmanship/page": {
-          "moduleId": 35317,
-          "async": false
-        },
-        "app/(admin)/admin/about/cta/page": {
-          "moduleId": 66505,
-          "async": false
-        },
-        "app/(admin)/admin/about/edit/[id]/page": {
-          "moduleId": 59781,
-          "async": false
-        },
-        "app/(admin)/admin/about/global-presence/add/page": {
-          "moduleId": 57627,
-          "async": false
-        },
-        "app/(admin)/admin/about/global-presence/edit/[id]/page": {
-          "moduleId": 68865,
-          "async": false
-        },
-        "app/(admin)/admin/about/global-presence/page": {
-          "moduleId": 75425,
-          "async": false
-        },
-        "app/(admin)/admin/about/hero/page": {
-          "moduleId": 4497,
-          "async": false
-        },
-        "app/(admin)/admin/about/machines/add/page": {
-          "moduleId": 23875,
-          "async": false
-        },
-        "app/(admin)/admin/about/machines/edit/[id]/page": {
-          "moduleId": 83645,
-          "async": false
-        },
-        "app/(admin)/admin/about/machines/page": {
-          "moduleId": 23850,
-          "async": false
-        },
-        "app/(admin)/admin/about/page": {
-          "moduleId": 57671,
-          "async": false
-        },
-        "app/(admin)/admin/about/story/page": {
-          "moduleId": 91965,
-          "async": false
-        },
-        "app/(admin)/admin/about/timeline/add/page": {
-          "moduleId": 56462,
-          "async": false
-        },
-        "app/(admin)/admin/about/timeline/edit/[id]/page": {
-          "moduleId": 98187,
-          "async": false
-        },
-        "app/(admin)/admin/about/timeline/page": {
-          "moduleId": 75112,
-          "async": false
-        },
-        "app/(admin)/admin/about/why-choose/add/page": {
-          "moduleId": 23052,
-          "async": false
-        },
-        "app/(admin)/admin/about/why-choose/edit/[id]/page": {
-          "moduleId": 12850,
-          "async": false
-        },
-        "app/(admin)/admin/about/why-choose/page": {
-          "moduleId": 40531,
-          "async": false
-        },
-        "app/about/page": {
-          "moduleId": 4818,
-          "async": false
-        }
-      },
-      "filename": "lib/aboutSplitActions.ts",
-      "exportedName": "deleteAboutGlobalPresence"
-    },
-    "40af2378ab30d0a8398f1f688cf88995a689f03215": {
-      "workers": {
-        "app/(admin)/admin/about/add/page": {
-          "moduleId": 92520,
-          "async": false
-        },
-        "app/(admin)/admin/about/craftsmanship/add/page": {
-          "moduleId": 96737,
-          "async": false
-        },
-        "app/(admin)/admin/about/craftsmanship/edit/[id]/page": {
-          "moduleId": 29809,
-          "async": false
-        },
-        "app/(admin)/admin/about/craftsmanship/page": {
-          "moduleId": 35317,
-          "async": false
-        },
-        "app/(admin)/admin/about/cta/page": {
-          "moduleId": 66505,
-          "async": false
-        },
-        "app/(admin)/admin/about/edit/[id]/page": {
-          "moduleId": 59781,
-          "async": false
-        },
-        "app/(admin)/admin/about/global-presence/add/page": {
-          "moduleId": 57627,
-          "async": false
-        },
-        "app/(admin)/admin/about/global-presence/edit/[id]/page": {
-          "moduleId": 68865,
-          "async": false
-        },
-        "app/(admin)/admin/about/global-presence/page": {
-          "moduleId": 75425,
-          "async": false
-        },
-        "app/(admin)/admin/about/hero/page": {
-          "moduleId": 4497,
-          "async": false
-        },
-        "app/(admin)/admin/about/machines/add/page": {
-          "moduleId": 23875,
-          "async": false
-        },
-        "app/(admin)/admin/about/machines/edit/[id]/page": {
-          "moduleId": 83645,
-          "async": false
-        },
-        "app/(admin)/admin/about/machines/page": {
-          "moduleId": 23850,
-          "async": false
-        },
-        "app/(admin)/admin/about/page": {
-          "moduleId": 57671,
-          "async": false
-        },
-        "app/(admin)/admin/about/story/page": {
-          "moduleId": 91965,
-          "async": false
-        },
-        "app/(admin)/admin/about/timeline/add/page": {
-          "moduleId": 56462,
-          "async": false
-        },
-        "app/(admin)/admin/about/timeline/edit/[id]/page": {
-          "moduleId": 98187,
-          "async": false
-        },
-        "app/(admin)/admin/about/timeline/page": {
-          "moduleId": 75112,
-          "async": false
-        },
-        "app/(admin)/admin/about/why-choose/add/page": {
-          "moduleId": 23052,
-          "async": false
-        },
-        "app/(admin)/admin/about/why-choose/edit/[id]/page": {
-          "moduleId": 12850,
-          "async": false
-        },
-        "app/(admin)/admin/about/why-choose/page": {
-          "moduleId": 40531,
-          "async": false
-        },
-        "app/about/page": {
-          "moduleId": 4818,
-          "async": false
-        }
-      },
-      "filename": "lib/aboutSplitActions.ts",
-      "exportedName": "updateAboutCta"
-    },
-    "40dd99f38bec61ab07298b3e71dbb257cf7cc6a864": {
-      "workers": {
-        "app/(admin)/admin/about/add/page": {
-          "moduleId": 92520,
-          "async": false
-        },
-        "app/(admin)/admin/about/craftsmanship/add/page": {
-          "moduleId": 96737,
-          "async": false
-        },
-        "app/(admin)/admin/about/craftsmanship/edit/[id]/page": {
-          "moduleId": 29809,
-          "async": false
-        },
-        "app/(admin)/admin/about/craftsmanship/page": {
-          "moduleId": 35317,
-          "async": false
-        },
-        "app/(admin)/admin/about/cta/page": {
-          "moduleId": 66505,
-          "async": false
-        },
-        "app/(admin)/admin/about/edit/[id]/page": {
-          "moduleId": 59781,
-          "async": false
-        },
-        "app/(admin)/admin/about/global-presence/add/page": {
-          "moduleId": 57627,
-          "async": false
-        },
-        "app/(admin)/admin/about/global-presence/edit/[id]/page": {
-          "moduleId": 68865,
-          "async": false
-        },
-        "app/(admin)/admin/about/global-presence/page": {
-          "moduleId": 75425,
-          "async": false
-        },
-        "app/(admin)/admin/about/hero/page": {
-          "moduleId": 4497,
-          "async": false
-        },
-        "app/(admin)/admin/about/machines/add/page": {
-          "moduleId": 23875,
-          "async": false
-        },
-        "app/(admin)/admin/about/machines/edit/[id]/page": {
-          "moduleId": 83645,
-          "async": false
-        },
-        "app/(admin)/admin/about/machines/page": {
-          "moduleId": 23850,
-          "async": false
-        },
-        "app/(admin)/admin/about/page": {
-          "moduleId": 57671,
-          "async": false
-        },
-        "app/(admin)/admin/about/story/page": {
-          "moduleId": 91965,
-          "async": false
-        },
-        "app/(admin)/admin/about/timeline/add/page": {
-          "moduleId": 56462,
-          "async": false
-        },
-        "app/(admin)/admin/about/timeline/edit/[id]/page": {
-          "moduleId": 98187,
-          "async": false
-        },
-        "app/(admin)/admin/about/timeline/page": {
-          "moduleId": 75112,
-          "async": false
-        },
-        "app/(admin)/admin/about/why-choose/add/page": {
-          "moduleId": 23052,
-          "async": false
-        },
-        "app/(admin)/admin/about/why-choose/edit/[id]/page": {
-          "moduleId": 12850,
-          "async": false
-        },
-        "app/(admin)/admin/about/why-choose/page": {
-          "moduleId": 40531,
-          "async": false
-        },
-        "app/about/page": {
-          "moduleId": 4818,
-          "async": false
-        }
-      },
-      "filename": "lib/aboutSplitActions.ts",
-      "exportedName": "getWhyChooseById"
-    },
-    "40de8f44e81459d27090fde3e081d33bea2cbbfe14": {
-      "workers": {
-        "app/(admin)/admin/about/add/page": {
-          "moduleId": 92520,
-          "async": false
-        },
-        "app/(admin)/admin/about/craftsmanship/add/page": {
-          "moduleId": 96737,
-          "async": false
-        },
-        "app/(admin)/admin/about/craftsmanship/edit/[id]/page": {
-          "moduleId": 29809,
-          "async": false
-        },
-        "app/(admin)/admin/about/craftsmanship/page": {
-          "moduleId": 35317,
-          "async": false
-        },
-        "app/(admin)/admin/about/cta/page": {
-          "moduleId": 66505,
-          "async": false
-        },
-        "app/(admin)/admin/about/edit/[id]/page": {
-          "moduleId": 59781,
-          "async": false
-        },
-        "app/(admin)/admin/about/global-presence/add/page": {
-          "moduleId": 57627,
-          "async": false
-        },
-        "app/(admin)/admin/about/global-presence/edit/[id]/page": {
-          "moduleId": 68865,
-          "async": false
-        },
-        "app/(admin)/admin/about/global-presence/page": {
-          "moduleId": 75425,
-          "async": false
-        },
-        "app/(admin)/admin/about/hero/page": {
-          "moduleId": 4497,
-          "async": false
-        },
-        "app/(admin)/admin/about/machines/add/page": {
-          "moduleId": 23875,
-          "async": false
-        },
-        "app/(admin)/admin/about/machines/edit/[id]/page": {
-          "moduleId": 83645,
-          "async": false
-        },
-        "app/(admin)/admin/about/machines/page": {
-          "moduleId": 23850,
-          "async": false
-        },
-        "app/(admin)/admin/about/page": {
-          "moduleId": 57671,
-          "async": false
-        },
-        "app/(admin)/admin/about/story/page": {
-          "moduleId": 91965,
-          "async": false
-        },
-        "app/(admin)/admin/about/timeline/add/page": {
-          "moduleId": 56462,
-          "async": false
-        },
-        "app/(admin)/admin/about/timeline/edit/[id]/page": {
-          "moduleId": 98187,
-          "async": false
-        },
-        "app/(admin)/admin/about/timeline/page": {
-          "moduleId": 75112,
-          "async": false
-        },
-        "app/(admin)/admin/about/why-choose/add/page": {
-          "moduleId": 23052,
-          "async": false
-        },
-        "app/(admin)/admin/about/why-choose/edit/[id]/page": {
-          "moduleId": 12850,
-          "async": false
-        },
-        "app/(admin)/admin/about/why-choose/page": {
-          "moduleId": 40531,
-          "async": false
-        },
-        "app/about/page": {
-          "moduleId": 4818,
-          "async": false
-        }
-      },
-      "filename": "lib/aboutSplitActions.ts",
-      "exportedName": "updateAboutStory"
-    },
-    "40e02781737df8cd35a37e0f13af46ca6819296d85": {
-      "workers": {
-        "app/(admin)/admin/about/add/page": {
-          "moduleId": 92520,
-          "async": false
-        },
-        "app/(admin)/admin/about/craftsmanship/add/page": {
-          "moduleId": 96737,
-          "async": false
-        },
-        "app/(admin)/admin/about/craftsmanship/edit/[id]/page": {
-          "moduleId": 29809,
-          "async": false
-        },
-        "app/(admin)/admin/about/craftsmanship/page": {
-          "moduleId": 35317,
-          "async": false
-        },
-        "app/(admin)/admin/about/cta/page": {
-          "moduleId": 66505,
-          "async": false
-        },
-        "app/(admin)/admin/about/edit/[id]/page": {
-          "moduleId": 59781,
-          "async": false
-        },
-        "app/(admin)/admin/about/global-presence/add/page": {
-          "moduleId": 57627,
-          "async": false
-        },
-        "app/(admin)/admin/about/global-presence/edit/[id]/page": {
-          "moduleId": 68865,
-          "async": false
-        },
-        "app/(admin)/admin/about/global-presence/page": {
-          "moduleId": 75425,
-          "async": false
-        },
-        "app/(admin)/admin/about/hero/page": {
-          "moduleId": 4497,
-          "async": false
-        },
-        "app/(admin)/admin/about/machines/add/page": {
-          "moduleId": 23875,
-          "async": false
-        },
-        "app/(admin)/admin/about/machines/edit/[id]/page": {
-          "moduleId": 83645,
-          "async": false
-        },
-        "app/(admin)/admin/about/machines/page": {
-          "moduleId": 23850,
-          "async": false
-        },
-        "app/(admin)/admin/about/page": {
-          "moduleId": 57671,
-          "async": false
-        },
-        "app/(admin)/admin/about/story/page": {
-          "moduleId": 91965,
-          "async": false
-        },
-        "app/(admin)/admin/about/timeline/add/page": {
-          "moduleId": 56462,
-          "async": false
-        },
-        "app/(admin)/admin/about/timeline/edit/[id]/page": {
-          "moduleId": 98187,
-          "async": false
-        },
-        "app/(admin)/admin/about/timeline/page": {
-          "moduleId": 75112,
-          "async": false
-        },
-        "app/(admin)/admin/about/why-choose/add/page": {
-          "moduleId": 23052,
-          "async": false
-        },
-        "app/(admin)/admin/about/why-choose/edit/[id]/page": {
-          "moduleId": 12850,
-          "async": false
-        },
-        "app/(admin)/admin/about/why-choose/page": {
-          "moduleId": 40531,
-          "async": false
-        },
-        "app/about/page": {
-          "moduleId": 4818,
-          "async": false
-        }
-      },
-      "filename": "lib/aboutSplitActions.ts",
-      "exportedName": "saveAboutGlobalPresence"
-    },
-    "40e185f273d45c5a9d5f424917055a25384db12dbc": {
-      "workers": {
-        "app/(admin)/admin/about/add/page": {
-          "moduleId": 92520,
-          "async": false
-        },
-        "app/(admin)/admin/about/craftsmanship/add/page": {
-          "moduleId": 96737,
-          "async": false
-        },
-        "app/(admin)/admin/about/craftsmanship/edit/[id]/page": {
-          "moduleId": 29809,
-          "async": false
-        },
-        "app/(admin)/admin/about/craftsmanship/page": {
-          "moduleId": 35317,
-          "async": false
-        },
-        "app/(admin)/admin/about/cta/page": {
-          "moduleId": 66505,
-          "async": false
-        },
-        "app/(admin)/admin/about/edit/[id]/page": {
-          "moduleId": 59781,
-          "async": false
-        },
-        "app/(admin)/admin/about/global-presence/add/page": {
-          "moduleId": 57627,
-          "async": false
-        },
-        "app/(admin)/admin/about/global-presence/edit/[id]/page": {
-          "moduleId": 68865,
-          "async": false
-        },
-        "app/(admin)/admin/about/global-presence/page": {
-          "moduleId": 75425,
-          "async": false
-        },
-        "app/(admin)/admin/about/hero/page": {
-          "moduleId": 4497,
-          "async": false
-        },
-        "app/(admin)/admin/about/machines/add/page": {
-          "moduleId": 23875,
-          "async": false
-        },
-        "app/(admin)/admin/about/machines/edit/[id]/page": {
-          "moduleId": 83645,
-          "async": false
-        },
-        "app/(admin)/admin/about/machines/page": {
-          "moduleId": 23850,
-          "async": false
-        },
-        "app/(admin)/admin/about/page": {
-          "moduleId": 57671,
-          "async": false
-        },
-        "app/(admin)/admin/about/story/page": {
-          "moduleId": 91965,
-          "async": false
-        },
-        "app/(admin)/admin/about/timeline/add/page": {
-          "moduleId": 56462,
-          "async": false
-        },
-        "app/(admin)/admin/about/timeline/edit/[id]/page": {
-          "moduleId": 98187,
-          "async": false
-        },
-        "app/(admin)/admin/about/timeline/page": {
-          "moduleId": 75112,
-          "async": false
-        },
-        "app/(admin)/admin/about/why-choose/add/page": {
-          "moduleId": 23052,
-          "async": false
-        },
-        "app/(admin)/admin/about/why-choose/edit/[id]/page": {
-          "moduleId": 12850,
-          "async": false
-        },
-        "app/(admin)/admin/about/why-choose/page": {
-          "moduleId": 40531,
-          "async": false
-        },
-        "app/about/page": {
-          "moduleId": 4818,
-          "async": false
-        }
-      },
-      "filename": "lib/aboutSplitActions.ts",
-      "exportedName": "saveAboutMachine"
-    },
-    "40e77377d29f2b951e0cf434c5e40a6238d9b3633a": {
-      "workers": {
-        "app/(admin)/admin/about/add/page": {
-          "moduleId": 92520,
-          "async": false
-        },
-        "app/(admin)/admin/about/craftsmanship/add/page": {
-          "moduleId": 96737,
-          "async": false
-        },
-        "app/(admin)/admin/about/craftsmanship/edit/[id]/page": {
-          "moduleId": 29809,
-          "async": false
-        },
-        "app/(admin)/admin/about/craftsmanship/page": {
-          "moduleId": 35317,
-          "async": false
-        },
-        "app/(admin)/admin/about/cta/page": {
-          "moduleId": 66505,
-          "async": false
-        },
-        "app/(admin)/admin/about/edit/[id]/page": {
-          "moduleId": 59781,
-          "async": false
-        },
-        "app/(admin)/admin/about/global-presence/add/page": {
-          "moduleId": 57627,
-          "async": false
-        },
-        "app/(admin)/admin/about/global-presence/edit/[id]/page": {
-          "moduleId": 68865,
-          "async": false
-        },
-        "app/(admin)/admin/about/global-presence/page": {
-          "moduleId": 75425,
-          "async": false
-        },
-        "app/(admin)/admin/about/hero/page": {
-          "moduleId": 4497,
-          "async": false
-        },
-        "app/(admin)/admin/about/machines/add/page": {
-          "moduleId": 23875,
-          "async": false
-        },
-        "app/(admin)/admin/about/machines/edit/[id]/page": {
-          "moduleId": 83645,
-          "async": false
-        },
-        "app/(admin)/admin/about/machines/page": {
-          "moduleId": 23850,
-          "async": false
-        },
-        "app/(admin)/admin/about/page": {
-          "moduleId": 57671,
-          "async": false
-        },
-        "app/(admin)/admin/about/story/page": {
-          "moduleId": 91965,
-          "async": false
-        },
-        "app/(admin)/admin/about/timeline/add/page": {
-          "moduleId": 56462,
-          "async": false
-        },
-        "app/(admin)/admin/about/timeline/edit/[id]/page": {
-          "moduleId": 98187,
-          "async": false
-        },
-        "app/(admin)/admin/about/timeline/page": {
-          "moduleId": 75112,
-          "async": false
-        },
-        "app/(admin)/admin/about/why-choose/add/page": {
-          "moduleId": 23052,
-          "async": false
-        },
-        "app/(admin)/admin/about/why-choose/edit/[id]/page": {
-          "moduleId": 12850,
-          "async": false
-        },
-        "app/(admin)/admin/about/why-choose/page": {
-          "moduleId": 40531,
-          "async": false
-        },
-        "app/about/page": {
-          "moduleId": 4818,
-          "async": false
-        }
-      },
-      "filename": "lib/aboutSplitActions.ts",
-      "exportedName": "getTimelineById"
-    },
-    "40fd442d57392b9ea13c4fcc3353c81d7330707101": {
+    "40092a78b79d215570656a941f5e80a8142672d526": {
       "workers": {
         "app/(admin)/admin/about/add/page": {
           "moduleId": 92520,
@@ -3794,7 +2290,1511 @@
       "filename": "lib/aboutSplitActions.ts",
       "exportedName": "saveAboutTimeline"
     },
-    "0085aa52ec695545448ce912cc2e8162528e86689e": {
+    "400cb10f8946a9c971d0a0932f46fdf5ffac29ebf9": {
+      "workers": {
+        "app/(admin)/admin/about/add/page": {
+          "moduleId": 92520,
+          "async": false
+        },
+        "app/(admin)/admin/about/craftsmanship/add/page": {
+          "moduleId": 96737,
+          "async": false
+        },
+        "app/(admin)/admin/about/craftsmanship/edit/[id]/page": {
+          "moduleId": 29809,
+          "async": false
+        },
+        "app/(admin)/admin/about/craftsmanship/page": {
+          "moduleId": 35317,
+          "async": false
+        },
+        "app/(admin)/admin/about/cta/page": {
+          "moduleId": 66505,
+          "async": false
+        },
+        "app/(admin)/admin/about/edit/[id]/page": {
+          "moduleId": 59781,
+          "async": false
+        },
+        "app/(admin)/admin/about/global-presence/add/page": {
+          "moduleId": 57627,
+          "async": false
+        },
+        "app/(admin)/admin/about/global-presence/edit/[id]/page": {
+          "moduleId": 68865,
+          "async": false
+        },
+        "app/(admin)/admin/about/global-presence/page": {
+          "moduleId": 75425,
+          "async": false
+        },
+        "app/(admin)/admin/about/hero/page": {
+          "moduleId": 4497,
+          "async": false
+        },
+        "app/(admin)/admin/about/machines/add/page": {
+          "moduleId": 23875,
+          "async": false
+        },
+        "app/(admin)/admin/about/machines/edit/[id]/page": {
+          "moduleId": 83645,
+          "async": false
+        },
+        "app/(admin)/admin/about/machines/page": {
+          "moduleId": 23850,
+          "async": false
+        },
+        "app/(admin)/admin/about/page": {
+          "moduleId": 57671,
+          "async": false
+        },
+        "app/(admin)/admin/about/story/page": {
+          "moduleId": 91965,
+          "async": false
+        },
+        "app/(admin)/admin/about/timeline/add/page": {
+          "moduleId": 56462,
+          "async": false
+        },
+        "app/(admin)/admin/about/timeline/edit/[id]/page": {
+          "moduleId": 98187,
+          "async": false
+        },
+        "app/(admin)/admin/about/timeline/page": {
+          "moduleId": 75112,
+          "async": false
+        },
+        "app/(admin)/admin/about/why-choose/add/page": {
+          "moduleId": 23052,
+          "async": false
+        },
+        "app/(admin)/admin/about/why-choose/edit/[id]/page": {
+          "moduleId": 12850,
+          "async": false
+        },
+        "app/(admin)/admin/about/why-choose/page": {
+          "moduleId": 40531,
+          "async": false
+        },
+        "app/about/page": {
+          "moduleId": 4818,
+          "async": false
+        }
+      },
+      "filename": "lib/aboutSplitActions.ts",
+      "exportedName": "saveAboutMachine"
+    },
+    "4029d2d05214059082e509dabf6f0f0fbf91020f17": {
+      "workers": {
+        "app/(admin)/admin/about/add/page": {
+          "moduleId": 92520,
+          "async": false
+        },
+        "app/(admin)/admin/about/craftsmanship/add/page": {
+          "moduleId": 96737,
+          "async": false
+        },
+        "app/(admin)/admin/about/craftsmanship/edit/[id]/page": {
+          "moduleId": 29809,
+          "async": false
+        },
+        "app/(admin)/admin/about/craftsmanship/page": {
+          "moduleId": 35317,
+          "async": false
+        },
+        "app/(admin)/admin/about/cta/page": {
+          "moduleId": 66505,
+          "async": false
+        },
+        "app/(admin)/admin/about/edit/[id]/page": {
+          "moduleId": 59781,
+          "async": false
+        },
+        "app/(admin)/admin/about/global-presence/add/page": {
+          "moduleId": 57627,
+          "async": false
+        },
+        "app/(admin)/admin/about/global-presence/edit/[id]/page": {
+          "moduleId": 68865,
+          "async": false
+        },
+        "app/(admin)/admin/about/global-presence/page": {
+          "moduleId": 75425,
+          "async": false
+        },
+        "app/(admin)/admin/about/hero/page": {
+          "moduleId": 4497,
+          "async": false
+        },
+        "app/(admin)/admin/about/machines/add/page": {
+          "moduleId": 23875,
+          "async": false
+        },
+        "app/(admin)/admin/about/machines/edit/[id]/page": {
+          "moduleId": 83645,
+          "async": false
+        },
+        "app/(admin)/admin/about/machines/page": {
+          "moduleId": 23850,
+          "async": false
+        },
+        "app/(admin)/admin/about/page": {
+          "moduleId": 57671,
+          "async": false
+        },
+        "app/(admin)/admin/about/story/page": {
+          "moduleId": 91965,
+          "async": false
+        },
+        "app/(admin)/admin/about/timeline/add/page": {
+          "moduleId": 56462,
+          "async": false
+        },
+        "app/(admin)/admin/about/timeline/edit/[id]/page": {
+          "moduleId": 98187,
+          "async": false
+        },
+        "app/(admin)/admin/about/timeline/page": {
+          "moduleId": 75112,
+          "async": false
+        },
+        "app/(admin)/admin/about/why-choose/add/page": {
+          "moduleId": 23052,
+          "async": false
+        },
+        "app/(admin)/admin/about/why-choose/edit/[id]/page": {
+          "moduleId": 12850,
+          "async": false
+        },
+        "app/(admin)/admin/about/why-choose/page": {
+          "moduleId": 40531,
+          "async": false
+        },
+        "app/about/page": {
+          "moduleId": 4818,
+          "async": false
+        }
+      },
+      "filename": "lib/aboutSplitActions.ts",
+      "exportedName": "getCraftsmanshipById"
+    },
+    "402d5933d3e6f0adcc135272e89868e22f5b30f894": {
+      "workers": {
+        "app/(admin)/admin/about/add/page": {
+          "moduleId": 92520,
+          "async": false
+        },
+        "app/(admin)/admin/about/craftsmanship/add/page": {
+          "moduleId": 96737,
+          "async": false
+        },
+        "app/(admin)/admin/about/craftsmanship/edit/[id]/page": {
+          "moduleId": 29809,
+          "async": false
+        },
+        "app/(admin)/admin/about/craftsmanship/page": {
+          "moduleId": 35317,
+          "async": false
+        },
+        "app/(admin)/admin/about/cta/page": {
+          "moduleId": 66505,
+          "async": false
+        },
+        "app/(admin)/admin/about/edit/[id]/page": {
+          "moduleId": 59781,
+          "async": false
+        },
+        "app/(admin)/admin/about/global-presence/add/page": {
+          "moduleId": 57627,
+          "async": false
+        },
+        "app/(admin)/admin/about/global-presence/edit/[id]/page": {
+          "moduleId": 68865,
+          "async": false
+        },
+        "app/(admin)/admin/about/global-presence/page": {
+          "moduleId": 75425,
+          "async": false
+        },
+        "app/(admin)/admin/about/hero/page": {
+          "moduleId": 4497,
+          "async": false
+        },
+        "app/(admin)/admin/about/machines/add/page": {
+          "moduleId": 23875,
+          "async": false
+        },
+        "app/(admin)/admin/about/machines/edit/[id]/page": {
+          "moduleId": 83645,
+          "async": false
+        },
+        "app/(admin)/admin/about/machines/page": {
+          "moduleId": 23850,
+          "async": false
+        },
+        "app/(admin)/admin/about/page": {
+          "moduleId": 57671,
+          "async": false
+        },
+        "app/(admin)/admin/about/story/page": {
+          "moduleId": 91965,
+          "async": false
+        },
+        "app/(admin)/admin/about/timeline/add/page": {
+          "moduleId": 56462,
+          "async": false
+        },
+        "app/(admin)/admin/about/timeline/edit/[id]/page": {
+          "moduleId": 98187,
+          "async": false
+        },
+        "app/(admin)/admin/about/timeline/page": {
+          "moduleId": 75112,
+          "async": false
+        },
+        "app/(admin)/admin/about/why-choose/add/page": {
+          "moduleId": 23052,
+          "async": false
+        },
+        "app/(admin)/admin/about/why-choose/edit/[id]/page": {
+          "moduleId": 12850,
+          "async": false
+        },
+        "app/(admin)/admin/about/why-choose/page": {
+          "moduleId": 40531,
+          "async": false
+        },
+        "app/about/page": {
+          "moduleId": 4818,
+          "async": false
+        }
+      },
+      "filename": "lib/aboutSplitActions.ts",
+      "exportedName": "deleteAboutWhyChoose"
+    },
+    "40335eac2b0ea1d2cb6258f6c5de68bb80506fedfd": {
+      "workers": {
+        "app/(admin)/admin/about/add/page": {
+          "moduleId": 92520,
+          "async": false
+        },
+        "app/(admin)/admin/about/craftsmanship/add/page": {
+          "moduleId": 96737,
+          "async": false
+        },
+        "app/(admin)/admin/about/craftsmanship/edit/[id]/page": {
+          "moduleId": 29809,
+          "async": false
+        },
+        "app/(admin)/admin/about/craftsmanship/page": {
+          "moduleId": 35317,
+          "async": false
+        },
+        "app/(admin)/admin/about/cta/page": {
+          "moduleId": 66505,
+          "async": false
+        },
+        "app/(admin)/admin/about/edit/[id]/page": {
+          "moduleId": 59781,
+          "async": false
+        },
+        "app/(admin)/admin/about/global-presence/add/page": {
+          "moduleId": 57627,
+          "async": false
+        },
+        "app/(admin)/admin/about/global-presence/edit/[id]/page": {
+          "moduleId": 68865,
+          "async": false
+        },
+        "app/(admin)/admin/about/global-presence/page": {
+          "moduleId": 75425,
+          "async": false
+        },
+        "app/(admin)/admin/about/hero/page": {
+          "moduleId": 4497,
+          "async": false
+        },
+        "app/(admin)/admin/about/machines/add/page": {
+          "moduleId": 23875,
+          "async": false
+        },
+        "app/(admin)/admin/about/machines/edit/[id]/page": {
+          "moduleId": 83645,
+          "async": false
+        },
+        "app/(admin)/admin/about/machines/page": {
+          "moduleId": 23850,
+          "async": false
+        },
+        "app/(admin)/admin/about/page": {
+          "moduleId": 57671,
+          "async": false
+        },
+        "app/(admin)/admin/about/story/page": {
+          "moduleId": 91965,
+          "async": false
+        },
+        "app/(admin)/admin/about/timeline/add/page": {
+          "moduleId": 56462,
+          "async": false
+        },
+        "app/(admin)/admin/about/timeline/edit/[id]/page": {
+          "moduleId": 98187,
+          "async": false
+        },
+        "app/(admin)/admin/about/timeline/page": {
+          "moduleId": 75112,
+          "async": false
+        },
+        "app/(admin)/admin/about/why-choose/add/page": {
+          "moduleId": 23052,
+          "async": false
+        },
+        "app/(admin)/admin/about/why-choose/edit/[id]/page": {
+          "moduleId": 12850,
+          "async": false
+        },
+        "app/(admin)/admin/about/why-choose/page": {
+          "moduleId": 40531,
+          "async": false
+        },
+        "app/about/page": {
+          "moduleId": 4818,
+          "async": false
+        }
+      },
+      "filename": "lib/aboutSplitActions.ts",
+      "exportedName": "getGlobalPresenceById"
+    },
+    "403b1be9ab56bdc2b49b2089ff54d89cd1b4b5d212": {
+      "workers": {
+        "app/(admin)/admin/about/add/page": {
+          "moduleId": 92520,
+          "async": false
+        },
+        "app/(admin)/admin/about/craftsmanship/add/page": {
+          "moduleId": 96737,
+          "async": false
+        },
+        "app/(admin)/admin/about/craftsmanship/edit/[id]/page": {
+          "moduleId": 29809,
+          "async": false
+        },
+        "app/(admin)/admin/about/craftsmanship/page": {
+          "moduleId": 35317,
+          "async": false
+        },
+        "app/(admin)/admin/about/cta/page": {
+          "moduleId": 66505,
+          "async": false
+        },
+        "app/(admin)/admin/about/edit/[id]/page": {
+          "moduleId": 59781,
+          "async": false
+        },
+        "app/(admin)/admin/about/global-presence/add/page": {
+          "moduleId": 57627,
+          "async": false
+        },
+        "app/(admin)/admin/about/global-presence/edit/[id]/page": {
+          "moduleId": 68865,
+          "async": false
+        },
+        "app/(admin)/admin/about/global-presence/page": {
+          "moduleId": 75425,
+          "async": false
+        },
+        "app/(admin)/admin/about/hero/page": {
+          "moduleId": 4497,
+          "async": false
+        },
+        "app/(admin)/admin/about/machines/add/page": {
+          "moduleId": 23875,
+          "async": false
+        },
+        "app/(admin)/admin/about/machines/edit/[id]/page": {
+          "moduleId": 83645,
+          "async": false
+        },
+        "app/(admin)/admin/about/machines/page": {
+          "moduleId": 23850,
+          "async": false
+        },
+        "app/(admin)/admin/about/page": {
+          "moduleId": 57671,
+          "async": false
+        },
+        "app/(admin)/admin/about/story/page": {
+          "moduleId": 91965,
+          "async": false
+        },
+        "app/(admin)/admin/about/timeline/add/page": {
+          "moduleId": 56462,
+          "async": false
+        },
+        "app/(admin)/admin/about/timeline/edit/[id]/page": {
+          "moduleId": 98187,
+          "async": false
+        },
+        "app/(admin)/admin/about/timeline/page": {
+          "moduleId": 75112,
+          "async": false
+        },
+        "app/(admin)/admin/about/why-choose/add/page": {
+          "moduleId": 23052,
+          "async": false
+        },
+        "app/(admin)/admin/about/why-choose/edit/[id]/page": {
+          "moduleId": 12850,
+          "async": false
+        },
+        "app/(admin)/admin/about/why-choose/page": {
+          "moduleId": 40531,
+          "async": false
+        },
+        "app/about/page": {
+          "moduleId": 4818,
+          "async": false
+        }
+      },
+      "filename": "lib/aboutSplitActions.ts",
+      "exportedName": "getTimelineById"
+    },
+    "4045e35784a5667ee246e882b41f10aa11cc5d59f8": {
+      "workers": {
+        "app/(admin)/admin/about/add/page": {
+          "moduleId": 92520,
+          "async": false
+        },
+        "app/(admin)/admin/about/craftsmanship/add/page": {
+          "moduleId": 96737,
+          "async": false
+        },
+        "app/(admin)/admin/about/craftsmanship/edit/[id]/page": {
+          "moduleId": 29809,
+          "async": false
+        },
+        "app/(admin)/admin/about/craftsmanship/page": {
+          "moduleId": 35317,
+          "async": false
+        },
+        "app/(admin)/admin/about/cta/page": {
+          "moduleId": 66505,
+          "async": false
+        },
+        "app/(admin)/admin/about/edit/[id]/page": {
+          "moduleId": 59781,
+          "async": false
+        },
+        "app/(admin)/admin/about/global-presence/add/page": {
+          "moduleId": 57627,
+          "async": false
+        },
+        "app/(admin)/admin/about/global-presence/edit/[id]/page": {
+          "moduleId": 68865,
+          "async": false
+        },
+        "app/(admin)/admin/about/global-presence/page": {
+          "moduleId": 75425,
+          "async": false
+        },
+        "app/(admin)/admin/about/hero/page": {
+          "moduleId": 4497,
+          "async": false
+        },
+        "app/(admin)/admin/about/machines/add/page": {
+          "moduleId": 23875,
+          "async": false
+        },
+        "app/(admin)/admin/about/machines/edit/[id]/page": {
+          "moduleId": 83645,
+          "async": false
+        },
+        "app/(admin)/admin/about/machines/page": {
+          "moduleId": 23850,
+          "async": false
+        },
+        "app/(admin)/admin/about/page": {
+          "moduleId": 57671,
+          "async": false
+        },
+        "app/(admin)/admin/about/story/page": {
+          "moduleId": 91965,
+          "async": false
+        },
+        "app/(admin)/admin/about/timeline/add/page": {
+          "moduleId": 56462,
+          "async": false
+        },
+        "app/(admin)/admin/about/timeline/edit/[id]/page": {
+          "moduleId": 98187,
+          "async": false
+        },
+        "app/(admin)/admin/about/timeline/page": {
+          "moduleId": 75112,
+          "async": false
+        },
+        "app/(admin)/admin/about/why-choose/add/page": {
+          "moduleId": 23052,
+          "async": false
+        },
+        "app/(admin)/admin/about/why-choose/edit/[id]/page": {
+          "moduleId": 12850,
+          "async": false
+        },
+        "app/(admin)/admin/about/why-choose/page": {
+          "moduleId": 40531,
+          "async": false
+        },
+        "app/about/page": {
+          "moduleId": 4818,
+          "async": false
+        }
+      },
+      "filename": "lib/aboutSplitActions.ts",
+      "exportedName": "deleteCraftsmanshipLayer"
+    },
+    "4057499d417a9b250649a33f8c994e03d2d46274e5": {
+      "workers": {
+        "app/(admin)/admin/about/add/page": {
+          "moduleId": 92520,
+          "async": false
+        },
+        "app/(admin)/admin/about/craftsmanship/add/page": {
+          "moduleId": 96737,
+          "async": false
+        },
+        "app/(admin)/admin/about/craftsmanship/edit/[id]/page": {
+          "moduleId": 29809,
+          "async": false
+        },
+        "app/(admin)/admin/about/craftsmanship/page": {
+          "moduleId": 35317,
+          "async": false
+        },
+        "app/(admin)/admin/about/cta/page": {
+          "moduleId": 66505,
+          "async": false
+        },
+        "app/(admin)/admin/about/edit/[id]/page": {
+          "moduleId": 59781,
+          "async": false
+        },
+        "app/(admin)/admin/about/global-presence/add/page": {
+          "moduleId": 57627,
+          "async": false
+        },
+        "app/(admin)/admin/about/global-presence/edit/[id]/page": {
+          "moduleId": 68865,
+          "async": false
+        },
+        "app/(admin)/admin/about/global-presence/page": {
+          "moduleId": 75425,
+          "async": false
+        },
+        "app/(admin)/admin/about/hero/page": {
+          "moduleId": 4497,
+          "async": false
+        },
+        "app/(admin)/admin/about/machines/add/page": {
+          "moduleId": 23875,
+          "async": false
+        },
+        "app/(admin)/admin/about/machines/edit/[id]/page": {
+          "moduleId": 83645,
+          "async": false
+        },
+        "app/(admin)/admin/about/machines/page": {
+          "moduleId": 23850,
+          "async": false
+        },
+        "app/(admin)/admin/about/page": {
+          "moduleId": 57671,
+          "async": false
+        },
+        "app/(admin)/admin/about/story/page": {
+          "moduleId": 91965,
+          "async": false
+        },
+        "app/(admin)/admin/about/timeline/add/page": {
+          "moduleId": 56462,
+          "async": false
+        },
+        "app/(admin)/admin/about/timeline/edit/[id]/page": {
+          "moduleId": 98187,
+          "async": false
+        },
+        "app/(admin)/admin/about/timeline/page": {
+          "moduleId": 75112,
+          "async": false
+        },
+        "app/(admin)/admin/about/why-choose/add/page": {
+          "moduleId": 23052,
+          "async": false
+        },
+        "app/(admin)/admin/about/why-choose/edit/[id]/page": {
+          "moduleId": 12850,
+          "async": false
+        },
+        "app/(admin)/admin/about/why-choose/page": {
+          "moduleId": 40531,
+          "async": false
+        },
+        "app/about/page": {
+          "moduleId": 4818,
+          "async": false
+        }
+      },
+      "filename": "lib/aboutSplitActions.ts",
+      "exportedName": "getWhyChooseById"
+    },
+    "40690be4dab5eaf8e428d1596d1140412e54ed35cb": {
+      "workers": {
+        "app/(admin)/admin/about/add/page": {
+          "moduleId": 92520,
+          "async": false
+        },
+        "app/(admin)/admin/about/craftsmanship/add/page": {
+          "moduleId": 96737,
+          "async": false
+        },
+        "app/(admin)/admin/about/craftsmanship/edit/[id]/page": {
+          "moduleId": 29809,
+          "async": false
+        },
+        "app/(admin)/admin/about/craftsmanship/page": {
+          "moduleId": 35317,
+          "async": false
+        },
+        "app/(admin)/admin/about/cta/page": {
+          "moduleId": 66505,
+          "async": false
+        },
+        "app/(admin)/admin/about/edit/[id]/page": {
+          "moduleId": 59781,
+          "async": false
+        },
+        "app/(admin)/admin/about/global-presence/add/page": {
+          "moduleId": 57627,
+          "async": false
+        },
+        "app/(admin)/admin/about/global-presence/edit/[id]/page": {
+          "moduleId": 68865,
+          "async": false
+        },
+        "app/(admin)/admin/about/global-presence/page": {
+          "moduleId": 75425,
+          "async": false
+        },
+        "app/(admin)/admin/about/hero/page": {
+          "moduleId": 4497,
+          "async": false
+        },
+        "app/(admin)/admin/about/machines/add/page": {
+          "moduleId": 23875,
+          "async": false
+        },
+        "app/(admin)/admin/about/machines/edit/[id]/page": {
+          "moduleId": 83645,
+          "async": false
+        },
+        "app/(admin)/admin/about/machines/page": {
+          "moduleId": 23850,
+          "async": false
+        },
+        "app/(admin)/admin/about/page": {
+          "moduleId": 57671,
+          "async": false
+        },
+        "app/(admin)/admin/about/story/page": {
+          "moduleId": 91965,
+          "async": false
+        },
+        "app/(admin)/admin/about/timeline/add/page": {
+          "moduleId": 56462,
+          "async": false
+        },
+        "app/(admin)/admin/about/timeline/edit/[id]/page": {
+          "moduleId": 98187,
+          "async": false
+        },
+        "app/(admin)/admin/about/timeline/page": {
+          "moduleId": 75112,
+          "async": false
+        },
+        "app/(admin)/admin/about/why-choose/add/page": {
+          "moduleId": 23052,
+          "async": false
+        },
+        "app/(admin)/admin/about/why-choose/edit/[id]/page": {
+          "moduleId": 12850,
+          "async": false
+        },
+        "app/(admin)/admin/about/why-choose/page": {
+          "moduleId": 40531,
+          "async": false
+        },
+        "app/about/page": {
+          "moduleId": 4818,
+          "async": false
+        }
+      },
+      "filename": "lib/aboutSplitActions.ts",
+      "exportedName": "deleteAboutMachine"
+    },
+    "40803fa13b4259df471d54ddea09dfd601c848498d": {
+      "workers": {
+        "app/(admin)/admin/about/add/page": {
+          "moduleId": 92520,
+          "async": false
+        },
+        "app/(admin)/admin/about/craftsmanship/add/page": {
+          "moduleId": 96737,
+          "async": false
+        },
+        "app/(admin)/admin/about/craftsmanship/edit/[id]/page": {
+          "moduleId": 29809,
+          "async": false
+        },
+        "app/(admin)/admin/about/craftsmanship/page": {
+          "moduleId": 35317,
+          "async": false
+        },
+        "app/(admin)/admin/about/cta/page": {
+          "moduleId": 66505,
+          "async": false
+        },
+        "app/(admin)/admin/about/edit/[id]/page": {
+          "moduleId": 59781,
+          "async": false
+        },
+        "app/(admin)/admin/about/global-presence/add/page": {
+          "moduleId": 57627,
+          "async": false
+        },
+        "app/(admin)/admin/about/global-presence/edit/[id]/page": {
+          "moduleId": 68865,
+          "async": false
+        },
+        "app/(admin)/admin/about/global-presence/page": {
+          "moduleId": 75425,
+          "async": false
+        },
+        "app/(admin)/admin/about/hero/page": {
+          "moduleId": 4497,
+          "async": false
+        },
+        "app/(admin)/admin/about/machines/add/page": {
+          "moduleId": 23875,
+          "async": false
+        },
+        "app/(admin)/admin/about/machines/edit/[id]/page": {
+          "moduleId": 83645,
+          "async": false
+        },
+        "app/(admin)/admin/about/machines/page": {
+          "moduleId": 23850,
+          "async": false
+        },
+        "app/(admin)/admin/about/page": {
+          "moduleId": 57671,
+          "async": false
+        },
+        "app/(admin)/admin/about/story/page": {
+          "moduleId": 91965,
+          "async": false
+        },
+        "app/(admin)/admin/about/timeline/add/page": {
+          "moduleId": 56462,
+          "async": false
+        },
+        "app/(admin)/admin/about/timeline/edit/[id]/page": {
+          "moduleId": 98187,
+          "async": false
+        },
+        "app/(admin)/admin/about/timeline/page": {
+          "moduleId": 75112,
+          "async": false
+        },
+        "app/(admin)/admin/about/why-choose/add/page": {
+          "moduleId": 23052,
+          "async": false
+        },
+        "app/(admin)/admin/about/why-choose/edit/[id]/page": {
+          "moduleId": 12850,
+          "async": false
+        },
+        "app/(admin)/admin/about/why-choose/page": {
+          "moduleId": 40531,
+          "async": false
+        },
+        "app/about/page": {
+          "moduleId": 4818,
+          "async": false
+        }
+      },
+      "filename": "lib/aboutSplitActions.ts",
+      "exportedName": "deleteAboutGlobalPresence"
+    },
+    "408f70d324d12b31b1b5326e82b8b7341ee0c0c3a7": {
+      "workers": {
+        "app/(admin)/admin/about/add/page": {
+          "moduleId": 92520,
+          "async": false
+        },
+        "app/(admin)/admin/about/craftsmanship/add/page": {
+          "moduleId": 96737,
+          "async": false
+        },
+        "app/(admin)/admin/about/craftsmanship/edit/[id]/page": {
+          "moduleId": 29809,
+          "async": false
+        },
+        "app/(admin)/admin/about/craftsmanship/page": {
+          "moduleId": 35317,
+          "async": false
+        },
+        "app/(admin)/admin/about/cta/page": {
+          "moduleId": 66505,
+          "async": false
+        },
+        "app/(admin)/admin/about/edit/[id]/page": {
+          "moduleId": 59781,
+          "async": false
+        },
+        "app/(admin)/admin/about/global-presence/add/page": {
+          "moduleId": 57627,
+          "async": false
+        },
+        "app/(admin)/admin/about/global-presence/edit/[id]/page": {
+          "moduleId": 68865,
+          "async": false
+        },
+        "app/(admin)/admin/about/global-presence/page": {
+          "moduleId": 75425,
+          "async": false
+        },
+        "app/(admin)/admin/about/hero/page": {
+          "moduleId": 4497,
+          "async": false
+        },
+        "app/(admin)/admin/about/machines/add/page": {
+          "moduleId": 23875,
+          "async": false
+        },
+        "app/(admin)/admin/about/machines/edit/[id]/page": {
+          "moduleId": 83645,
+          "async": false
+        },
+        "app/(admin)/admin/about/machines/page": {
+          "moduleId": 23850,
+          "async": false
+        },
+        "app/(admin)/admin/about/page": {
+          "moduleId": 57671,
+          "async": false
+        },
+        "app/(admin)/admin/about/story/page": {
+          "moduleId": 91965,
+          "async": false
+        },
+        "app/(admin)/admin/about/timeline/add/page": {
+          "moduleId": 56462,
+          "async": false
+        },
+        "app/(admin)/admin/about/timeline/edit/[id]/page": {
+          "moduleId": 98187,
+          "async": false
+        },
+        "app/(admin)/admin/about/timeline/page": {
+          "moduleId": 75112,
+          "async": false
+        },
+        "app/(admin)/admin/about/why-choose/add/page": {
+          "moduleId": 23052,
+          "async": false
+        },
+        "app/(admin)/admin/about/why-choose/edit/[id]/page": {
+          "moduleId": 12850,
+          "async": false
+        },
+        "app/(admin)/admin/about/why-choose/page": {
+          "moduleId": 40531,
+          "async": false
+        },
+        "app/about/page": {
+          "moduleId": 4818,
+          "async": false
+        }
+      },
+      "filename": "lib/aboutSplitActions.ts",
+      "exportedName": "saveAboutGlobalPresence"
+    },
+    "40a1773f99e36fb0fb3191079a3062c693b4e328a4": {
+      "workers": {
+        "app/(admin)/admin/about/add/page": {
+          "moduleId": 92520,
+          "async": false
+        },
+        "app/(admin)/admin/about/craftsmanship/add/page": {
+          "moduleId": 96737,
+          "async": false
+        },
+        "app/(admin)/admin/about/craftsmanship/edit/[id]/page": {
+          "moduleId": 29809,
+          "async": false
+        },
+        "app/(admin)/admin/about/craftsmanship/page": {
+          "moduleId": 35317,
+          "async": false
+        },
+        "app/(admin)/admin/about/cta/page": {
+          "moduleId": 66505,
+          "async": false
+        },
+        "app/(admin)/admin/about/edit/[id]/page": {
+          "moduleId": 59781,
+          "async": false
+        },
+        "app/(admin)/admin/about/global-presence/add/page": {
+          "moduleId": 57627,
+          "async": false
+        },
+        "app/(admin)/admin/about/global-presence/edit/[id]/page": {
+          "moduleId": 68865,
+          "async": false
+        },
+        "app/(admin)/admin/about/global-presence/page": {
+          "moduleId": 75425,
+          "async": false
+        },
+        "app/(admin)/admin/about/hero/page": {
+          "moduleId": 4497,
+          "async": false
+        },
+        "app/(admin)/admin/about/machines/add/page": {
+          "moduleId": 23875,
+          "async": false
+        },
+        "app/(admin)/admin/about/machines/edit/[id]/page": {
+          "moduleId": 83645,
+          "async": false
+        },
+        "app/(admin)/admin/about/machines/page": {
+          "moduleId": 23850,
+          "async": false
+        },
+        "app/(admin)/admin/about/page": {
+          "moduleId": 57671,
+          "async": false
+        },
+        "app/(admin)/admin/about/story/page": {
+          "moduleId": 91965,
+          "async": false
+        },
+        "app/(admin)/admin/about/timeline/add/page": {
+          "moduleId": 56462,
+          "async": false
+        },
+        "app/(admin)/admin/about/timeline/edit/[id]/page": {
+          "moduleId": 98187,
+          "async": false
+        },
+        "app/(admin)/admin/about/timeline/page": {
+          "moduleId": 75112,
+          "async": false
+        },
+        "app/(admin)/admin/about/why-choose/add/page": {
+          "moduleId": 23052,
+          "async": false
+        },
+        "app/(admin)/admin/about/why-choose/edit/[id]/page": {
+          "moduleId": 12850,
+          "async": false
+        },
+        "app/(admin)/admin/about/why-choose/page": {
+          "moduleId": 40531,
+          "async": false
+        },
+        "app/about/page": {
+          "moduleId": 4818,
+          "async": false
+        }
+      },
+      "filename": "lib/aboutSplitActions.ts",
+      "exportedName": "deleteAboutTimeline"
+    },
+    "40bdc40f417aa0cc4b6e3f0da9f1faa6b73a6862d0": {
+      "workers": {
+        "app/(admin)/admin/about/add/page": {
+          "moduleId": 92520,
+          "async": false
+        },
+        "app/(admin)/admin/about/craftsmanship/add/page": {
+          "moduleId": 96737,
+          "async": false
+        },
+        "app/(admin)/admin/about/craftsmanship/edit/[id]/page": {
+          "moduleId": 29809,
+          "async": false
+        },
+        "app/(admin)/admin/about/craftsmanship/page": {
+          "moduleId": 35317,
+          "async": false
+        },
+        "app/(admin)/admin/about/cta/page": {
+          "moduleId": 66505,
+          "async": false
+        },
+        "app/(admin)/admin/about/edit/[id]/page": {
+          "moduleId": 59781,
+          "async": false
+        },
+        "app/(admin)/admin/about/global-presence/add/page": {
+          "moduleId": 57627,
+          "async": false
+        },
+        "app/(admin)/admin/about/global-presence/edit/[id]/page": {
+          "moduleId": 68865,
+          "async": false
+        },
+        "app/(admin)/admin/about/global-presence/page": {
+          "moduleId": 75425,
+          "async": false
+        },
+        "app/(admin)/admin/about/hero/page": {
+          "moduleId": 4497,
+          "async": false
+        },
+        "app/(admin)/admin/about/machines/add/page": {
+          "moduleId": 23875,
+          "async": false
+        },
+        "app/(admin)/admin/about/machines/edit/[id]/page": {
+          "moduleId": 83645,
+          "async": false
+        },
+        "app/(admin)/admin/about/machines/page": {
+          "moduleId": 23850,
+          "async": false
+        },
+        "app/(admin)/admin/about/page": {
+          "moduleId": 57671,
+          "async": false
+        },
+        "app/(admin)/admin/about/story/page": {
+          "moduleId": 91965,
+          "async": false
+        },
+        "app/(admin)/admin/about/timeline/add/page": {
+          "moduleId": 56462,
+          "async": false
+        },
+        "app/(admin)/admin/about/timeline/edit/[id]/page": {
+          "moduleId": 98187,
+          "async": false
+        },
+        "app/(admin)/admin/about/timeline/page": {
+          "moduleId": 75112,
+          "async": false
+        },
+        "app/(admin)/admin/about/why-choose/add/page": {
+          "moduleId": 23052,
+          "async": false
+        },
+        "app/(admin)/admin/about/why-choose/edit/[id]/page": {
+          "moduleId": 12850,
+          "async": false
+        },
+        "app/(admin)/admin/about/why-choose/page": {
+          "moduleId": 40531,
+          "async": false
+        },
+        "app/about/page": {
+          "moduleId": 4818,
+          "async": false
+        }
+      },
+      "filename": "lib/aboutSplitActions.ts",
+      "exportedName": "saveAboutWhyChoose"
+    },
+    "40d4e86ff59128a80fa42ea3f2bb5310238c87c0aa": {
+      "workers": {
+        "app/(admin)/admin/about/add/page": {
+          "moduleId": 92520,
+          "async": false
+        },
+        "app/(admin)/admin/about/craftsmanship/add/page": {
+          "moduleId": 96737,
+          "async": false
+        },
+        "app/(admin)/admin/about/craftsmanship/edit/[id]/page": {
+          "moduleId": 29809,
+          "async": false
+        },
+        "app/(admin)/admin/about/craftsmanship/page": {
+          "moduleId": 35317,
+          "async": false
+        },
+        "app/(admin)/admin/about/cta/page": {
+          "moduleId": 66505,
+          "async": false
+        },
+        "app/(admin)/admin/about/edit/[id]/page": {
+          "moduleId": 59781,
+          "async": false
+        },
+        "app/(admin)/admin/about/global-presence/add/page": {
+          "moduleId": 57627,
+          "async": false
+        },
+        "app/(admin)/admin/about/global-presence/edit/[id]/page": {
+          "moduleId": 68865,
+          "async": false
+        },
+        "app/(admin)/admin/about/global-presence/page": {
+          "moduleId": 75425,
+          "async": false
+        },
+        "app/(admin)/admin/about/hero/page": {
+          "moduleId": 4497,
+          "async": false
+        },
+        "app/(admin)/admin/about/machines/add/page": {
+          "moduleId": 23875,
+          "async": false
+        },
+        "app/(admin)/admin/about/machines/edit/[id]/page": {
+          "moduleId": 83645,
+          "async": false
+        },
+        "app/(admin)/admin/about/machines/page": {
+          "moduleId": 23850,
+          "async": false
+        },
+        "app/(admin)/admin/about/page": {
+          "moduleId": 57671,
+          "async": false
+        },
+        "app/(admin)/admin/about/story/page": {
+          "moduleId": 91965,
+          "async": false
+        },
+        "app/(admin)/admin/about/timeline/add/page": {
+          "moduleId": 56462,
+          "async": false
+        },
+        "app/(admin)/admin/about/timeline/edit/[id]/page": {
+          "moduleId": 98187,
+          "async": false
+        },
+        "app/(admin)/admin/about/timeline/page": {
+          "moduleId": 75112,
+          "async": false
+        },
+        "app/(admin)/admin/about/why-choose/add/page": {
+          "moduleId": 23052,
+          "async": false
+        },
+        "app/(admin)/admin/about/why-choose/edit/[id]/page": {
+          "moduleId": 12850,
+          "async": false
+        },
+        "app/(admin)/admin/about/why-choose/page": {
+          "moduleId": 40531,
+          "async": false
+        },
+        "app/about/page": {
+          "moduleId": 4818,
+          "async": false
+        }
+      },
+      "filename": "lib/aboutSplitActions.ts",
+      "exportedName": "saveCraftsmanshipLayer"
+    },
+    "40d88a06944afc5e9063c0d0f645ed7b097e8b233a": {
+      "workers": {
+        "app/(admin)/admin/about/add/page": {
+          "moduleId": 92520,
+          "async": false
+        },
+        "app/(admin)/admin/about/craftsmanship/add/page": {
+          "moduleId": 96737,
+          "async": false
+        },
+        "app/(admin)/admin/about/craftsmanship/edit/[id]/page": {
+          "moduleId": 29809,
+          "async": false
+        },
+        "app/(admin)/admin/about/craftsmanship/page": {
+          "moduleId": 35317,
+          "async": false
+        },
+        "app/(admin)/admin/about/cta/page": {
+          "moduleId": 66505,
+          "async": false
+        },
+        "app/(admin)/admin/about/edit/[id]/page": {
+          "moduleId": 59781,
+          "async": false
+        },
+        "app/(admin)/admin/about/global-presence/add/page": {
+          "moduleId": 57627,
+          "async": false
+        },
+        "app/(admin)/admin/about/global-presence/edit/[id]/page": {
+          "moduleId": 68865,
+          "async": false
+        },
+        "app/(admin)/admin/about/global-presence/page": {
+          "moduleId": 75425,
+          "async": false
+        },
+        "app/(admin)/admin/about/hero/page": {
+          "moduleId": 4497,
+          "async": false
+        },
+        "app/(admin)/admin/about/machines/add/page": {
+          "moduleId": 23875,
+          "async": false
+        },
+        "app/(admin)/admin/about/machines/edit/[id]/page": {
+          "moduleId": 83645,
+          "async": false
+        },
+        "app/(admin)/admin/about/machines/page": {
+          "moduleId": 23850,
+          "async": false
+        },
+        "app/(admin)/admin/about/page": {
+          "moduleId": 57671,
+          "async": false
+        },
+        "app/(admin)/admin/about/story/page": {
+          "moduleId": 91965,
+          "async": false
+        },
+        "app/(admin)/admin/about/timeline/add/page": {
+          "moduleId": 56462,
+          "async": false
+        },
+        "app/(admin)/admin/about/timeline/edit/[id]/page": {
+          "moduleId": 98187,
+          "async": false
+        },
+        "app/(admin)/admin/about/timeline/page": {
+          "moduleId": 75112,
+          "async": false
+        },
+        "app/(admin)/admin/about/why-choose/add/page": {
+          "moduleId": 23052,
+          "async": false
+        },
+        "app/(admin)/admin/about/why-choose/edit/[id]/page": {
+          "moduleId": 12850,
+          "async": false
+        },
+        "app/(admin)/admin/about/why-choose/page": {
+          "moduleId": 40531,
+          "async": false
+        },
+        "app/about/page": {
+          "moduleId": 4818,
+          "async": false
+        }
+      },
+      "filename": "lib/aboutSplitActions.ts",
+      "exportedName": "updateAboutCta"
+    },
+    "40e0b0dabfd205431de08f1d4ba45e405e5993540c": {
+      "workers": {
+        "app/(admin)/admin/about/add/page": {
+          "moduleId": 92520,
+          "async": false
+        },
+        "app/(admin)/admin/about/craftsmanship/add/page": {
+          "moduleId": 96737,
+          "async": false
+        },
+        "app/(admin)/admin/about/craftsmanship/edit/[id]/page": {
+          "moduleId": 29809,
+          "async": false
+        },
+        "app/(admin)/admin/about/craftsmanship/page": {
+          "moduleId": 35317,
+          "async": false
+        },
+        "app/(admin)/admin/about/cta/page": {
+          "moduleId": 66505,
+          "async": false
+        },
+        "app/(admin)/admin/about/edit/[id]/page": {
+          "moduleId": 59781,
+          "async": false
+        },
+        "app/(admin)/admin/about/global-presence/add/page": {
+          "moduleId": 57627,
+          "async": false
+        },
+        "app/(admin)/admin/about/global-presence/edit/[id]/page": {
+          "moduleId": 68865,
+          "async": false
+        },
+        "app/(admin)/admin/about/global-presence/page": {
+          "moduleId": 75425,
+          "async": false
+        },
+        "app/(admin)/admin/about/hero/page": {
+          "moduleId": 4497,
+          "async": false
+        },
+        "app/(admin)/admin/about/machines/add/page": {
+          "moduleId": 23875,
+          "async": false
+        },
+        "app/(admin)/admin/about/machines/edit/[id]/page": {
+          "moduleId": 83645,
+          "async": false
+        },
+        "app/(admin)/admin/about/machines/page": {
+          "moduleId": 23850,
+          "async": false
+        },
+        "app/(admin)/admin/about/page": {
+          "moduleId": 57671,
+          "async": false
+        },
+        "app/(admin)/admin/about/story/page": {
+          "moduleId": 91965,
+          "async": false
+        },
+        "app/(admin)/admin/about/timeline/add/page": {
+          "moduleId": 56462,
+          "async": false
+        },
+        "app/(admin)/admin/about/timeline/edit/[id]/page": {
+          "moduleId": 98187,
+          "async": false
+        },
+        "app/(admin)/admin/about/timeline/page": {
+          "moduleId": 75112,
+          "async": false
+        },
+        "app/(admin)/admin/about/why-choose/add/page": {
+          "moduleId": 23052,
+          "async": false
+        },
+        "app/(admin)/admin/about/why-choose/edit/[id]/page": {
+          "moduleId": 12850,
+          "async": false
+        },
+        "app/(admin)/admin/about/why-choose/page": {
+          "moduleId": 40531,
+          "async": false
+        },
+        "app/about/page": {
+          "moduleId": 4818,
+          "async": false
+        }
+      },
+      "filename": "lib/aboutSplitActions.ts",
+      "exportedName": "updateAboutStory"
+    },
+    "40f04c8cd6cedf734d67e3792a794e714861740452": {
+      "workers": {
+        "app/(admin)/admin/about/add/page": {
+          "moduleId": 92520,
+          "async": false
+        },
+        "app/(admin)/admin/about/craftsmanship/add/page": {
+          "moduleId": 96737,
+          "async": false
+        },
+        "app/(admin)/admin/about/craftsmanship/edit/[id]/page": {
+          "moduleId": 29809,
+          "async": false
+        },
+        "app/(admin)/admin/about/craftsmanship/page": {
+          "moduleId": 35317,
+          "async": false
+        },
+        "app/(admin)/admin/about/cta/page": {
+          "moduleId": 66505,
+          "async": false
+        },
+        "app/(admin)/admin/about/edit/[id]/page": {
+          "moduleId": 59781,
+          "async": false
+        },
+        "app/(admin)/admin/about/global-presence/add/page": {
+          "moduleId": 57627,
+          "async": false
+        },
+        "app/(admin)/admin/about/global-presence/edit/[id]/page": {
+          "moduleId": 68865,
+          "async": false
+        },
+        "app/(admin)/admin/about/global-presence/page": {
+          "moduleId": 75425,
+          "async": false
+        },
+        "app/(admin)/admin/about/hero/page": {
+          "moduleId": 4497,
+          "async": false
+        },
+        "app/(admin)/admin/about/machines/add/page": {
+          "moduleId": 23875,
+          "async": false
+        },
+        "app/(admin)/admin/about/machines/edit/[id]/page": {
+          "moduleId": 83645,
+          "async": false
+        },
+        "app/(admin)/admin/about/machines/page": {
+          "moduleId": 23850,
+          "async": false
+        },
+        "app/(admin)/admin/about/page": {
+          "moduleId": 57671,
+          "async": false
+        },
+        "app/(admin)/admin/about/story/page": {
+          "moduleId": 91965,
+          "async": false
+        },
+        "app/(admin)/admin/about/timeline/add/page": {
+          "moduleId": 56462,
+          "async": false
+        },
+        "app/(admin)/admin/about/timeline/edit/[id]/page": {
+          "moduleId": 98187,
+          "async": false
+        },
+        "app/(admin)/admin/about/timeline/page": {
+          "moduleId": 75112,
+          "async": false
+        },
+        "app/(admin)/admin/about/why-choose/add/page": {
+          "moduleId": 23052,
+          "async": false
+        },
+        "app/(admin)/admin/about/why-choose/edit/[id]/page": {
+          "moduleId": 12850,
+          "async": false
+        },
+        "app/(admin)/admin/about/why-choose/page": {
+          "moduleId": 40531,
+          "async": false
+        },
+        "app/about/page": {
+          "moduleId": 4818,
+          "async": false
+        }
+      },
+      "filename": "lib/aboutSplitActions.ts",
+      "exportedName": "getMachineById"
+    },
+    "004fcd60bd53559c17a3078d0665777e3f750aa872": {
       "workers": {
         "app/(admin)/admin/about/add/page": {
           "moduleId": 92520,
@@ -3812,7 +3812,7 @@
       "filename": "lib/aboutActions.ts",
       "exportedName": "getAllAboutContent"
     },
-    "00cd9fd771f9d3b7ffd5afe610fae63969998144c1": {
+    "00572b2f63b4169a3b25a7d587f51072a23c0bb9b9": {
       "workers": {
         "app/(admin)/admin/about/add/page": {
           "moduleId": 92520,
@@ -3830,25 +3830,7 @@
       "filename": "lib/aboutActions.ts",
       "exportedName": "getActiveAboutContent"
     },
-    "404cbae5e96c920451cf09061a5a0bbe2c5c7b3988": {
-      "workers": {
-        "app/(admin)/admin/about/add/page": {
-          "moduleId": 92520,
-          "async": false
-        },
-        "app/(admin)/admin/about/edit/[id]/page": {
-          "moduleId": 59781,
-          "async": false
-        },
-        "app/about/page": {
-          "moduleId": 4818,
-          "async": false
-        }
-      },
-      "filename": "lib/aboutActions.ts",
-      "exportedName": "createAboutContent"
-    },
-    "40d07daa1ed28f71eb2969b5353b58b8540d89c895": {
+    "4036390bb55a77c5ea8cc2a6d8287227f9f26b2935": {
       "workers": {
         "app/(admin)/admin/about/add/page": {
           "moduleId": 92520,
@@ -3866,7 +3848,7 @@
       "filename": "lib/aboutActions.ts",
       "exportedName": "getAboutById"
     },
-    "40db3e757c8dadae39498e527c3c6b46e2b9286899": {
+    "40eeab41a0c28f0948de9a54ef682c76af96bb1031": {
       "workers": {
         "app/(admin)/admin/about/add/page": {
           "moduleId": 92520,
@@ -3884,7 +3866,25 @@
       "filename": "lib/aboutActions.ts",
       "exportedName": "deleteAboutContent"
     },
-    "609335f125957e46cd778b9ebf5c53c7ba3692fb6f": {
+    "40f5fb6d4050ebc9e7b91d17f7d00dd1daabd6a96d": {
+      "workers": {
+        "app/(admin)/admin/about/add/page": {
+          "moduleId": 92520,
+          "async": false
+        },
+        "app/(admin)/admin/about/edit/[id]/page": {
+          "moduleId": 59781,
+          "async": false
+        },
+        "app/about/page": {
+          "moduleId": 4818,
+          "async": false
+        }
+      },
+      "filename": "lib/aboutActions.ts",
+      "exportedName": "createAboutContent"
+    },
+    "601d90df0fded6750cdd24e31beb07a94e00b7eb1e": {
       "workers": {
         "app/(admin)/admin/about/add/page": {
           "moduleId": 92520,
@@ -3902,7 +3902,7 @@
       "filename": "lib/aboutActions.ts",
       "exportedName": "updateAboutContent"
     },
-    "004c168bce8b59da44003c2c37b2b2d70c70adc17d": {
+    "0003adeca922d4648b53c2f60841497a4e18ab7e83": {
       "workers": {
         "app/(admin)/admin/faqs/add/page": {
           "moduleId": 88483,
@@ -3952,7 +3952,7 @@
       "filename": "lib/categoryActions.ts",
       "exportedName": "getServiceCategoriesHierarchy"
     },
-    "00a8cca93703154e0a74a8f0f35ae6224bd4ab2a38": {
+    "0010875b493d5ee6b34c92215f3fc2d8027b5c1e79": {
       "workers": {
         "app/(admin)/admin/faqs/add/page": {
           "moduleId": 88483,
@@ -4002,57 +4002,7 @@
       "filename": "lib/categoryActions.ts",
       "exportedName": "getAllFlatCategories"
     },
-    "40261a3114dc422d204b187f6c6a424aabb1a7e1c8": {
-      "workers": {
-        "app/(admin)/admin/faqs/add/page": {
-          "moduleId": 88483,
-          "async": false
-        },
-        "app/(admin)/admin/faqs/edit/[id]/page": {
-          "moduleId": 67965,
-          "async": false
-        },
-        "app/(admin)/admin/services/add/page": {
-          "moduleId": 84171,
-          "async": false
-        },
-        "app/(admin)/admin/services/categories/add/page": {
-          "moduleId": 5985,
-          "async": false
-        },
-        "app/(admin)/admin/services/categories/edit/[id]/page": {
-          "moduleId": 46241,
-          "async": false
-        },
-        "app/(admin)/admin/services/categories/page": {
-          "moduleId": 62544,
-          "async": false
-        },
-        "app/(admin)/admin/services/categories/subcategories/add/page": {
-          "moduleId": 87033,
-          "async": false
-        },
-        "app/(admin)/admin/services/categories/subcategories/edit/[id]/page": {
-          "moduleId": 40835,
-          "async": false
-        },
-        "app/(admin)/admin/services/edit/[id]/page": {
-          "moduleId": 64516,
-          "async": false
-        },
-        "app/services/[slug]/page": {
-          "moduleId": 49036,
-          "async": false
-        },
-        "app/services/page": {
-          "moduleId": 19354,
-          "async": false
-        }
-      },
-      "filename": "lib/categoryActions.ts",
-      "exportedName": "createMainCategory"
-    },
-    "407618ffd9735381844b9e949d242fea77b6518089": {
+    "4008ecd5e362b453426c37ec9f849ce9d94c72f83c": {
       "workers": {
         "app/(admin)/admin/faqs/add/page": {
           "moduleId": 88483,
@@ -4102,57 +4052,7 @@
       "filename": "lib/categoryActions.ts",
       "exportedName": "deleteServiceCategory"
     },
-    "409abc46fcc06ec742349ce7b5e1049d283a95eb1c": {
-      "workers": {
-        "app/(admin)/admin/faqs/add/page": {
-          "moduleId": 88483,
-          "async": false
-        },
-        "app/(admin)/admin/faqs/edit/[id]/page": {
-          "moduleId": 67965,
-          "async": false
-        },
-        "app/(admin)/admin/services/add/page": {
-          "moduleId": 84171,
-          "async": false
-        },
-        "app/(admin)/admin/services/categories/add/page": {
-          "moduleId": 5985,
-          "async": false
-        },
-        "app/(admin)/admin/services/categories/edit/[id]/page": {
-          "moduleId": 46241,
-          "async": false
-        },
-        "app/(admin)/admin/services/categories/page": {
-          "moduleId": 62544,
-          "async": false
-        },
-        "app/(admin)/admin/services/categories/subcategories/add/page": {
-          "moduleId": 87033,
-          "async": false
-        },
-        "app/(admin)/admin/services/categories/subcategories/edit/[id]/page": {
-          "moduleId": 40835,
-          "async": false
-        },
-        "app/(admin)/admin/services/edit/[id]/page": {
-          "moduleId": 64516,
-          "async": false
-        },
-        "app/services/[slug]/page": {
-          "moduleId": 49036,
-          "async": false
-        },
-        "app/services/page": {
-          "moduleId": 19354,
-          "async": false
-        }
-      },
-      "filename": "lib/categoryActions.ts",
-      "exportedName": "createSubcategory"
-    },
-    "40d063b475b70fcc7ed65640f8fbb8e54675b81bef": {
+    "405eb4c1a64ebf0c83424ec1a299e94c0813a81519": {
       "workers": {
         "app/(admin)/admin/faqs/add/page": {
           "moduleId": 88483,
@@ -4202,7 +4102,107 @@
       "filename": "lib/categoryActions.ts",
       "exportedName": "createServiceCategory"
     },
-    "604c9372634799b71c72c742fd04dbaf431d6e36eb": {
+    "407d97311f2608c48dca67ea3ddd1eb97755e5a752": {
+      "workers": {
+        "app/(admin)/admin/faqs/add/page": {
+          "moduleId": 88483,
+          "async": false
+        },
+        "app/(admin)/admin/faqs/edit/[id]/page": {
+          "moduleId": 67965,
+          "async": false
+        },
+        "app/(admin)/admin/services/add/page": {
+          "moduleId": 84171,
+          "async": false
+        },
+        "app/(admin)/admin/services/categories/add/page": {
+          "moduleId": 5985,
+          "async": false
+        },
+        "app/(admin)/admin/services/categories/edit/[id]/page": {
+          "moduleId": 46241,
+          "async": false
+        },
+        "app/(admin)/admin/services/categories/page": {
+          "moduleId": 62544,
+          "async": false
+        },
+        "app/(admin)/admin/services/categories/subcategories/add/page": {
+          "moduleId": 87033,
+          "async": false
+        },
+        "app/(admin)/admin/services/categories/subcategories/edit/[id]/page": {
+          "moduleId": 40835,
+          "async": false
+        },
+        "app/(admin)/admin/services/edit/[id]/page": {
+          "moduleId": 64516,
+          "async": false
+        },
+        "app/services/[slug]/page": {
+          "moduleId": 49036,
+          "async": false
+        },
+        "app/services/page": {
+          "moduleId": 19354,
+          "async": false
+        }
+      },
+      "filename": "lib/categoryActions.ts",
+      "exportedName": "createMainCategory"
+    },
+    "408becb7b982694b6ad47a43a9bce8830287ba7773": {
+      "workers": {
+        "app/(admin)/admin/faqs/add/page": {
+          "moduleId": 88483,
+          "async": false
+        },
+        "app/(admin)/admin/faqs/edit/[id]/page": {
+          "moduleId": 67965,
+          "async": false
+        },
+        "app/(admin)/admin/services/add/page": {
+          "moduleId": 84171,
+          "async": false
+        },
+        "app/(admin)/admin/services/categories/add/page": {
+          "moduleId": 5985,
+          "async": false
+        },
+        "app/(admin)/admin/services/categories/edit/[id]/page": {
+          "moduleId": 46241,
+          "async": false
+        },
+        "app/(admin)/admin/services/categories/page": {
+          "moduleId": 62544,
+          "async": false
+        },
+        "app/(admin)/admin/services/categories/subcategories/add/page": {
+          "moduleId": 87033,
+          "async": false
+        },
+        "app/(admin)/admin/services/categories/subcategories/edit/[id]/page": {
+          "moduleId": 40835,
+          "async": false
+        },
+        "app/(admin)/admin/services/edit/[id]/page": {
+          "moduleId": 64516,
+          "async": false
+        },
+        "app/services/[slug]/page": {
+          "moduleId": 49036,
+          "async": false
+        },
+        "app/services/page": {
+          "moduleId": 19354,
+          "async": false
+        }
+      },
+      "filename": "lib/categoryActions.ts",
+      "exportedName": "createSubcategory"
+    },
+    "60216fc59cf68e342710c175f7effba1b0ed7aa0f0": {
       "workers": {
         "app/(admin)/admin/faqs/add/page": {
           "moduleId": 88483,
@@ -4252,7 +4252,7 @@
       "filename": "lib/categoryActions.ts",
       "exportedName": "updateSubcategory"
     },
-    "606f05b6f9a2d5bdff43afb590fc62a756a9d330b5": {
+    "60a5c17e93272c7b2f3f5cfde34e1f37336f03723c": {
       "workers": {
         "app/(admin)/admin/faqs/add/page": {
           "moduleId": 88483,
@@ -4302,7 +4302,7 @@
       "filename": "lib/categoryActions.ts",
       "exportedName": "updateMainCategory"
     },
-    "60b022f17540431a47bb061379ee165c183e5b6cc9": {
+    "60aeea1d6de85f140218c71dedfa2ce0384768afc6": {
       "workers": {
         "app/(admin)/admin/faqs/add/page": {
           "moduleId": 88483,
@@ -4352,7 +4352,7 @@
       "filename": "lib/categoryActions.ts",
       "exportedName": "updateServiceCategory"
     },
-    "4078ecf8083fc51aae5e64b9aea90295e0f5550920": {
+    "40cef76d0cd96600ed7754cd7d644435b742d536a0": {
       "workers": {
         "app/(admin)/admin/home/embroidery/page": {
           "moduleId": 84063,
@@ -4362,7 +4362,17 @@
       "filename": "app/(admin)/admin/home/embroidery/page.tsx",
       "exportedName": "$$RSC_SERVER_ACTION_0"
     },
-    "401d17917c7d689957b9a295a32037a9cdadaf1403": {
+    "4010899a50cb45fd8ac2d9eb902fb8a07c68f1fa3c": {
+      "workers": {
+        "app/(admin)/admin/home/embroidery/page": {
+          "moduleId": 84063,
+          "async": false
+        }
+      },
+      "filename": "lib/actions.ts",
+      "exportedName": "$$RSC_SERVER_ACTION_0"
+    },
+    "402a0888cf2a2b99731b7cf152b970b30bd1492945": {
       "workers": {
         "app/(admin)/admin/home/embroidery/page": {
           "moduleId": 84063,
@@ -4372,17 +4382,7 @@
       "filename": "lib/actions.ts",
       "exportedName": "$$RSC_SERVER_ACTION_2"
     },
-    "408e93162d45ef88bce903ff3526368cb2f0875f3d": {
-      "workers": {
-        "app/(admin)/admin/home/embroidery/page": {
-          "moduleId": 84063,
-          "async": false
-        }
-      },
-      "filename": "lib/actions.ts",
-      "exportedName": "$$RSC_SERVER_ACTION_0"
-    },
-    "60aed690ea731aa6205bb0d9d50469eb2289b2b7f5": {
+    "60d57e0460b9715a1386fd910cf3c52751b88aeac3": {
       "workers": {
         "app/(admin)/admin/home/embroidery/page": {
           "moduleId": 84063,
@@ -4392,7 +4392,7 @@
       "filename": "lib/actions.ts",
       "exportedName": "$$RSC_SERVER_ACTION_1"
     },
-    "4019a00ef29029a5981ff4178c936069e6eaf27d36": {
+    "40277d643bb8401100eca23a14bbeafa65b5dc2773": {
       "workers": {
         "app/(admin)/admin/home/embroidery/add/page": {
           "moduleId": 16934,
@@ -4402,7 +4402,7 @@
       "filename": "app/(admin)/admin/home/embroidery/add/page.tsx",
       "exportedName": "$$RSC_SERVER_ACTION_0"
     },
-    "6028e2ace67c25f501d361d69bc9e7965382ce5d66": {
+    "607133ea65807145316d951a65b82cc7eab86215d1": {
       "workers": {
         "app/(admin)/admin/home/embroidery/edit/[id]/page": {
           "moduleId": 65806,
@@ -4412,25 +4412,7 @@
       "filename": "app/(admin)/admin/home/embroidery/edit/[id]/page.tsx",
       "exportedName": "$$RSC_SERVER_ACTION_0"
     },
-    "400e3a15a020c1ad0468e1ad9491a8cab579027ae8": {
-      "workers": {
-        "app/(admin)/admin/home/stitch-categories/add/page": {
-          "moduleId": 53362,
-          "async": false
-        },
-        "app/(admin)/admin/home/stitch-categories/edit/[id]/page": {
-          "moduleId": 80873,
-          "async": false
-        },
-        "app/(admin)/admin/home/stitch-categories/page": {
-          "moduleId": 14598,
-          "async": false
-        }
-      },
-      "filename": "lib/stitchActions.ts",
-      "exportedName": "addStitchCategory"
-    },
-    "404f25b715d3bf75e5602aecf18571c02a1dc8f7da": {
+    "4032d69c9252e6ce127e301c1f9a9e675ad8f3b2da": {
       "workers": {
         "app/(admin)/admin/home/stitch-categories/add/page": {
           "moduleId": 53362,
@@ -4448,7 +4430,25 @@
       "filename": "lib/stitchActions.ts",
       "exportedName": "deleteStitchCategory"
     },
-    "60c8248db2c00f6990f74204defaf8dac37fb095a5": {
+    "405f9235bab656d96802a13c1ab1f5ad23996e5d39": {
+      "workers": {
+        "app/(admin)/admin/home/stitch-categories/add/page": {
+          "moduleId": 53362,
+          "async": false
+        },
+        "app/(admin)/admin/home/stitch-categories/edit/[id]/page": {
+          "moduleId": 80873,
+          "async": false
+        },
+        "app/(admin)/admin/home/stitch-categories/page": {
+          "moduleId": 14598,
+          "async": false
+        }
+      },
+      "filename": "lib/stitchActions.ts",
+      "exportedName": "addStitchCategory"
+    },
+    "609ab9548c19cc959ee008b5535a731f6b8313ee58": {
       "workers": {
         "app/(admin)/admin/home/stitch-categories/add/page": {
           "moduleId": 53362,
@@ -4468,5 +4468,5 @@
     }
   },
   "edge": {},
-  "encryptionKey": "j7k2hNFAaZ3GVZnfz9PD35/ECaNqScGHsW+v1+gFsc0="
+  "encryptionKey": "dqN9P8yxdFHnsilxirOHKmK6pZ6LRodL9FvUdMfu95c="
 }

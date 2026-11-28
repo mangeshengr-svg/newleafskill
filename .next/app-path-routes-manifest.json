@@ -58,6 +58,7 @@
   "/(admin)/admin/why-choose-us/add/page": "/admin/why-choose-us/add",
   "/(admin)/admin/why-choose-us/edit/[id]/page": "/admin/why-choose-us/edit/[id]",
   "/(admin)/admin/why-choose-us/page": "/admin/why-choose-us",
+  "/(admin)/internal-console/page": "/internal-console",
   "/_global-error/page": "/_global-error",
   "/_not-found/page": "/_not-found",
   "/about/page": "/about",

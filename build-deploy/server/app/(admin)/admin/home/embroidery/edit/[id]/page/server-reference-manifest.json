@@ -1,6 +1,6 @@
 {
   "node": {
-    "6028e2ace67c25f501d361d69bc9e7965382ce5d66": {
+    "607133ea65807145316d951a65b82cc7eab86215d1": {
       "workers": {
         "app/(admin)/admin/home/embroidery/edit/[id]/page": {
           "moduleId": 65806,

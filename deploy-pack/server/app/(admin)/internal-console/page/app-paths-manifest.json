@@ -1,0 +1,3 @@
+{
+  "/(admin)/internal-console/page": "app/(admin)/internal-console/page.js"
+}

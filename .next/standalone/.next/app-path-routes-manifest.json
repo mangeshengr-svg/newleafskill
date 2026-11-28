@@ -79,6 +79,7 @@
   "/api/cron/sync-reviews/route": "/api/cron/sync-reviews",
   "/api/reviews/route": "/api/reviews",
   "/api/services/categories/route": "/api/services/categories",
+  "/api/unmask/route": "/api/unmask",
   "/blog/[slug]/page": "/blog/[slug]",
   "/blog/page": "/blog",
   "/contact/page": "/contact",

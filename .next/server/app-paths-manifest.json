@@ -79,6 +79,7 @@
   "/api/cron/sync-reviews/route": "app/api/cron/sync-reviews/route.js",
   "/api/reviews/route": "app/api/reviews/route.js",
   "/api/services/categories/route": "app/api/services/categories/route.js",
+  "/api/unmask/route": "app/api/unmask/route.js",
   "/blog/[slug]/page": "app/blog/[slug]/page.js",
   "/blog/page": "app/blog/page.js",
   "/contact/page": "app/contact/page.js",
